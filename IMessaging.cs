@@ -91,7 +91,7 @@ namespace o2g
         /// <param name="mailboxId">The mailbox identifier.</param>
         /// <param name="voicemailId">The voice message to delete.</param>
         /// <param name="loginName">The user login name.</param>
-        /// <returns><see langword="true"/> in case of success; <see langword="false"/> otherwise</returns></returns>
+        /// <returns><see langword="true"/> in case of success; <see langword="false"/> otherwise</returns>
         Task<bool> DeleteVoiceMailAsync(string mailboxId, string voicemailId, string loginName = null);
 
         /// <summary>
@@ -100,7 +100,7 @@ namespace o2g
         /// <param name="mailboxId">The mailbox identifier.</param>
         /// <param name="msgIds">The voice messages to delete.</param>
         /// <param name="loginName">The user login name.</param>
-        /// <returns><see langword="true"/> in case of success; <see langword="false"/> otherwise</returns></returns>
+        /// <returns><see langword="true"/> in case of success; <see langword="false"/> otherwise</returns>
         Task<bool> DeleteVoiceMailsAsync(string mailboxId, List<string> msgIds, string loginName = null);
 
         /// <summary>
