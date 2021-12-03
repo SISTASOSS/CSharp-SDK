@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+    <ApplicationIcon />
+    <StartupObject />
+    <PackageId>o2g-sdk</PackageId>
+    <Authors>ALE International</Authors>
+    <Description>This assembly is a SDK for OpenTouch Open Gateway API.</Description>
+    <Copyright>Copyright © ALE International 2021</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>o2g.png</PackageIcon>
+    <PackageIconUrl />
+    <Version>1.0.1</Version>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\Developpement\o2g\C#\o2g\o2g\o2g.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>C:\Developpement\o2g\C#\o2g\o2g\o2g.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\o2g.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <PackageReference Include="Macross.Json.Extensions" Version="2.0.0" />
+    <PackageReference Include="NLog" Version="4.7.11" />
+    <None Include="doc\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+</Project>
