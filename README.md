@@ -1,7 +1,7 @@
 # Welcome to O2G C# SDK!
 
 This repository contains the O2G C# SDK. [O2G](https://api.dspp.al-enterprise.com/omnipcx-open-gateway-02g/) is an applicative server that provides REST services for the [ALE-International](https://www.al-enterprise.com/) OmniPX Enterprise communication server. This is a C# library allowing to develop on top of the O2G API using a comprehensive C# SDK.
-The package o2g-sdk is available as on the central Nuget repository [here](https://www.nuget.org/packages/o2g-sdk/).
+The package o2g-sdk is available as on the central NuGet gallery [here](https://www.nuget.org/packages/o2g-sdk/).
 
 This C# SDK is available under the MIT license and delivered without any support. 
 
