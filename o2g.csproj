@@ -25,13 +25,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\..\..\o2g.png">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
+    <Compile Remove="doc\**" />
+    <EmbeddedResource Remove="doc\**" />
+    <None Remove="doc\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Macross.Json.Extensions" Version="2.0.0" />
     <PackageReference Include="NLog" Version="4.7.11" />
-    <None Include="doc\README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 
 </Project>

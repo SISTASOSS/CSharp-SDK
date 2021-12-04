@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "ZZkO9Q6NzoHBgQ1mSLcH5N8yUs5bkxww4F8B/74jzewT0ff9pJfDhasgweSugwYW7JdPPT9regxn3Bz5yKfh/Q==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\d3mabil\\source\\repos\\CSharp-SDK\\o2g.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\d3mabil\\.nuget\\packages\\macross.json.extensions\\2.0.0\\macross.json.extensions.2.0.0.nupkg.sha512",
+    "C:\\Users\\d3mabil\\.nuget\\packages\\nlog\\4.7.11\\nlog.4.7.11.nupkg.sha512",
+    "C:\\Users\\d3mabil\\.nuget\\packages\\system.text.json\\4.7.0\\system.text.json.4.7.0.nupkg.sha512"
+  ],
+  "logs": []
+}

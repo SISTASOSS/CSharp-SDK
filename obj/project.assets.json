@@ -118,11 +118,11 @@
   "project": {
     "version": "1.0.1",
     "restore": {
-      "projectUniqueName": "C:\\Developpement\\o2g\\C#\\o2g\\o2g\\o2g.csproj",
+      "projectUniqueName": "C:\\Users\\d3mabil\\source\\repos\\CSharp-SDK\\o2g.csproj",
       "projectName": "o2g-sdk",
-      "projectPath": "C:\\Developpement\\o2g\\C#\\o2g\\o2g\\o2g.csproj",
+      "projectPath": "C:\\Users\\d3mabil\\source\\repos\\CSharp-SDK\\o2g.csproj",
       "packagesPath": "C:\\Users\\d3mabil\\.nuget\\packages\\",
-      "outputPath": "C:\\Developpement\\o2g\\C#\\o2g\\o2g\\obj\\",
+      "outputPath": "C:\\Users\\d3mabil\\source\\repos\\CSharp-SDK\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
