@@ -156,7 +156,7 @@ namespace o2g.Internal
             ISubscriptions subscriptionsService = serviceFactory.GetSubscriptionService();
             SubscriptionResult subscriptionResult = await subscriptionsService.Create(subscription);
 
-            if (subscriptionResult.Status == "ACCEPTED")
+            if ((subscriptionResult != null) && (subscriptionResult.Status == "ACCEPTED"))
             {
                 subscriptionId = subscriptionResult.SubscriptionId;
 
