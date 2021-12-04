@@ -10,24 +10,29 @@
     <Description>This assembly is a SDK for OpenTouch Open Gateway API.</Description>
     <Copyright>Copyright © ALE International 2021</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageIcon>o2g.png</PackageIcon>
     <PackageIconUrl />
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
+    <AssemblyVersion>1.0.2.0</AssemblyVersion>
+    <FileVersion>1.0.2.0</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>C:\Developpement\o2g\C#\o2g\o2g\o2g.xml</DocumentationFile>
+    <DocumentationFile>.\o2g.xml</DocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>C:\Developpement\o2g\C#\o2g\o2g\o2g.xml</DocumentationFile>
+    <DocumentationFile>.\o2g.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
     <Compile Remove="doc\**" />
     <EmbeddedResource Remove="doc\**" />
     <None Remove="doc\**" />
+    <None Include="o2g.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
   <ItemGroup>

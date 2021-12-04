@@ -116,7 +116,7 @@
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
-    "version": "1.0.1",
+    "version": "1.0.2",
     "restore": {
       "projectUniqueName": "C:\\Users\\d3mabil\\source\\repos\\CSharp-SDK\\o2g.csproj",
       "projectName": "o2g-sdk",
