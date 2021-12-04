@@ -21,6 +21,7 @@ using o2g.Events;
 using o2g.Events.CallCenterRsi;
 using o2g.Internal.Events;
 using o2g.Internal.Utility;
+using o2g.Types.CallCenterRsi;
 using o2g.Types.CallCenterRsiNS;
 using System;
 using System.Collections.Generic;

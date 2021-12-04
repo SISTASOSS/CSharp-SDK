@@ -175,7 +175,7 @@ namespace o2g
             public Application(string applicationName)
             {
                 ApplicationName = applicationName;
-                DependancyResolver.RegisterService(HttpClientBuilder.build());
+                DependancyResolver.RegisterService(HttpClientBuilder.Build());
                 DependancyResolver.RegisterService(_eventHandlers);
             }
 

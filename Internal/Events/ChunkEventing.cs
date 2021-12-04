@@ -76,12 +76,12 @@ namespace o2g.Internal.Events
     {
         private static readonly NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
 
-        private readonly HttpClient httpClient = new HttpClient();
+        private readonly HttpClient httpClient = HttpClientBuilder.BuildChunk();
         private readonly Uri uri;
 
-        private readonly SemaphoreSlim signalReady;
+        private readonly InfoSemaphore signalReady;
  
-        public ChunkEventListener(BlockingCollection<O2GEventDescriptor> eventQueue, Uri uri, SemaphoreSlim signalReady): base(eventQueue)
+        public ChunkEventListener(BlockingCollection<O2GEventDescriptor> eventQueue, Uri uri, InfoSemaphore signalReady): base(eventQueue)
         {
             this.uri = uri;
             this.signalReady = signalReady;
@@ -113,7 +113,7 @@ namespace o2g.Internal.Events
                             if (o2gEvent is OnChannelInformationEvent)
                             {
                                 // Signal the channel has been established
-                                signalReady.Release();
+                                signalReady.Success();
                             }
 
                             // Push event for dispatching
@@ -124,7 +124,7 @@ namespace o2g.Internal.Events
             }
             catch (IOException)
             {
-                // Chunk is closed => exit and restart except if cancellation i srequested
+                // Chunk is closed => exit and restart except if cancellation is requested
                 logger.Trace("Event channel has been closed.");
                 Token.ThrowIfCancellationRequested();
             }
@@ -137,20 +137,27 @@ namespace o2g.Internal.Events
             {
                 while (true)
                 {
-                    logger.Trace("Start eventing channel on {uri}", uri);
-
-                    HttpRequestMessage request = new(HttpMethod.Post, uri);
-                    HttpResponseMessage response = await httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, Token);
-
-                    bool ChannelIsOpen = response.IsSuccessStatusCode;
-                    if (!ChannelIsOpen)
+                    try
                     {
-                        // We have a probleme with the eventing
-                        throw new O2GException("Fail to open chunk event channel");
+                        logger.Trace("Start eventing channel on {uri}", uri);
+
+                        HttpRequestMessage request = new(HttpMethod.Post, uri);
+                        HttpResponseMessage response =  await httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, Token);
+                        bool ChannelIsOpen = response.IsSuccessStatusCode;
+                        if (!ChannelIsOpen)
+                        {
+                            // We have a probleme with the eventing
+                            throw new O2GException("Fail to open chunk event channel");
+                        }
+                        else
+                        {
+                            await ReadChuncks(response);
+                        }
                     }
-                    else
+                    catch (HttpRequestException e)
                     {
-                        await ReadChuncks(response);
+                        logger.Error("Unable to request {uri} {error}", uri, e.Message);
+                        signalReady.Fail(e);
                     }
                 }
             }
@@ -170,7 +177,7 @@ namespace o2g.Internal.Events
     {
         private static readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
 
-        private readonly SemaphoreSlim signalReady = new(0, 1);
+        private readonly InfoSemaphore signalReady = new();
 
         private readonly ChunkEventListener _chunkEventListener = null;
         private readonly ChunkEventDispatcher _chunkEventDispatcher = null;
@@ -183,12 +190,12 @@ namespace o2g.Internal.Events
             _chunkEventListener = new(eventQueue, chunkUri, signalReady);
         }
 
-        internal async Task Start()
+        internal void Start()
         {
             _chunkEventDispatcher.Start();
             _chunkEventListener.Start();
 
-            await signalReady.WaitAsync();
+            signalReady.Wait();
         }
 
         internal async Task Stop()

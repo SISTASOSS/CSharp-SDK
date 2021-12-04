@@ -21,8 +21,7 @@ using o2g.Events.Maintenance;
 using o2g.Events.Management;
 using o2g.Events.Routing;
 using o2g.Internal.Types.Routing;
-
-using o2g.Types.ManagementNS;
+using o2g.Types.Management;
 
 namespace o2g.Internal.Events
 {

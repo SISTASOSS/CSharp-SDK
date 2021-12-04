@@ -16,48 +16,42 @@
 * DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
-
 using System;
+using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace o2g.Internal.Utility
+namespace o2g.Internal.Events
 {
-    internal abstract class CancelableTask
+    internal class InfoSemaphore
     {
-        private static readonly NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
+        private readonly SemaphoreSlim _signal = new(0, 1);
+        private Exception _exception = null;
 
-        private CancellationTokenSource cancellationTokenSource;
-        protected CancellationToken Token { get; private set; }
-        protected Task RunningTask { get; private set; }
-
-        public CancelableTask()
+        internal void Success()
         {
+            _signal.Release();
         }
 
-        protected abstract Task CancelableRun();
-
-        public void Start()
+        internal void Fail(Exception e)
         {
-            cancellationTokenSource = new();
-            Token = cancellationTokenSource.Token;
+            _exception = e;
+            _signal.Release();
+        }
 
-            RunningTask = Task.Run(async () =>
+        internal void Wait(int duration = -1)
+        {
+            if (_signal.Wait(duration))
             {
-                try
+                if (_exception != null)
                 {
-                    await CancelableRun();
+                    throw _exception;
                 }
-                catch (OperationCanceledException)
-                {
-                    logger.Debug("Task is terminated");
-                }
-            }, Token);
-        }
-
-        protected void CancelTask()
-        {
-            cancellationTokenSource.Cancel();
+            }
+            else
+            {
+                throw new TimeoutException("Semaphore timout ended");
+            }
         }
     }
 }

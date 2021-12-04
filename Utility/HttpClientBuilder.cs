@@ -115,7 +115,7 @@ namespace o2g.Utility
         /// </example>
         public static bool TraceREST { get; set; }
 
-        internal static HttpClient build()
+        internal static HttpClient Build()
         {
             if (!TraceREST && !DisableSSValidation)
             {
@@ -132,12 +132,27 @@ namespace o2g.Utility
 
                 if (TraceREST)
                 {
-                    return new(new LoggingHandler(httpClientHandler));
+                    return new(new LoggingHandler(httpClientHandler), true);
                 }
                 else
                 {
-                    return new(httpClientHandler);
+                    return new(httpClientHandler, true);
                 }
+            }
+        }
+
+        internal static HttpClient BuildChunk()
+        {
+            if (!DisableSSValidation)
+            {
+                return new();
+            }
+            else 
+            {
+                var httpClientHandler = new HttpClientHandler();
+                httpClientHandler.ServerCertificateCustomValidationCallback += HttpClientHandler.DangerousAcceptAnyServerCertificateValidator;
+                
+                return new(httpClientHandler, true);
             }
         }
     }

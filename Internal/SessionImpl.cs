@@ -174,7 +174,7 @@ namespace o2g.Internal
 
                 // The default handler is NOT used.
                 chunkEventing = new(chunkUri, null);
-                await chunkEventing.Start();
+                chunkEventing.Start();
 
                 logger.Info("Eventing is started.");
             }
