@@ -63,13 +63,13 @@ namespace o2g
         /// </summary>
         public class EventFilter
         {
-            internal class Selector
+            public class Selector
             {
                 public List<string> Ids { get; init; }
                 public List<string> Names { get; init; }
             }
 
-            internal List<Selector> Selectors { get; set; }
+            public List<Selector> Selectors { get; set; }
 
 
             private List<Selector> NotNullSelectors()
