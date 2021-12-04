@@ -1,0 +1,162 @@
+﻿<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!-- Import the common properties to support NuGet restore -->
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <!-- The configuration and platform will be used to determine which assemblies to include from solution and
+				 project documentation sources -->
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{c8d69727-9d52-4833-9be1-7748b12285b6}</ProjectGuid>
+    <SHFBSchemaVersion>2017.9.26.0</SHFBSchemaVersion>
+    <!-- AssemblyName, Name, and RootNamespace are not used by SHFB but Visual Studio adds them anyway -->
+    <AssemblyName>Documentation</AssemblyName>
+    <RootNamespace>Documentation</RootNamespace>
+    <Name>Documentation</Name>
+    <!-- SHFB properties -->
+    <FrameworkVersion>.NET Core/.NET Standard/.NET 5.0+</FrameworkVersion>
+    <OutputPath>.\Help\</OutputPath>
+    <HtmlHelpName>Documentation</HtmlHelpName>
+    <Language>en-US</Language>
+    <HelpFileFormat>Website</HelpFileFormat>
+    <SyntaxFilters>C#</SyntaxFilters>
+    <PresentationStyle>VS2013</PresentationStyle>
+    <CleanIntermediates>True</CleanIntermediates>
+    <KeepLogFile>True</KeepLogFile>
+    <DisableCodeBlockComponent>False</DisableCodeBlockComponent>
+    <IndentHtml>True</IndentHtml>
+    <BuildAssemblerVerbosity>OnlyWarningsAndErrors</BuildAssemblerVerbosity>
+    <SaveComponentCacheCapacity>100</SaveComponentCacheCapacity>
+    <DocumentationSources>
+      <DocumentationSource sourceFile=".\bin\Release\net5.0\o2g.dll" />
+<DocumentationSource sourceFile=".bin\\Release\net5.0\o2g.xml" /></DocumentationSources>
+    <HelpTitle>O2G C# SDK Class Library</HelpTitle>
+    <HelpFileVersion>1.0.0.0</HelpFileVersion>
+    <NamingMethod>Guid</NamingMethod>
+    <ContentPlacement>BelowNamespaces</ContentPlacement>
+    <RootNamespaceContainer>True</RootNamespaceContainer>
+    <NamespaceGrouping>True</NamespaceGrouping>
+    <MaximumGroupParts>2</MaximumGroupParts>
+    <Preliminary>False</Preliminary>
+    <CopyrightText>Copyright 2021 ALE International</CopyrightText>
+    <SdkLinkTarget>Blank</SdkLinkTarget>
+    <NamespaceSummaries>
+      <NamespaceSummaryItem name="o2g.Internal.Rest" isDocumented="False" />
+<NamespaceSummaryItem name="o2g.Internal.Services" isDocumented="False" />
+<NamespaceSummaryItem name="o2g.Internal.Types" isDocumented="False" />
+<NamespaceSummaryItem name="o2g.Internal.Types.Routing" isDocumented="False" />
+<NamespaceSummaryItem name="o2g.Utility" isDocumented="False" />
+<NamespaceSummaryItem name="o2g" isDocumented="True">Contains classes and interfaces to create an O2G C# application.</NamespaceSummaryItem>
+<NamespaceSummaryItem name="o2g.Events (Group)" isGroup="True" isDocumented="True">Contains the definition of events.</NamespaceSummaryItem>
+<NamespaceSummaryItem name="o2g.Events" isDocumented="True">Contains classes related to eventing.</NamespaceSummaryItem>
+<NamespaceSummaryItem name="o2g.Types (Group)" isGroup="True" isDocumented="True">Contains the classes that represents the O2G object model.</NamespaceSummaryItem>
+<NamespaceSummaryItem name="o2g.Events.CallCenterAgent" isDocumented="True">Contains definitions for call center agent eventing.</NamespaceSummaryItem>
+<NamespaceSummaryItem name="o2g.Events.CallCenterRsi" isDocumented="True">Contains definitions for call center rsi eventing</NamespaceSummaryItem>
+<NamespaceSummaryItem name="o2g.Events.CommunicationLog" isDocumented="True">Contains definitions for communication log eventing.</NamespaceSummaryItem>
+<NamespaceSummaryItem name="o2g.Events.EventSummary" isDocumented="True">Contains definitions for event summary eventing.</NamespaceSummaryItem>
+<NamespaceSummaryItem name="o2g.Events.Management" isDocumented="True">Contains definitions for management eventing.</NamespaceSummaryItem>
+<NamespaceSummaryItem name="o2g.Events.Routing" isDocumented="True">Contains definitions for routing eventing.</NamespaceSummaryItem>
+<NamespaceSummaryItem name="o2g.Events.Telephony" isDocumented="True">Contains definitions for telephony eventing.</NamespaceSummaryItem>
+<NamespaceSummaryItem name="o2g.Events.Users" isDocumented="True">Contains definitions for users eventing.</NamespaceSummaryItem>
+<NamespaceSummaryItem name="o2g.Types" isDocumented="True">Contains the general classes used in all other namespaces</NamespaceSummaryItem>
+<NamespaceSummaryItem name="o2g.Types.AnalyticsNS" isDocumented="True">Contains the analytics service object model.</NamespaceSummaryItem>
+<NamespaceSummaryItem name="o2g.Types.CallCenterAgentNS" isDocumented="True">Contains the call center agent service object model.</NamespaceSummaryItem>
+<NamespaceSummaryItem name="o2g.Types.CallCenterRsi" isDocumented="True">Contains the rsi service object model.</NamespaceSummaryItem>
+<NamespaceSummaryItem name="(global)" isDocumented="False" />
+<NamespaceSummaryItem name="o2g.Events.Common" isDocumented="True" />
+<NamespaceSummaryItem name="o2g.Events.Maintenance" isDocumented="True" />
+<NamespaceSummaryItem name="o2g.Types.CallCenterRsiNS" isDocumented="True" />
+<NamespaceSummaryItem name="o2g.Types.CommonNS" isDocumented="True" />
+<NamespaceSummaryItem name="o2g.Types.CommunicationLogNR" isDocumented="True" />
+<NamespaceSummaryItem name="o2g.Types.CommunicationLogNS" isDocumented="True" />
+<NamespaceSummaryItem name="o2g.Types.DirectoryNS" isDocumented="True" />
+<NamespaceSummaryItem name="o2g.Types.EventSummaryNS" isDocumented="True" />
+<NamespaceSummaryItem name="o2g.Types.MaintenanceNS" isDocumented="True" />
+<NamespaceSummaryItem name="o2g.Types.ManagementNS" isDocumented="True" />
+<NamespaceSummaryItem name="o2g.Types.MessagingNS" isDocumented="True" />
+<NamespaceSummaryItem name="o2g.Types.PhoneSetProgrammableNS" isDocumented="True" />
+<NamespaceSummaryItem name="o2g.Types.RoutingNS" isDocumented="True" />
+<NamespaceSummaryItem name="o2g.Types.TelephonyNS" isDocumented="True" />
+<NamespaceSummaryItem name="o2g.Types.TelephonyNS.CallNS" isDocumented="True" />
+<NamespaceSummaryItem name="o2g.Types.TelephonyNS.CallNS.AcdNS" isDocumented="True" />
+<NamespaceSummaryItem name="o2g.Types.TelephonyNS.DeviceNS" isDocumented="True" />
+<NamespaceSummaryItem name="o2g.Types.TelephonyNS.UserNS" isDocumented="True" />
+<NamespaceSummaryItem name="o2g.Types.UsersNS" isDocumented="True" /></NamespaceSummaries>
+    <HeaderText>
+    </HeaderText>
+    <FooterText>O2G C# SDK - 1.0.2</FooterText>
+    <HtmlSdkLinkType>Msdn</HtmlSdkLinkType>
+    <BinaryTOC>True</BinaryTOC>
+    <IncludeFavorites>False</IncludeFavorites>
+    <WebsiteSdkLinkType>Msdn</WebsiteSdkLinkType>
+    <WebsiteAdContent>
+    </WebsiteAdContent>
+    <AppendMarkdownFileExtensionsToUrls>False</AppendMarkdownFileExtensionsToUrls>
+    <ProjectSummary>The O2G C# SDK is an Assembly library build in C#. It provides an easy access to the services offered by the OmniPCX Open Gateway %28O2G%29 API.
+
+&amp;lt%3bp&amp;gt%3b
+&amp;lt%3bh2&amp;gt%3bPrerequisite&amp;lt%3b/h2&amp;gt%3b
+The SDK is an assembly based on .Net Core 5.0.
+&amp;lt%3b/p&amp;gt%3b
+&amp;lt%3bp&amp;gt%3b
+The SDK is provided as a Nuget package available &amp;lt%3ba href=&amp;quot%3bhttps://www.nuget.org/packages/o2g-sdk/1.0.0&amp;quot%3b&amp;gt%3bhere&amp;lt%3b/a&amp;gt%3b. Dependencies are all managed by Nuget package system.
+&amp;lt%3b/p&amp;gt%3b
+&amp;lt%3bp&amp;gt%3b
+You can use &amp;lt%3ba href=&amp;quot%3bhttps://visualstudio.microsoft.com/&amp;quot%3b&amp;gt%3b&amp;quot%3bVisual Studio Community&amp;quot%3b %28free for Mac and Windows%29 or &amp;quot%3bMicrosoft Visual Studio 2019&amp;quot%3b as environment to use this SDK.
+&amp;lt%3b/p&amp;gt%3b
+&amp;lt%3bp&amp;gt%3b
+&amp;lt%3bh2&amp;gt%3bSetup your Visual Studio Project&amp;lt%3b/h2&amp;gt%3b
+Use the &amp;lt%3ba href=&amp;quot%3bhttps://docs.microsoft.com/en-us/nuget/tools/package-manager-ui&amp;quot%3b&amp;gt%3bNuget Package Manager UI&amp;lt%3b/a&amp;gt%3b and install the O2G.sdk package.
+&amp;lt%3b/p&amp;gt%3b
+</ProjectSummary>
+    <VisibleItems>InheritedMembers, InheritedFrameworkMembers, ProtectedInternalAsProtected, NonBrowsable</VisibleItems>
+    <MissingTags>Summary, Parameter, Returns, Value</MissingTags>
+    <RootNamespaceTitle>O2G C# SDK</RootNamespaceTitle>
+    <CatalogProductId>VS</CatalogProductId>
+    <CatalogVersion>100</CatalogVersion>
+    <VendorName>ALE International</VendorName>
+    <ProductTitle>O2G-SDK-C#</ProductTitle>
+    <TocOrder>-1</TocOrder>
+    <TocParentId>-1</TocParentId>
+    <TocParentVersion>100</TocParentVersion>
+    <TopicVersion>100</TopicVersion>
+    <MSHelpViewerSdkLinkType>Msdn</MSHelpViewerSdkLinkType>
+    <ComponentConfigurations />
+  </PropertyGroup>
+  <!-- There are no properties for these groups.  AnyCPU needs to appear in order for Visual Studio to perform
+			 the build.  The others are optional common platform types that may appear. -->
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|Win32' ">
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|Win32' ">
+  </PropertyGroup>
+  <!-- Import the common build targets during NuGet restore because before the packages are being installed, $(SHFBROOT) is not set yet -->
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="'$(MSBuildRestoreSessionId)' != ''" />
+  <!-- Import the SHFB build targets during build -->
+  <Import Project="$(SHFBROOT)\SandcastleHelpFileBuilder.targets" Condition="'$(MSBuildRestoreSessionId)' == ''" />
+  <!-- The pre-build and post-build event properties must appear *after* the targets file import in order to be
+			 evaluated correctly. -->
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="NLog">
+      <HintPath>..\..\..\Users\d3mabil\.nuget\packages\nlog\4.7.11\lib\netstandard2.0\NLog.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>

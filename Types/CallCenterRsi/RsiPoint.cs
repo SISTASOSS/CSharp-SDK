@@ -19,7 +19,7 @@
 
 using o2g.Events.CallCenterRsi;
 
-namespace o2g.Types.CallCenterRsi
+namespace o2g.Types.CallCenterRsiNS
 {
     /// <summary>
     /// <c>RsiPoint</c> represents a RSI point. When a call is receive by a RSI routing point, a <see cref="OnRouteRequestEvent"/> is send to the 

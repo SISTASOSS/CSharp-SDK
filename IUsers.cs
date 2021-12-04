@@ -107,7 +107,7 @@ namespace o2g
         /// <param name="loginName">Login name of the user to retrieve the account information.</param>
         /// <param name="oldPassword">The old password to change</param>
         /// <param name="newPassword">The new password</param>
-        /// <returns><see langword="true"/> on success ; else <see langword="false"/> and <see cref="IService.LastError"/> property is set.</returns>
+        /// <returns><see langword="true"/> on success ; else <see langword="false"/>.</returns>
         Task<bool> ChangePasswordAsync(string loginName, string oldPassword, string newPassword);
     }
 }

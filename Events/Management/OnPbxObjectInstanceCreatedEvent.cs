@@ -17,7 +17,7 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-using o2g.Types.Management;
+using o2g.Types.ManagementNS;
 
 namespace o2g.Events.Management
 {

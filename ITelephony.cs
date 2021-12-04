@@ -77,14 +77,14 @@ namespace o2g
         /// <param name="deviceId">Device phone number used by the usr to initiate the call. If the session is opened by a user, the device phone number must be one of the user.</param>
         /// <param name="callee">Called phone number.</param>
         /// <param name="autoAnswer">Automatic answer on make call. If this parameter is set to <c>false</c> the user's device (deviceId) is called before placing the call to callee, else callee is called immediately.</param>
-        /// <returns><see langword="true"/> on success ; else <see langword="false"/> and <see cref="IService.LastError"/> property is set.</returns>
+        /// <returns><see langword="true"/> on success ; else <see langword="false"/>.</returns>
         Task<bool> BasicMakeCallAsync(string deviceId, string callee, bool autoAnswer = true);
 
         /// <summary>
         /// Answer to an ringing incoming call. This method is a basic answer call, it doesn't require any license.
         /// </summary>
         /// <param name="deviceId">The ringing device phone number.</param>
-        /// <returns><see langword="true"/> on success ; else <see langword="false"/> and <see cref="IService.LastError"/> property is set.</returns>
+        /// <returns><see langword="true"/> on success ; else <see langword="false"/>.</returns>
         Task<bool> BasicAnswerCallAsync(string deviceId);
 
         /// <summary>

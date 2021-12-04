@@ -17,7 +17,7 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-namespace o2g.Types.Management
+namespace o2g.Types.ManagementNS
 {
     /// <summary>
     /// <c>PbxObjectDefinition</c> represent an OmniPCX Enterprise object definition.

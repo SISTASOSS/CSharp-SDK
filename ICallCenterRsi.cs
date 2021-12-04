@@ -20,7 +20,6 @@
 using o2g.Events;
 using o2g.Events.CallCenterRsi;
 using o2g.Internal.Services;
-using o2g.Types.CallCenterRsi;
 using o2g.Types.CallCenterRsiNS;
 using System;
 using System.Collections.Generic;
@@ -165,7 +164,7 @@ namespace o2g
         Task<bool> RouteEndAsync(string rsiNumber, string routeCrid);
 
         /// <summary>
-        /// 
+        /// Selects a route as a response to a RouteRequest.
         /// </summary>
         /// <param name="rsiNumber">The RSI point extension number.</param>
         /// <param name="routeCrid">The routing session unique identifier.</param>
