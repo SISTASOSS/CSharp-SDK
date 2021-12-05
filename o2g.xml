@@ -1397,7 +1397,7 @@
         </member>
         <member name="M:o2g.ICallCenterRsi.GetRsiPointsAsync">
             <summary>
-            Get the RSI point configured.
+            Get the configured RSI points.
             </summary>
             <returns>
             A list of <see cref="T:o2g.Types.CallCenterRsiNS.RsiPoint"/> that represents all the declared RSI points.
@@ -1423,7 +1423,7 @@
             The method return <see langword="false"/> if the RSI point is already disabled.
             </remarks>
         </member>
-        <member name="M:o2g.ICallCenterRsi.StartCollectDigitsAsync(System.String,System.String,System.Int32,System.Nullable{System.Char},System.Nullable{System.Int32},o2g.Types.CallCenterRsiNS.AdditionalDigitCollectionCriteria)">
+        <member name="M:o2g.ICallCenterRsi.StartCollectDigitsAsync(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Char},System.Nullable{System.Int32},o2g.Types.CallCenterRsiNS.AdditionalDigitCollectionCriteria)">
             <summary>
             Start a digits collection on the specified RSI point.
             </summary>
@@ -1456,7 +1456,7 @@
             <param name="rsiNumber">The RSI point extension number.</param>
             <param name="callRef">The reference of the call on which to tone will be played.</param>
             <param name="tone">The tone type.</param>
-            <param name="duration">The duration in second, the tone is played.</param>
+            <param name="duration">The duration the tone is played (in second)</param>
             <returns><see langword="true"/> in case of success; <see langword="false"/> otherwise.</returns>
             <seealso cref="M:o2g.ICallCenterRsi.CancelToneAsync(System.String,System.String)"/>
             <seealso cref="T:o2g.Events.CallCenterRsi.OnToneGeneratedStartEvent"/>
@@ -2210,10 +2210,6 @@
             </returns>
             <remarks>
             If <c>objectName</c> is <see langword="null"/>, the global object model of the OmniPCX Enterprise node is returned.
-            <para>
-            The object model for a specified node is loaded and save in a memory cache. To force a download of the model, use
-            the <c>force</c> parameter.
-            </para>
             </remarks>
         </member>
         <member name="M:o2g.IPbxManagement.GetNodeObjectAsync(System.Int32)">
@@ -2296,7 +2292,7 @@
             <param name="objectInstanceDefinition">The object instance definition.</param>
             <param name="filter">The <see cref="T:o2g.Types.ManagementNS.Filter"/> object that represents a filter on the object attribute.</param>
             <returns>
-            A list of <see langword="string"/> that represents the instance of the found object, or <see langword="null"/> in case of error or 
+            A list of <see langword="string"/> that represents the instance of the found objects, or <see langword="null"/> in case of error or 
             if no instance match the specified filter.
             </returns>
             <example>
@@ -5374,7 +5370,7 @@
         </member>
         <member name="P:o2g.Types.CallCenterRsiNS.RouteRequest.RoutedCallRef">
             <summary>
-            Return the call reference of the call who which teh route request is made.
+            Return the call reference of the call for which the route request is made.
             </summary>
             <value>
             A <see langword="string"/> value that represents the call reference.
@@ -5400,7 +5396,7 @@
             <summary>
             <c>RouteSession</c> represents a route request session between a RSI point and an application.
             <para>
-            A route session is initiated by a RSI point by sending a <see cref="T:o2g.Events.CallCenterRsi.OnRouteRequestEvent"/>. The application select a route and answer user <see cref="M:o2g.ICallCenterRsi.RouteSelectAsync(System.String,System.String,System.String,System.String,System.String,System.Nullable{System.Boolean})"/>.
+            A route session is initiated by a RSI point by sending a <see cref="T:o2g.Events.CallCenterRsi.OnRouteRequestEvent"/>. The application selects a route and answer using <see cref="M:o2g.ICallCenterRsi.RouteSelectAsync(System.String,System.String,System.String,System.String,System.String,System.Nullable{System.Boolean})"/>.
             </para>
             </summary>
             <see cref="T:o2g.Events.CallCenterRsi.OnRouteRequestEvent"/>
@@ -6809,7 +6805,7 @@
         </member>
         <member name="F:o2g.Types.ManagementNS.AttributeFilter.StartsWith">
             <summary>
-            The attribute starts with teh value.
+            The attribute starts with the value.
             </summary>
         </member>
         <member name="F:o2g.Types.ManagementNS.AttributeFilter.EndsWith">
@@ -6921,7 +6917,7 @@
         </member>
         <member name="T:o2g.Types.ManagementNS.Model">
             <summary>
-            <c>ObjectName</c> represents an object model.
+            <c>Model</c> represents an object model.
             <para>
             It provides the detail of object attributes: 
             whether the attribute is mandatory/optional in the object creation, what range of value is authorized, what are the possible 
@@ -7182,11 +7178,11 @@
             <remarks>
             <para>
             <c>PbxAttribute</c> provide conversion method to usual C# types. The conversion is 
-            controlled "at the best", but it can not check all the possible error case. an Enumerated value and an OctetString value can
+            controlled "at the best", but it can not check all the possible error case. An Enumerated value and an OctetString value can
             both be converted to a <see langword="string"/>.
             </para>
             <para>
-            When a conversion error is dtected, a <see cref="T:System.FormatException"/> exception is raised.
+            When a conversion error is detected, a <see cref="T:System.FormatException"/> exception is raised.
             </para>
             </remarks>
         </member>
@@ -7241,11 +7237,12 @@
             <returns>The created <see cref="T:o2g.Types.ManagementNS.PbxAttribute"/> object.</returns>
             <example>
             <code>
-                PbxAttribute sequence = PbxAttributeMap.Create(new List&lt;PbxAttribute&gt;() 
-                {
-                   PbxAttribute.Create("Elem1", true),
-                   PbxAttribute.Create("Elem2", 23)
-                }); 
+                PbxAttribute sequence = PbxAttribute.Create("sequence", 
+                        PbxAttributeMap.Create(new List&lt;PbxAttribute&gt;() 
+                        {
+                            PbxAttribute.Create("Elem1", true),
+                            PbxAttribute.Create("Elem2", 23)
+                        }); 
             </code>
             </example>
         </member>
@@ -7254,7 +7251,7 @@
             Create a new <c>PbxAttribute</c> with the specified list of sequences.
             </summary>
             <param name="attrName">The attribute name.</param>
-            <param name="sequences">The list of sequence</param>
+            <param name="sequences">The list of sequences</param>
             <returns>The created <see cref="T:o2g.Types.ManagementNS.PbxAttribute"/> object.</returns>
             <exemple>
             <code>
@@ -7296,7 +7293,7 @@
             <returns>
             A <see cref="T:o2g.Types.ManagementNS.PbxAttributeMap"/> that represents the attribute sets
             </returns>
-            <exception cref="T:System.ArgumentOutOfRangeException">If the attribute is not a Set attribute.</exception>
+            <exception cref="T:System.FormatException">If the attribute is not a Set attribute.</exception>
             <remarks>
             This method is used when the attribute is a set of sequences. 
             </remarks>
@@ -7429,7 +7426,7 @@
             <summary>
             Return the Attribute with the given name.
             </summary>
-            <param name="name">The name of the attribute in this attribute name</param>
+            <param name="name">The attribute name</param>
             <returns>
             A <see cref="T:o2g.Types.ManagementNS.PbxAttribute"/> that corresponds to the attribute with the given name or <see langword="null"/> if there is
             no attribute with this name.
@@ -7455,8 +7452,8 @@
             <exemple>
             <code>
                 attrList.Add(PbxAttribute.Create("Name", PbxAttributeMap.Create()
-                                                            .Add(PbxAttribute.Create("Elem", true))
-                                                            .Add(PbxAttribute.Create("Elem", true))));
+                                                            .Add(PbxAttribute.Create("Elem1", true))
+                                                            .Add(PbxAttribute.Create("Elem2", 23))));
             </code>
             </exemple>
             </remarks>

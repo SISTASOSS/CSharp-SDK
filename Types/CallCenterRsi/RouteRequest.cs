@@ -71,7 +71,7 @@ namespace o2g.Types.CallCenterRsiNS
         public string Called { get; init; }
 
         /// <summary>
-        /// Return the call reference of the call who which teh route request is made.
+        /// Return the call reference of the call for which the route request is made.
         /// </summary>
         /// <value>
         /// A <see langword="string"/> value that represents the call reference.

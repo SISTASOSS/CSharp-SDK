@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Internal",
+    "\\Internal\\Rest"
   ],
-  "SelectedNode": "\\o2g.csproj",
+  "SelectedNode": "\\Internal\\Rest\\PbxManagementRest.cs",
   "PreviewInSolutionExplorer": false
 }

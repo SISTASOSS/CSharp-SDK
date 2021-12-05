@@ -29,7 +29,7 @@ namespace o2g.Internal.Utility
         {
             if ((values == null) || (values.Count != 1))
             {
-                throw new FormatException(string.Format("Value is not an int : null or not unique"));
+                throw new FormatException("Value is not an int : null or not unique");
             }
 
             return values[0];
@@ -40,7 +40,7 @@ namespace o2g.Internal.Utility
         {
             if (values == null)
             {
-                throw new FormatException(string.Format("Value is not a list : null"));
+                throw new FormatException("Value is not a list : null");
             }
 
             if (typeof(T) == typeof(string))

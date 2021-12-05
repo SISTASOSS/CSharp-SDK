@@ -69,7 +69,7 @@ namespace o2g
         public event EventHandler<O2GEventArgs<OnRouteRequestEvent>> RouteRequest;
 
         /// <summary>
-        /// Get the RSI point configured.
+        /// Get the configured RSI points.
         /// </summary>
         /// <returns>
         /// A list of <see cref="RsiPoint"/> that represents all the declared RSI points.
@@ -110,7 +110,7 @@ namespace o2g
         /// </returns>
         /// <seealso cref="StopCollectDigitsAsync(string, string)"/>
         /// <seealso cref="OnDigitCollectedEvent"/>
-        Task<string> StartCollectDigitsAsync(string rsiNumber, string callRef, int numChars, char? flushChar = null, int? timeout = null, AdditionalDigitCollectionCriteria additionalCriteria = null);
+        Task<string> StartCollectDigitsAsync(string rsiNumber, string callRef, int? numChars, char? flushChar = null, int? timeout = null, AdditionalDigitCollectionCriteria additionalCriteria = null);
 
         /// <summary>
         /// Stop the specified digit collection on the specified RSI point.
@@ -128,7 +128,7 @@ namespace o2g
         /// <param name="rsiNumber">The RSI point extension number.</param>
         /// <param name="callRef">The reference of the call on which to tone will be played.</param>
         /// <param name="tone">The tone type.</param>
-        /// <param name="duration">The duration in second, the tone is played.</param>
+        /// <param name="duration">The duration the tone is played (in second)</param>
         /// <returns><see langword="true"/> in case of success; <see langword="false"/> otherwise.</returns>
         /// <seealso cref="CancelToneAsync(string, string)"/>
         /// <seealso cref="OnToneGeneratedStartEvent"/>

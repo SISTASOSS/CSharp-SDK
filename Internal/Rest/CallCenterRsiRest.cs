@@ -21,7 +21,6 @@ using o2g.Events;
 using o2g.Events.CallCenterRsi;
 using o2g.Internal.Events;
 using o2g.Internal.Utility;
-using o2g.Types.CallCenterRsi;
 using o2g.Types.CallCenterRsiNS;
 using System;
 using System.Collections.Generic;
@@ -70,7 +69,7 @@ namespace o2g.Internal.Rest
     class RouteSelect
     {
         public string RouteCrid { get; set; }
-        public String SelectedRoute { get; set; }
+        public string SelectedRoute { get; set; }
         public string CallingLine { get; set; }
         public string AssociatedData { get; set; }
         public bool? RouteToVoicemail { get; set; }
@@ -151,7 +150,7 @@ namespace o2g.Internal.Rest
             return await IsSucceeded(response);
         }
 
-        public async Task<string> StartCollectDigitsAsync(string rsiNumber, string callRef, int numChars, char? flushChar, int? timeout, AdditionalDigitCollectionCriteria additionalCriteria)
+        public async Task<string> StartCollectDigitsAsync(string rsiNumber, string callRef, int? numChars, char? flushChar, int? timeout, AdditionalDigitCollectionCriteria additionalCriteria)
         {
             Uri uriPost = uri.Append(AssertUtil.NotNullOrEmpty(rsiNumber, "rsiNumber"), "collectDigits");
 

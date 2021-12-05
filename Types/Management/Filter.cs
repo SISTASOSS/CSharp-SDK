@@ -36,7 +36,7 @@ namespace o2g.Types.ManagementNS
         Equals,
 
         /// <summary>
-        /// The attribute starts with teh value.
+        /// The attribute starts with the value.
         /// </summary>
         StartsWith,
 
@@ -128,15 +128,15 @@ namespace o2g.Types.ManagementNS
             }
         }
 
-        private static Filter CombineOperator(string ope, Filter filter1, Filter filter2, List<Filter> otherfilters)
+        private static Filter CombineOperator(string ope, Filter filter1, Filter filter2, List<Filter> otherFilters)
         {
             string result = string.Format("{0} {1} {2}",
                 AssertUtil.NotNull<Filter>(filter1, "filter1").Value,
                 ope,
-                AssertUtil.NotNull<Filter>(filter1, "filter2").Value);
+                AssertUtil.NotNull<Filter>(filter2, "filter2").Value);
 
             StringBuilder sb = new(result);
-            otherfilters.ForEach(f => sb.Append(string.Format(" {0} {1}", ope, f.Value)));
+            otherFilters.ForEach(f => sb.Append(string.Format(" {0} {1}", ope, f.Value)));
 
             return new() { Value = sb.ToString() };
         }

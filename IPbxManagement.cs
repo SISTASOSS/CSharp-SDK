@@ -108,10 +108,6 @@ namespace o2g
         /// </returns>
         /// <remarks>
         /// If <c>objectName</c> is <see langword="null"/>, the global object model of the OmniPCX Enterprise node is returned.
-        /// <para>
-        /// The object model for a specified node is loaded and save in a memory cache. To force a download of the model, use
-        /// the <c>force</c> parameter.
-        /// </para>
         /// </remarks>
         Task<Model> GetObjectModelAsync(int nodeId, string objectName = null);
 
@@ -199,7 +195,7 @@ namespace o2g
         /// <param name="objectInstanceDefinition">The object instance definition.</param>
         /// <param name="filter">The <see cref="Filter"/> object that represents a filter on the object attribute.</param>
         /// <returns>
-        /// A list of <see langword="string"/> that represents the instance of the found object, or <see langword="null"/> in case of error or 
+        /// A list of <see langword="string"/> that represents the instance of the found objects, or <see langword="null"/> in case of error or 
         /// if no instance match the specified filter.
         /// </returns>
         /// <example>

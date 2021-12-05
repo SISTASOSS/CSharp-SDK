@@ -73,11 +73,11 @@ namespace o2g.Types.ManagementNS
     /// <remarks>
     /// <para>
     /// <c>PbxAttribute</c> provide conversion method to usual C# types. The conversion is 
-    /// controlled "at the best", but it can not check all the possible error case. an Enumerated value and an OctetString value can
+    /// controlled "at the best", but it can not check all the possible error case. An Enumerated value and an OctetString value can
     /// both be converted to a <see langword="string"/>.
     /// </para>
     /// <para>
-    /// When a conversion error is dtected, a <see cref="FormatException"/> exception is raised.
+    /// When a conversion error is detected, a <see cref="FormatException"/> exception is raised.
     /// </para>
     /// </remarks>
     public class PbxAttribute
@@ -160,11 +160,12 @@ namespace o2g.Types.ManagementNS
         /// <returns>The created <see cref="PbxAttribute"/> object.</returns>
         /// <example>
         /// <code>
-        ///     PbxAttribute sequence = PbxAttributeMap.Create(new List&lt;PbxAttribute&gt;() 
-        ///     {
-        ///        PbxAttribute.Create("Elem1", true),
-        ///        PbxAttribute.Create("Elem2", 23)
-        ///     }); 
+        ///     PbxAttribute sequence = PbxAttribute.Create("sequence", 
+        ///             PbxAttributeMap.Create(new List&lt;PbxAttribute&gt;() 
+        ///             {
+        ///                 PbxAttribute.Create("Elem1", true),
+        ///                 PbxAttribute.Create("Elem2", 23)
+        ///             }); 
         /// </code>
         /// </example>
         public static PbxAttribute Create(string attrName, PbxAttributeMap sequence)
@@ -180,7 +181,7 @@ namespace o2g.Types.ManagementNS
         /// Create a new <c>PbxAttribute</c> with the specified list of sequences.
         /// </summary>
         /// <param name="attrName">The attribute name.</param>
-        /// <param name="sequences">The list of sequence</param>
+        /// <param name="sequences">The list of sequences</param>
         /// <returns>The created <see cref="PbxAttribute"/> object.</returns>
         /// <exemple>
         /// <code>
@@ -238,7 +239,7 @@ namespace o2g.Types.ManagementNS
         /// <returns>
         /// A <see cref="PbxAttributeMap"/> that represents the attribute sets
         /// </returns>
-        /// <exception cref="ArgumentOutOfRangeException">If the attribute is not a Set attribute.</exception>
+        /// <exception cref="FormatException">If the attribute is not a Set attribute.</exception>
         /// <remarks>
         /// This method is used when the attribute is a set of sequences. 
         /// </remarks>

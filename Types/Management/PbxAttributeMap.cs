@@ -49,7 +49,7 @@ namespace o2g.Types.ManagementNS
         /// <summary>
         /// Return the Attribute with the given name.
         /// </summary>
-        /// <param name="name">The name of the attribute in this attribute name</param>
+        /// <param name="name">The attribute name</param>
         /// <returns>
         /// A <see cref="PbxAttribute"/> that corresponds to the attribute with the given name or <see langword="null"/> if there is
         /// no attribute with this name.
@@ -81,8 +81,8 @@ namespace o2g.Types.ManagementNS
         /// <exemple>
         /// <code>
         ///     attrList.Add(PbxAttribute.Create("Name", PbxAttributeMap.Create()
-        ///                                                 .Add(PbxAttribute.Create("Elem", true))
-        ///                                                 .Add(PbxAttribute.Create("Elem", true))));
+        ///                                                 .Add(PbxAttribute.Create("Elem1", true))
+        ///                                                 .Add(PbxAttribute.Create("Elem2", 23))));
         /// </code>
         /// </exemple>
         /// </remarks>

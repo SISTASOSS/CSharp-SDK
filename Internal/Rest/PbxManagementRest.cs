@@ -35,17 +35,17 @@ namespace o2g.Internal.Rest
 {
     class PbxList
     {
-        public List<string> nodeIds { get; init; }
+        public List<string> NodeIds { get; init; }
 
         public List<int> ToIntNodesList()
         {
-            if (nodeIds == null)
+            if (NodeIds == null)
             {
                 return null;
             }
             else
             {
-                return nodeIds.Select(int.Parse).ToList();
+                return NodeIds.Select(int.Parse).ToList();
             }
         }
     }

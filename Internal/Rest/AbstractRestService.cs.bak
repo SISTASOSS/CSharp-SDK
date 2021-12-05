@@ -74,15 +74,8 @@ namespace o2g.Internal.Rest
             }
             else
             {
-                try
-                {
-                    string jsonError = await response.Content.ReadAsStringAsync();
-                    SetLastError(JsonSerializer.Deserialize<RestErrorInfo>(jsonError, serializeOptions));
-                }
-                catch (Exception)
-                {
-                    SetLastError(null);
-                }
+                string jsonError = await response.Content.ReadAsStringAsync();
+                SetLastError(JsonSerializer.Deserialize<RestErrorInfo>(jsonError, serializeOptions));
                 return false;
             }
         }
@@ -106,14 +99,7 @@ namespace o2g.Internal.Rest
             }
             else
             {
-                try
-                {
-                    SetLastError(JsonSerializer.Deserialize<RestErrorInfo>(jsonCode, serializeOptions));
-                }
-                catch (Exception)
-                {
-                    SetLastError(null);
-                }
+                SetLastError(JsonSerializer.Deserialize<RestErrorInfo>(jsonCode, serializeOptions));
                 return default;
             }
         }

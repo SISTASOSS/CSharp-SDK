@@ -70,15 +70,6 @@ namespace o2g.Internal.Types.Management
 
         internal ModelAttribute ToAttributeModel(string objectName)
         {
-            if (TypeValue == "Sequence")
-            {
-                Console.WriteLine("Object : " + objectName + " contains Sequence :" + Name);
-            }
-            else if(TypeValue == "Set")
-            {
-                Console.WriteLine("Object : " + objectName + " contains Set :" + Name);
-            }
-
             return new ModelAttribute()
             {
                 Name = Name,

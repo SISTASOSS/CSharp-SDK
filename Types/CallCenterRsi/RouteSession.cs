@@ -24,7 +24,7 @@ namespace o2g.Types.CallCenterRsiNS
     /// <summary>
     /// <c>RouteSession</c> represents a route request session between a RSI point and an application.
     /// <para>
-    /// A route session is initiated by a RSI point by sending a <see cref="OnRouteRequestEvent"/>. The application select a route and answer user <see cref="ICallCenterRsi.RouteSelectAsync(string, string, string, string, string, bool?)"/>.
+    /// A route session is initiated by a RSI point by sending a <see cref="OnRouteRequestEvent"/>. The application selects a route and answer using <see cref="ICallCenterRsi.RouteSelectAsync(string, string, string, string, string, bool?)"/>.
     /// </para>
     /// </summary>
     /// <see cref="OnRouteRequestEvent"/>

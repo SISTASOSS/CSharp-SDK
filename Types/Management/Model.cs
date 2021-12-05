@@ -24,7 +24,7 @@ using System.Linq;
 namespace o2g.Types.ManagementNS
 {
     /// <summary>
-    /// <c>ObjectName</c> represents an object model.
+    /// <c>Model</c> represents an object model.
     /// <para>
     /// It provides the detail of object attributes: 
     /// whether the attribute is mandatory/optional in the object creation, what range of value is authorized, what are the possible 
