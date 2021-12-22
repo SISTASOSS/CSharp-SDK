@@ -33,7 +33,7 @@ namespace o2g.Types.TelephonyNS.CallNS.AcdNS
         public Info CallInfo { get; set; }
 
         /// <summary>
-        /// Return the informationabout teh queue that has distributed this call.
+        /// Return the information about the queue that has distributed this call.
         /// </summary>
         /// <value>
         /// A <see cref="QueueData"/> that gives information on the queue.
@@ -57,7 +57,7 @@ namespace o2g.Types.TelephonyNS.CallNS.AcdNS
         public string RsiNumber { get; set; }
 
         /// <summary>
-        /// Return whether the transfer on the pilot has been supervised.
+        /// Return whether the transfer on the pilot was supervised.
         /// </summary>
         /// <value>
         /// <see langword="true"/> if the transfer has been supervised; <see langword="false"/> otherwise.

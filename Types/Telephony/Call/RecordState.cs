@@ -22,7 +22,7 @@ using System.Runtime.Serialization;
 namespace o2g.Types.TelephonyNS.CallNS
 {
     /// <summary>
-    /// <c>RecordState</c> represent the recording state
+    /// <c>RecordState</c> represent the recording state.
     /// </summary>
     public enum RecordState
     {

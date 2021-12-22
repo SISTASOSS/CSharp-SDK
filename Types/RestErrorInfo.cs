@@ -65,7 +65,7 @@ namespace o2g.Types
                 /// <list type="bullet">
                 /// <item><description>Overflow on busy is not allowed (barring limitation).</description></item>
                 /// <item><description>Cancel overflow is not allowed: (barring limitation).</description></item>
-                /// <item><description>Phone number to Other destination is not authorized (dial plan limitation).</description></item>
+                /// <item><description>Phone number to other destination is not authorized (dial plan limitation).</description></item>
                 /// </list>
                 /// </summary>
                 [EnumMember(Value = "UNAUTHORIZED")]
@@ -359,7 +359,7 @@ namespace o2g.Types
         public class UserPreferencesErrorInfo
         {
             /// <summary>
-            /// <c>UserPreferencesErrorType</c> represents th epossible error type for the user preferences
+            /// <c>UserPreferencesErrorType</c> represents the possible error types for the user preferences.
             /// </summary>
             public enum UserPreferencesErrorType
             {
@@ -393,7 +393,7 @@ namespace o2g.Types
             }
 
             /// <summary>
-            /// Return the information on the error
+            /// Return the information on the error.
             /// </summary>
             /// <value>
             /// A <see cref="UserPreferencesErrorType"/> value that represents the error.

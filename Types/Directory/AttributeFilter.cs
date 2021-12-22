@@ -26,22 +26,22 @@ namespace o2g.Types.DirectoryNS
     public enum AttributeFilter
     {
         /// <summary>
-        /// The last name
+        /// The last name.
         /// </summary>
         LastName, 
 
         /// <summary>
-        /// The first name
+        /// The first name.
         /// </summary>
         FirstName, 
 
         /// <summary>
-        /// The phone number
+        /// The phone number.
         /// </summary>
         PhoneNumber, 
 
         /// <summary>
-        /// The login name
+        /// The login name.
         /// </summary>
         LoginName
     }

@@ -27,7 +27,7 @@ namespace o2g
     /// <summary>
     /// <c>IMessaging</c> service provides access to user's voice mail box. It's possible using this service to connect 
     /// to the voice mail box, retrieve the information and the list of voice mails and manage the mail box.
-    /// Using this service requires having a <b>MESSAGING</b> license.
+    /// Using this service requires having a <b>TELEPHONY_ADVANCED</b> license.
     /// <para>
     /// It's possible to download the voice mail as a wav file and to delete an existing messages.
     /// </para>
@@ -77,13 +77,13 @@ namespace o2g
         /// <param name="limit">The maximum number of items to return (Default value is -1: no limit).</param>
         /// <param name="loginName">The user login name.</param>
         /// <returns>
-        /// The list of <see cref="Voicemail"/> objects that represents the voice messages.
+        /// The list of <see cref="VoiceMessage"/> objects that represents the voice messages.
         /// </returns>
         /// <remarks>
         /// If the session has been opened for a user, the <c>loginName</c> parameter is ignored, 
         /// but it is mandatory if the session has been opened by an administrator.
         /// </remarks>
-        Task<List<Voicemail>> GetVoiceMailsAsync(string mailboxId, bool newOnly = false, int? offset = null, int? limit = null, string loginName = null);
+        Task<List<VoiceMessage>> GetVoiceMessagesAsync(string mailboxId, bool newOnly = false, int? offset = null, int? limit = null, string loginName = null);
 
         /// <summary>
         /// Delete the specified voice message.
@@ -92,7 +92,7 @@ namespace o2g
         /// <param name="voicemailId">The voice message to delete.</param>
         /// <param name="loginName">The user login name.</param>
         /// <returns><see langword="true"/> in case of success; <see langword="false"/> otherwise</returns>
-        Task<bool> DeleteVoiceMailAsync(string mailboxId, string voicemailId, string loginName = null);
+        Task<bool> DeleteVoiceMessageAsync(string mailboxId, string voicemailId, string loginName = null);
 
         /// <summary>
         /// Delete the specified list of voice messages.
@@ -101,7 +101,7 @@ namespace o2g
         /// <param name="msgIds">The voice messages to delete.</param>
         /// <param name="loginName">The user login name.</param>
         /// <returns><see langword="true"/> in case of success; <see langword="false"/> otherwise</returns>
-        Task<bool> DeleteVoiceMailsAsync(string mailboxId, List<string> msgIds, string loginName = null);
+        Task<bool> DeleteVoiceMessagesAsync(string mailboxId, List<string> msgIds, string loginName = null);
 
         /// <summary>
         /// Download a voice mail as a wav file.
@@ -122,6 +122,6 @@ namespace o2g
         /// but it is mandatory if the session has been opened by an administrator.
         /// </para>
         /// </remarks>
-        Task<string> DownloadVoiceMailAsync(string mailboxId, string voicemailId, string wavPath = null, string loginName = null);
+        Task<string> DownloadVoiceMessageAsync(string mailboxId, string voicemailId, string wavPath = null, string loginName = null);
     }
 }

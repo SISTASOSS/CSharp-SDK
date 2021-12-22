@@ -54,7 +54,7 @@ namespace o2g.Types.MessagingNS
             public bool GetRecord { get; init; }
 
             /// <summary>
-            /// Return wheter the voicemail server can play voice messages.
+            /// Return whether the voicemail server can play voice messages.
             /// </summary>
             /// <value>
             /// <see langword="true"/> if the voicemail server can play voice messages; <see langword="false"/> otherwise.
@@ -62,7 +62,7 @@ namespace o2g.Types.MessagingNS
             public bool Play { get; init; }
 
             /// <summary>
-            /// Return wheter a played voice message can be paused and resumes from the position it has been paused.
+            /// Return whether a played voice message can be paused and resumes from the position it has been paused.
             /// </summary>
             /// <value>
             /// <see langword="true"/> if a playing voice message can be paused; <see langword="false"/> otherwise.
@@ -126,7 +126,7 @@ namespace o2g.Types.MessagingNS
             public bool Send { get; init; }
 
             /// <summary>
-            /// retrun whether the voicemail server can send events in case of message deposit / removal.
+            /// Return whether the voicemail server can send events in case of message deposit / removal.
             /// </summary>
             /// <value>
             /// <see langword="true"/> if the voicemail server can send events in case of message deposit / removal; <see langword="false"/> otherwise.

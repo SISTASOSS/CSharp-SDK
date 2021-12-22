@@ -33,7 +33,7 @@ namespace o2g.Types.TelephonyNS.CallNS.AcdNS
         public int WaitingTime { get; init; }
 
         /// <summary>
-        /// Return twether this queue is saturated.
+        /// Return whether this queue is saturated.
         /// </summary>
         /// <value>
         /// <see langword="true"/> if the queue is saturated; <see langword="false"/> otherwise.

@@ -1898,7 +1898,7 @@
             <summary>
             <c>IMessaging</c> service provides access to user's voice mail box. It's possible using this service to connect 
             to the voice mail box, retrieve the information and the list of voice mails and manage the mail box.
-            Using this service requires having a <b>MESSAGING</b> license.
+            Using this service requires having a <b>TELEPHONY_ADVANCED</b> license.
             <para>
             It's possible to download the voice mail as a wav file and to delete an existing messages.
             </para>
@@ -1938,7 +1938,7 @@
             </para>
             </remarks>
         </member>
-        <member name="M:o2g.IMessaging.GetVoiceMailsAsync(System.String,System.Boolean,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String)">
+        <member name="M:o2g.IMessaging.GetVoiceMessagesAsync(System.String,System.Boolean,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String)">
             <summary>
             Get the list of voice mail in this voice mail box.
             </summary>
@@ -1948,14 +1948,14 @@
             <param name="limit">The maximum number of items to return (Default value is -1: no limit).</param>
             <param name="loginName">The user login name.</param>
             <returns>
-            The list of <see cref="T:o2g.Types.MessagingNS.Voicemail"/> objects that represents the voice messages.
+            The list of <see cref="T:o2g.Types.MessagingNS.VoiceMessage"/> objects that represents the voice messages.
             </returns>
             <remarks>
             If the session has been opened for a user, the <c>loginName</c> parameter is ignored, 
             but it is mandatory if the session has been opened by an administrator.
             </remarks>
         </member>
-        <member name="M:o2g.IMessaging.DeleteVoiceMailAsync(System.String,System.String,System.String)">
+        <member name="M:o2g.IMessaging.DeleteVoiceMessageAsync(System.String,System.String,System.String)">
             <summary>
             Delete the specified voice message.
             </summary>
@@ -1964,7 +1964,7 @@
             <param name="loginName">The user login name.</param>
             <returns><see langword="true"/> in case of success; <see langword="false"/> otherwise</returns>
         </member>
-        <member name="M:o2g.IMessaging.DeleteVoiceMailsAsync(System.String,System.Collections.Generic.List{System.String},System.String)">
+        <member name="M:o2g.IMessaging.DeleteVoiceMessagesAsync(System.String,System.Collections.Generic.List{System.String},System.String)">
             <summary>
             Delete the specified list of voice messages.
             </summary>
@@ -1973,7 +1973,7 @@
             <param name="loginName">The user login name.</param>
             <returns><see langword="true"/> in case of success; <see langword="false"/> otherwise</returns>
         </member>
-        <member name="M:o2g.IMessaging.DownloadVoiceMailAsync(System.String,System.String,System.String,System.String)">
+        <member name="M:o2g.IMessaging.DownloadVoiceMessageAsync(System.String,System.String,System.String,System.String)">
             <summary>
             Download a voice mail as a wav file.
             </summary>
@@ -5268,6 +5268,68 @@
             A <see langword="string"/> value that represents the withdraw reason.
             </value>
         </member>
+        <member name="T:o2g.Types.CallCenterRsiNS.AdditionalDigitCollectionCriteria">
+            <summary>
+            <c>AdditionalDigitCollectionCriteria</c> class is used to provide advanced digit collection criteria.
+            </summary>
+        </member>
+        <member name="P:o2g.Types.CallCenterRsiNS.AdditionalDigitCollectionCriteria.AbortDigits">
+            <summary>
+            Return the set of digits used to consider that digits collection is aborted. 
+            </summary>
+            <value>
+            A <see langword="string"/> value that represent the abort digits.
+            </value>
+        </member>
+        <member name="P:o2g.Types.CallCenterRsiNS.AdditionalDigitCollectionCriteria.IgnoreDigits">
+            <summary>
+            Return the digits ignored during the collection.
+            </summary>
+            <value>
+            A <see langword="string"/> value that represent the ignored digits.
+            </value>
+        </member>
+        <member name="P:o2g.Types.CallCenterRsiNS.AdditionalDigitCollectionCriteria.backspaceDigits">
+            <summary>
+            Return the digits used to deleted the collected digit from the collection.
+            </summary>
+            <value>
+            A <see langword="string"/> value that represent the delete digits.
+            </value>
+        </member>
+        <member name="P:o2g.Types.CallCenterRsiNS.AdditionalDigitCollectionCriteria.TermDigits">
+            <summary>
+            Return the digits used to validate the collection. If the flushChar ECMA3 standard parameter is present, 
+            the termDigits parameter is ignored by the OmniPCX Enterprise.
+            </summary>
+            <value>
+            A <see langword="string"/> value that represent the termination digits.
+            </value>
+        </member>
+        <member name="P:o2g.Types.CallCenterRsiNS.AdditionalDigitCollectionCriteria.ResetDigits">
+            <summary>
+            Return the digits used by caller to restart the collection.
+            </summary>
+            <value>
+            A <see langword="string"/> value that represent the reset digits.
+            </value>
+        </member>
+        <member name="P:o2g.Types.CallCenterRsiNS.AdditionalDigitCollectionCriteria.StartTimeout">
+            <summary>
+            Return the number of seconds waiting for DTMF inputs from caller.
+            </summary>
+            <value>
+            A <see langword="int"/> value that represent the timeout in seconds.
+            </value>
+        </member>
+        <member name="P:o2g.Types.CallCenterRsiNS.AdditionalDigitCollectionCriteria.DigitTimeout">
+            <summary>
+            Return the number of seconds to wait between DTMF inputs.
+            </summary>
+            <value>
+            A <see langword="int"/> value that represent the time between 2 dtmf in seconds.
+            </value>
+        </member>
         <member name="T:o2g.Types.CallCenterRsiNS.DataCollected">
             <summary>
             <c>DataCollected</c> represents a collection of tones.
@@ -5559,17 +5621,17 @@
         </member>
         <member name="T:o2g.Types.CommonNS.PartyInfo">
             <summary>
-            Represent a Party involved in a call.
+            Represents a party involved in a call.
             </summary>
         </member>
         <member name="T:o2g.Types.CommonNS.PartyInfo.ParticipantType">
             <summary>
-            Represent a type of participant to a call. A participant is identified by its <see cref="T:o2g.Types.CommonNS.PartyInfo.ParticipantType.MainType"/> type, and by an optional <c>SubType</c>.
+            Represents a type of participant to a call. A participant is identified by its <see cref="T:o2g.Types.CommonNS.PartyInfo.ParticipantType.MainType"/> type, and by an optional <c>SubType</c>.
             </summary>
         </member>
         <member name="T:o2g.Types.CommonNS.PartyInfo.ParticipantType.MainType">
             <summary>
-            <c>MainType</c> Represent the main type a participant can be.
+            <c>MainType</c> Represents the main type a participant can be.
             </summary>
         </member>
         <member name="F:o2g.Types.CommonNS.PartyInfo.ParticipantType.MainType.User">
@@ -5610,7 +5672,7 @@
             The SubType gives a supplementary information.
             </summary>
             <value>
-            A <see langword="string"/> that gives this participant sub-type. It can be can contain "pbx", "public", "pre-off-hook", telephony-services", "voicemail", "voice-homepage", "voice-it", "sip".
+            A <see langword="string"/> that gives this participant sub-type. It can be "pbx", "public", "pre-off-hook", telephony-services", "voicemail", "voice-homepage", "voice-it", "sip".
             </value>
         </member>
         <member name="T:o2g.Types.CommonNS.PartyInfo.Identifier">
@@ -5620,7 +5682,7 @@
         </member>
         <member name="P:o2g.Types.CommonNS.PartyInfo.Identifier.LoginName">
             <summary>
-            The partiicpant login name.
+            The participant login name.
             </summary>
             <value>
             A <see langword="string"/> that is this the login name of this participant.
@@ -5628,7 +5690,7 @@
         </member>
         <member name="P:o2g.Types.CommonNS.PartyInfo.Identifier.PhoneNumber">
             <summary>
-            The participant company phone number.
+            The participant phone number.
             </summary>
             <value>
             A <see langword="string"/> that is the main phone number of this participant.
@@ -5909,7 +5971,7 @@
         </member>
         <member name="F:o2g.Types.CommunicationLogNS.Reason.AllTrunkBusy">
             <summary>
-            
+            The call was abandonned because there was no Available trunk.
             </summary>
         </member>
         <member name="F:o2g.Types.CommunicationLogNS.Reason.InvalidNumber">
@@ -5979,7 +6041,7 @@
         </member>
         <member name="T:o2g.Types.CommunicationLogNS.Role">
             <summary>
-            <c>Role</c> defines the roles a participant can have in a com record
+            <c>Role</c> defines the roles a participant can have in a com record.
             </summary>
         </member>
         <member name="F:o2g.Types.CommunicationLogNS.Role.Caller">
@@ -6160,22 +6222,22 @@
         </member>
         <member name="F:o2g.Types.DirectoryNS.AttributeFilter.LastName">
             <summary>
-            The last name
+            The last name.
             </summary>
         </member>
         <member name="F:o2g.Types.DirectoryNS.AttributeFilter.FirstName">
             <summary>
-            The first name
+            The first name.
             </summary>
         </member>
         <member name="F:o2g.Types.DirectoryNS.AttributeFilter.PhoneNumber">
             <summary>
-            The phone number
+            The phone number.
             </summary>
         </member>
         <member name="F:o2g.Types.DirectoryNS.AttributeFilter.LoginName">
             <summary>
-            The login name
+            The login name.
             </summary>
         </member>
         <member name="T:o2g.Types.DirectoryNS.Criteria">
@@ -6313,7 +6375,7 @@
         </member>
         <member name="F:o2g.Types.DirectoryNS.SearchResult.Code.Ok">
             <summary>
-            Responses are provided this time. Continue to invoking <see cref="M:o2g.IDirectory.GetResultsAsync(System.String)"/> periodically to get the next ressults.
+            Responses are provided this time. Continue to invoking <see cref="M:o2g.IDirectory.GetResultsAsync(System.String)"/> periodically to get the next results.
             </summary>
         </member>
         <member name="F:o2g.Types.DirectoryNS.SearchResult.Code.Nok">
@@ -6328,7 +6390,7 @@
         </member>
         <member name="F:o2g.Types.DirectoryNS.SearchResult.Code.Timeout">
             <summary>
-            Search is ended for timeout reason
+            Search is ended for timeout reason.
             </summary>
         </member>
         <member name="T:o2g.Types.DirectoryNS.SearchResult.Results">
@@ -6730,7 +6792,7 @@
         </member>
         <member name="P:o2g.Types.MaintenanceNS.SystemStatus.Pbxs">
             <summary>
-            Return the list of Pbx Connected to this O2G server
+            Return the list of Pbx connected to this O2G server
             </summary>
             <value>
             A list of <see cref="T:o2g.Types.MaintenanceNS.PbxStatus"/> that represents the connected Pbx and their connection status.
@@ -7648,7 +7710,7 @@
         </member>
         <member name="P:o2g.Types.MessagingNS.MailBox.MailBoxCapabilities.Play">
             <summary>
-            Return wheter the voicemail server can play voice messages.
+            Return whether the voicemail server can play voice messages.
             </summary>
             <value>
             <see langword="true"/> if the voicemail server can play voice messages; <see langword="false"/> otherwise.
@@ -7656,7 +7718,7 @@
         </member>
         <member name="P:o2g.Types.MessagingNS.MailBox.MailBoxCapabilities.Pause">
             <summary>
-            Return wheter a played voice message can be paused and resumes from the position it has been paused.
+            Return whether a played voice message can be paused and resumes from the position it has been paused.
             </summary>
             <value>
             <see langword="true"/> if a playing voice message can be paused; <see langword="false"/> otherwise.
@@ -7720,7 +7782,7 @@
         </member>
         <member name="P:o2g.Types.MessagingNS.MailBox.MailBoxCapabilities.Events">
             <summary>
-            retrun whether the voicemail server can send events in case of message deposit / removal.
+            Return whether the voicemail server can send events in case of message deposit / removal.
             </summary>
             <value>
             <see langword="true"/> if the voicemail server can send events in case of message deposit / removal; <see langword="false"/> otherwise.
@@ -7780,13 +7842,13 @@
             Threshold indicating mailbox usage ratio. 100 mean 100% full. No more message deposit is allowed. -1 means information not available.
             </value>
         </member>
-        <member name="T:o2g.Types.MessagingNS.Voicemail">
+        <member name="T:o2g.Types.MessagingNS.VoiceMessage">
             <summary>
-            <c>VoiceMail</c> represents a message stored in a voice Mail box.
+            <c>VoiceMessage</c> represents a message stored in a voice Mail box.
             </summary>
             <see cref="T:o2g.Types.MessagingNS.MailBoxInfo"></see>
         </member>
-        <member name="P:o2g.Types.MessagingNS.Voicemail.VoicemailId">
+        <member name="P:o2g.Types.MessagingNS.VoiceMessage.VoicemailId">
             <summary>
             This propery gives the unique identifier of this message.
             </summary>
@@ -7794,7 +7856,7 @@
             A string value that identify the message.
             </value>
         </member>
-        <member name="P:o2g.Types.MessagingNS.Voicemail.From">
+        <member name="P:o2g.Types.MessagingNS.VoiceMessage.From">
             <summary>
             This property is <see cref="T:o2g.Types.CommonNS.PartyInfo"/> that deposited this voice mail.
             </summary>
@@ -7802,7 +7864,7 @@
             A <see cref="T:o2g.Types.CommonNS.PartyInfo"/> object.
             </value>
         </member>
-        <member name="P:o2g.Types.MessagingNS.Voicemail.Duration">
+        <member name="P:o2g.Types.MessagingNS.VoiceMessage.Duration">
             <summary>
             This property gives the duration of this message.
             </summary>
@@ -7810,15 +7872,15 @@
             The message duration in seconds.
             </value>
         </member>
-        <member name="P:o2g.Types.MessagingNS.Voicemail.Date">
+        <member name="P:o2g.Types.MessagingNS.VoiceMessage.Date">
             <summary>
             This property gives the date and time the message has been deposited.
             </summary>
             <value>
-            A <see cref="P:o2g.Types.MessagingNS.Voicemail.Date"/> object represnting the time the message has been deposited.
+            A <see cref="P:o2g.Types.MessagingNS.VoiceMessage.Date"/> object represnting the time the message has been deposited.
             </value>
         </member>
-        <member name="P:o2g.Types.MessagingNS.Voicemail.Unread">
+        <member name="P:o2g.Types.MessagingNS.VoiceMessage.Unread">
             <summary>
             This property indicates whether the message has been read.
             </summary>
@@ -7826,7 +7888,7 @@
             <see langword="true"/> if the message is unread; <see langword="false"/> otherwise.
             </value>
         </member>
-        <member name="P:o2g.Types.MessagingNS.Voicemail.HighPriority">
+        <member name="P:o2g.Types.MessagingNS.VoiceMessage.HighPriority">
             <summary>
             This property indicates whether the message has been tagged as urgent.
             </summary>
@@ -8026,7 +8088,7 @@
             <list type="bullet">
             <item><description>Overflow on busy is not allowed (barring limitation).</description></item>
             <item><description>Cancel overflow is not allowed: (barring limitation).</description></item>
-            <item><description>Phone number to Other destination is not authorized (dial plan limitation).</description></item>
+            <item><description>Phone number to other destination is not authorized (dial plan limitation).</description></item>
             </list>
             </summary>
         </member>
@@ -8299,7 +8361,7 @@
         </member>
         <member name="T:o2g.Types.RestErrorInfo.UserPreferencesErrorInfo.UserPreferencesErrorType">
             <summary>
-            <c>UserPreferencesErrorType</c> represents th epossible error type for the user preferences
+            <c>UserPreferencesErrorType</c> represents the possible error types for the user preferences.
             </summary>
         </member>
         <member name="F:o2g.Types.RestErrorInfo.UserPreferencesErrorInfo.UserPreferencesErrorType.Unknown">
@@ -8329,7 +8391,7 @@
         </member>
         <member name="P:o2g.Types.RestErrorInfo.UserPreferencesErrorInfo.UserPreferencesError">
             <summary>
-            Return the information on the error
+            Return the information on the error.
             </summary>
             <value>
             A <see cref="T:o2g.Types.RestErrorInfo.UserPreferencesErrorInfo.UserPreferencesErrorType"/> value that represents the error.
@@ -8599,7 +8661,7 @@
             <c>RoutingState</c> represente a user routing state. 
             <para>A routing state is composed of four elements</para>
             <list type="table">
-            <item><term>Remote extension activation</term><description>When th euser is configured with a remote extension, he has the possibility to activate or deactivate this remote extension. when the remote extension is de-activated, call are not presented on the mobile device.</description></item>
+            <item><term>Remote extension activation</term><description>When the user is configured with a remote extension, he has the possibility to activate or deactivate this remote extension. when the remote extension is de-activated, call are not presented on the mobile device.</description></item>
             <item><term>Forward</term><description>The user can configure a forward, on his voice mail if any or on any other number (depending on the cOmniPCX Enterprise configuration).</description></item>
             <item><term>Overflow</term><description>The user can configure an overflow on his asociate or on his voce mail. If a forward is configured, it is considered prio the overflow.</description></item>
             <item><term>Do Not Disturb</term><description>When Do Not Disturb (DND) is activated, call are not presented to the user.</description></item>
@@ -8871,7 +8933,7 @@
         </member>
         <member name="P:o2g.Types.TelephonyNS.Callback.PartyInfo">
             <summary>
-            This property represents the pary who has requested the callback.
+            This property represents the party who has requested the callback.
             </summary>
             <value>
             A <see cref="P:o2g.Types.TelephonyNS.Callback.PartyInfo"/> class that  represents the originator of the callback request.
@@ -8892,7 +8954,7 @@
         </member>
         <member name="P:o2g.Types.TelephonyNS.CallNS.AcdNS.AcdData.QueueData">
             <summary>
-            Return the informationabout teh queue that has distributed this call.
+            Return the information about the queue that has distributed this call.
             </summary>
             <value>
             A <see cref="P:o2g.Types.TelephonyNS.CallNS.AcdNS.AcdData.QueueData"/> that gives information on the queue.
@@ -8916,7 +8978,7 @@
         </member>
         <member name="P:o2g.Types.TelephonyNS.CallNS.AcdNS.AcdData.SupervisedTransfer">
             <summary>
-            Return whether the transfer on the pilot has been supervised.
+            Return whether the transfer on the pilot was supervised.
             </summary>
             <value>
             <see langword="true"/> if the transfer has been supervised; <see langword="false"/> otherwise.
@@ -8991,7 +9053,7 @@
         </member>
         <member name="P:o2g.Types.TelephonyNS.CallNS.AcdNS.Info.Local">
             <summary>
-            Return wetaher it's a local acd call
+            Return whether it is a local acd call
             </summary>
             <value>
             <see langword="true"/> if the acd call is local; <see langword="false"/> otherwise.
@@ -9078,7 +9140,7 @@
         </member>
         <member name="P:o2g.Types.TelephonyNS.CallNS.AcdNS.QueueData.Saturated">
             <summary>
-            Return twether this queue is saturated.
+            Return whether this queue is saturated.
             </summary>
             <value>
             <see langword="true"/> if the queue is saturated; <see langword="false"/> otherwise.
@@ -9155,7 +9217,7 @@
         </member>
         <member name="P:o2g.Types.TelephonyNS.CallNS.CallData.AccountInfo">
             <summary>
-            This property Return teh account info associated to this call.
+            This property returns the account info associated to this call.
             </summary>
             <value>
             A <see langword="string"/> that is the account info.
@@ -9163,7 +9225,7 @@
         </member>
         <member name="P:o2g.Types.TelephonyNS.CallNS.CallData.acdCallData">
             <summary>
-            This property gives the acs extension in case of an acd call.
+            This property gives the acd extension in case of an acd call.
             </summary>
             <value>
             A <see cref="T:o2g.Types.TelephonyNS.CallNS.AcdNS.AcdData"/> object that provide this call acd extension data.
@@ -9502,7 +9564,7 @@
         </member>
         <member name="T:o2g.Types.TelephonyNS.CallNS.RecordState">
             <summary>
-            <c>RecordState</c> represent the recording state
+            <c>RecordState</c> represent the recording state.
             </summary>
         </member>
         <member name="F:o2g.Types.TelephonyNS.CallNS.RecordState.Paused">
@@ -9617,12 +9679,12 @@
         </member>
         <member name="F:o2g.Types.TelephonyNS.DeviceNS.OperationalState.InService">
             <summary>
-            The device is in service
+            The device is in service.
             </summary>
         </member>
         <member name="F:o2g.Types.TelephonyNS.DeviceNS.OperationalState.OutOfService">
             <summary>
-            The device is Out of Service
+            The device is out of service.
             </summary>
         </member>
         <member name="F:o2g.Types.TelephonyNS.DeviceNS.OperationalState.Unknown">
@@ -9641,7 +9703,7 @@
             Give the list of existing hunting groups.
             </summary>
             <value>
-            A list of <see langword="string"/> that represents the phoen number of each existing hunting group on the OXE node the user is configured.
+            A list of <see langword="string"/> that represents the phone number of each existing hunting group on the OXE node the user is configured.
             </value>
         </member>
         <member name="P:o2g.Types.TelephonyNS.HuntingGroups.CurrentHg">
@@ -9649,7 +9711,7 @@
             This property gives the hunting group which the user is a member. 
             </summary>
             <value>
-            A <see langword="string"/> that is the phone number of the hunting group which teh user is a member, or <see langword="null"/> if the user is not member of any hunting group.
+            A <see langword="string"/> that is the phone number of the hunting group which the user is a member, or <see langword="null"/> if the user is not member of any hunting group.
             </value>
         </member>
         <member name="T:o2g.Types.TelephonyNS.HuntingGroupStatus">

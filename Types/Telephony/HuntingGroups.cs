@@ -30,7 +30,7 @@ namespace o2g.Types.TelephonyNS
         /// Give the list of existing hunting groups.
         /// </summary>
         /// <value>
-        /// A list of <see langword="string"/> that represents the phoen number of each existing hunting group on the OXE node the user is configured.
+        /// A list of <see langword="string"/> that represents the phone number of each existing hunting group on the OXE node the user is configured.
         /// </value>
         public List<string> HgList { get; init; }
 
@@ -38,7 +38,7 @@ namespace o2g.Types.TelephonyNS
         /// This property gives the hunting group which the user is a member. 
         /// </summary>
         /// <value>
-        /// A <see langword="string"/> that is the phone number of the hunting group which teh user is a member, or <see langword="null"/> if the user is not member of any hunting group.
+        /// A <see langword="string"/> that is the phone number of the hunting group which the user is a member, or <see langword="null"/> if the user is not member of any hunting group.
         /// </value>
         public string CurrentHg { get; init; }
     }

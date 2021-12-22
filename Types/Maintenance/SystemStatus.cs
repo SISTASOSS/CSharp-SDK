@@ -85,7 +85,7 @@ namespace o2g.Types.MaintenanceNS
         public string SecondaryVersion { get; init; }
 
         /// <summary>
-        /// Return the list of Pbx Connected to this O2G server
+        /// Return the list of Pbx connected to this O2G server
         /// </summary>
         /// <value>
         /// A list of <see cref="PbxStatus"/> that represents the connected Pbx and their connection status.

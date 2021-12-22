@@ -115,8 +115,7 @@ namespace o2g.Internal.Events
                                 OnChannelInformationEvent channelInfoEvent = (OnChannelInformationEvent)o2gEvent;
                                 if (channelInfoEvent.Text == "keepalive")
                                 {
-                                    // Break the loop and restart eventing
-                                    return;
+                                    // Do nothing
                                 }
                                 else
                                 {
@@ -129,6 +128,10 @@ namespace o2g.Internal.Events
                             Add(eventDescriptor);
                         }
                     }
+                    else
+                    {
+                        logger.Error("Read a null string");
+                    }
                 }
             }
             catch (IOException)
@@ -137,6 +140,10 @@ namespace o2g.Internal.Events
                 logger.Trace("Event channel has been closed.");
                 Token.ThrowIfCancellationRequested();
             }
+            catch (Exception ee)
+            {
+                logger.Error(ee, "An exception has been thrown !! ");
+            }
         }
 
 
@@ -144,6 +151,8 @@ namespace o2g.Internal.Events
         {
             try
             {
+                logger.Trace("Enter in chunk loop");
+
                 while (true)
                 {
                     try
@@ -160,6 +169,7 @@ namespace o2g.Internal.Events
                         }
                         else
                         {
+                            logger.Trace("Channel established, read");
                             await ReadChuncks(response);
                         }
                     }
@@ -172,6 +182,7 @@ namespace o2g.Internal.Events
             }
             catch (OperationCanceledException)
             {
+                logger.Error("OperationCanceledException receive");
                 throw;
             }
         }

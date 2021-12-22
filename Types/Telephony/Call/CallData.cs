@@ -92,7 +92,7 @@ namespace o2g.Types.TelephonyNS.CallNS
         public string AssociateData { get; set; }
 
         /// <summary>
-        /// This property Return teh account info associated to this call.
+        /// This property returns the account info associated to this call.
         /// </summary>
         /// <value>
         /// A <see langword="string"/> that is the account info.
@@ -100,7 +100,7 @@ namespace o2g.Types.TelephonyNS.CallNS
         public string AccountInfo { get; set; }
 
         /// <summary>
-        /// This property gives the acs extension in case of an acd call.
+        /// This property gives the acd extension in case of an acd call.
         /// </summary>
         /// <value>
         /// A <see cref="AcdData"/> object that provide this call acd extension data.

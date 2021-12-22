@@ -27,7 +27,7 @@ namespace o2g.Types.CommunicationLogNS
     public enum Reason
     {
         /// <summary>
-        /// 
+        /// The call was abandonned because there was no Available trunk.
         /// </summary>
         [EnumMember(Value = "ALL_TRUNK_BUSY")]
         AllTrunkBusy,

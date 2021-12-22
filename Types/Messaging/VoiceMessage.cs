@@ -22,10 +22,10 @@ using System;
 namespace o2g.Types.MessagingNS
 {
     /// <summary>
-    /// <c>VoiceMail</c> represents a message stored in a voice Mail box.
+    /// <c>VoiceMessage</c> represents a message stored in a voice Mail box.
     /// </summary>
     /// <see cref="MailBoxInfo"></see>
-    public class Voicemail
+    public class VoiceMessage
     {
         /// <summary>
         /// This propery gives the unique identifier of this message.

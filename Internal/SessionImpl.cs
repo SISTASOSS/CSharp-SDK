@@ -181,7 +181,14 @@ namespace o2g.Internal
             else
             {
                 logger.Fatal("Subscription has been refused. Fix the subscription request.");
-                throw new O2GException("Subscription Refused : " + subscriptionResult.Message);
+                if (subscriptionResult == null)
+                {
+                    throw new O2GException("Subscription Refused");
+                }
+                else
+                {
+                    throw new O2GException("Subscription Refused : " + subscriptionResult.Message);
+                }
             }
         }
 

@@ -43,7 +43,7 @@ namespace o2g.Internal.Rest
 
     internal class VoicemailsList
     {
-        public List<Voicemail> Voicemails { get; set; }
+        public List<VoiceMessage> Voicemails { get; set; }
     }
 
     internal class MessagingRest : AbstractRESTService, IMessaging
@@ -53,12 +53,12 @@ namespace o2g.Internal.Rest
 
         }
 
-        public async Task<bool> DeleteVoiceMailAsync(string mailboxId, string voicemailId, string loginName)
+        public async Task<bool> DeleteVoiceMessageAsync(string mailboxId, string voicemailId, string loginName)
         {
             Uri uriDelete = uri.Append(
                 AssertUtil.NotNullOrEmpty(mailboxId, "mailboxId"), 
-                "voicemails", 
-                voicemailId);
+                "voicemails",
+                AssertUtil.NotNullOrEmpty(voicemailId, "voicemailId"));
             if (loginName != null)
             {
                 uriDelete = uriDelete.AppendQuery("loginName", loginName);
@@ -68,7 +68,7 @@ namespace o2g.Internal.Rest
             return response.IsSuccessStatusCode;
         }
 
-        public async Task<bool> DeleteVoiceMailsAsync(string mailboxId, string[] msgIds, string loginName)
+        public async Task<bool> DeleteVoiceMessagesAsync(string mailboxId, string[] msgIds, string loginName)
         {
             Uri uriDelete = uri.Append(AssertUtil.NotNullOrEmpty(mailboxId, "mailboxId"), "voicemails");
             if (loginName != null)
@@ -78,19 +78,19 @@ namespace o2g.Internal.Rest
 
             if (msgIds != null)
             {
-                uriDelete = uriDelete.AppendQuery("msgIds", MakeMsgQuery(msgIds));
+                uriDelete = uriDelete.AppendQuery("msgIds", string.Join(';', msgIds));
             }
 
             HttpResponseMessage response = await httpClient.DeleteAsync(uriDelete);
             return response.IsSuccessStatusCode;
         }
 
-        public Task<bool> DeleteVoiceMailsAsync(string mailboxId, List<string> msgIds, string loginName)
+        public Task<bool> DeleteVoiceMessagesAsync(string mailboxId, List<string> msgIds, string loginName)
         {
-            return DeleteVoiceMailsAsync(mailboxId, msgIds.ToArray(), loginName);
+            return DeleteVoiceMessagesAsync(mailboxId, msgIds.ToArray(), loginName);
         }
 
-        public async Task<string> DownloadVoiceMailAsync(string mailboxId, string voicemailId, string wavPath, string loginName)
+        public async Task<string> DownloadVoiceMessageAsync(string mailboxId, string voicemailId, string wavPath, string loginName)
         {
             Uri uriGet = uri.Append(
                 AssertUtil.NotNullOrEmpty(mailboxId, "mailboxId"), 
@@ -127,7 +127,7 @@ namespace o2g.Internal.Rest
 
         public async Task<MailBoxInfo> GetMailboxInfoAsync(string mailboxId, string password, string loginName)
         {
-            Uri uriPost = uri.Append(mailboxId);
+            Uri uriPost = uri.Append(AssertUtil.NotNullOrEmpty(mailboxId, "mailboxId"));
             if (loginName != null)
             {
                 uriPost = uriPost.AppendQuery("loginName", loginName);
@@ -155,7 +155,7 @@ namespace o2g.Internal.Rest
             return await GetResult<MailBoxInfo>(response);
         }
 
-        public async Task<List<Voicemail>> GetVoiceMailsAsync(string mailboxId, bool newOnly, int? offset, int? limit, string loginName)
+        public async Task<List<VoiceMessage>> GetVoiceMessagesAsync(string mailboxId, bool newOnly, int? offset, int? limit, string loginName)
         {
             Uri uriGet = uri.Append(AssertUtil.NotNullOrEmpty(mailboxId, "mailboxId"), "voicemails");
             if (loginName != null)

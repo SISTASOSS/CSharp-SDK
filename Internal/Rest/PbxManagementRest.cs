@@ -186,7 +186,7 @@ namespace o2g.Internal.Rest
 
         public Task<List<string>> GetObjectInstancesAsync(int nodeId, string objectInstanceDefinition, Filter filter)
         {
-            throw new NotImplementedException();
+            return this.GetObjectInstancesAsync(nodeId, objectInstanceDefinition, filter.Value);
         }
 
         public async Task<Model> GetObjectModelAsync(int nodeId, string objectName = null)

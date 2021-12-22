@@ -34,7 +34,7 @@ namespace o2g.Types.TelephonyNS
         public string CallbackId { get; init; }
 
         /// <summary>
-        /// This property represents the pary who has requested the callback.
+        /// This property represents the party who has requested the callback.
         /// </summary>
         /// <value>
         /// A <see cref="PartyInfo"/> class that  represents the originator of the callback request.

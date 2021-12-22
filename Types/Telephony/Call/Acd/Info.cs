@@ -49,7 +49,7 @@ namespace o2g.Types.TelephonyNS.CallNS.AcdNS
         public string AgentGroup { get; set; }
 
         /// <summary>
-        /// Return wetaher it's a local acd call
+        /// Return whether it is a local acd call
         /// </summary>
         /// <value>
         /// <see langword="true"/> if the acd call is local; <see langword="false"/> otherwise.

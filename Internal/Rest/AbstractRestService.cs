@@ -141,7 +141,7 @@ namespace o2g.Internal.Rest
             return null;
         }
 
-        internal async Task<string> DownloadFile(HttpResponseMessage response, String filePath, string extension = null)
+        internal async Task<string> DownloadFile(HttpResponseMessage response, string filePath, string extension = null)
         {
             if (response.IsSuccessStatusCode)
             {
@@ -162,7 +162,7 @@ namespace o2g.Internal.Rest
                     }
                 }
 
-                FileStream fileStream = new FileStream(downloadedFile, FileMode.Create);
+                FileStream fileStream = new(downloadedFile, FileMode.Create);
                 await response.Content.CopyToAsync(fileStream);
 
                 return downloadedFile;

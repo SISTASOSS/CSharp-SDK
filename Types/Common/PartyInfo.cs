@@ -20,17 +20,17 @@
 namespace o2g.Types.CommonNS
 {
     /// <summary>
-    /// Represent a Party involved in a call.
+    /// Represents a party involved in a call.
     /// </summary>
     public class PartyInfo
     {
         /// <summary>
-        /// Represent a type of participant to a call. A participant is identified by its <see cref="MainType"/> type, and by an optional <c>SubType</c>.
+        /// Represents a type of participant to a call. A participant is identified by its <see cref="MainType"/> type, and by an optional <c>SubType</c>.
         /// </summary>
         public class ParticipantType
         {
             /// <summary>
-            /// <c>MainType</c> Represent the main type a participant can be.
+            /// <c>MainType</c> Represents the main type a participant can be.
             /// </summary>
             public enum MainType
             {
@@ -68,7 +68,7 @@ namespace o2g.Types.CommonNS
             /// The SubType gives a supplementary information.
             /// </summary>
             /// <value>
-            /// A <see langword="string"/> that gives this participant sub-type. It can be can contain "pbx", "public", "pre-off-hook", telephony-services", "voicemail", "voice-homepage", "voice-it", "sip".
+            /// A <see langword="string"/> that gives this participant sub-type. It can be "pbx", "public", "pre-off-hook", telephony-services", "voicemail", "voice-homepage", "voice-it", "sip".
             /// </value>
             public string SubType { get; set; }
         }
@@ -79,7 +79,7 @@ namespace o2g.Types.CommonNS
         public class Identifier
         {
             /// <summary>
-            /// The partiicpant login name.
+            /// The participant login name.
             /// </summary>
             /// <value>
             /// A <see langword="string"/> that is this the login name of this participant.
@@ -87,7 +87,7 @@ namespace o2g.Types.CommonNS
             public string LoginName { get; set; }
 
             /// <summary>
-            /// The participant company phone number.
+            /// The participant phone number.
             /// </summary>
             /// <value>
             /// A <see langword="string"/> that is the main phone number of this participant.

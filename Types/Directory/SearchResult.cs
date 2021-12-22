@@ -37,7 +37,7 @@ namespace o2g.Types.DirectoryNS
         public enum Code
         {
             /// <summary>
-            /// Responses are provided this time. Continue to invoking <see cref="IDirectory.GetResultsAsync(string)"/> periodically to get the next ressults.
+            /// Responses are provided this time. Continue to invoking <see cref="IDirectory.GetResultsAsync(string)"/> periodically to get the next results.
             /// </summary>
             [EnumMember(Value = "OK")]
             Ok,
@@ -55,7 +55,7 @@ namespace o2g.Types.DirectoryNS
             Finish,
 
             /// <summary>
-            /// Search is ended for timeout reason
+            /// Search is ended for timeout reason.
             /// </summary>
             [EnumMember(Value = "TIMEOUT")]
             Timeout

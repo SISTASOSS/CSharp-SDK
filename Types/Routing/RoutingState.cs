@@ -23,7 +23,7 @@ namespace o2g.Types.RoutingNS
     /// <c>RoutingState</c> represente a user routing state. 
     /// <para>A routing state is composed of four elements</para>
     /// <list type="table">
-    /// <item><term>Remote extension activation</term><description>When th euser is configured with a remote extension, he has the possibility to activate or deactivate this remote extension. when the remote extension is de-activated, call are not presented on the mobile device.</description></item>
+    /// <item><term>Remote extension activation</term><description>When the user is configured with a remote extension, he has the possibility to activate or deactivate this remote extension. when the remote extension is de-activated, call are not presented on the mobile device.</description></item>
     /// <item><term>Forward</term><description>The user can configure a forward, on his voice mail if any or on any other number (depending on the cOmniPCX Enterprise configuration).</description></item>
     /// <item><term>Overflow</term><description>The user can configure an overflow on his asociate or on his voce mail. If a forward is configured, it is considered prio the overflow.</description></item>
     /// <item><term>Do Not Disturb</term><description>When Do Not Disturb (DND) is activated, call are not presented to the user.</description></item>
