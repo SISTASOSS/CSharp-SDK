@@ -75,7 +75,7 @@ namespace o2g.Internal.Rest
             Uri uriPost = uri.Append("dnd");
             if (loginName != null)
             {
-                uriPost = uriPost.Append(loginName);
+                uriPost = uriPost.AppendQuery("loginName", loginName);
             }
 
             HttpResponseMessage response = await httpClient.PostAsync(uriPost, null);
@@ -111,7 +111,7 @@ namespace o2g.Internal.Rest
             Uri uriPost = uri.Append("forwardroute");
             if (loginName != null)
             {
-                uriPost = uriPost.Append(loginName);
+                uriPost = uriPost.AppendQuery("loginName", loginName);
             }
 
             O2GObjSetForwardRouteRequest req = new()
@@ -131,7 +131,7 @@ namespace o2g.Internal.Rest
             Uri uriPost = uri.Append("forwardroute");
             if (loginName != null)
             {
-                uriPost = uriPost.Append(loginName);
+                uriPost = uriPost.AppendQuery(loginName);
             }
 
             O2GObjSetForwardRouteRequest req = new()
@@ -213,7 +213,7 @@ namespace o2g.Internal.Rest
             Uri uriPost = uri;
             if (loginName != null)
             {
-                uriPost = uriPost.Append(loginName);
+                uriPost = uriPost.AppendQuery("loginName", loginName);
             }
 
             O2GObjSetRouteRequest req = new()
@@ -291,7 +291,7 @@ namespace o2g.Internal.Rest
             Uri uriPost = uri.Append("overflowroute");
             if (loginName != null)
             {
-                uriPost = uriPost.Append(loginName);
+                uriPost = uriPost.AppendQuery("loginName", loginName);
             }
 
             O2GObjSetOverflowRouteRequest req = new()
@@ -312,7 +312,7 @@ namespace o2g.Internal.Rest
             Uri uriPost = uri.Append("overflowroute");
             if (loginName != null)
             {
-                uriPost = uriPost.Append(loginName);
+                uriPost = uriPost.AppendQuery("loginName", loginName);
             }
 
             O2GObjSetOverflowRouteRequest req = new()
