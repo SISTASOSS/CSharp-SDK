@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>o2g</name>
+        <name>o2g-sdk</name>
     </assembly>
     <members>
         <member name="T:o2g.Events.CallCenterAgent.OnAgentStateChangedEvent">

@@ -145,7 +145,7 @@ namespace o2g
 
             private HostManager _hostManager = null;
 
-            private Session _session;
+            private Session _session = null;
             private readonly EventHandlers _eventHandlers = new();
 
             /// <summary>
@@ -222,7 +222,11 @@ namespace o2g
             /// </summary>
             public async Task ShutdownAsync()
             {
-                await _session.Close();
+                // session can be null if the login has failed.
+                if (_session != null)
+                {
+                    await _session.Close();
+                }
             }
 
             // Apply the connection policy and try to connect on provided hosts
