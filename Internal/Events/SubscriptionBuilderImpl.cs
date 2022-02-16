@@ -29,21 +29,42 @@ namespace o2g.Internal.Events
 
         private OnEvent defaultEventHandler;
 
-        public IBuilder AddCallCenterAgentEvents()
+        public IBuilder AddCallCenterAgentEvents(string[] ids)
         {
-            _filter.Add(EventPackage.Agent);
+            if (ids == null)
+            {
+                _filter.Add(EventPackage.Agent);
+            }
+            else
+            {
+                _filter.Add(ids, EventPackage.Agent);
+            }
             return this;
         }
 
-        public IBuilder AddCallCenterRsiEvents()
+        public IBuilder AddCallCenterRsiEvents(string[] ids)
         {
-            _filter.Add(EventPackage.Rsi);
+            if (ids == null)
+            {
+                _filter.Add(EventPackage.Rsi);
+            }
+            else
+            {
+                _filter.Add(ids, EventPackage.Rsi);
+            }
             return this;
         }
 
-        public IBuilder AddCommunicationLogEvents()
+        public IBuilder AddCommunicationLogEvents(string[] ids)
         {
-            _filter.Add(EventPackage.CommunicationLog);
+            if (ids == null)
+            {
+                _filter.Add(EventPackage.CommunicationLog);
+            }
+            else
+            {
+                _filter.Add(ids, EventPackage.CommunicationLog);
+            }
             return this;
         }
 
@@ -53,9 +74,16 @@ namespace o2g.Internal.Events
             return this;
         }
 
-        public IBuilder AddEventSummaryEvents()
+        public IBuilder AddEventSummaryEvents(string[] ids)
         {
-            _filter.Add(EventPackage.EventSummary);
+            if (ids == null)
+            {
+                _filter.Add(EventPackage.EventSummary);
+            }
+            else
+            {
+                _filter.Add(ids, EventPackage.EventSummary);
+            }
             return this;
         }
 
@@ -71,15 +99,29 @@ namespace o2g.Internal.Events
             return this;
         }
 
-        public IBuilder AddRoutingEvents()
+        public IBuilder AddRoutingEvents(string[] ids)
         {
-            _filter.Add(EventPackage.Routing);
+            if (ids == null)
+            {
+                _filter.Add(EventPackage.Routing);
+            }
+            else
+            {
+                _filter.Add(ids, EventPackage.Routing);
+            }
             return this;
         }
 
-        public IBuilder AddTelephonyEvents()
+        public IBuilder AddTelephonyEvents(string[] ids)
         {
-            _filter.Add(EventPackage.Telephony);
+            if (ids == null)
+            {
+                _filter.Add(EventPackage.Telephony);
+            }
+            else
+            {
+                _filter.Add(ids, EventPackage.Telephony);
+            }
             return this;
         }
         public Subscription Build()

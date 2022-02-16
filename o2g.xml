@@ -4174,11 +4174,21 @@
             <c>EventFilter</c> represents a filter used to subscribe to O2G events.
             </summary>
         </member>
+        <member name="M:o2g.Subscription.EventFilter.Add(System.String[],o2g.Events.EventPackage)">
+            <summary>
+            Add the specified eventPackage to the subscription.
+            </summary>
+            <param name="ids">The id to filter on.</param>
+            <param name="eventPackage">The event package.</param>
+            <returns>
+            The <see cref="T:o2g.Subscription.EventFilter"/> this event package has been added to.
+            </returns>
+        </member>
         <member name="M:o2g.Subscription.EventFilter.Add(o2g.Events.EventPackage)">
             <summary>
             Add the specified eventPackage to the subscription.
             </summary>
-            <param name="evenPackage">The event package.</param>
+            <param name="eventPackage">The event package.</param>
             <returns>
             The <see cref="T:o2g.Subscription.EventFilter"/> this event package has been added to.
             </returns>
@@ -4237,10 +4247,11 @@
             The <c>IBuilder</c> interface provides methods to easily build a subscription.
             </summary>
         </member>
-        <member name="M:o2g.Subscription.IBuilder.AddRoutingEvents">
+        <member name="M:o2g.Subscription.IBuilder.AddRoutingEvents(System.String[])">
             <summary>
             Add the routing events to this subscription.
             </summary>
+            <param name="ids">The Ids to filter events on.</param>
             <returns>
             The <see cref="T:o2g.Subscription.IBuilder"/> object to chain the build.
             </returns>
@@ -4256,10 +4267,11 @@
             </para>
             </remarks>
         </member>
-        <member name="M:o2g.Subscription.IBuilder.AddCallCenterRsiEvents">
+        <member name="M:o2g.Subscription.IBuilder.AddCallCenterRsiEvents(System.String[])">
             <summary>
             Add the rsi events to this subscription.
             </summary>
+            <param name="ids">The Ids to filter events on.</param>
             <returns>
             The <see cref="T:o2g.Subscription.IBuilder"/> object to chain the build.
             </returns>
@@ -4279,10 +4291,11 @@
             </para>
             </remarks>
         </member>
-        <member name="M:o2g.Subscription.IBuilder.AddTelephonyEvents">
+        <member name="M:o2g.Subscription.IBuilder.AddTelephonyEvents(System.String[])">
             <summary>
             Add the telephony events to this subscription.
             </summary>
+            <param name="ids">The Ids to filter events on.</param>
             <returns>
             The <see cref="T:o2g.Subscription.IBuilder"/> object to chain the build.
             </returns>
@@ -4303,10 +4316,11 @@
             </para>
             </remarks>
         </member>
-        <member name="M:o2g.Subscription.IBuilder.AddEventSummaryEvents">
+        <member name="M:o2g.Subscription.IBuilder.AddEventSummaryEvents(System.String[])">
             <summary>
             Add the event summary events to this subscription.
             </summary>
+            <param name="ids">The Ids to filter events on.</param>
             <returns>
             The <see cref="T:o2g.Subscription.IBuilder"/> object to chain the build.
             </returns>
@@ -4322,10 +4336,11 @@
             </para>
             </remarks>
         </member>
-        <member name="M:o2g.Subscription.IBuilder.AddCommunicationLogEvents">
+        <member name="M:o2g.Subscription.IBuilder.AddCommunicationLogEvents(System.String[])">
             <summary>
             Add the communication log events to this subscription.
             </summary>
+            <param name="ids">The Ids to filter events on.</param>
             <returns>
             The <see cref="T:o2g.Subscription.IBuilder"/> object to chain the build.
             </returns>
@@ -4345,10 +4360,11 @@
             </para>
             </remarks>
         </member>
-        <member name="M:o2g.Subscription.IBuilder.AddCallCenterAgentEvents">
+        <member name="M:o2g.Subscription.IBuilder.AddCallCenterAgentEvents(System.String[])">
             <summary>
             Add the call center agent events to this subscription.
             </summary>
+            <param name="ids">The Ids to filter events on.</param>
             <returns>
             The <see cref="T:o2g.Subscription.IBuilder"/> object to chain the build.
             </returns>

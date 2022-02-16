@@ -143,6 +143,7 @@ namespace o2g
             {
                 return Add(new[] { id }, new[] { name });
             }
+
             private EventFilter Add(string id, EventPackage eventPackage)
             {
                 return Add(id, eventPackage.Value);
@@ -156,13 +157,26 @@ namespace o2g
             /// <summary>
             /// Add the specified eventPackage to the subscription.
             /// </summary>
-            /// <param name="evenPackage">The event package.</param>
+            /// <param name="ids">The id to filter on.</param>
+            /// <param name="eventPackage">The event package.</param>
             /// <returns>
             /// The <see cref="EventFilter"/> this event package has been added to.
             /// </returns>
-            public EventFilter Add(EventPackage evenPackage)
+            public EventFilter Add(string[] ids, EventPackage eventPackage)
             {
-                return Add(evenPackage.Value);
+                return Add(ids, new[] { eventPackage.Value });
+            }
+
+            /// <summary>
+            /// Add the specified eventPackage to the subscription.
+            /// </summary>
+            /// <param name="eventPackage">The event package.</param>
+            /// <returns>
+            /// The <see cref="EventFilter"/> this event package has been added to.
+            /// </returns>
+            public EventFilter Add(EventPackage eventPackage)
+            {
+                return Add(eventPackage.Value);
             }
         }
 
@@ -231,6 +245,7 @@ namespace o2g
             /// <summary>
             /// Add the routing events to this subscription.
             /// </summary>
+            /// <param name="ids">The Ids to filter events on.</param>
             /// <returns>
             /// The <see cref="IBuilder"/> object to chain the build.
             /// </returns>
@@ -245,11 +260,12 @@ namespace o2g
             /// Subscribing to the routing event requires having a <b>TELEPHONY_ADVANCED</b> license.
             /// </para>
             /// </remarks>
-            IBuilder AddRoutingEvents();
+            IBuilder AddRoutingEvents(string[] ids = null);
 
             /// <summary>
             /// Add the rsi events to this subscription.
             /// </summary>
+            /// <param name="ids">The Ids to filter events on.</param>
             /// <returns>
             /// The <see cref="IBuilder"/> object to chain the build.
             /// </returns>
@@ -268,11 +284,12 @@ namespace o2g
             /// Subscribing to the rsi events requires having a <b>CONTACTCENTER_RSI</b> license.
             /// </para>
             /// </remarks>
-            IBuilder AddCallCenterRsiEvents();
+            IBuilder AddCallCenterRsiEvents(string[] ids = null);
 
             /// <summary>
             /// Add the telephony events to this subscription.
             /// </summary>
+            /// <param name="ids">The Ids to filter events on.</param>
             /// <returns>
             /// The <see cref="IBuilder"/> object to chain the build.
             /// </returns>
@@ -292,11 +309,12 @@ namespace o2g
             /// Subscribing to the telephony events requires having a <b>TELEPHONY_ADVANCED</b> license.
             /// </para>
             /// </remarks>
-            IBuilder AddTelephonyEvents();
+            IBuilder AddTelephonyEvents(string[] ids = null);
 
             /// <summary>
             /// Add the event summary events to this subscription.
             /// </summary>
+            /// <param name="ids">The Ids to filter events on.</param>
             /// <returns>
             /// The <see cref="IBuilder"/> object to chain the build.
             /// </returns>
@@ -311,11 +329,12 @@ namespace o2g
             /// Subscribing to the event summary events requires having a <b>TELEPHONY_ADVANCED</b> license.
             /// </para>
             /// </remarks>
-            IBuilder AddEventSummaryEvents();
+            IBuilder AddEventSummaryEvents(string[] ids = null);
 
             /// <summary>
             /// Add the communication log events to this subscription.
             /// </summary>
+            /// <param name="ids">The Ids to filter events on.</param>
             /// <returns>
             /// The <see cref="IBuilder"/> object to chain the build.
             /// </returns>
@@ -334,12 +353,13 @@ namespace o2g
             /// Subscribing to the communication log events requires having a <b>TELEPHONY_ADVANCED</b> license.
             /// </para>
             /// </remarks>
-            IBuilder AddCommunicationLogEvents();
+            IBuilder AddCommunicationLogEvents(string[] ids = null);
 
 
             /// <summary>
             /// Add the call center agent events to this subscription.
             /// </summary>
+            /// <param name="ids">The Ids to filter events on.</param>
             /// <returns>
             /// The <see cref="IBuilder"/> object to chain the build.
             /// </returns>
@@ -354,7 +374,7 @@ namespace o2g
             /// Subscribing to the call center agent events requires having a <b>CONTACTCENTER_AGENT</b> license.
             /// </para>
             /// </remarks>
-            IBuilder AddCallCenterAgentEvents();
+            IBuilder AddCallCenterAgentEvents(string[] ids = null);
 
             /// <summary>
             /// Add the pbx management events to this subscription.
