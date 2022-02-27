@@ -243,7 +243,7 @@ namespace o2g.Internal.Rest
             var json = JsonSerializer.Serialize(req, serializeOptions);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-            HttpResponseMessage response = await httpClient.PostAsync(uri.Append(AssertUtil.NotNullOrEmpty(callRef, "callRef"), "alternate"), content);
+            HttpResponseMessage response = await httpClient.PostAsync(uri.Append("calls", AssertUtil.NotNullOrEmpty(callRef, "callRef"), "alternate"), content);
             return await IsSucceeded(response);
         }
 
@@ -257,7 +257,7 @@ namespace o2g.Internal.Rest
             var json = JsonSerializer.Serialize(req, serializeOptions);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-            HttpResponseMessage response = await httpClient.PostAsync(uri.Append(AssertUtil.NotNullOrEmpty(callRef, "callRef"), "answer"), content);
+            HttpResponseMessage response = await httpClient.PostAsync(uri.Append("calls", AssertUtil.NotNullOrEmpty(callRef, "callRef"), "answer"), content);
             return await IsSucceeded(response);
         }
 
@@ -272,7 +272,7 @@ namespace o2g.Internal.Rest
             var json = JsonSerializer.Serialize(req, serializeOptions);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-            HttpResponseMessage response = await httpClient.PostAsync(uri.Append(AssertUtil.NotNullOrEmpty(callRef, "callRef"), "attachdata"), content);
+            HttpResponseMessage response = await httpClient.PostAsync(uri.Append("calls", AssertUtil.NotNullOrEmpty(callRef, "callRef"), "attachdata"), content);
             return await IsSucceeded(response);
         }
 
