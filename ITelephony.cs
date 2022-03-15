@@ -711,6 +711,23 @@ namespace o2g
         /// <returns><see langword="true"/> in case of success; <see langword="false"/> otherwise.</returns>
         Task<bool> PickUpAsync(string deviceId, string otherCallRef, string otherPhoneNumber, bool autoAnswer = false);
 
+
+        /// <summary>
+        /// Intrusion in the active call of a called user.
+        /// </summary>
+        /// <param name="deviceId">The device phone number.</param>
+        /// <returns><see langword="true"/> in case of success; <see langword="false"/> otherwise.</returns>
+        /// <remarks>
+        /// <para>
+        /// No parameter is required to invoke the intrusion: it only depends on the current capability intrusion of the current device. 
+        /// It is based on the fact that the current device must be in releasing state while calling a user which is in busy call with another user, 
+        /// the current device has the intrusion capability and the 2 users engaged in the call have the capability to allow intrusion.
+        /// </para>
+        /// <para>Available from O2G 2.4</para>
+        /// </remarks>
+        Task<bool> IntrusionAsync(string deviceId);
+
+
         /// <summary>
         /// UnPark a call from a target device.
         /// </summary>

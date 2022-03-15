@@ -688,7 +688,7 @@ namespace o2g.Internal.Rest
 
         public async Task<bool> ParkAsync(string callRef, string parkTo, string loginName)
         {
-            Uri uriPost = uri.Append("calls", AssertUtil.NotNullOrEmpty(callRef, "callRef"), "parck");
+            Uri uriPost = uri.Append("calls", AssertUtil.NotNullOrEmpty(callRef, "callRef"), "park");
             if (loginName != null)
             {
                 uriPost = uriPost.AppendQuery("loginName", loginName);
@@ -708,6 +708,8 @@ namespace o2g.Internal.Rest
 
         public async Task<bool> PickUpAsync(string deviceId, string otherCallRef, string otherPhoneNumber, bool autoAnswer)
         {
+            Uri uriPost = uri.Append("devices", AssertUtil.NotNullOrEmpty(deviceId, "deviceId"), "pickup");
+
             PickupRequest req = new()
             {
                 OtherCallRef = AssertUtil.NotNullOrEmpty(otherCallRef, "otherCallRef"),
@@ -718,9 +720,19 @@ namespace o2g.Internal.Rest
             var json = JsonSerializer.Serialize(req, serializeOptions);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-            HttpResponseMessage response = await httpClient.PostAsync(uri, content);
+            HttpResponseMessage response = await httpClient.PostAsync(uriPost, content);
             return await IsSucceeded(response);
         }
+
+
+        public async Task<bool> IntrusionAsync(string deviceId)
+        {
+            Uri uriPost = uri.Append("devices", AssertUtil.NotNullOrEmpty(deviceId, "deviceId"), "intrusion");
+
+            HttpResponseMessage response = await httpClient.PostAsync(uriPost, null);
+            return await IsSucceeded(response);
+        }
+
 
         public async Task<HuntingGroups> QueryHuntingGroupsAsync(string loginName)
         {
@@ -919,7 +931,7 @@ namespace o2g.Internal.Rest
 
         public async Task<bool> UnParkAsync(string deviceId, string heldCallRef)
         {
-            Uri uriPost = uri.Append("devices", AssertUtil.NotNullOrEmpty(deviceId, "deviceId"));
+            Uri uriPost = uri.Append("devices", AssertUtil.NotNullOrEmpty(deviceId, "deviceId"), "unpark");
 
             HeldCallRefRequest req = new()
             {

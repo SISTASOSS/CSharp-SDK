@@ -52,6 +52,15 @@ namespace o2g.Types.TelephonyNS
         public bool Intruded { get; init; }
 
         /// <summary>
+        /// Return whether it is possible to make intrusion on the user called through this call.
+        /// </summary>
+        /// <value>
+        /// <see langword="true"/> if the intrusion is possible; <see langword="false"/> otherwise.
+        /// </value>
+        /// <remarks>Available from O2G 2.4</remarks>
+        public bool Intrusion { get; init; }
+
+        /// <summary>
         /// Return whether the call can be transferred.
         /// </summary>
         /// <value>
