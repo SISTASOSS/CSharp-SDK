@@ -10,7 +10,7 @@ To connect to an O2G server, you create an O2G application, use your credential 
 Use the package manager to install o2g-sdk.
 
 ```bash
-Install-Package o2g-sdk -Version 1.0.3
+Install-Package o2g-sdk -Version 1.1.0
 ```
 
 ## Usage
