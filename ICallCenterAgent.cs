@@ -306,6 +306,40 @@ namespace o2g
         Task<bool> RequestSnaphotAsync(string loginName = null);
 
         /// <summary>
+        /// Activate a list of skills for this agent.
+        /// </summary>
+        /// <param name="skillNumbers">The list of skill to activate.</param>
+        /// <param name="loginName">The agent login name.</param>
+        /// <returns><see langword="true"/> in case of success; <see langword="false"/> otherwise.</returns>
+        /// <remarks>
+        /// <para>
+        /// Skills are referenced by their numbers. <see cref="AgentSkill"/>.
+        /// </para>
+        /// <para>
+        /// If the session has been opened for a user, the <c>loginName</c> parameter is ignored, 
+        /// but it is mandatory if the session has been opened by an administrator.
+        /// </para>
+        /// </remarks>
+        Task<bool> ActivateSkillAsync(List<int> skillNumbers, string loginName = null);
+
+        /// <summary>
+        /// Deactivate a list of skills for this agent.
+        /// </summary>
+        /// <param name="skillNumbers">The list of skill to deactivate.</param>
+        /// <param name="loginName">The agent login name.</param>
+        /// <returns><see langword="true"/> in case of success; <see langword="false"/> otherwise.</returns>
+        /// <remarks>
+        /// <para>
+        /// Skills are referenced by their numbers. <see cref="AgentSkill"/>.
+        /// </para>
+        /// <para>
+        /// If the session has been opened for a user, the <c>loginName</c> parameter is ignored, 
+        /// but it is mandatory if the session has been opened by an administrator.
+        /// </para>
+        /// </remarks>
+        Task<bool> DeactivateSkillAsync(List<int> skillNumbers, string loginName = null);
+
+        /// <summary>
         /// Return the list of withdraw reason for the specified processing group.
         /// </summary>
         /// <param name="pgNumber">The agent processing group number.</param>

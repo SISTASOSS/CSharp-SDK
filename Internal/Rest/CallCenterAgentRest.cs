@@ -33,6 +33,12 @@ using System.Threading.Tasks;
 
 namespace o2g.Internal.Rest
 {
+    class AgentSkillActivation
+    {
+        public List<int> Skills { get; set; }
+    }
+
+
     class LoggOnAgentRequest 
     {
         public string ProAcdDeviceNumber { get; set; }
@@ -394,5 +400,44 @@ namespace o2g.Internal.Rest
             return await IsSucceeded(response);
         }
 
+        public async Task<bool> ActivateSkillAsync(List<int> skillNumbers, string loginName = null)
+        {
+            Uri uriPost = uri.Append("config/skills/activate");
+            if (loginName != null)
+            {
+                uriPost = uriPost.AppendQuery("loginName", loginName);
+            }
+
+            AgentSkillActivation req = new()
+            {
+                Skills = skillNumbers
+            };
+
+            var json = JsonSerializer.Serialize(req, serializeOptions);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            HttpResponseMessage response = await httpClient.PostAsync(uriPost, content);
+            return await IsSucceeded(response);
+        }
+
+        public async Task<bool> DeactivateSkillAsync(List<int> skillNumbers, string loginName = null)
+        {
+            Uri uriPost = uri.Append("config/skills/deactivate");
+            if (loginName != null)
+            {
+                uriPost = uriPost.AppendQuery("loginName", loginName);
+            }
+
+            AgentSkillActivation req = new()
+            {
+                Skills = skillNumbers
+            };
+
+            var json = JsonSerializer.Serialize(req, serializeOptions);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            HttpResponseMessage response = await httpClient.PostAsync(uriPost, content);
+            return await IsSucceeded(response);
+        }
     }
 }
