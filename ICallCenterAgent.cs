@@ -313,7 +313,8 @@ namespace o2g
         /// <returns><see langword="true"/> in case of success; <see langword="false"/> otherwise.</returns>
         /// <remarks>
         /// <para>
-        /// Skills are referenced by their numbers. <see cref="AgentSkill"/>.
+        /// Skills are referenced by their numbers. <see cref="AgentSkill"/>. This method return <see langword="true"/> whatever the skill numbers passed. 
+        /// Only valid skills are considered.
         /// </para>
         /// <para>
         /// If the session has been opened for a user, the <c>loginName</c> parameter is ignored, 
@@ -330,7 +331,8 @@ namespace o2g
         /// <returns><see langword="true"/> in case of success; <see langword="false"/> otherwise.</returns>
         /// <remarks>
         /// <para>
-        /// Skills are referenced by their numbers. <see cref="AgentSkill"/>.
+        /// Skills are referenced by their numbers. <see cref="AgentSkill"/>. This method return <see langword="true"/> whatever the skill numbers passed. 
+        /// Only valid skills are considered.
         /// </para>
         /// <para>
         /// If the session has been opened for a user, the <c>loginName</c> parameter is ignored, 

@@ -1339,6 +1339,40 @@
             <seealso cref="M:o2g.ICallCenterAgent.GetOperatorStateAsync(System.String)"/>
             <seealso cref="T:o2g.Types.CallCenterAgentNS.OperatorState"/>
         </member>
+        <member name="M:o2g.ICallCenterAgent.ActivateSkillAsync(System.Collections.Generic.List{System.Int32},System.String)">
+            <summary>
+            Activate a list of skills for this agent.
+            </summary>
+            <param name="skillNumbers">The list of skill to activate.</param>
+            <param name="loginName">The agent login name.</param>
+            <returns><see langword="true"/> in case of success; <see langword="false"/> otherwise.</returns>
+            <remarks>
+            <para>
+            Skills are referenced by their numbers. <see cref="T:o2g.Types.CallCenterAgentNS.AgentSkill"/>.
+            </para>
+            <para>
+            If the session has been opened for a user, the <c>loginName</c> parameter is ignored, 
+            but it is mandatory if the session has been opened by an administrator.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:o2g.ICallCenterAgent.DeactivateSkillAsync(System.Collections.Generic.List{System.Int32},System.String)">
+            <summary>
+            Deactivate a list of skills for this agent.
+            </summary>
+            <param name="skillNumbers">The list of skill to deactivate.</param>
+            <param name="loginName">The agent login name.</param>
+            <returns><see langword="true"/> in case of success; <see langword="false"/> otherwise.</returns>
+            <remarks>
+            <para>
+            Skills are referenced by their numbers. <see cref="T:o2g.Types.CallCenterAgentNS.AgentSkill"/>.
+            </para>
+            <para>
+            If the session has been opened for a user, the <c>loginName</c> parameter is ignored, 
+            but it is mandatory if the session has been opened by an administrator.
+            </para>
+            </remarks>
+        </member>
         <member name="M:o2g.ICallCenterAgent.GetWithdrawReasonsAsync(System.String,System.String)">
             <summary>
             Return the list of withdraw reason for the specified processing group.
