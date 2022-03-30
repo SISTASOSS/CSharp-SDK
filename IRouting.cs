@@ -51,8 +51,8 @@ namespace o2g
     /// </para>
     /// <para>
     /// <h3>Overflow:</h3>
-    /// An overflow can be activated on the voice mail or on the associated user (if any). Use one of the methods:
-    /// <see cref="OverflowOnAssociateAsync(Overflow.OverflowCondition, string)"/> or <see cref="OverflowOnVoiceMailAsync(Overflow.OverflowCondition, string)"/> to activate an overflow.
+    /// An overflow can be activated on the voice mail (if any). Use the methods:
+    /// <see cref="OverflowOnVoiceMailAsync(Overflow.OverflowCondition, string)"/> to activate an overflow.
     /// </para>
     /// <para>
     /// A <see cref="Overflow.Condition"/> can be associated to the overflow:
@@ -284,22 +284,22 @@ namespace o2g
         /// </remarks>
         Task<bool> OverflowOnVoiceMailAsync(Overflow.OverflowCondition condition, string loginName = null);
 
-        /// <summary>
-        /// Activate an overflow on the user associate with the specified condition.
-        /// </summary>
-        /// <param name="condition">The overflow condition.</param>
-        /// <param name="loginName">The user login name.</param>
-        /// <returns><see langword="true"/> in case of success; <see langword="false"/> otherwise</returns>
-        /// <remarks>
-        /// <para>
-        /// If an overflow was already activated, it is replaced by the new forward.
-        /// </para>
-        /// <para>
-        /// If the session has been opened for a user, the <c>loginName</c> parameter is ignored, 
-        /// but it is mandatory if the session has been opened by an administrator.
-        /// </para>
-        /// </remarks>
-        Task<bool> OverflowOnAssociateAsync(Overflow.OverflowCondition condition, string loginName = null);
+        // <summary>
+        // Activate an overflow on the user associate with the specified condition.
+        // </summary>
+        // <param name="condition">The overflow condition.</param>
+        // <param name="loginName">The user login name.</param>
+        // <returns><see langword="true"/> in case of success; <see langword="false"/> otherwise</returns>
+        // <remarks>
+        // <para>
+        // If an overflow was already activated, it is replaced by the new forward.
+        // </para>
+        // <para>
+        // If the session has been opened for a user, the <c>loginName</c> parameter is ignored, 
+        // but it is mandatory if the session has been opened by an administrator.
+        // </para>
+        // </remarks>
+//        Task<bool> OverflowOnAssociateAsync(Overflow.OverflowCondition condition, string loginName = null);
 
         /// <summary>
         /// Get the global routing state of the specified user.

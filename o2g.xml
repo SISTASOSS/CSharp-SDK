@@ -1348,7 +1348,8 @@
             <returns><see langword="true"/> in case of success; <see langword="false"/> otherwise.</returns>
             <remarks>
             <para>
-            Skills are referenced by their numbers. <see cref="T:o2g.Types.CallCenterAgentNS.AgentSkill"/>.
+            Skills are referenced by their numbers. <see cref="T:o2g.Types.CallCenterAgentNS.AgentSkill"/>. This method return <see langword="true"/> whatever the skill numbers passed. 
+            Only valid skills are considered.
             </para>
             <para>
             If the session has been opened for a user, the <c>loginName</c> parameter is ignored, 
@@ -1365,7 +1366,8 @@
             <returns><see langword="true"/> in case of success; <see langword="false"/> otherwise.</returns>
             <remarks>
             <para>
-            Skills are referenced by their numbers. <see cref="T:o2g.Types.CallCenterAgentNS.AgentSkill"/>.
+            Skills are referenced by their numbers. <see cref="T:o2g.Types.CallCenterAgentNS.AgentSkill"/>. This method return <see langword="true"/> whatever the skill numbers passed. 
+            Only valid skills are considered.
             </para>
             <para>
             If the session has been opened for a user, the <c>loginName</c> parameter is ignored, 
@@ -2630,8 +2632,8 @@
             </para>
             <para>
             <h3>Overflow:</h3>
-            An overflow can be activated on the voice mail or on the associated user (if any). Use one of the methods:
-            <see cref="M:o2g.IRouting.OverflowOnAssociateAsync(o2g.Types.RoutingNS.Overflow.OverflowCondition,System.String)"/> or <see cref="M:o2g.IRouting.OverflowOnVoiceMailAsync(o2g.Types.RoutingNS.Overflow.OverflowCondition,System.String)"/> to activate an overflow.
+            An overflow can be activated on the voice mail (if any). Use the methods:
+            <see cref="M:o2g.IRouting.OverflowOnVoiceMailAsync(o2g.Types.RoutingNS.Overflow.OverflowCondition,System.String)"/> to activate an overflow.
             </para>
             <para>
             A <see cref="P:o2g.Types.RoutingNS.Overflow.Condition"/> can be associated to the overflow:
@@ -2848,23 +2850,6 @@
         <member name="M:o2g.IRouting.OverflowOnVoiceMailAsync(o2g.Types.RoutingNS.Overflow.OverflowCondition,System.String)">
             <summary>
             Activate an overflow on the user voicemail with the specified condition.
-            </summary>
-            <param name="condition">The overflow condition.</param>
-            <param name="loginName">The user login name.</param>
-            <returns><see langword="true"/> in case of success; <see langword="false"/> otherwise</returns>
-            <remarks>
-            <para>
-            If an overflow was already activated, it is replaced by the new forward.
-            </para>
-            <para>
-            If the session has been opened for a user, the <c>loginName</c> parameter is ignored, 
-            but it is mandatory if the session has been opened by an administrator.
-            </para>
-            </remarks>
-        </member>
-        <member name="M:o2g.IRouting.OverflowOnAssociateAsync(o2g.Types.RoutingNS.Overflow.OverflowCondition,System.String)">
-            <summary>
-            Activate an overflow on the user associate with the specified condition.
             </summary>
             <param name="condition">The overflow condition.</param>
             <param name="loginName">The user login name.</param>
@@ -8548,12 +8533,6 @@
             </summary>
             <seealso cref="T:o2g.Types.RoutingNS.Overflow"/>
             <seealso cref="T:o2g.Types.RoutingNS.Forward"/>
-        </member>
-        <member name="F:o2g.Types.RoutingNS.Destination.Associate">
-            <summary>
-            The destination is the user associate. This destination can be used only to configure an overflow.
-            </summary>
-            
         </member>
         <member name="F:o2g.Types.RoutingNS.Destination.VoiceMail">
             <summary>

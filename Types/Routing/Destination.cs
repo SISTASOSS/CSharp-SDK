@@ -26,11 +26,11 @@ namespace o2g.Types.RoutingNS
     /// <seealso cref="Forward"/>
     public enum Destination
     {
-        /// <summary>
-        /// The destination is the user associate. This destination can be used only to configure an overflow.
-        /// </summary>
-        /// 
-        Associate, 
+        // <summary>
+        // The destination is the user associate. This destination can be used only to configure an overflow.
+        // </summary>
+        // 
+//        Associate, 
         /// <summary>
         /// The destination is the user voice mail.
         /// </summary>

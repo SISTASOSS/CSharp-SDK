@@ -54,7 +54,7 @@ namespace o2g.Internal.Types.Routing
         {
             if (Type == "NUMBER") return Destination.Number;
             else if (Type == "VOICEMAIL") return Destination.VoiceMail;
-            else if (Type == "ASSOCIATE") return Destination.Associate;
+//            else if (Type == "ASSOCIATE") return Destination.Associate;
             else return Destination.None;
         }
 
