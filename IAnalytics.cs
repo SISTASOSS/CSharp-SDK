@@ -51,7 +51,7 @@ namespace o2g
         /// <returns>
         /// The list of <see cref="ChargingFile"/> that represents the charging files.
         /// </returns>
-        /// <seealso cref="GetChargings(int, List{ChargingFile}, int?, bool)"/>
+        /// <seealso cref="GetChargingsAsync(int, List{ChargingFile}, int?, bool)"/>
         Task<List<ChargingFile>> GetChargingFilesAsync(int nodeId, TimeRange filter = null);
 
         /// <summary>
@@ -75,8 +75,8 @@ namespace o2g
         /// the number of file to process is greater than 100, the method fails and returns <see langword="null"/>. In this case, a smaller range must be specified.
         /// </para>
         /// </remarks>
-        /// <seealso cref="GetChargings(int, List{ChargingFile}, int?, bool)"/>
-        Task<ChargingResult> GetChargings(int nodeId, TimeRange filter = null, int? topResults = null, bool all = false);
+        /// <seealso cref="GetChargingsAsync(int, List{ChargingFile}, int?, bool)"/>
+        Task<ChargingResult> GetChargingsAsync(int nodeId, TimeRange filter = null, int? topResults = null, bool all = false);
 
 
         /// <summary>
@@ -101,7 +101,7 @@ namespace o2g
         /// </para>
         /// </remarks>
         /// <see cref="GetChargingFilesAsync(int, TimeRange)"/>
-        /// <seealso cref="GetChargings(int, TimeRange, int?, bool)"/>
-        Task<ChargingResult> GetChargings(int nodeId, List<ChargingFile> files, int? topResults = null, bool all = false);
+        /// <seealso cref="GetChargingsAsync(int, TimeRange, int?, bool)"/>
+        Task<ChargingResult> GetChargingsAsync(int nodeId, List<ChargingFile> files, int? topResults = null, bool all = false);
     }
 }

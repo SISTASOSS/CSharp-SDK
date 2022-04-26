@@ -1010,9 +1010,9 @@
             <returns>
             The list of <see cref="T:o2g.Types.AnalyticsNS.ChargingFile"/> that represents the charging files.
             </returns>
-            <seealso cref="M:o2g.IAnalytics.GetChargings(System.Int32,System.Collections.Generic.List{o2g.Types.AnalyticsNS.ChargingFile},System.Nullable{System.Int32},System.Boolean)"/>
+            <seealso cref="M:o2g.IAnalytics.GetChargingsAsync(System.Int32,System.Collections.Generic.List{o2g.Types.AnalyticsNS.ChargingFile},System.Nullable{System.Int32},System.Boolean)"/>
         </member>
-        <member name="M:o2g.IAnalytics.GetChargings(System.Int32,o2g.Types.AnalyticsNS.TimeRange,System.Nullable{System.Int32},System.Boolean)">
+        <member name="M:o2g.IAnalytics.GetChargingsAsync(System.Int32,o2g.Types.AnalyticsNS.TimeRange,System.Nullable{System.Int32},System.Boolean)">
             <summary>
             Query the charging information for the specified node, using the specified options.
             </summary>
@@ -1034,9 +1034,9 @@
             the number of file to process is greater than 100, the method fails and returns <see langword="null"/>. In this case, a smaller range must be specified.
             </para>
             </remarks>
-            <seealso cref="M:o2g.IAnalytics.GetChargings(System.Int32,System.Collections.Generic.List{o2g.Types.AnalyticsNS.ChargingFile},System.Nullable{System.Int32},System.Boolean)"/>
+            <seealso cref="M:o2g.IAnalytics.GetChargingsAsync(System.Int32,System.Collections.Generic.List{o2g.Types.AnalyticsNS.ChargingFile},System.Nullable{System.Int32},System.Boolean)"/>
         </member>
-        <member name="M:o2g.IAnalytics.GetChargings(System.Int32,System.Collections.Generic.List{o2g.Types.AnalyticsNS.ChargingFile},System.Nullable{System.Int32},System.Boolean)">
+        <member name="M:o2g.IAnalytics.GetChargingsAsync(System.Int32,System.Collections.Generic.List{o2g.Types.AnalyticsNS.ChargingFile},System.Nullable{System.Int32},System.Boolean)">
             <summary>
             Query the charging information for the specified node, using the specified options.
             </summary>
@@ -1059,7 +1059,7 @@
             </para>
             </remarks>
             <see cref="M:o2g.IAnalytics.GetChargingFilesAsync(System.Int32,o2g.Types.AnalyticsNS.TimeRange)"/>
-            <seealso cref="M:o2g.IAnalytics.GetChargings(System.Int32,o2g.Types.AnalyticsNS.TimeRange,System.Nullable{System.Int32},System.Boolean)"/>
+            <seealso cref="M:o2g.IAnalytics.GetChargingsAsync(System.Int32,o2g.Types.AnalyticsNS.TimeRange,System.Nullable{System.Int32},System.Boolean)"/>
         </member>
         <member name="T:o2g.ICallCenterAgent">
             <summary>
@@ -4601,8 +4601,8 @@
             <remarks>
             This information is provided only if the query has been done with the <c>all</c> option.
             </remarks>
-            <seealso cref="M:o2g.IAnalytics.GetChargings(System.Int32,System.Collections.Generic.List{o2g.Types.AnalyticsNS.ChargingFile},System.Nullable{System.Int32},System.Boolean)"/>
-            <seealso cref="M:o2g.IAnalytics.GetChargings(System.Int32,o2g.Types.AnalyticsNS.TimeRange,System.Nullable{System.Int32},System.Boolean)"/>
+            <seealso cref="!:IAnalytics.GetChargings(int, List&lt;ChargingFile&gt;, int?, bool)"/>
+            <seealso cref="!:IAnalytics.GetChargings(int, TimeRange, int?, bool)"/>
         </member>
         <member name="P:o2g.Types.AnalyticsNS.Charging.InitialDialedNumber">
             <summary>
@@ -4614,8 +4614,8 @@
             <remarks>
             This information is provided only if the query has been done with the <c>all</c> option.
             </remarks>
-            <seealso cref="M:o2g.IAnalytics.GetChargings(System.Int32,System.Collections.Generic.List{o2g.Types.AnalyticsNS.ChargingFile},System.Nullable{System.Int32},System.Boolean)"/>
-            <seealso cref="M:o2g.IAnalytics.GetChargings(System.Int32,o2g.Types.AnalyticsNS.TimeRange,System.Nullable{System.Int32},System.Boolean)"/>
+            <seealso cref="!:IAnalytics.GetChargings(int, List&lt;ChargingFile&gt;, int?, bool)"/>
+            <seealso cref="!:IAnalytics.GetChargings(int, TimeRange, int?, bool)"/>
         </member>
         <member name="P:o2g.Types.AnalyticsNS.Charging.CallNumber">
             <summary>
@@ -4627,8 +4627,8 @@
             <remarks>
             This information is provided only if the query has been done with the <c>all</c> option.
             </remarks>
-            <seealso cref="M:o2g.IAnalytics.GetChargings(System.Int32,System.Collections.Generic.List{o2g.Types.AnalyticsNS.ChargingFile},System.Nullable{System.Int32},System.Boolean)"/>
-            <seealso cref="M:o2g.IAnalytics.GetChargings(System.Int32,o2g.Types.AnalyticsNS.TimeRange,System.Nullable{System.Int32},System.Boolean)"/>
+            <seealso cref="!:IAnalytics.GetChargings(int, List&lt;ChargingFile&gt;, int?, bool)"/>
+            <seealso cref="!:IAnalytics.GetChargings(int, TimeRange, int?, bool)"/>
         </member>
         <member name="P:o2g.Types.AnalyticsNS.Charging.ChargingUnits">
             <summary>
@@ -4640,8 +4640,8 @@
             <remarks>
             This information is provided only if the query has been done with the <c>all</c> option.
             </remarks>
-            <seealso cref="M:o2g.IAnalytics.GetChargings(System.Int32,System.Collections.Generic.List{o2g.Types.AnalyticsNS.ChargingFile},System.Nullable{System.Int32},System.Boolean)"/>
-            <seealso cref="M:o2g.IAnalytics.GetChargings(System.Int32,o2g.Types.AnalyticsNS.TimeRange,System.Nullable{System.Int32},System.Boolean)"/>
+            <seealso cref="!:IAnalytics.GetChargings(int, List&lt;ChargingFile&gt;, int?, bool)"/>
+            <seealso cref="!:IAnalytics.GetChargings(int, TimeRange, int?, bool)"/>
         </member>
         <member name="P:o2g.Types.AnalyticsNS.Charging.Cost">
             <summary>
@@ -4653,8 +4653,8 @@
             <remarks>
             This information is provided only if the query has been done with the <c>all</c> option.
             </remarks>
-            <seealso cref="M:o2g.IAnalytics.GetChargings(System.Int32,System.Collections.Generic.List{o2g.Types.AnalyticsNS.ChargingFile},System.Nullable{System.Int32},System.Boolean)"/>
-            <seealso cref="M:o2g.IAnalytics.GetChargings(System.Int32,o2g.Types.AnalyticsNS.TimeRange,System.Nullable{System.Int32},System.Boolean)"/>
+            <seealso cref="!:IAnalytics.GetChargings(int, List&lt;ChargingFile&gt;, int?, bool)"/>
+            <seealso cref="!:IAnalytics.GetChargings(int, TimeRange, int?, bool)"/>
         </member>
         <member name="P:o2g.Types.AnalyticsNS.Charging.StartDate">
             <summary>
@@ -4666,8 +4666,8 @@
             <remarks>
             This information is provided only if the query has been done with the <c>all</c> option.
             </remarks>
-            <seealso cref="M:o2g.IAnalytics.GetChargings(System.Int32,System.Collections.Generic.List{o2g.Types.AnalyticsNS.ChargingFile},System.Nullable{System.Int32},System.Boolean)"/>
-            <seealso cref="M:o2g.IAnalytics.GetChargings(System.Int32,o2g.Types.AnalyticsNS.TimeRange,System.Nullable{System.Int32},System.Boolean)"/>
+            <seealso cref="!:IAnalytics.GetChargings(int, List&lt;ChargingFile&gt;, int?, bool)"/>
+            <seealso cref="!:IAnalytics.GetChargings(int, TimeRange, int?, bool)"/>
         </member>
         <member name="P:o2g.Types.AnalyticsNS.Charging.Duration">
             <summary>
@@ -4687,8 +4687,8 @@
             <remarks>
             This information is provided only if the query has been done with the <c>all</c> option.
             </remarks>
-            <seealso cref="M:o2g.IAnalytics.GetChargings(System.Int32,System.Collections.Generic.List{o2g.Types.AnalyticsNS.ChargingFile},System.Nullable{System.Int32},System.Boolean)"/>
-            <seealso cref="M:o2g.IAnalytics.GetChargings(System.Int32,o2g.Types.AnalyticsNS.TimeRange,System.Nullable{System.Int32},System.Boolean)"/>
+            <seealso cref="!:IAnalytics.GetChargings(int, List&lt;ChargingFile&gt;, int?, bool)"/>
+            <seealso cref="!:IAnalytics.GetChargings(int, TimeRange, int?, bool)"/>
         </member>
         <member name="P:o2g.Types.AnalyticsNS.Charging.EffectiveCallDuration">
             <summary>
@@ -4716,8 +4716,8 @@
             <remarks>
             This information is provided only if the query has been done with the <c>all</c> option.
             </remarks>
-            <seealso cref="M:o2g.IAnalytics.GetChargings(System.Int32,System.Collections.Generic.List{o2g.Types.AnalyticsNS.ChargingFile},System.Nullable{System.Int32},System.Boolean)"/>
-            <seealso cref="M:o2g.IAnalytics.GetChargings(System.Int32,o2g.Types.AnalyticsNS.TimeRange,System.Nullable{System.Int32},System.Boolean)"/>
+            <seealso cref="!:IAnalytics.GetChargings(int, List&lt;ChargingFile&gt;, int?, bool)"/>
+            <seealso cref="!:IAnalytics.GetChargings(int, TimeRange, int?, bool)"/>
         </member>
         <member name="P:o2g.Types.AnalyticsNS.Charging.ExternalFacilities">
             <summary>
@@ -4729,8 +4729,8 @@
             <remarks>
             This information is provided only if the query has been done with the <c>all</c> option.
             </remarks>
-            <seealso cref="M:o2g.IAnalytics.GetChargings(System.Int32,System.Collections.Generic.List{o2g.Types.AnalyticsNS.ChargingFile},System.Nullable{System.Int32},System.Boolean)"/>
-            <seealso cref="M:o2g.IAnalytics.GetChargings(System.Int32,o2g.Types.AnalyticsNS.TimeRange,System.Nullable{System.Int32},System.Boolean)"/>
+            <seealso cref="!:IAnalytics.GetChargings(int, List&lt;ChargingFile&gt;, int?, bool)"/>
+            <seealso cref="!:IAnalytics.GetChargings(int, TimeRange, int?, bool)"/>
         </member>
         <member name="T:o2g.Types.AnalyticsNS.ChargingFile">
             <summary>
@@ -4757,8 +4757,8 @@
             <summary>
             <c>ChargingResult</c> class represents the result of a query to the OmniPCX Enterprise.
             </summary>
-            <seealso cref="M:o2g.IAnalytics.GetChargings(System.Int32,System.Collections.Generic.List{o2g.Types.AnalyticsNS.ChargingFile},System.Nullable{System.Int32},System.Boolean)"/>
-            <seealso cref="M:o2g.IAnalytics.GetChargings(System.Int32,o2g.Types.AnalyticsNS.TimeRange,System.Nullable{System.Int32},System.Boolean)"/>
+            <seealso cref="!:IAnalytics.GetChargings(int, List&lt;ChargingFile&gt;, int?, bool)"/>
+            <seealso cref="!:IAnalytics.GetChargings(int, TimeRange, int?, bool)"/>
         </member>
         <member name="P:o2g.Types.AnalyticsNS.ChargingResult.Chargings">
             <summary>
@@ -4905,7 +4905,7 @@
             <summary>
             <c>TimeRange</c> represents an interval between two dates. It is used to filter analytics requests
             </summary>
-            <see cref="M:o2g.IAnalytics.GetChargings(System.Int32,o2g.Types.AnalyticsNS.TimeRange,System.Nullable{System.Int32},System.Boolean)"/>
+            <see cref="!:IAnalytics.GetChargings(int, TimeRange, int?, bool)"/>
         </member>
         <member name="P:o2g.Types.AnalyticsNS.TimeRange.from">
             <summary>

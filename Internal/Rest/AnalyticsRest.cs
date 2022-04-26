@@ -128,7 +128,7 @@ namespace o2g.Internal.Rest
             }
         }
 
-        public async Task<ChargingResult> GetChargings(int nodeId, TimeRange filter, int? topResults, bool all)
+        public async Task<ChargingResult> GetChargingsAsync(int nodeId, TimeRange filter, int? topResults, bool all)
         {
             Uri uriGet = uri
                 .Append("charging")
@@ -162,7 +162,7 @@ namespace o2g.Internal.Rest
             }
         }
 
-        public async Task<ChargingResult> GetChargings(int nodeId, List<ChargingFile> files, int? topResults = null, bool all = false)
+        public async Task<ChargingResult> GetChargingsAsync(int nodeId, List<ChargingFile> files, int? topResults = null, bool all = false)
         {
             Uri uriGet = uri
                 .Append("charging")
