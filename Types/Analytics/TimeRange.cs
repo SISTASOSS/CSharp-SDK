@@ -24,7 +24,7 @@ namespace o2g.Types.AnalyticsNS
     /// <summary>
     /// <c>TimeRange</c> represents an interval between two dates. It is used to filter analytics requests
     /// </summary>
-    /// <see cref="IAnalytics.GetChargings(int, TimeRange, int?, bool)"/>
+    /// <see cref="IAnalytics.GetChargingsAsync(int, TimeRange, int?, bool)"/>
     public class TimeRange
     {
         /// <summary>

@@ -23,8 +23,8 @@ namespace o2g.Types.AnalyticsNS
     /// <summary>
     /// <c>ChargingResult</c> class represents the result of a query to the OmniPCX Enterprise.
     /// </summary>
-    /// <seealso cref="IAnalytics.GetChargings(int, List{ChargingFile}, int?, bool)"/>
-    /// <seealso cref="IAnalytics.GetChargings(int, TimeRange, int?, bool)"/>
+    /// <seealso cref="IAnalytics.GetChargingsAsync(int, List{ChargingFile}, int?, bool)"/>
+    /// <seealso cref="IAnalytics.GetChargingsAsync(int, TimeRange, int?, bool)"/>
     public class ChargingResult
     {
         /// <summary>

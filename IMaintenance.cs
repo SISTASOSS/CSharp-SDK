@@ -61,6 +61,6 @@ namespace o2g
         /// <returns>
         /// A <see cref="SystemStatus"/> objects containing system information.
         /// </returns>
-        Task<SystemStatus> GetSystemStatus();
+        Task<SystemStatus> GetSystemStatusAsync();
     }
 }

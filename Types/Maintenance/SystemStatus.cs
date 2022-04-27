@@ -25,7 +25,7 @@ namespace o2g.Types.MaintenanceNS
     /// <summary>
     /// <c>SystemStatus</c> class provide a full status of the O2G server and its connections.
     /// </summary>
-    /// <seealso cref="IMaintenance.GetSystemStatus"/>
+    /// <seealso cref="IMaintenance.GetSystemStatusAsync"/>
     public class SystemStatus
     {
         /// <summary>

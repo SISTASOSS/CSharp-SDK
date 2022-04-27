@@ -60,7 +60,7 @@ namespace o2g.Internal.Rest
 
         }
 
-        public async Task<SystemStatus> GetSystemStatus()
+        public async Task<SystemStatus> GetSystemStatusAsync()
         {
             Uri uriGet = uri.Append("status");
 
