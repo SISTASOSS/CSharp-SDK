@@ -38,7 +38,7 @@ namespace o2g
         /// <returns>
         /// A list of <see cref="Device"/> that represents the user's devices.
         /// </returns>
-        Task<List<Device>> GetDeviceAsync(string loginName);
+        Task<List<Device>> GetDevicesAsync(string loginName);
 
         /// <summary>
         /// Return the specified device.

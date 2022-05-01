@@ -55,7 +55,7 @@ namespace o2g.Internal.Rest
         {
         }
 
-        public async Task<List<Device>> GetDeviceAsync(string loginName)
+        public async Task<List<Device>> GetDevicesAsync(string loginName)
         {
             Uri uriGet = uri.Append(AssertUtil.NotNullOrEmpty(loginName, "loginName"), "devices");
 
