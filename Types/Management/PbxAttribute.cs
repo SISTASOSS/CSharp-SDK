@@ -428,7 +428,6 @@ namespace o2g.Types.ManagementNS
             List<O2GPbxAttribute> listAttr = new();
             if (attr._sequenceMap != null)
             {
-
                 listAttr.AddRange(attr._sequenceMap.Names.Select((name) => new O2GPbxAttribute()
                 {
                     Name = string.Format("{0}.{1}", attr.Name, name),

@@ -46,7 +46,7 @@ namespace o2g.Types.CallCenterRsiNS
         /// <value>
         /// A <see langword="string"/> value that represent the delete digits.
         /// </value>
-        public string backspaceDigits { get; set; }
+        public string BackspaceDigits { get; set; }
 
         /// <summary>
         /// Return the digits used to validate the collection. If the flushChar ECMA3 standard parameter is present, 

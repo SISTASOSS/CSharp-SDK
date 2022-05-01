@@ -117,11 +117,11 @@ namespace o2g.Types.ManagementNS
         public static Filter Create(string attrName, AttributeFilter operation, string value)
         {
             if (operation == AttributeFilter.Equals) return new Filter() { Value = string.Format("{0}=={1}", attrName, value) };
-            else if (operation == AttributeFilter.NotEquals) return new Filter() { Value = string.Format("{0}=!{1}", attrName, value) };
+            else if (operation == AttributeFilter.NotEquals) return new Filter() { Value = string.Format("{0}!={1}", attrName, value) };
             else if (operation == AttributeFilter.StartsWith) return new Filter() { Value = string.Format("{0}=={1}*", attrName, value) };
             else if (operation == AttributeFilter.EndsWith) return new Filter() { Value = string.Format("{0}==*{1}", attrName, value) };
-            else if (operation == AttributeFilter.GreatherThanOrEquals) return new Filter() { Value = string.Format("{0}=ge=*{1}", attrName, value) };
-            else if (operation == AttributeFilter.LessThanOrEquals) return new Filter() { Value = string.Format("{0}=le=*{1}", attrName, value) };
+            else if (operation == AttributeFilter.GreatherThanOrEquals) return new Filter() { Value = string.Format("{0}=ge={1}", attrName, value) };
+            else if (operation == AttributeFilter.LessThanOrEquals) return new Filter() { Value = string.Format("{0}=le={1}", attrName, value) };
             else
             {
                 throw new ArgumentException(string.Format("Unknown operation: {0}", operation));
@@ -136,7 +136,11 @@ namespace o2g.Types.ManagementNS
                 AssertUtil.NotNull<Filter>(filter2, "filter2").Value);
 
             StringBuilder sb = new(result);
-            otherFilters.ForEach(f => sb.Append(string.Format(" {0} {1}", ope, f.Value)));
+
+            if (otherFilters != null)
+            {
+                otherFilters.ForEach(f => sb.Append(string.Format(" {0} {1}", ope, f.Value)));
+            }
 
             return new() { Value = sb.ToString() };
         }

@@ -142,8 +142,5 @@ namespace o2g.Types.ManagementNS
                 }
             };
         }
-
-
-
     }
 }
