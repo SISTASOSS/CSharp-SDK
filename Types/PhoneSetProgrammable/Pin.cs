@@ -50,7 +50,7 @@ namespace o2g.Types.PhoneSetProgrammableNS
             ByCategory, 
 
             /// <summary>
-            /// PIN code is restricted to the users set
+            /// PIN code is restricted to the users set.
             /// </summary>
             RestrictedToOwner, 
 
@@ -60,7 +60,7 @@ namespace o2g.Types.PhoneSetProgrammableNS
             UniversalAccess, 
 
             /// <summary>
-            /// PIN code is limited to specific group
+            /// PIN code is limited to specific group.
             /// </summary>
             ByGroup
         }

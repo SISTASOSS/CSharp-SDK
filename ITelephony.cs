@@ -67,7 +67,7 @@ namespace o2g
         public event EventHandler<O2GEventArgs<OnDeviceStateModifiedEvent>> DeviceStateModified;
 
         /// <summary>
-        /// Occurs when a user's dynamic state change..
+        /// Occurs when a user's dynamic state change.
         /// </summary>
         public event EventHandler<O2GEventArgs<OnDynamicStateChangedEvent>> DynamicStateChanged;
 
@@ -154,7 +154,7 @@ namespace o2g
         /// <param name="deviceId">The device phone number from which the call is placed. If the session is opened by a user, the device phone number must be one of the user.</param>
         /// <param name="callee">Called phone number.</param>
         /// <param name="autoAnswer">Automatic answer on make call. If this parameter is set to <see langword="false"/> the device <paramref name="deviceId"/> is called before calling the callee, else callee is called immediately.</param>
-        /// <param name="inhibitProgressTone">Allow to inhibit the progress tone on the current external call.</param>
+        /// <param name="inhibitProgressTone">Allows to inhibit the progress tone on the current external call.</param>
         /// <param name="associatedData">Correlator data to add to the call.</param>
         /// <param name="callingNumber">Calling number to present to the public network.</param>
         /// <param name="loginName">The user login name.</param>
@@ -241,7 +241,7 @@ namespace o2g
         /// <remarks>
         /// <para>
         /// Use the <c>MakeSupervisorCallAsync</c> service to initiated a call from an agent to a supervisor. First, the call server initiates a 
-        /// call on the agent <paramref name="deviceId"/>. Then, when the call is answered the call server calls to the supervisor.
+        /// call on the agent <paramref name="deviceId"/>. Then, when the call is answered the call server calls the supervisor.
         /// an <see cref="OnCallCreatedEvent"/> is raised.
         /// </para>
         /// <para>

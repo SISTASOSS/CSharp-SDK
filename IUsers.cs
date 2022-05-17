@@ -58,7 +58,7 @@ namespace o2g
         public event EventHandler<O2GEventArgs<OnUserCreatedEvent>> UserCreated;
 
         /// <summary>
-        /// <c>UserCreated</c> event is raised when user is deleted .
+        /// <c>UserCreated</c> event is raised when user is deleted.
         /// </summary>
         /// <remarks>
         /// This event can only be receive by an administrator.

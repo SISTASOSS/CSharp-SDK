@@ -392,7 +392,7 @@ namespace o2g
             /// </list>
             /// </para>
             /// <para>
-            /// Subscribing to the pbx management events requires does not require any license.
+            /// Subscribing to the call center agent events requires having a <b>MANAGEMENT</b> license.
             /// </para>
             /// </remarks>
             IBuilder AddPbxManagementEvents();
@@ -413,7 +413,7 @@ namespace o2g
             /// </list>
             /// </para>
             /// <para>
-            /// Subscribing to the maintenance events requires does not require any license.
+            /// Subscribing to the maintenance events does not require any license.
             /// </para>
             /// </remarks>
             IBuilder AddMaintenanceEvents();

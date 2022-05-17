@@ -47,7 +47,7 @@ namespace o2g
         public event EventHandler<O2GEventArgs<OnCtiLinkUpEvent>> CtiLinkUp;
 
         /// <summary>
-        /// Occurs when datas are fully loaded from an OmniPCX Enterprise node.. 
+        /// Occurs when datas are fully loaded from an OmniPCX Enterprise node. 
         /// </summary>
         public event EventHandler<O2GEventArgs<OnPbxLoadedEvent>> PbxLoaded;
 

@@ -34,7 +34,7 @@ namespace o2g
     public interface ICallCenterAgent : IService
     {
         /// <summary>
-        /// Occurs when a new call is created.
+        /// Occurs when an agent state has changed.
         /// </summary>
         public event System.EventHandler<O2GEventArgs<OnAgentStateChangedEvent>> AgentStateChanged;
 
@@ -211,7 +211,6 @@ namespace o2g
         /// If the session has been opened for a user, the <c>loginName</c> parameter is ignored, 
         /// but it is mandatory if the session has been opened by an administrator.
         /// </remarks>
-        /// <seealso cref="OnSupervisorHelpRequestedEvent"/>
         Task<bool> RequestIntrusionAsync(string agentNumber, IntrusionMode intrusionMode = IntrusionMode.Normal, string loginName = null);
 
         /// <summary>

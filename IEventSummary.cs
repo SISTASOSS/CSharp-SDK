@@ -39,7 +39,7 @@ namespace o2g
     public interface IEventSummary : IService
     {
         /// <summary>
-        /// <c>EventSummaryUpdated</c> event is raised each time the user's counters have changed..
+        /// <c>EventSummaryUpdated</c> event is raised each time the user's counters have changed.
         /// </summary>
         public event EventHandler<O2GEventArgs<OnEventSummaryUpdatedEvent>> EventSummaryUpdated;
 
