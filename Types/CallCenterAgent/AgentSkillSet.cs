@@ -42,9 +42,9 @@ namespace o2g.Types.CallCenterAgentNS
         /// Return the skill with the specified number.
         /// </summary>
         /// <param name="number">The skill number.</param>
-        /// <returns>
+        /// <value>
         /// The <see cref="AgentSkill"/> object or <see langword="null"/> if there is no skill with the specified number.
-        /// </returns>
+        /// </value>
         public AgentSkill this[int number]
         {
             get

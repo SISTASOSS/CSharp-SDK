@@ -6127,7 +6127,9 @@
             <summary>
             Filter on the user's role in the communication. 
             </summary>
+            <value>
             A <see cref="P:o2g.Types.CommunicationLogNS.QueryFilter.Role"/> value that defines the user's role.
+            </value>
         </member>
         <member name="T:o2g.Types.CommunicationLogNS.QueryResult">
             <summary>
@@ -7422,9 +7424,9 @@
             Return the attributes set at the specified index.
             </summary>
             <param name="index">The index of the attributes set.</param>
-            <returns>
+            <value>
             A <see cref="T:o2g.Types.ManagementNS.PbxAttributeMap"/> that represents the attribute sets
-            </returns>
+            </value>
             <exception cref="T:System.FormatException">If the attribute is not a Set attribute.</exception>
             <remarks>
             This method is used when the attribute is a set of sequences. 
@@ -7559,10 +7561,10 @@
             Return the Attribute with the given name.
             </summary>
             <param name="name">The attribute name</param>
-            <returns>
+            <value>
             A <see cref="T:o2g.Types.ManagementNS.PbxAttribute"/> that corresponds to the attribute with the given name or <see langword="null"/> if there is
             no attribute with this name.
-            </returns>
+            </value>
             <example>
             <code>
                 PbxAttributeMap skillSequence = ...

@@ -50,10 +50,10 @@ namespace o2g.Types.ManagementNS
         /// Return the Attribute with the given name.
         /// </summary>
         /// <param name="name">The attribute name</param>
-        /// <returns>
+        /// <value>
         /// A <see cref="PbxAttribute"/> that corresponds to the attribute with the given name or <see langword="null"/> if there is
         /// no attribute with this name.
-        /// </returns>
+        /// </value>
         /// <example>
         /// <code>
         ///     PbxAttributeMap skillSequence = ...

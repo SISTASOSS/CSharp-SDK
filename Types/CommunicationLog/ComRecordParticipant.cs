@@ -18,9 +18,8 @@
 */
 
 using o2g.Types.CommonNS;
-using o2g.Types.CommunicationLogNS;
 
-namespace o2g.Types.CommunicationLogNR
+namespace o2g.Types.CommunicationLogNS
 {
     /// <summary>
     /// <c>ComRecordParticipant</c> represents a participant referenced in a com record.

@@ -84,7 +84,9 @@ namespace o2g.Types.CommunicationLogNS
         /// <summary>
         /// Filter on the user's role in the communication. 
         /// </summary>
+        /// <value>
         /// A <see cref="Role"/> value that defines the user's role.
+        /// </value>
         public Role? Role { get; set; }
     }
 }

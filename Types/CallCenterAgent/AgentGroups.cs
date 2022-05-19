@@ -40,9 +40,9 @@ namespace o2g.Types.CallCenterAgentNS
         /// <summary>
         /// Return the list of agent groups the operator is attaching in.
         /// </summary>
-        /// <string>
+        /// <value>
         /// A list of <see langword="string"/> that represents the agent groups the operator is attaching in.
-        /// </string>
+        /// </value>
         [JsonPropertyName("processingGroups")]
         public List<string> Groups { get; init; }
     }

@@ -27,6 +27,9 @@ namespace o2g.Events.Common
         /// <summary>
         /// Return the text associated to this event.
         /// </summary>
+        /// <value>
+        /// A <see langword="string"/> containing the information.
+        /// </value>
         public string Text { get; init; }
     }
 }

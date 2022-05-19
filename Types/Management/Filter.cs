@@ -83,6 +83,9 @@ namespace o2g.Types.ManagementNS
         /// <summary>
         /// Return the value this filter apply
         /// </summary>
+        /// <value>
+        /// A <see langword="string"/> containing the value of this filter.
+        /// </value>
         public string Value { get; init; }
 
         /// <summary>

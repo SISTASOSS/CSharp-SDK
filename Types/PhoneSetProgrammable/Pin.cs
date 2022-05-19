@@ -68,6 +68,9 @@ namespace o2g.Types.PhoneSetProgrammableNS
         /// <summary>
         /// Return the PIN number.
         /// </summary>
+        /// <value>
+        /// A <see langword="string"/> value that represents the PIN number.
+        /// </value>
         public string Number { get; init; }
 
         /// <summary>

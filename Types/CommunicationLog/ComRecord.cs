@@ -17,7 +17,6 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-using o2g.Types.CommunicationLogNR;
 using o2g.Types.TelephonyNS;
 using System;
 using System.Collections.Generic;

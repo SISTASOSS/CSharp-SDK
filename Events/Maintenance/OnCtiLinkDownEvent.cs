@@ -36,6 +36,9 @@ namespace o2g.Events.Maintenance
         /// <summary>
         /// The OmniPCX Enterprise node id which CTI link is down.
         /// </summary>
+        /// <value>
+        /// An <see langword="int"/> value that represents the OmniPCX Enterprise node number.
+        /// </value>
         public int NodeId { get; init; }
     }
 }

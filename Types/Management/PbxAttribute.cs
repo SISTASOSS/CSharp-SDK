@@ -236,9 +236,9 @@ namespace o2g.Types.ManagementNS
         /// Return the attributes set at the specified index.
         /// </summary>
         /// <param name="index">The index of the attributes set.</param>
-        /// <returns>
+        /// <value>
         /// A <see cref="PbxAttributeMap"/> that represents the attribute sets
-        /// </returns>
+        /// </value>
         /// <exception cref="FormatException">If the attribute is not a Set attribute.</exception>
         /// <remarks>
         /// This method is used when the attribute is a set of sequences. 

@@ -103,6 +103,9 @@ namespace o2g.Types.ManagementNS
         /// <summary>
         /// Return the attribute default value.
         /// </summary>
+        /// <value>
+        /// A <see langword="string"/> value that is this attribute default value.
+        /// </value>
         public string DefaultValue { get; init; }
 
         /// <summary>
@@ -116,6 +119,9 @@ namespace o2g.Types.ManagementNS
         /// <summary>
         /// Return in which context this attribute is used.
         /// </summary>
+        /// <value>
+        /// A <see langword="string"/> that indicate when this attribute can be used.
+        /// </value>
         public string UsedWhen { get; init; }
     }
 }
