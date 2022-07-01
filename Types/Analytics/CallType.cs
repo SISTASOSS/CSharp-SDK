@@ -17,12 +17,15 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
+using System.Text.Json.Serialization;
+
 namespace o2g.Types.AnalyticsNS
 {
     /// <summary>
     /// <c>CallType</c> represents the possible call type in a charging ticket.
     /// </summary>
     /// <seealso cref="Charging"/>
+    [JsonStringEnumMemberConverterOptions(deserializationFailureFallbackValue: CallType.Unspecified)]
     public enum CallType
     {
         /// <summary>

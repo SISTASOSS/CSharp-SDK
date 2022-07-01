@@ -18,12 +18,14 @@
 */
 
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace o2g.Types.TelephonyNS.CallNS
 {
     /// <summary>
     /// <c>RecordState</c> represent the recording state.
     /// </summary>
+    [JsonStringEnumMemberConverterOptions(deserializationFailureFallbackValue: RecordState.Unknown)]
     public enum RecordState
     {
         /// <summary>
@@ -36,6 +38,11 @@ namespace o2g.Types.TelephonyNS.CallNS
         /// The recording is in progress.
         /// </summary>
         [EnumMember(Value = "RECORDING")]
-        Recording
+        Recording,
+
+        /// <summary>
+        /// Unable to identify the state.
+        /// </summary>
+        Unknown
     }
 }

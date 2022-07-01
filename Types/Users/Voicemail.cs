@@ -18,6 +18,7 @@
 */
 
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace o2g.Types.UsersNS
 {
@@ -29,6 +30,7 @@ namespace o2g.Types.UsersNS
         /// <summary>
         /// The voice mail type
         /// </summary>
+        [JsonStringEnumMemberConverterOptions(deserializationFailureFallbackValue: VoiceMailType.External)]
         public enum VoiceMailType
         {
             /// <summary>

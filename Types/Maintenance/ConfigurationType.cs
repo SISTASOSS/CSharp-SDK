@@ -18,12 +18,14 @@
 */
 
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace o2g.Types.MaintenanceNS
 {
     /// <summary>
     /// <c>ConfigurationType</c> represents the possible O2G server configurations. 
     /// </summary>
+    [JsonStringEnumMemberConverterOptions(deserializationFailureFallbackValue: ConfigurationType.Unknown)]
     public enum ConfigurationType
     {
         /// <summary>
@@ -39,6 +41,11 @@ namespace o2g.Types.MaintenanceNS
         /// O2G Server is configured with full services.
         /// </summary>
         [EnumMember(Value = "FULL_SERVICES")]
-        FullServices
+        FullServices,
+
+        /// <summary>
+        /// Unknown configuration
+        /// </summary>
+        Unknown
     }
 }

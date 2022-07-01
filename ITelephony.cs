@@ -178,6 +178,37 @@ namespace o2g
         /// <seealso cref="OnCallCreatedEvent"/><seealso cref="OnCallModifiedEvent"/>
         Task<bool> MakeCallAsync(string deviceId, string callee, bool autoAnswer = true, bool inhibitProgressTone = false, string associatedData = null, string callingNumber = null, string loginName = null);
 
+
+        /// <summary>
+        /// Initiates a new call to another user (the callee), using the specified deviceId and options.
+        /// </summary>
+        /// <param name="deviceId">The device phone number from which the call is placed. If the session is opened by a user, the device phone number must be one of the user.</param>
+        /// <param name="callee">Called phone number.</param>
+        /// <param name="autoAnswer">Automatic answer on make call. If this parameter is set to <see langword="false"/> the device <paramref name="deviceId"/> is called before calling the callee, else callee is called immediately.</param>
+        /// <param name="inhibitProgressTone">Allows to inhibit the progress tone on the current external call.</param>
+        /// <param name="associatedData">The byte array data associated to the call.</param>
+        /// <param name="callingNumber">Calling number to present to the public network.</param>
+        /// <param name="loginName">The user login name.</param>
+        /// <returns><see langword="true"/> in case of success; <see langword="false"/> otherwise.</returns>
+        /// <remarks>
+        /// <para>
+        /// Use the <c>MakeCallAsync</c> service to initiated a call from one of the devices of the logged user. First, the call server initiates a call on the user <paramref name="deviceId"/>. Then when the call is answered the call server starts the call to the <paramref name="callee"/>.
+        /// an <see cref="OnCallCreatedEvent"/> is raised.
+        /// </para>
+        /// <para>
+        /// If <c>inhibitProgressTone</c> is <see langword="true"/>, progress tone is inhibited on an outbound call.
+        /// </para>
+        /// <para>
+        /// The <c>callingNumber</c> is used on an outbound call to  to present another calling number on the public network call in order to hide the real calling extension number.
+        /// </para>
+        /// <para>
+        /// If the session has been opened for a user, the <paramref name="loginName"/> parameter is ignored, 
+        /// but it is mandatory if the session has been opened by an administrator.
+        /// </para>
+        /// </remarks>
+        /// <seealso cref="OnCallCreatedEvent"/><seealso cref="OnCallModifiedEvent"/>
+        Task<bool> MakeCallAsync(string deviceId, string callee, bool autoAnswer = true, bool inhibitProgressTone = false, byte[] associatedData = null, string callingNumber = null, string loginName = null);
+
         /// <summary>
         /// Initiates a new private call to another user (the callee), using a pin code and an optional secret code.
         /// </summary>
@@ -277,6 +308,30 @@ namespace o2g
 
 
         /// <summary>
+        /// Initiates an enquiry call from a CCD agent to a pilot or a RSI point.
+        /// </summary>
+        /// <param name="deviceId">The device phone number from which the call is placed. If the session is opened by a user, the device phone number must be one of the user.</param>
+        /// <param name="pilot">Called CCD pilot or RSI point number.</param>
+        /// <param name="associatedData">The byte array data associated to the call.</param>
+        /// <param name="callProfile">The call profile associated to this call.</param>
+        /// <param name="loginName">The user login name.</param>
+        /// <returns><see langword="true"/> in case of success; <see langword="false"/> otherwise.</returns>
+        /// <remarks>
+        /// <para>
+        /// Use the <c>MakePilotOrRSISupervisedTransferCallAsync</c> service to initiated an enquiry call to a CCD pilot or an RSI point from a CCD operator. 
+        /// </para>
+        /// <para>
+        /// The CCD pilot or the RSI point performs a call distribution to select an agent that will be alerted by this call. The <paramref name="callProfile"/> is mandatory
+        /// in case of "Advanced Call Routing" call distribution strategy.
+        /// </para>
+        /// <para>
+        /// If the session has been opened for a user, the <paramref name="loginName"/> parameter is ignored, 
+        /// but it is mandatory if the session has been opened by an administrator.
+        /// </para>
+        /// </remarks>
+        Task<bool> MakePilotOrRSISupervisedTransferCallAsync(string deviceId, string pilot, byte[] associatedData = null, List<AcrSkill> callProfile = null, string loginName = null);
+
+        /// <summary>
         /// Initiates an local call to a CCD pilot or a RSI point.
         /// </summary>
         /// <param name="deviceId">The device phone number from which the call is placed. If the session is opened by a user, the device phone number must be one of the user.</param>
@@ -300,6 +355,32 @@ namespace o2g
         /// </para>
         /// </remarks>
         Task<bool> MakePilotOrRSICallAsync(string deviceId, string pilot, bool autoAnswer = true, string associatedData = null, List<AcrSkill> callProfile = null, string loginName = null);
+
+
+        /// <summary>
+        /// Initiates an local call to a CCD pilot or a RSI point.
+        /// </summary>
+        /// <param name="deviceId">The device phone number from which the call is placed. If the session is opened by a user, the device phone number must be one of the user.</param>
+        /// <param name="pilot">Called CCD pilot or RSI point number.</param>
+        /// <param name="autoAnswer">Automatic answer on make call. If this parameter is set to <see langword="false"/> the device <paramref name="deviceId"/> is called before calling the callee, else callee is called immediately.</param>
+        /// <param name="associatedData">The byte array data associated to the call.</param>
+        /// <param name="callProfile">The call profile associated to this call.</param>
+        /// <param name="loginName">The user login name.</param>
+        /// <returns><see langword="true"/> in case of success; <see langword="false"/> otherwise.</returns>
+        /// <remarks>
+        /// <para>
+        /// Use the <c>MakePilotOrRSICallAsync</c> service to initiated a local call to a CCD pilot or an RSI point. 
+        /// </para>
+        /// <para>
+        /// The CCD pilot or the RSI point performs a call distribution to select an agent that will be alerted by this call. The <paramref name="callProfile"/> is mandatory
+        /// in case of "Advanced Call Routing" call distribution strategy.
+        /// </para>
+        /// <para>
+        /// If the session has been opened for a user, the <paramref name="loginName"/> parameter is ignored, 
+        /// but it is mandatory if the session has been opened by an administrator.
+        /// </para>
+        /// </remarks>
+        Task<bool> MakePilotOrRSICallAsync(string deviceId, string pilot, bool autoAnswer = true, byte[] associatedData = null, List<AcrSkill> callProfile = null, string loginName = null);
 
 
         /// <summary>
@@ -329,6 +410,18 @@ namespace o2g
         /// Associates data can be encoded as clear string or binary encoded string. The associated data has a 32 bytes length.
         /// </remarks>
         Task<bool> AttachDataAsync(string callRef, string deviceId, string associatedData);
+
+        /// <summary>
+        /// Associates data to the specified established call. 
+        /// </summary>
+        /// <param name="callRef">The call reference.</param>
+        /// <param name="deviceId">The device phone number for which the operation is invoked.</param>
+        /// <param name="associatedData">The byte array data associated to the call.</param>
+        /// <returns><see langword="true"/> in case of success; <see langword="false"/> otherwise.</returns>
+        /// <remarks>
+        /// Associates data can be encoded as clear string or binary encoded string. The associated data has a 32 bytes length.
+        /// </remarks>
+        Task<bool> AttachDataAsync(string callRef, string deviceId, byte[] associatedData);
 
         /// <summary>
         /// Transfers the active call to another user, without keeping control on this call.
@@ -921,6 +1014,20 @@ namespace o2g
         /// <seealso cref="GetCallAsync(string, string)"/>
         /// <seealso cref="DeleteCallbacksAsync(string)"/>
         Task<bool> RequestCallbackAsync(string callee, string loginName = null);
+
+
+        /// <summary>
+        /// Release the specified call.
+        /// </summary>
+        /// <param name="callRef">The call reference.</param>
+        /// <param name="loginName">The user login name.</param>
+        /// <returns><see langword="true"/> in case of success; <see langword="false"/> otherwise.</returns>
+        /// <remarks>
+        /// If the session has been opened for a user, the <paramref name="loginName"/> parameter is ignored, 
+        /// but it is mandatory if the session has been opened by an administrator.
+        /// </remarks>
+        Task<bool> ReleaseCallAsync(string callRef, string loginName = null);
+
 
         /// <summary>
         /// Ask a snapshot event to receive an <see cref="OnTelephonyStateEvent"/> event notification.

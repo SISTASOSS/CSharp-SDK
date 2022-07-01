@@ -18,12 +18,14 @@
 */
 
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace o2g.Types.MaintenanceNS
 {
     /// <summary>
     /// <c>CtiLinkState</c> represents the differents possible states of the CTI link between OmniPCX Enterprise and O2G server.
     /// </summary>
+    [JsonStringEnumMemberConverterOptions(deserializationFailureFallbackValue: CtiLinkState.Disconnected)]
     public enum CtiLinkState
     {
         /// <summary>

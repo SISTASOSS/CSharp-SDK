@@ -29,7 +29,8 @@
     <SaveComponentCacheCapacity>100</SaveComponentCacheCapacity>
     <DocumentationSources>
       <DocumentationSource sourceFile="bin\Release\net5.0\o2g-sdk.dll" />
-<DocumentationSource sourceFile="bin\Release\net5.0\o2g-sdk.xml" /></DocumentationSources>
+      <DocumentationSource sourceFile="bin\Release\net5.0\o2g-sdk.xml" />
+    </DocumentationSources>
     <HelpTitle>O2G C# SDK Class Library</HelpTitle>
     <HelpFileVersion>1.0.0.0</HelpFileVersion>
     <NamingMethod>Guid</NamingMethod>
@@ -85,7 +86,7 @@
     </NamespaceSummaries>
     <HeaderText>
     </HeaderText>
-    <FooterText>O2G C# SDK - 1.0.2</FooterText>
+    <FooterText>O2G C# SDK - 1.2.0</FooterText>
     <HtmlSdkLinkType>Msdn</HtmlSdkLinkType>
     <BinaryTOC>True</BinaryTOC>
     <IncludeFavorites>False</IncludeFavorites>
@@ -125,419 +126,420 @@ Use the &amp;lt%3ba href=&amp;quot%3bhttps://docs.microsoft.com/en-us/nuget/tool
     <ComponentConfigurations />
     <ApiFilter>
       <Filter entryType="Namespace" fullName="o2g" isExposed="True">
-  <Filter entryType="Class" fullName="o2g.O2G" filterName="O2G" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.O2G.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Subscription.EventFilter" filterName="Subscription.EventFilter" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Subscription.EventFilter.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Subscription.EventFilter.Selector" filterName="Subscription.EventFilter.Selector" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Subscription.EventFilter.Selector.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-</Filter>
-<Filter entryType="Namespace" fullName="o2g.Events" isExposed="True">
-  <Filter entryType="Class" fullName="o2g.Events.O2GEvent" filterName="O2GEvent" isExposed="False">
-    <Filter entryType="Property" fullName="o2g.Events.O2GEvent.EventName" filterName="EventName" isExposed="True" />
-  </Filter>
-</Filter>
-<Filter entryType="Namespace" fullName="o2g.Events.CallCenterAgent" isExposed="True">
-  <Filter entryType="Class" fullName="o2g.Events.CallCenterAgent.OnAgentStateChangedEvent" filterName="OnAgentStateChangedEvent" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Events.CallCenterAgent.OnAgentStateChangedEvent.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Events.CallCenterAgent.OnSupervisorHelpCancelledEvent" filterName="OnSupervisorHelpCancelledEvent" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Events.CallCenterAgent.OnSupervisorHelpCancelledEvent.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Events.CallCenterAgent.OnSupervisorHelpRequestedEvent" filterName="OnSupervisorHelpRequestedEvent" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Events.CallCenterAgent.OnSupervisorHelpRequestedEvent.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-</Filter>
-<Filter entryType="Namespace" fullName="o2g.Events.CallCenterRsi" isExposed="True">
-  <Filter entryType="Class" fullName="o2g.Events.CallCenterRsi.OnDigitCollectedEvent" filterName="OnDigitCollectedEvent" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Events.CallCenterRsi.OnDigitCollectedEvent.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Events.CallCenterRsi.OnRouteEndEvent" filterName="OnRouteEndEvent" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Events.CallCenterRsi.OnRouteEndEvent.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Events.CallCenterRsi.OnRouteRequestEvent" filterName="OnRouteRequestEvent" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Events.CallCenterRsi.OnRouteRequestEvent.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Events.CallCenterRsi.OnToneGeneratedStartEvent" filterName="OnToneGeneratedStartEvent" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Events.CallCenterRsi.OnToneGeneratedStartEvent.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Events.CallCenterRsi.OnToneGeneratedStopEvent" filterName="OnToneGeneratedStopEvent" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Events.CallCenterRsi.OnToneGeneratedStopEvent.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-</Filter>
-<Filter entryType="Namespace" fullName="o2g.Events.Common" isExposed="False">
-  <Filter entryType="Class" fullName="o2g.Events.Common.OnChannelInformationEvent" filterName="OnChannelInformationEvent" isExposed="False">
-    <Filter entryType="Property" fullName="o2g.Events.Common.OnChannelInformationEvent.Text" filterName="Text" isExposed="True" />
-  </Filter>
-</Filter>
-<Filter entryType="Namespace" fullName="o2g.Events.CommunicationLog" isExposed="True">
-  <Filter entryType="Class" fullName="o2g.Events.CommunicationLog.OnComRecordCreatedEvent" filterName="OnComRecordCreatedEvent" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Events.CommunicationLog.OnComRecordCreatedEvent.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Events.CommunicationLog.OnComRecordModifiedEvent" filterName="OnComRecordModifiedEvent" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Events.CommunicationLog.OnComRecordModifiedEvent.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Events.CommunicationLog.OnComRecordsAckEvent" filterName="OnComRecordsAckEvent" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Events.CommunicationLog.OnComRecordsAckEvent.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Events.CommunicationLog.OnComRecordsDeletedEvent" filterName="OnComRecordsDeletedEvent" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Events.CommunicationLog.OnComRecordsDeletedEvent.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Events.CommunicationLog.OnComRecordsUnAckEvent" filterName="OnComRecordsUnAckEvent" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Events.CommunicationLog.OnComRecordsUnAckEvent.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-</Filter>
-<Filter entryType="Namespace" fullName="o2g.Events.EventSummary" isExposed="True">
-  <Filter entryType="Class" fullName="o2g.Events.EventSummary.OnEventSummaryUpdatedEvent" filterName="OnEventSummaryUpdatedEvent" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Events.EventSummary.OnEventSummaryUpdatedEvent.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-</Filter>
-<Filter entryType="Namespace" fullName="o2g.Events.Maintenance" isExposed="False">
-  <Filter entryType="Class" fullName="o2g.Events.Maintenance.OnCtiLinkDownEvent" filterName="OnCtiLinkDownEvent" isExposed="False">
-    <Filter entryType="Property" fullName="o2g.Events.Maintenance.OnCtiLinkDownEvent.NodeId" filterName="NodeId" isExposed="True" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Events.Maintenance.OnCtiLinkUpEvent" filterName="OnCtiLinkUpEvent" isExposed="False">
-    <Filter entryType="Property" fullName="o2g.Events.Maintenance.OnCtiLinkUpEvent.NodeId" filterName="NodeId" isExposed="True" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Events.Maintenance.OnPbxLoadedEvent" filterName="OnPbxLoadedEvent" isExposed="False">
-    <Filter entryType="Property" fullName="o2g.Events.Maintenance.OnPbxLoadedEvent.NodeId" filterName="NodeId" isExposed="True" />
-  </Filter>
-</Filter>
-<Filter entryType="Namespace" fullName="o2g.Events.Management" isExposed="True">
-  <Filter entryType="Class" fullName="o2g.Events.Management.OnPbxObjectInstanceCreatedEvent" filterName="OnPbxObjectInstanceCreatedEvent" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Events.Management.OnPbxObjectInstanceCreatedEvent.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Events.Management.OnPbxObjectInstanceDeletedEvent" filterName="OnPbxObjectInstanceDeletedEvent" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Events.Management.OnPbxObjectInstanceDeletedEvent.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Events.Management.OnPbxObjectInstanceModifiedEvent" filterName="OnPbxObjectInstanceModifiedEvent" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Events.Management.OnPbxObjectInstanceModifiedEvent.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-</Filter>
-<Filter entryType="Namespace" fullName="o2g.Events.Routing" isExposed="True">
-  <Filter entryType="Class" fullName="o2g.Events.Routing.OnRoutingStateChangedEvent" filterName="OnRoutingStateChangedEvent" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Events.Routing.OnRoutingStateChangedEvent.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-</Filter>
-<Filter entryType="Namespace" fullName="o2g.Events.Telephony" isExposed="True">
-  <Filter entryType="Class" fullName="o2g.Events.Telephony.OnCallCreatedEvent" filterName="OnCallCreatedEvent" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Events.Telephony.OnCallCreatedEvent.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Events.Telephony.OnCallModifiedEvent" filterName="OnCallModifiedEvent" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Events.Telephony.OnCallModifiedEvent.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Events.Telephony.OnCallRemovedEvent" filterName="OnCallRemovedEvent" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Events.Telephony.OnCallRemovedEvent.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Events.Telephony.OnDeviceStateModifiedEvent" filterName="OnDeviceStateModifiedEvent" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Events.Telephony.OnDeviceStateModifiedEvent.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Events.Telephony.OnDynamicStateChangedEvent" filterName="OnDynamicStateChangedEvent" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Events.Telephony.OnDynamicStateChangedEvent.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Events.Telephony.OnTelephonyStateEvent" filterName="OnTelephonyStateEvent" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Events.Telephony.OnTelephonyStateEvent.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Events.Telephony.OnUserStateModifiedEvent" filterName="OnUserStateModifiedEvent" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Events.Telephony.OnUserStateModifiedEvent.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-</Filter>
-<Filter entryType="Namespace" fullName="o2g.Events.Users" isExposed="False">
-  <Filter entryType="Class" fullName="o2g.Events.Users.OnUserCreatedEvent" filterName="OnUserCreatedEvent" isExposed="False">
-    <Filter entryType="Property" fullName="o2g.Events.Users.OnUserCreatedEvent.User" filterName="User" isExposed="True" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Events.Users.OnUserDeletedEvent" filterName="OnUserDeletedEvent" isExposed="False">
-    <Filter entryType="Property" fullName="o2g.Events.Users.OnUserDeletedEvent.LoginName" filterName="LoginName" isExposed="True" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Events.Users.OnUserInfoChangedEvent" filterName="OnUserInfoChangedEvent" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Events.Users.OnUserInfoChangedEvent.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-</Filter>
-<Filter entryType="Namespace" fullName="o2g.Internal.Rest" isExposed="False" />
-<Filter entryType="Namespace" fullName="o2g.Internal.Services" isExposed="False" />
-<Filter entryType="Namespace" fullName="o2g.Types" isExposed="True">
-  <Filter entryType="Class" fullName="o2g.Types.Host" filterName="Host" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.Host.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.RestErrorInfo" filterName="RestErrorInfo" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.RestErrorInfo.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.RestErrorInfo.RoutingErrorInfo" filterName="RestErrorInfo.RoutingErrorInfo" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.RestErrorInfo.RoutingErrorInfo.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.RestErrorInfo.TelephonyErrorInfo" filterName="RestErrorInfo.TelephonyErrorInfo" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.RestErrorInfo.TelephonyErrorInfo.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.RestErrorInfo.UserPreferencesErrorInfo" filterName="RestErrorInfo.UserPreferencesErrorInfo" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.RestErrorInfo.UserPreferencesErrorInfo.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-</Filter>
-<Filter entryType="Namespace" fullName="o2g.Types.AnalyticsNS" isExposed="True">
-  <Filter entryType="Class" fullName="o2g.Types.AnalyticsNS.Charging" filterName="Charging" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.AnalyticsNS.Charging.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.AnalyticsNS.ChargingFile" filterName="ChargingFile" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.AnalyticsNS.ChargingFile.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.AnalyticsNS.ChargingResult" filterName="ChargingResult" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.AnalyticsNS.ChargingResult.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.AnalyticsNS.Incident" filterName="Incident" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.AnalyticsNS.Incident.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-</Filter>
-<Filter entryType="Namespace" fullName="o2g.Types.CallCenterAgentNS" isExposed="True">
-  <Filter entryType="Class" fullName="o2g.Types.CallCenterAgentNS.AgentGroups" filterName="AgentGroups" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.CallCenterAgentNS.AgentGroups.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.CallCenterAgentNS.AgentSkill" filterName="AgentSkill" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.CallCenterAgentNS.AgentSkill.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.CallCenterAgentNS.AgentSkillSet" filterName="AgentSkillSet" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.CallCenterAgentNS.AgentSkillSet.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.CallCenterAgentNS.OperatorConfiguration" filterName="OperatorConfiguration" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.CallCenterAgentNS.OperatorConfiguration.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.CallCenterAgentNS.OperatorState" filterName="OperatorState" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.CallCenterAgentNS.OperatorState.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.CallCenterAgentNS.WithdrawReason" filterName="WithdrawReason" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.CallCenterAgentNS.WithdrawReason.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-</Filter>
-<Filter entryType="Namespace" fullName="o2g.Types.CallCenterRsiNS" isExposed="True">
-  <Filter entryType="Class" fullName="o2g.Types.CallCenterRsiNS.AdditionalDigitCollectionCriteria" filterName="AdditionalDigitCollectionCriteria" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.CallCenterRsiNS.AdditionalDigitCollectionCriteria.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.CallCenterRsiNS.DataCollected" filterName="DataCollected" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.CallCenterRsiNS.DataCollected.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.CallCenterRsiNS.RouteRequest" filterName="RouteRequest" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.CallCenterRsiNS.RouteRequest.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.CallCenterRsiNS.RouteSession" filterName="RouteSession" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.CallCenterRsiNS.RouteSession.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.CallCenterRsiNS.RsiPoint" filterName="RsiPoint" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.CallCenterRsiNS.RsiPoint.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-</Filter>
-<Filter entryType="Namespace" fullName="o2g.Types.CommonNS" isExposed="True">
-  <Filter entryType="Class" fullName="o2g.Types.CommonNS.PartyInfo" filterName="PartyInfo" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.CommonNS.PartyInfo.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.CommonNS.PartyInfo.Identifier" filterName="PartyInfo.Identifier" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.CommonNS.PartyInfo.Identifier.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.CommonNS.PartyInfo.ParticipantType" filterName="PartyInfo.ParticipantType" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.CommonNS.PartyInfo.ParticipantType.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-</Filter>
-<Filter entryType="Namespace" fullName="o2g.Types.CommunicationLogNS" isExposed="True">
-  <Filter entryType="Class" fullName="o2g.Types.CommunicationLogNS.ComRecord" filterName="ComRecord" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.CommunicationLogNS.ComRecord.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.CommunicationLogNS.ComRecordParticipant" filterName="ComRecordParticipant" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.CommunicationLogNS.ComRecordParticipant.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.CommunicationLogNS.QueryFilter" filterName="QueryFilter" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.CommunicationLogNS.QueryFilter.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.CommunicationLogNS.QueryResult" filterName="QueryResult" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.CommunicationLogNS.QueryResult.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-</Filter>
-<Filter entryType="Namespace" fullName="o2g.Types.DirectoryNS" isExposed="True">
-  <Filter entryType="Class" fullName="o2g.Types.DirectoryNS.Criteria" filterName="Criteria" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.DirectoryNS.Criteria.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.DirectoryNS.SearchResult" filterName="SearchResult" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.DirectoryNS.SearchResult.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.DirectoryNS.SearchResult.Results" filterName="SearchResult.Results" isExposed="False">
-    <Filter entryType="Property" fullName="o2g.Types.DirectoryNS.SearchResult.Results.Contacts" filterName="Contacts" isExposed="True" />
-  </Filter>
-</Filter>
-<Filter entryType="Namespace" fullName="o2g.Types.EventSummaryNS" isExposed="True">
-  <Filter entryType="Class" fullName="o2g.Types.EventSummaryNS.EventSummary" filterName="EventSummary" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.EventSummaryNS.EventSummary.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-</Filter>
-<Filter entryType="Namespace" fullName="o2g.Types.MaintenanceNS" isExposed="True">
-  <Filter entryType="Class" fullName="o2g.Types.MaintenanceNS.License" filterName="License" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.MaintenanceNS.License.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.MaintenanceNS.PbxStatus" filterName="PbxStatus" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.MaintenanceNS.PbxStatus.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.MaintenanceNS.ServerAddress" filterName="ServerAddress" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.MaintenanceNS.ServerAddress.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.MaintenanceNS.SystemStatus" filterName="SystemStatus" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.MaintenanceNS.SystemStatus.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-</Filter>
-<Filter entryType="Namespace" fullName="o2g.Types.ManagementNS" isExposed="True">
-  <Filter entryType="Class" fullName="o2g.Types.ManagementNS.Filter" filterName="Filter" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.ManagementNS.Filter.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.ManagementNS.Model" filterName="Model" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.ManagementNS.Model.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.ManagementNS.ModelAttribute" filterName="ModelAttribute" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.ManagementNS.ModelAttribute.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.ManagementNS.OctetStringLength" filterName="OctetStringLength" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.ManagementNS.OctetStringLength.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.ManagementNS.Pbx" filterName="Pbx" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.ManagementNS.Pbx.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.ManagementNS.PbxAttribute" filterName="PbxAttribute" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.ManagementNS.PbxAttribute.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.ManagementNS.PbxAttributeMap" filterName="PbxAttributeMap" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.ManagementNS.PbxAttributeMap.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.ManagementNS.PbxObject" filterName="PbxObject" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.ManagementNS.PbxObject.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.ManagementNS.PbxObjectDefinition" filterName="PbxObjectDefinition" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.ManagementNS.PbxObjectDefinition.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-</Filter>
-<Filter entryType="Namespace" fullName="o2g.Types.MessagingNS" isExposed="True">
-  <Filter entryType="Class" fullName="o2g.Types.MessagingNS.MailBox" filterName="MailBox" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.MessagingNS.MailBox.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.MessagingNS.MailBox.MailBoxCapabilities" filterName="MailBox.MailBoxCapabilities" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.MessagingNS.MailBox.MailBoxCapabilities.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.MessagingNS.MailBoxInfo" filterName="MailBoxInfo" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.MessagingNS.MailBoxInfo.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.MessagingNS.VoiceMessage" filterName="VoiceMessage" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.MessagingNS.VoiceMessage.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-</Filter>
-<Filter entryType="Namespace" fullName="o2g.Types.PhoneSetProgrammableNS" isExposed="True">
-  <Filter entryType="Class" fullName="o2g.Types.PhoneSetProgrammableNS.DynamicState" filterName="DynamicState" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.PhoneSetProgrammableNS.DynamicState.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.PhoneSetProgrammableNS.Pin" filterName="Pin" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.PhoneSetProgrammableNS.Pin.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.PhoneSetProgrammableNS.ProgrammableKey" filterName="ProgrammableKey" isExposed="False">
-    <Filter entryType="Property" fullName="o2g.Types.PhoneSetProgrammableNS.ProgrammableKey.Locked" filterName="Locked" isExposed="True" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.PhoneSetProgrammableNS.SoftKey" filterName="SoftKey" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.PhoneSetProgrammableNS.SoftKey.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-</Filter>
-<Filter entryType="Namespace" fullName="o2g.Types.RoutingNS" isExposed="True">
-  <Filter entryType="Class" fullName="o2g.Types.RoutingNS.DndState" filterName="DndState" isExposed="False">
-    <Filter entryType="Property" fullName="o2g.Types.RoutingNS.DndState.Activate" filterName="Activate" isExposed="True" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.RoutingNS.Forward" filterName="Forward" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.RoutingNS.Forward.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.RoutingNS.Overflow" filterName="Overflow" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.RoutingNS.Overflow.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.RoutingNS.RoutingCapabilities" filterName="RoutingCapabilities" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.RoutingNS.RoutingCapabilities.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.RoutingNS.RoutingState" filterName="RoutingState" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.RoutingNS.RoutingState.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-</Filter>
-<Filter entryType="Namespace" fullName="o2g.Types.TelephonyNS" isExposed="True">
-  <Filter entryType="Class" fullName="o2g.Types.TelephonyNS.Callback" filterName="Callback" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.TelephonyNS.Callback.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.TelephonyNS.CallCapabilities" filterName="CallCapabilities" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.TelephonyNS.CallCapabilities.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.TelephonyNS.HuntingGroups" filterName="HuntingGroups" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.TelephonyNS.HuntingGroups.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.TelephonyNS.HuntingGroupStatus" filterName="HuntingGroupStatus" isExposed="False">
-    <Filter entryType="Property" fullName="o2g.Types.TelephonyNS.HuntingGroupStatus.LogonOn" filterName="LogonOn" isExposed="True" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.TelephonyNS.MiniMessage" filterName="MiniMessage" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.TelephonyNS.MiniMessage.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.TelephonyNS.PbxCall" filterName="PbxCall" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.TelephonyNS.PbxCall.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.TelephonyNS.TelephonicState" filterName="TelephonicState" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.TelephonyNS.TelephonicState.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-</Filter>
-<Filter entryType="Namespace" fullName="o2g.Types.TelephonyNS.CallNS" isExposed="True">
-  <Filter entryType="Class" fullName="o2g.Types.TelephonyNS.CallNS.CallData" filterName="CallData" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.TelephonyNS.CallNS.CallData.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.TelephonyNS.CallNS.Leg" filterName="Leg" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.TelephonyNS.CallNS.Leg.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.TelephonyNS.CallNS.Leg.LegCapabilities" filterName="Leg.LegCapabilities" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.TelephonyNS.CallNS.Leg.LegCapabilities.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.TelephonyNS.CallNS.Participant" filterName="Participant" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.TelephonyNS.CallNS.Participant.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.TelephonyNS.CallNS.Tag" filterName="Tag" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.TelephonyNS.CallNS.Tag.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-</Filter>
-<Filter entryType="Namespace" fullName="o2g.Types.TelephonyNS.CallNS.AcdNS" isExposed="True">
-  <Filter entryType="Class" fullName="o2g.Types.TelephonyNS.CallNS.AcdNS.AcdData" filterName="AcdData" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.TelephonyNS.CallNS.AcdNS.AcdData.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.TelephonyNS.CallNS.AcdNS.AcrSkill" filterName="AcrSkill" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.TelephonyNS.CallNS.AcdNS.AcrSkill.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.TelephonyNS.CallNS.AcdNS.Info" filterName="Info" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.TelephonyNS.CallNS.AcdNS.Info.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.TelephonyNS.CallNS.AcdNS.PilotTransferInfo" filterName="PilotTransferInfo" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.TelephonyNS.CallNS.AcdNS.PilotTransferInfo.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.TelephonyNS.CallNS.AcdNS.QueueData" filterName="QueueData" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.TelephonyNS.CallNS.AcdNS.QueueData.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-</Filter>
-<Filter entryType="Namespace" fullName="o2g.Types.TelephonyNS.DeviceNS" isExposed="True">
-  <Filter entryType="Class" fullName="o2g.Types.TelephonyNS.DeviceNS.DeviceCapabilities" filterName="DeviceCapabilities" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.TelephonyNS.DeviceNS.DeviceCapabilities.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.TelephonyNS.DeviceNS.DeviceState" filterName="DeviceState" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.TelephonyNS.DeviceNS.DeviceState.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-</Filter>
-<Filter entryType="Namespace" fullName="o2g.Types.UsersNS" isExposed="True">
-  <Filter entryType="Class" fullName="o2g.Types.UsersNS.Device" filterName="Device" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.UsersNS.Device.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.UsersNS.Preferences" filterName="Preferences" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.UsersNS.Preferences.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.UsersNS.SupportedLanguages" filterName="SupportedLanguages" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.UsersNS.SupportedLanguages.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.UsersNS.User" filterName="User" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.UsersNS.User.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-  <Filter entryType="Class" fullName="o2g.Types.UsersNS.Voicemail" filterName="Voicemail" isExposed="True">
-    <Filter entryType="Constructor" fullName="o2g.Types.UsersNS.Voicemail.#ctor" filterName=".ctor" isExposed="False" />
-  </Filter>
-</Filter>
-<Filter entryType="Namespace" fullName="o2g.Utility" isExposed="False" /></ApiFilter>
+        <Filter entryType="Class" fullName="o2g.O2G" filterName="O2G" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.O2G.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Subscription.EventFilter" filterName="Subscription.EventFilter" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Subscription.EventFilter.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Subscription.EventFilter.Selector" filterName="Subscription.EventFilter.Selector" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Subscription.EventFilter.Selector.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+      </Filter>
+      <Filter entryType="Namespace" fullName="o2g.Events" isExposed="True">
+        <Filter entryType="Class" fullName="o2g.Events.O2GEvent" filterName="O2GEvent" isExposed="False">
+          <Filter entryType="Property" fullName="o2g.Events.O2GEvent.EventName" filterName="EventName" isExposed="True" />
+        </Filter>
+      </Filter>
+      <Filter entryType="Namespace" fullName="o2g.Events.CallCenterAgent" isExposed="True">
+        <Filter entryType="Class" fullName="o2g.Events.CallCenterAgent.OnAgentStateChangedEvent" filterName="OnAgentStateChangedEvent" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Events.CallCenterAgent.OnAgentStateChangedEvent.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Events.CallCenterAgent.OnSupervisorHelpCancelledEvent" filterName="OnSupervisorHelpCancelledEvent" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Events.CallCenterAgent.OnSupervisorHelpCancelledEvent.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Events.CallCenterAgent.OnSupervisorHelpRequestedEvent" filterName="OnSupervisorHelpRequestedEvent" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Events.CallCenterAgent.OnSupervisorHelpRequestedEvent.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+      </Filter>
+      <Filter entryType="Namespace" fullName="o2g.Events.CallCenterRsi" isExposed="True">
+        <Filter entryType="Class" fullName="o2g.Events.CallCenterRsi.OnDigitCollectedEvent" filterName="OnDigitCollectedEvent" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Events.CallCenterRsi.OnDigitCollectedEvent.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Events.CallCenterRsi.OnRouteEndEvent" filterName="OnRouteEndEvent" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Events.CallCenterRsi.OnRouteEndEvent.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Events.CallCenterRsi.OnRouteRequestEvent" filterName="OnRouteRequestEvent" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Events.CallCenterRsi.OnRouteRequestEvent.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Events.CallCenterRsi.OnToneGeneratedStartEvent" filterName="OnToneGeneratedStartEvent" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Events.CallCenterRsi.OnToneGeneratedStartEvent.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Events.CallCenterRsi.OnToneGeneratedStopEvent" filterName="OnToneGeneratedStopEvent" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Events.CallCenterRsi.OnToneGeneratedStopEvent.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+      </Filter>
+      <Filter entryType="Namespace" fullName="o2g.Events.Common" isExposed="False">
+        <Filter entryType="Class" fullName="o2g.Events.Common.OnChannelInformationEvent" filterName="OnChannelInformationEvent" isExposed="False">
+          <Filter entryType="Property" fullName="o2g.Events.Common.OnChannelInformationEvent.Text" filterName="Text" isExposed="True" />
+        </Filter>
+      </Filter>
+      <Filter entryType="Namespace" fullName="o2g.Events.CommunicationLog" isExposed="True">
+        <Filter entryType="Class" fullName="o2g.Events.CommunicationLog.OnComRecordCreatedEvent" filterName="OnComRecordCreatedEvent" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Events.CommunicationLog.OnComRecordCreatedEvent.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Events.CommunicationLog.OnComRecordModifiedEvent" filterName="OnComRecordModifiedEvent" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Events.CommunicationLog.OnComRecordModifiedEvent.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Events.CommunicationLog.OnComRecordsAckEvent" filterName="OnComRecordsAckEvent" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Events.CommunicationLog.OnComRecordsAckEvent.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Events.CommunicationLog.OnComRecordsDeletedEvent" filterName="OnComRecordsDeletedEvent" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Events.CommunicationLog.OnComRecordsDeletedEvent.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Events.CommunicationLog.OnComRecordsUnAckEvent" filterName="OnComRecordsUnAckEvent" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Events.CommunicationLog.OnComRecordsUnAckEvent.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+      </Filter>
+      <Filter entryType="Namespace" fullName="o2g.Events.EventSummary" isExposed="True">
+        <Filter entryType="Class" fullName="o2g.Events.EventSummary.OnEventSummaryUpdatedEvent" filterName="OnEventSummaryUpdatedEvent" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Events.EventSummary.OnEventSummaryUpdatedEvent.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+      </Filter>
+      <Filter entryType="Namespace" fullName="o2g.Events.Maintenance" isExposed="False">
+        <Filter entryType="Class" fullName="o2g.Events.Maintenance.OnCtiLinkDownEvent" filterName="OnCtiLinkDownEvent" isExposed="False">
+          <Filter entryType="Property" fullName="o2g.Events.Maintenance.OnCtiLinkDownEvent.NodeId" filterName="NodeId" isExposed="True" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Events.Maintenance.OnCtiLinkUpEvent" filterName="OnCtiLinkUpEvent" isExposed="False">
+          <Filter entryType="Property" fullName="o2g.Events.Maintenance.OnCtiLinkUpEvent.NodeId" filterName="NodeId" isExposed="True" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Events.Maintenance.OnPbxLoadedEvent" filterName="OnPbxLoadedEvent" isExposed="False">
+          <Filter entryType="Property" fullName="o2g.Events.Maintenance.OnPbxLoadedEvent.NodeId" filterName="NodeId" isExposed="True" />
+        </Filter>
+      </Filter>
+      <Filter entryType="Namespace" fullName="o2g.Events.Management" isExposed="True">
+        <Filter entryType="Class" fullName="o2g.Events.Management.OnPbxObjectInstanceCreatedEvent" filterName="OnPbxObjectInstanceCreatedEvent" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Events.Management.OnPbxObjectInstanceCreatedEvent.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Events.Management.OnPbxObjectInstanceDeletedEvent" filterName="OnPbxObjectInstanceDeletedEvent" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Events.Management.OnPbxObjectInstanceDeletedEvent.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Events.Management.OnPbxObjectInstanceModifiedEvent" filterName="OnPbxObjectInstanceModifiedEvent" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Events.Management.OnPbxObjectInstanceModifiedEvent.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+      </Filter>
+      <Filter entryType="Namespace" fullName="o2g.Events.Routing" isExposed="True">
+        <Filter entryType="Class" fullName="o2g.Events.Routing.OnRoutingStateChangedEvent" filterName="OnRoutingStateChangedEvent" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Events.Routing.OnRoutingStateChangedEvent.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+      </Filter>
+      <Filter entryType="Namespace" fullName="o2g.Events.Telephony" isExposed="True">
+        <Filter entryType="Class" fullName="o2g.Events.Telephony.OnCallCreatedEvent" filterName="OnCallCreatedEvent" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Events.Telephony.OnCallCreatedEvent.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Events.Telephony.OnCallModifiedEvent" filterName="OnCallModifiedEvent" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Events.Telephony.OnCallModifiedEvent.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Events.Telephony.OnCallRemovedEvent" filterName="OnCallRemovedEvent" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Events.Telephony.OnCallRemovedEvent.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Events.Telephony.OnDeviceStateModifiedEvent" filterName="OnDeviceStateModifiedEvent" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Events.Telephony.OnDeviceStateModifiedEvent.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Events.Telephony.OnDynamicStateChangedEvent" filterName="OnDynamicStateChangedEvent" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Events.Telephony.OnDynamicStateChangedEvent.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Events.Telephony.OnTelephonyStateEvent" filterName="OnTelephonyStateEvent" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Events.Telephony.OnTelephonyStateEvent.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Events.Telephony.OnUserStateModifiedEvent" filterName="OnUserStateModifiedEvent" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Events.Telephony.OnUserStateModifiedEvent.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+      </Filter>
+      <Filter entryType="Namespace" fullName="o2g.Events.Users" isExposed="False">
+        <Filter entryType="Class" fullName="o2g.Events.Users.OnUserCreatedEvent" filterName="OnUserCreatedEvent" isExposed="False">
+          <Filter entryType="Property" fullName="o2g.Events.Users.OnUserCreatedEvent.User" filterName="User" isExposed="True" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Events.Users.OnUserDeletedEvent" filterName="OnUserDeletedEvent" isExposed="False">
+          <Filter entryType="Property" fullName="o2g.Events.Users.OnUserDeletedEvent.LoginName" filterName="LoginName" isExposed="True" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Events.Users.OnUserInfoChangedEvent" filterName="OnUserInfoChangedEvent" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Events.Users.OnUserInfoChangedEvent.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+      </Filter>
+      <Filter entryType="Namespace" fullName="o2g.Internal.Rest" isExposed="False" />
+      <Filter entryType="Namespace" fullName="o2g.Internal.Services" isExposed="False" />
+      <Filter entryType="Namespace" fullName="o2g.Types" isExposed="True">
+        <Filter entryType="Class" fullName="o2g.Types.Host" filterName="Host" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.Host.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.RestErrorInfo" filterName="RestErrorInfo" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.RestErrorInfo.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.RestErrorInfo.RoutingErrorInfo" filterName="RestErrorInfo.RoutingErrorInfo" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.RestErrorInfo.RoutingErrorInfo.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.RestErrorInfo.TelephonyErrorInfo" filterName="RestErrorInfo.TelephonyErrorInfo" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.RestErrorInfo.TelephonyErrorInfo.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.RestErrorInfo.UserPreferencesErrorInfo" filterName="RestErrorInfo.UserPreferencesErrorInfo" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.RestErrorInfo.UserPreferencesErrorInfo.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+      </Filter>
+      <Filter entryType="Namespace" fullName="o2g.Types.AnalyticsNS" isExposed="True">
+        <Filter entryType="Class" fullName="o2g.Types.AnalyticsNS.Charging" filterName="Charging" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.AnalyticsNS.Charging.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.AnalyticsNS.ChargingFile" filterName="ChargingFile" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.AnalyticsNS.ChargingFile.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.AnalyticsNS.ChargingResult" filterName="ChargingResult" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.AnalyticsNS.ChargingResult.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.AnalyticsNS.Incident" filterName="Incident" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.AnalyticsNS.Incident.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+      </Filter>
+      <Filter entryType="Namespace" fullName="o2g.Types.CallCenterAgentNS" isExposed="True">
+        <Filter entryType="Class" fullName="o2g.Types.CallCenterAgentNS.AgentGroups" filterName="AgentGroups" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.CallCenterAgentNS.AgentGroups.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.CallCenterAgentNS.AgentSkill" filterName="AgentSkill" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.CallCenterAgentNS.AgentSkill.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.CallCenterAgentNS.AgentSkillSet" filterName="AgentSkillSet" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.CallCenterAgentNS.AgentSkillSet.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.CallCenterAgentNS.OperatorConfiguration" filterName="OperatorConfiguration" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.CallCenterAgentNS.OperatorConfiguration.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.CallCenterAgentNS.OperatorState" filterName="OperatorState" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.CallCenterAgentNS.OperatorState.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.CallCenterAgentNS.WithdrawReason" filterName="WithdrawReason" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.CallCenterAgentNS.WithdrawReason.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+      </Filter>
+      <Filter entryType="Namespace" fullName="o2g.Types.CallCenterRsiNS" isExposed="True">
+        <Filter entryType="Class" fullName="o2g.Types.CallCenterRsiNS.AdditionalDigitCollectionCriteria" filterName="AdditionalDigitCollectionCriteria" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.CallCenterRsiNS.AdditionalDigitCollectionCriteria.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.CallCenterRsiNS.DataCollected" filterName="DataCollected" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.CallCenterRsiNS.DataCollected.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.CallCenterRsiNS.RouteRequest" filterName="RouteRequest" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.CallCenterRsiNS.RouteRequest.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.CallCenterRsiNS.RouteSession" filterName="RouteSession" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.CallCenterRsiNS.RouteSession.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.CallCenterRsiNS.RsiPoint" filterName="RsiPoint" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.CallCenterRsiNS.RsiPoint.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+      </Filter>
+      <Filter entryType="Namespace" fullName="o2g.Types.CommonNS" isExposed="True">
+        <Filter entryType="Class" fullName="o2g.Types.CommonNS.PartyInfo" filterName="PartyInfo" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.CommonNS.PartyInfo.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.CommonNS.PartyInfo.Identifier" filterName="PartyInfo.Identifier" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.CommonNS.PartyInfo.Identifier.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.CommonNS.PartyInfo.ParticipantType" filterName="PartyInfo.ParticipantType" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.CommonNS.PartyInfo.ParticipantType.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+      </Filter>
+      <Filter entryType="Namespace" fullName="o2g.Types.CommunicationLogNS" isExposed="True">
+        <Filter entryType="Class" fullName="o2g.Types.CommunicationLogNS.ComRecord" filterName="ComRecord" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.CommunicationLogNS.ComRecord.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.CommunicationLogNS.ComRecordParticipant" filterName="ComRecordParticipant" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.CommunicationLogNS.ComRecordParticipant.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.CommunicationLogNS.QueryFilter" filterName="QueryFilter" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.CommunicationLogNS.QueryFilter.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.CommunicationLogNS.QueryResult" filterName="QueryResult" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.CommunicationLogNS.QueryResult.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+      </Filter>
+      <Filter entryType="Namespace" fullName="o2g.Types.DirectoryNS" isExposed="True">
+        <Filter entryType="Class" fullName="o2g.Types.DirectoryNS.Criteria" filterName="Criteria" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.DirectoryNS.Criteria.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.DirectoryNS.SearchResult" filterName="SearchResult" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.DirectoryNS.SearchResult.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.DirectoryNS.SearchResult.Results" filterName="SearchResult.Results" isExposed="False">
+          <Filter entryType="Property" fullName="o2g.Types.DirectoryNS.SearchResult.Results.Contacts" filterName="Contacts" isExposed="True" />
+        </Filter>
+      </Filter>
+      <Filter entryType="Namespace" fullName="o2g.Types.EventSummaryNS" isExposed="True">
+        <Filter entryType="Class" fullName="o2g.Types.EventSummaryNS.EventSummary" filterName="EventSummary" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.EventSummaryNS.EventSummary.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+      </Filter>
+      <Filter entryType="Namespace" fullName="o2g.Types.MaintenanceNS" isExposed="True">
+        <Filter entryType="Class" fullName="o2g.Types.MaintenanceNS.License" filterName="License" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.MaintenanceNS.License.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.MaintenanceNS.PbxStatus" filterName="PbxStatus" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.MaintenanceNS.PbxStatus.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.MaintenanceNS.ServerAddress" filterName="ServerAddress" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.MaintenanceNS.ServerAddress.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.MaintenanceNS.SystemStatus" filterName="SystemStatus" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.MaintenanceNS.SystemStatus.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+      </Filter>
+      <Filter entryType="Namespace" fullName="o2g.Types.ManagementNS" isExposed="True">
+        <Filter entryType="Class" fullName="o2g.Types.ManagementNS.Filter" filterName="Filter" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.ManagementNS.Filter.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.ManagementNS.Model" filterName="Model" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.ManagementNS.Model.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.ManagementNS.ModelAttribute" filterName="ModelAttribute" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.ManagementNS.ModelAttribute.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.ManagementNS.OctetStringLength" filterName="OctetStringLength" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.ManagementNS.OctetStringLength.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.ManagementNS.Pbx" filterName="Pbx" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.ManagementNS.Pbx.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.ManagementNS.PbxAttribute" filterName="PbxAttribute" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.ManagementNS.PbxAttribute.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.ManagementNS.PbxAttributeMap" filterName="PbxAttributeMap" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.ManagementNS.PbxAttributeMap.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.ManagementNS.PbxObject" filterName="PbxObject" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.ManagementNS.PbxObject.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.ManagementNS.PbxObjectDefinition" filterName="PbxObjectDefinition" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.ManagementNS.PbxObjectDefinition.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+      </Filter>
+      <Filter entryType="Namespace" fullName="o2g.Types.MessagingNS" isExposed="True">
+        <Filter entryType="Class" fullName="o2g.Types.MessagingNS.MailBox" filterName="MailBox" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.MessagingNS.MailBox.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.MessagingNS.MailBox.MailBoxCapabilities" filterName="MailBox.MailBoxCapabilities" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.MessagingNS.MailBox.MailBoxCapabilities.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.MessagingNS.MailBoxInfo" filterName="MailBoxInfo" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.MessagingNS.MailBoxInfo.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.MessagingNS.VoiceMessage" filterName="VoiceMessage" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.MessagingNS.VoiceMessage.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+      </Filter>
+      <Filter entryType="Namespace" fullName="o2g.Types.PhoneSetProgrammableNS" isExposed="True">
+        <Filter entryType="Class" fullName="o2g.Types.PhoneSetProgrammableNS.DynamicState" filterName="DynamicState" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.PhoneSetProgrammableNS.DynamicState.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.PhoneSetProgrammableNS.Pin" filterName="Pin" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.PhoneSetProgrammableNS.Pin.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.PhoneSetProgrammableNS.ProgrammableKey" filterName="ProgrammableKey" isExposed="False">
+          <Filter entryType="Property" fullName="o2g.Types.PhoneSetProgrammableNS.ProgrammableKey.Locked" filterName="Locked" isExposed="True" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.PhoneSetProgrammableNS.SoftKey" filterName="SoftKey" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.PhoneSetProgrammableNS.SoftKey.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+      </Filter>
+      <Filter entryType="Namespace" fullName="o2g.Types.RoutingNS" isExposed="True">
+        <Filter entryType="Class" fullName="o2g.Types.RoutingNS.DndState" filterName="DndState" isExposed="False">
+          <Filter entryType="Property" fullName="o2g.Types.RoutingNS.DndState.Activate" filterName="Activate" isExposed="True" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.RoutingNS.Forward" filterName="Forward" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.RoutingNS.Forward.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.RoutingNS.Overflow" filterName="Overflow" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.RoutingNS.Overflow.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.RoutingNS.RoutingCapabilities" filterName="RoutingCapabilities" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.RoutingNS.RoutingCapabilities.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.RoutingNS.RoutingState" filterName="RoutingState" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.RoutingNS.RoutingState.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+      </Filter>
+      <Filter entryType="Namespace" fullName="o2g.Types.TelephonyNS" isExposed="True">
+        <Filter entryType="Class" fullName="o2g.Types.TelephonyNS.Callback" filterName="Callback" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.TelephonyNS.Callback.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.TelephonyNS.CallCapabilities" filterName="CallCapabilities" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.TelephonyNS.CallCapabilities.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.TelephonyNS.HuntingGroups" filterName="HuntingGroups" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.TelephonyNS.HuntingGroups.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.TelephonyNS.HuntingGroupStatus" filterName="HuntingGroupStatus" isExposed="False">
+          <Filter entryType="Property" fullName="o2g.Types.TelephonyNS.HuntingGroupStatus.LogonOn" filterName="LogonOn" isExposed="True" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.TelephonyNS.MiniMessage" filterName="MiniMessage" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.TelephonyNS.MiniMessage.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.TelephonyNS.PbxCall" filterName="PbxCall" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.TelephonyNS.PbxCall.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.TelephonyNS.TelephonicState" filterName="TelephonicState" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.TelephonyNS.TelephonicState.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+      </Filter>
+      <Filter entryType="Namespace" fullName="o2g.Types.TelephonyNS.CallNS" isExposed="True">
+        <Filter entryType="Class" fullName="o2g.Types.TelephonyNS.CallNS.CallData" filterName="CallData" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.TelephonyNS.CallNS.CallData.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.TelephonyNS.CallNS.Leg" filterName="Leg" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.TelephonyNS.CallNS.Leg.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.TelephonyNS.CallNS.Leg.LegCapabilities" filterName="Leg.LegCapabilities" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.TelephonyNS.CallNS.Leg.LegCapabilities.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.TelephonyNS.CallNS.Participant" filterName="Participant" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.TelephonyNS.CallNS.Participant.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.TelephonyNS.CallNS.Tag" filterName="Tag" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.TelephonyNS.CallNS.Tag.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+      </Filter>
+      <Filter entryType="Namespace" fullName="o2g.Types.TelephonyNS.CallNS.AcdNS" isExposed="True">
+        <Filter entryType="Class" fullName="o2g.Types.TelephonyNS.CallNS.AcdNS.AcdData" filterName="AcdData" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.TelephonyNS.CallNS.AcdNS.AcdData.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.TelephonyNS.CallNS.AcdNS.AcrSkill" filterName="AcrSkill" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.TelephonyNS.CallNS.AcdNS.AcrSkill.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.TelephonyNS.CallNS.AcdNS.Info" filterName="Info" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.TelephonyNS.CallNS.AcdNS.Info.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.TelephonyNS.CallNS.AcdNS.PilotTransferInfo" filterName="PilotTransferInfo" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.TelephonyNS.CallNS.AcdNS.PilotTransferInfo.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.TelephonyNS.CallNS.AcdNS.QueueData" filterName="QueueData" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.TelephonyNS.CallNS.AcdNS.QueueData.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+      </Filter>
+      <Filter entryType="Namespace" fullName="o2g.Types.TelephonyNS.DeviceNS" isExposed="True">
+        <Filter entryType="Class" fullName="o2g.Types.TelephonyNS.DeviceNS.DeviceCapabilities" filterName="DeviceCapabilities" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.TelephonyNS.DeviceNS.DeviceCapabilities.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.TelephonyNS.DeviceNS.DeviceState" filterName="DeviceState" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.TelephonyNS.DeviceNS.DeviceState.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+      </Filter>
+      <Filter entryType="Namespace" fullName="o2g.Types.UsersNS" isExposed="True">
+        <Filter entryType="Class" fullName="o2g.Types.UsersNS.Device" filterName="Device" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.UsersNS.Device.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.UsersNS.Preferences" filterName="Preferences" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.UsersNS.Preferences.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.UsersNS.SupportedLanguages" filterName="SupportedLanguages" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.UsersNS.SupportedLanguages.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.UsersNS.User" filterName="User" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.UsersNS.User.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.UsersNS.Voicemail" filterName="Voicemail" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.UsersNS.Voicemail.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+      </Filter>
+      <Filter entryType="Namespace" fullName="o2g.Utility" isExposed="False" />
+    </ApiFilter>
   </PropertyGroup>
   <!-- There are no properties for these groups.  AnyCPU needs to appear in order for Visual Studio to perform
 			 the build.  The others are optional common platform types that may appear. -->
@@ -571,8 +573,11 @@ Use the &amp;lt%3ba href=&amp;quot%3bhttps://docs.microsoft.com/en-us/nuget/tool
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Macross.Json.Extensions">
+      <HintPath>..\..\..\Users\d3mabil\.nuget\packages\macross.json.extensions\3.0.0\lib\netstandard2.1\Macross.Json.Extensions.dll</HintPath>
+    </Reference>
     <Reference Include="NLog">
-      <HintPath>..\..\..\Users\d3mabil\.nuget\packages\nlog\4.7.11\lib\netstandard2.0\NLog.dll</HintPath>
+      <HintPath>..\..\..\Users\d3mabil\.nuget\packages\nlog\5.0.1\lib\netstandard2.0\NLog.dll</HintPath>
     </Reference>
   </ItemGroup>
 </Project>

@@ -110,9 +110,8 @@ namespace o2g.Internal.Events
                         else
                         {
                             O2GEvent o2gEvent = eventDescriptor.Event;
-                            if (o2gEvent is OnChannelInformationEvent)
+                            if (o2gEvent is OnChannelInformationEvent channelInfoEvent)
                             {
-                                OnChannelInformationEvent channelInfoEvent = (OnChannelInformationEvent)o2gEvent;
                                 if (channelInfoEvent.Text == "keepalive")
                                 {
                                     // Do nothing

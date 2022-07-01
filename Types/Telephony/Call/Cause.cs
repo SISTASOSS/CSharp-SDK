@@ -18,12 +18,14 @@
 */
 
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace o2g.Types.TelephonyNS.CallNS
 {
     /// <summary>
     /// <c>Cause</c> lists the different call causes.
     /// </summary>
+    [JsonStringEnumMemberConverterOptions(deserializationFailureFallbackValue: Cause.Unknown)]
     public enum Cause
     {
         /// <summary>

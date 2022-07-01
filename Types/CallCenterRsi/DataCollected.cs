@@ -17,12 +17,8 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text.Json.Serialization;
 
 namespace o2g.Types.CallCenterRsiNS
 {
@@ -35,6 +31,7 @@ namespace o2g.Types.CallCenterRsiNS
         /// <summary>
         /// <c>CollectionCause</c> represents the reason why the digits collection ended.
         /// </summary>
+        [JsonStringEnumMemberConverterOptions(deserializationFailureFallbackValue: CollectionCause.SfTerminated)]
         public enum CollectionCause
         {
             /// <summary>

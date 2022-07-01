@@ -18,12 +18,14 @@
 */
 
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace o2g.Types.TelephonyNS.UserNS
 {
     /// <summary>
     /// <c>UserState</c> represents the global user state.
     /// </summary>
+    [JsonStringEnumMemberConverterOptions(deserializationFailureFallbackValue: UserState.Unknown)]
     public enum UserState
     {
         /// <summary>

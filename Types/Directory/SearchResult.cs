@@ -19,6 +19,7 @@
 using o2g.Types.CommonNS;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace o2g.Types.DirectoryNS
 {
@@ -34,6 +35,7 @@ namespace o2g.Types.DirectoryNS
         /// Each time a call to <see cref="IDirectory.GetResultsAsync(string)"/> is done, the returned result code must be tested.
         /// </remarks>
         /// <seealso cref="IDirectory"/>
+        [JsonStringEnumMemberConverterOptions(deserializationFailureFallbackValue: Code.Unknown)]
         public enum Code
         {
             /// <summary>
@@ -58,7 +60,12 @@ namespace o2g.Types.DirectoryNS
             /// Search is ended for timeout reason.
             /// </summary>
             [EnumMember(Value = "TIMEOUT")]
-            Timeout
+            Timeout,
+
+            /// <summary>
+            /// Unknown result code.
+            /// </summary>
+            Unknown
         }
 
         /// <summary>

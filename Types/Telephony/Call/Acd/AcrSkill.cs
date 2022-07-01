@@ -39,7 +39,7 @@ namespace o2g.Types.TelephonyNS.CallNS.AcdNS
         /// <value>
         /// An <see langword="int"/> value that is the unique identifier of the skill.
         /// </value>
-        public int Number { get; set; }
+        public int Number { get; init; }
 
         /// <summary>
         /// Return whether this skill is a mandatory skill.
@@ -48,7 +48,7 @@ namespace o2g.Types.TelephonyNS.CallNS.AcdNS
         /// <see langword="true"/> if the skill is mandatory; <see langword="false"/> otherwise.
         /// </value>
         [JsonPropertyName("acrStatus")]
-        public bool Mandatory { get; set; }
+        public bool Mandatory { get; init; }
 
         /// <summary>
         /// Return the skill level.
@@ -56,6 +56,6 @@ namespace o2g.Types.TelephonyNS.CallNS.AcdNS
         /// <value>
         /// An <see langword="int"/> value that represents the skill level required.
         /// </value>
-        public int ExpertEvalLevel { get; set; }
+        public int ExpertEvalLevel { get; init; }
     }
 }

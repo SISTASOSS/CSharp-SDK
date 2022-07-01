@@ -18,12 +18,14 @@
 */
 
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace o2g.Types.TelephonyNS.DeviceNS
 {
     /// <summary>
     /// <c>OperationalState</c> represents a device dynamic state.
     /// </summary>
+    [JsonStringEnumMemberConverterOptions(deserializationFailureFallbackValue: OperationalState.Unknown)]
     public enum OperationalState
     {
         /// <summary>

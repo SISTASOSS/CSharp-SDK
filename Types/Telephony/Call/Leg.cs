@@ -37,7 +37,7 @@ namespace o2g.Types.TelephonyNS.CallNS
             /// <value>
             /// <see langword="true"/> if the call can be answered; <see langword="false"/> otherwise.
             /// </value>
-            public bool Answer { get; set; }
+            public bool Answer { get; init; }
 
             /// <summary>
             /// Return whether the leg can drop this media device.
@@ -45,7 +45,7 @@ namespace o2g.Types.TelephonyNS.CallNS
             /// <value>
             /// <see langword="true"/> if the media device can be dropped; <see langword="false"/> otherwise.
             /// </value>
-            public bool Drop { get; set; }
+            public bool Drop { get; init; }
 
             /// <summary>
             /// Return whether the leg can put this call on hold in order to retrieve it later.
@@ -53,7 +53,7 @@ namespace o2g.Types.TelephonyNS.CallNS
             /// <value>
             /// <see langword="true"/> if the call can be put on hold; <see langword="false"/> otherwise.
             /// </value>
-            public bool Hold { get; set; }
+            public bool Hold { get; init; }
 
             /// <summary>
             /// Return whether the leg can retrieve a call on hold.
@@ -61,7 +61,7 @@ namespace o2g.Types.TelephonyNS.CallNS
             /// <value>
             /// <see langword="true"/> if the call on hold can retrieved; <see langword="false"/> otherwise.
             /// </value>
-            public bool Retrieve { get; set; }
+            public bool Retrieve { get; init; }
 
             /// <summary>
             /// Return whether the leg can retrieve an hold call and releasing the current active call.
@@ -69,7 +69,7 @@ namespace o2g.Types.TelephonyNS.CallNS
             /// <value>
             /// <see langword="true"/> if the call on hold can be retrieved and the active call released; <see langword="false"/> otherwise.
             /// </value>
-            public bool Reconnect { get; set; }
+            public bool Reconnect { get; init; }
 
             /// <summary>
             /// Return whether the leg can be muted.
@@ -77,7 +77,7 @@ namespace o2g.Types.TelephonyNS.CallNS
             /// <value>
             /// <see langword="true"/> if the leg can be muted; <see langword="false"/> otherwise.
             /// </value>
-            public bool Mute { get; set; }
+            public bool Mute { get; init; }
 
             /// <summary>
             /// Return whether the leg can be un-muted.
@@ -85,7 +85,7 @@ namespace o2g.Types.TelephonyNS.CallNS
             /// <value>
             /// <see langword="true"/> if the leg can be un-muted; <see langword="false"/> otherwise.
             /// </value>
-            public bool UnMute { get; set; }
+            public bool UnMute { get; init; }
 
             /// <summary>
             /// Return whether DTMF codes can be sent.
@@ -93,7 +93,7 @@ namespace o2g.Types.TelephonyNS.CallNS
             /// <value>
             /// <see langword="true"/> if DTMF codes can be sent; <see langword="false"/> otherwise.
             /// </value>
-            public bool SendDtmf { get; set; }
+            public bool SendDtmf { get; init; }
 
             /// <summary>
             /// Return whether this call can be switched to another device.
@@ -101,7 +101,7 @@ namespace o2g.Types.TelephonyNS.CallNS
             /// <value>
             /// <see langword="true"/> if the call can be switched; <see langword="false"/> otherwise.
             /// </value>
-            public bool SwitchDevice { get; set; }
+            public bool SwitchDevice { get; init; }
         }
 
         /// <summary>
@@ -110,7 +110,7 @@ namespace o2g.Types.TelephonyNS.CallNS
         /// <value>
         /// A <see langword="string"/> that is the device extension number.
         /// </value>
-        public string DeviceId { get; set; }
+        public string DeviceId { get; init; }
 
         /// <summary>
         /// This property return the device state.
@@ -118,7 +118,7 @@ namespace o2g.Types.TelephonyNS.CallNS
         /// <value>
         /// A <see cref="MediaState"/> that is the state of the device associated to this leg.
         /// </value>
-        public MediaState State { get; set; }
+        public MediaState State { get; init; }
 
         /// <summary>
         /// This property return whether the leg is in <c>RingingOutgoing</c> state and if the remote party is ringing.
@@ -126,7 +126,7 @@ namespace o2g.Types.TelephonyNS.CallNS
         /// <value>
         /// <see langword="true"/> if the leg is ringing; <see langword="false"/> otherwise.
         /// </value>
-        public bool RingingRemote { get; set; }
+        public bool RingingRemote { get; init; }
 
         /// <summary>
         /// This property gives the leg capabilities.
@@ -134,6 +134,6 @@ namespace o2g.Types.TelephonyNS.CallNS
         /// <value>
         /// A <see cref="LegCapabilities"/> object that gives the leg capabilities.
         /// </value>
-        public LegCapabilities Capabilities { get; set; }
+        public LegCapabilities Capabilities { get; init; }
     }
 }

@@ -46,6 +46,7 @@ namespace o2g.Types
             /// <summary>
             /// <c>RoutingErrorType</c> represents the different type of routing errors.
             /// </summary>
+            [JsonStringEnumMemberConverterOptions(deserializationFailureFallbackValue: RoutingErrorType.Unknown)]
             public enum RoutingErrorType
             {
                 /// <summary>
@@ -99,6 +100,7 @@ namespace o2g.Types
             /// <summary>
             /// <c>RoutingErrorCause</c> represents the differents routing error causes.
             /// </summary>
+            [JsonStringEnumMemberConverterOptions(deserializationFailureFallbackValue: RoutingErrorCause.Unknown)]
             public enum RoutingErrorCause
             {
                 /// <summary>
@@ -220,6 +222,7 @@ namespace o2g.Types
             /// <summary>
             /// <c>TelephonyErrorType</c> represents the telephony error types.
             /// </summary>
+            [JsonStringEnumMemberConverterOptions(deserializationFailureFallbackValue: TelephonyErrorType.Unknown)]
             public enum TelephonyErrorType
             {
                 /// <summary>
@@ -285,6 +288,7 @@ namespace o2g.Types
             /// <summary>
             /// <c>TelephonyErrorCause</c> represents the possible errors raised by the OmniPCX Enterprise call server.
             /// </summary>
+            [JsonStringEnumMemberConverterOptions(deserializationFailureFallbackValue: TelephonyErrorCause.Unknown)]
             public enum TelephonyErrorCause
             {
                 /// <summary>
@@ -361,6 +365,7 @@ namespace o2g.Types
             /// <summary>
             /// <c>UserPreferencesErrorType</c> represents the possible error types for the user preferences.
             /// </summary>
+            [JsonStringEnumMemberConverterOptions(deserializationFailureFallbackValue: UserPreferencesErrorType.Unknown)]
             public enum UserPreferencesErrorType
             {
                 /// <summary>
@@ -383,13 +388,19 @@ namespace o2g.Types
             /// <summary>
             /// <c>UserPreferenceParameter</c> represents the possible preferences.
             /// </summary>
+            [JsonStringEnumMemberConverterOptions(deserializationFailureFallbackValue: UserPreferenceParameter.Unknown)]
             public enum UserPreferenceParameter
             {
                 /// <summary>
                 /// User GUI language.
                 /// </summary>
                 [EnumMember(Value = "GUI_LANGUAGE")]
-                GuiLanguage
+                GuiLanguage,
+
+                /// <summary>
+                /// Unknown property
+                /// </summary>
+                Unknown
             }
 
             /// <summary>

@@ -36,7 +36,7 @@ namespace o2g.Types.TelephonyNS.CallNS
         /// <remarks>
         /// Even if it can be equals to the participant extension number, an application should not use this identifier for other purpose than retrieving this participant.
         /// </remarks>
-        public string ParticipantId { get; set; }
+        public string ParticipantId { get; init; }
 
         /// <summary>
         /// This property gives the participant identity.
@@ -44,7 +44,7 @@ namespace o2g.Types.TelephonyNS.CallNS
         /// <value>
         /// A <see cref="PartyInfo"/> that is the participant identity.
         /// </value>
-        public PartyInfo Identity { get; set; }
+        public PartyInfo Identity { get; init; }
 
         /// <summary>
         /// Return whether the participant identity is secret.
@@ -52,7 +52,7 @@ namespace o2g.Types.TelephonyNS.CallNS
         /// <value>
         /// <see langword="true"/> if the participant is anonymous; <see langword="false"/> otherwise.
         /// </value>
-        public bool Anonymous { get; set; }
+        public bool Anonymous { get; init; }
 
         /// <summary>
         /// Return whether the participant can be dropped from a call.
@@ -60,7 +60,7 @@ namespace o2g.Types.TelephonyNS.CallNS
         /// <value>
         /// <see langword="true"/> if the participant can be dropped; <see langword="false"/> otherwise.
         /// </value>
-        public bool Undroppable { get; set; }
+        public bool Undroppable { get; init; }
 
         /// <summary>
         /// This property gives the participant state.
@@ -71,6 +71,6 @@ namespace o2g.Types.TelephonyNS.CallNS
         /// <remarks>
         /// This property is only filled in multi-party call (>=3 participants) and only when the Participant mediaState is changed to RINGING_INCOMING or from RINGING_INCOMING to ACTIVE.
         /// </remarks>
-        public MediaState State { get; set; }
+        public MediaState State { get; init; }
     }
 }

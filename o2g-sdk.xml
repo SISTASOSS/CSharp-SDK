@@ -3054,6 +3054,36 @@
             </remarks>
             <seealso cref="T:o2g.Events.Telephony.OnCallCreatedEvent"/><seealso cref="T:o2g.Events.Telephony.OnCallModifiedEvent"/>
         </member>
+        <member name="M:o2g.ITelephony.MakeCallAsync(System.String,System.String,System.Boolean,System.Boolean,System.Byte[],System.String,System.String)">
+            <summary>
+            Initiates a new call to another user (the callee), using the specified deviceId and options.
+            </summary>
+            <param name="deviceId">The device phone number from which the call is placed. If the session is opened by a user, the device phone number must be one of the user.</param>
+            <param name="callee">Called phone number.</param>
+            <param name="autoAnswer">Automatic answer on make call. If this parameter is set to <see langword="false"/> the device <paramref name="deviceId"/> is called before calling the callee, else callee is called immediately.</param>
+            <param name="inhibitProgressTone">Allows to inhibit the progress tone on the current external call.</param>
+            <param name="associatedData">The byte array data associated to the call.</param>
+            <param name="callingNumber">Calling number to present to the public network.</param>
+            <param name="loginName">The user login name.</param>
+            <returns><see langword="true"/> in case of success; <see langword="false"/> otherwise.</returns>
+            <remarks>
+            <para>
+            Use the <c>MakeCallAsync</c> service to initiated a call from one of the devices of the logged user. First, the call server initiates a call on the user <paramref name="deviceId"/>. Then when the call is answered the call server starts the call to the <paramref name="callee"/>.
+            an <see cref="T:o2g.Events.Telephony.OnCallCreatedEvent"/> is raised.
+            </para>
+            <para>
+            If <c>inhibitProgressTone</c> is <see langword="true"/>, progress tone is inhibited on an outbound call.
+            </para>
+            <para>
+            The <c>callingNumber</c> is used on an outbound call to  to present another calling number on the public network call in order to hide the real calling extension number.
+            </para>
+            <para>
+            If the session has been opened for a user, the <paramref name="loginName"/> parameter is ignored, 
+            but it is mandatory if the session has been opened by an administrator.
+            </para>
+            </remarks>
+            <seealso cref="T:o2g.Events.Telephony.OnCallCreatedEvent"/><seealso cref="T:o2g.Events.Telephony.OnCallModifiedEvent"/>
+        </member>
         <member name="M:o2g.ITelephony.MakePrivateCallAsync(System.String,System.String,System.String,System.String,System.String)">
             <summary>
             Initiates a new private call to another user (the callee), using a pin code and an optional secret code.
@@ -3151,6 +3181,30 @@
             </para>
             </remarks>
         </member>
+        <member name="M:o2g.ITelephony.MakePilotOrRSISupervisedTransferCallAsync(System.String,System.String,System.Byte[],System.Collections.Generic.List{o2g.Types.TelephonyNS.CallNS.AcdNS.AcrSkill},System.String)">
+            <summary>
+            Initiates an enquiry call from a CCD agent to a pilot or a RSI point.
+            </summary>
+            <param name="deviceId">The device phone number from which the call is placed. If the session is opened by a user, the device phone number must be one of the user.</param>
+            <param name="pilot">Called CCD pilot or RSI point number.</param>
+            <param name="associatedData">The byte array data associated to the call.</param>
+            <param name="callProfile">The call profile associated to this call.</param>
+            <param name="loginName">The user login name.</param>
+            <returns><see langword="true"/> in case of success; <see langword="false"/> otherwise.</returns>
+            <remarks>
+            <para>
+            Use the <c>MakePilotOrRSISupervisedTransferCallAsync</c> service to initiated an enquiry call to a CCD pilot or an RSI point from a CCD operator. 
+            </para>
+            <para>
+            The CCD pilot or the RSI point performs a call distribution to select an agent that will be alerted by this call. The <paramref name="callProfile"/> is mandatory
+            in case of "Advanced Call Routing" call distribution strategy.
+            </para>
+            <para>
+            If the session has been opened for a user, the <paramref name="loginName"/> parameter is ignored, 
+            but it is mandatory if the session has been opened by an administrator.
+            </para>
+            </remarks>
+        </member>
         <member name="M:o2g.ITelephony.MakePilotOrRSICallAsync(System.String,System.String,System.Boolean,System.String,System.Collections.Generic.List{o2g.Types.TelephonyNS.CallNS.AcdNS.AcrSkill},System.String)">
             <summary>
             Initiates an local call to a CCD pilot or a RSI point.
@@ -3159,6 +3213,31 @@
             <param name="pilot">Called CCD pilot or RSI point number.</param>
             <param name="autoAnswer">Automatic answer on make call. If this parameter is set to <see langword="false"/> the device <paramref name="deviceId"/> is called before calling the callee, else callee is called immediately.</param>
             <param name="associatedData">Correlator data to add to the call.</param>
+            <param name="callProfile">The call profile associated to this call.</param>
+            <param name="loginName">The user login name.</param>
+            <returns><see langword="true"/> in case of success; <see langword="false"/> otherwise.</returns>
+            <remarks>
+            <para>
+            Use the <c>MakePilotOrRSICallAsync</c> service to initiated a local call to a CCD pilot or an RSI point. 
+            </para>
+            <para>
+            The CCD pilot or the RSI point performs a call distribution to select an agent that will be alerted by this call. The <paramref name="callProfile"/> is mandatory
+            in case of "Advanced Call Routing" call distribution strategy.
+            </para>
+            <para>
+            If the session has been opened for a user, the <paramref name="loginName"/> parameter is ignored, 
+            but it is mandatory if the session has been opened by an administrator.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:o2g.ITelephony.MakePilotOrRSICallAsync(System.String,System.String,System.Boolean,System.Byte[],System.Collections.Generic.List{o2g.Types.TelephonyNS.CallNS.AcdNS.AcrSkill},System.String)">
+            <summary>
+            Initiates an local call to a CCD pilot or a RSI point.
+            </summary>
+            <param name="deviceId">The device phone number from which the call is placed. If the session is opened by a user, the device phone number must be one of the user.</param>
+            <param name="pilot">Called CCD pilot or RSI point number.</param>
+            <param name="autoAnswer">Automatic answer on make call. If this parameter is set to <see langword="false"/> the device <paramref name="deviceId"/> is called before calling the callee, else callee is called immediately.</param>
+            <param name="associatedData">The byte array data associated to the call.</param>
             <param name="callProfile">The call profile associated to this call.</param>
             <param name="loginName">The user login name.</param>
             <returns><see langword="true"/> in case of success; <see langword="false"/> otherwise.</returns>
@@ -3199,6 +3278,18 @@
             <param name="callRef">The call reference.</param>
             <param name="deviceId">The device phone number for which the operation is invoked.</param>
             <param name="associatedData">The data associated to the call.</param>
+            <returns><see langword="true"/> in case of success; <see langword="false"/> otherwise.</returns>
+            <remarks>
+            Associates data can be encoded as clear string or binary encoded string. The associated data has a 32 bytes length.
+            </remarks>
+        </member>
+        <member name="M:o2g.ITelephony.AttachDataAsync(System.String,System.String,System.Byte[])">
+            <summary>
+            Associates data to the specified established call. 
+            </summary>
+            <param name="callRef">The call reference.</param>
+            <param name="deviceId">The device phone number for which the operation is invoked.</param>
+            <param name="associatedData">The byte array data associated to the call.</param>
             <returns><see langword="true"/> in case of success; <see langword="false"/> otherwise.</returns>
             <remarks>
             Associates data can be encoded as clear string or binary encoded string. The associated data has a 32 bytes length.
@@ -3792,6 +3883,18 @@
             </remarks>
             <seealso cref="M:o2g.ITelephony.GetCallAsync(System.String,System.String)"/>
             <seealso cref="M:o2g.ITelephony.DeleteCallbacksAsync(System.String)"/>
+        </member>
+        <member name="M:o2g.ITelephony.ReleaseCallAsync(System.String,System.String)">
+            <summary>
+            Release the specified call.
+            </summary>
+            <param name="callRef">The call reference.</param>
+            <param name="loginName">The user login name.</param>
+            <returns><see langword="true"/> in case of success; <see langword="false"/> otherwise.</returns>
+            <remarks>
+            If the session has been opened for a user, the <paramref name="loginName"/> parameter is ignored, 
+            but it is mandatory if the session has been opened by an administrator.
+            </remarks>
         </member>
         <member name="M:o2g.ITelephony.RequestSnapshotAsync(System.String)">
             <summary>
@@ -5064,6 +5167,11 @@
             The supervisor only listens to the conversation between agent and customer.
             </summary>
         </member>
+        <member name="F:o2g.Types.CallCenterAgentNS.IntrusionMode.Unknown">
+            <summary>
+            Unknown intrusion mode
+            </summary>
+        </member>
         <member name="T:o2g.Types.CallCenterAgentNS.OperatorConfiguration">
             <summary>
             <c>Configuration</c> class represents a CCD operator configuration.
@@ -5238,6 +5346,11 @@
             The operator is in wrapup after a callback call.
             </summary>
         </member>
+        <member name="F:o2g.Types.CallCenterAgentNS.OperatorState.OperatorDynamicState.Unknown">
+            <summary>
+            Unknown operator dynamic state.
+            </summary>
+        </member>
         <member name="P:o2g.Types.CallCenterAgentNS.OperatorState.MainState">
             <summary>
             Return the operator main state.
@@ -5304,6 +5417,11 @@
         <member name="F:o2g.Types.CallCenterAgentNS.OperatorType.Supervisor">
             <summary>
             CCD Supervisor
+            </summary>
+        </member>
+        <member name="F:o2g.Types.CallCenterAgentNS.OperatorType.Unknown">
+            <summary>
+            Unknown operator type.
             </summary>
         </member>
         <member name="T:o2g.Types.CallCenterAgentNS.WithdrawReason">
@@ -5678,6 +5796,11 @@
         <member name="F:o2g.Types.CallCenterRsiNS.Tones.Announcement">
             <summary>
             The annoucement tone.
+            </summary>
+        </member>
+        <member name="F:o2g.Types.CallCenterRsiNS.Tones.Unknown">
+            <summary>
+            Unknown tone.
             </summary>
         </member>
         <member name="T:o2g.Types.CommonNS.PartyInfo">
@@ -6456,6 +6579,11 @@
             Search is ended for timeout reason.
             </summary>
         </member>
+        <member name="F:o2g.Types.DirectoryNS.SearchResult.Code.Unknown">
+            <summary>
+            Unknown result code.
+            </summary>
+        </member>
         <member name="T:o2g.Types.DirectoryNS.SearchResult.Results">
             <summary>
             <c>Results</c> represents a set of result from a directory search.
@@ -6622,6 +6750,11 @@
         <member name="F:o2g.Types.MaintenanceNS.ConfigurationType.FullServices">
             <summary>
             O2G Server is configured with full services.
+            </summary>
+        </member>
+        <member name="F:o2g.Types.MaintenanceNS.ConfigurationType.Unknown">
+            <summary>
+            Unknown configuration
             </summary>
         </member>
         <member name="T:o2g.Types.MaintenanceNS.CtiLinkState">
@@ -8464,6 +8597,11 @@
             User GUI language.
             </summary>
         </member>
+        <member name="F:o2g.Types.RestErrorInfo.UserPreferencesErrorInfo.UserPreferenceParameter.Unknown">
+            <summary>
+            Unknown property
+            </summary>
+        </member>
         <member name="P:o2g.Types.RestErrorInfo.UserPreferencesErrorInfo.UserPreferencesError">
             <summary>
             Return the information on the error.
@@ -9285,7 +9423,15 @@
             A <see cref="T:o2g.Types.TelephonyNS.CallCapabilities"/> object that represents the capability available in this call.
             </value>
         </member>
-        <member name="P:o2g.Types.TelephonyNS.CallNS.CallData.AssociateData">
+        <member name="P:o2g.Types.TelephonyNS.CallNS.CallData.AssociatedData">
+            <summary>
+            This property return the string correlator data associated to this call.
+            </summary>
+            <value>
+            A <see langword="string"/> that is the associated correlator data.
+            </value>
+        </member>
+        <member name="P:o2g.Types.TelephonyNS.CallNS.CallData.HexaBinaryAssociatedData">
             <summary>
             This property return the correlator data associated to this call.
             </summary>
@@ -9301,13 +9447,21 @@
             A <see langword="string"/> that is the account info.
             </value>
         </member>
-        <member name="P:o2g.Types.TelephonyNS.CallNS.CallData.acdCallData">
+        <member name="P:o2g.Types.TelephonyNS.CallNS.CallData.AcdCallData">
             <summary>
             This property gives the acd extension in case of an acd call.
             </summary>
             <value>
             A <see cref="T:o2g.Types.TelephonyNS.CallNS.AcdNS.AcdData"/> object that provide this call acd extension data.
             </value>
+        </member>
+        <member name="M:o2g.Types.TelephonyNS.CallNS.CallData.AssociatedDataAsByteArray">
+            <summary>
+            Return the correlator data as a byte array.
+            </summary>
+            <returns>
+            The array of bytes corresponding to the correlator data.
+            </returns>
         </member>
         <member name="T:o2g.Types.TelephonyNS.CallNS.Cause">
             <summary>
@@ -9655,6 +9809,11 @@
             The recording is in progress.
             </summary>
         </member>
+        <member name="F:o2g.Types.TelephonyNS.CallNS.RecordState.Unknown">
+            <summary>
+            Unable to identify the state.
+            </summary>
+        </member>
         <member name="T:o2g.Types.TelephonyNS.CallNS.Tag">
             <summary>
             <c>Tag</c> represents a tag (a define name and value), associated to a call.
@@ -9940,6 +10099,11 @@
         <member name="F:o2g.Types.UsersNS.Device.DeviceType.Softphone">
             <summary>
             The device is a softphone
+            </summary>
+        </member>
+        <member name="F:o2g.Types.UsersNS.Device.DeviceType.Unknown">
+            <summary>
+            Unknown device type
             </summary>
         </member>
         <member name="P:o2g.Types.UsersNS.Device.Type">

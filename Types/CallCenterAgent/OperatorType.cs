@@ -18,12 +18,14 @@
 */
 
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace o2g.Types.CallCenterAgentNS
 {
     /// <summary>
     /// <c>OperatorType</c> represents the CCD operator, either Agent or Supervisor.
     /// </summary>
+    [JsonStringEnumMemberConverterOptions(deserializationFailureFallbackValue: OperatorType.Unknown)]
     public enum OperatorType
     {
         /// <summary>
@@ -36,6 +38,11 @@ namespace o2g.Types.CallCenterAgentNS
         /// CCD Supervisor
         /// </summary>
         [EnumMember(Value = "SUPERVISOR")]
-        Supervisor
+        Supervisor,
+
+        /// <summary>
+        /// Unknown operator type.
+        /// </summary>
+        Unknown
     }
 }

@@ -18,6 +18,7 @@
 */
 
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace o2g.Types.CallCenterRsiNS
 {
@@ -25,6 +26,7 @@ namespace o2g.Types.CallCenterRsiNS
     /// <c>RoutingReason</c> represents the possible reason associated to a route request.
     /// </summary>
     /// <seealso cref="RouteRequest"/>
+    [JsonStringEnumMemberConverterOptions(deserializationFailureFallbackValue: RoutingReason.Unknown)]
     public enum RoutingReason
     {
         /// <summary>

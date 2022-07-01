@@ -30,7 +30,7 @@ namespace o2g.Types.TelephonyNS.CallNS.AcdNS
         /// <value>
         /// A <see cref="Info"/> object that gives the information on the acd call.
         /// </value>
-        public Info CallInfo { get; set; }
+        public Info CallInfo { get; init; }
 
         /// <summary>
         /// Return the information about the queue that has distributed this call.
@@ -38,7 +38,7 @@ namespace o2g.Types.TelephonyNS.CallNS.AcdNS
         /// <value>
         /// A <see cref="QueueData"/> that gives information on the queue.
         /// </value>
-        public QueueData QueueData { get; set; }
+        public QueueData QueueData { get; init; }
 
         /// <summary>
         /// Return the pilot who has distributed this call.
@@ -46,7 +46,7 @@ namespace o2g.Types.TelephonyNS.CallNS.AcdNS
         /// <value>
         /// A <see langword="string"/> that is the pilot directory number.
         /// </value>
-        public string PilotNumber { get; set; }
+        public string PilotNumber { get; init; }
 
         /// <summary>
         /// Return the RSI point that has distribuet this call.
@@ -54,7 +54,7 @@ namespace o2g.Types.TelephonyNS.CallNS.AcdNS
         /// <value>
         /// A <see langword="string"/> that is the RSI point directory number.
         /// </value>
-        public string RsiNumber { get; set; }
+        public string RsiNumber { get; init; }
 
         /// <summary>
         /// Return whether the transfer on the pilot was supervised.
@@ -62,7 +62,7 @@ namespace o2g.Types.TelephonyNS.CallNS.AcdNS
         /// <value>
         /// <see langword="true"/> if the transfer has been supervised; <see langword="false"/> otherwise.
         /// </value>
-        public bool SupervisedTransfer { get; set; }
+        public bool SupervisedTransfer { get; init; }
 
         /// <summary>
         /// Return The information about the possible transfer on a pilot.
@@ -70,6 +70,6 @@ namespace o2g.Types.TelephonyNS.CallNS.AcdNS
         /// <value>
         /// A <see cref="PilotTransferInfo"/> The information about the possible transfer or <see langword="null"/> if there is no transfer in progress.
         /// </value>
-        public PilotTransferInfo PilotTransferInfo { get; set; }
+        public PilotTransferInfo PilotTransferInfo { get; init; }
     }
 }

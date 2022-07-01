@@ -18,6 +18,7 @@
 */
 
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace o2g.Types.UsersNS
 {
@@ -29,6 +30,7 @@ namespace o2g.Types.UsersNS
         /// <summary>
         /// The device type
         /// </summary>
+        [JsonStringEnumMemberConverterOptions(deserializationFailureFallbackValue: DeviceType.Unknown)]
         public enum DeviceType
         {
             /// <summary>
@@ -53,7 +55,12 @@ namespace o2g.Types.UsersNS
             /// The device is a softphone
             /// </summary>
             [EnumMember(Value = "SOFTPHONE")]
-            Softphone
+            Softphone,
+
+            /// <summary>
+            /// Unknown device type
+            /// </summary>
+            Unknown
         }
 
         /// <summary>

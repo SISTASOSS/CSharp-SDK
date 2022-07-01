@@ -17,6 +17,9 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
+using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
+
 namespace o2g.Types.CommonNS
 {
     /// <summary>
@@ -32,27 +35,33 @@ namespace o2g.Types.CommonNS
             /// <summary>
             /// <c>MainType</c> Represents the main type a participant can be.
             /// </summary>
+            [JsonStringEnumMemberConverterOptions(deserializationFailureFallbackValue: MainType.Unknown)]
             public enum MainType
             {
                 /// <summary>
                 /// The participant is a user of the system.
                 /// </summary>
+                [EnumMember(Value = "USER")]
                 User,
                 /// <summary>
                 /// The participant is a device of the system.
                 /// </summary>
+                [EnumMember(Value = "DEVICE")]
                 Device,
                 /// <summary>
                 /// The participant is a service of the system. For exemple the voice mail.
                 /// </summary>
+                [EnumMember(Value = "SERVICE")]
                 Service,
                 /// <summary>
                 /// The participant is not a user of the system.
                 /// </summary>
+                [EnumMember(Value = "EXTERNAL")]
                 External,
                 /// <summary>
                 /// The participant type has not been identified.
                 /// </summary>
+                [EnumMember(Value = "UNKNOWN")]
                 Unknown
             }
 

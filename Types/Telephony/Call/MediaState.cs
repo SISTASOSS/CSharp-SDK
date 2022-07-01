@@ -18,12 +18,14 @@
 */
 
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace o2g.Types.TelephonyNS.CallNS
 {
     /// <summary>
     /// <c>MediaState</c> represents a media state. A media can be audio or video.
     /// </summary>
+    [JsonStringEnumMemberConverterOptions(deserializationFailureFallbackValue: MediaState.Unknown)]
     public enum MediaState
     {
         /// <summary>

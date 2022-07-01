@@ -18,12 +18,14 @@
 */
 
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace o2g.Types.CallCenterRsiNS
 {
     /// <summary>
     /// <c>Tones</c> represents tones that can be generated.
     /// </summary>
+    [JsonStringEnumMemberConverterOptions(deserializationFailureFallbackValue: Tones.Unknown)]
     public enum Tones
     {
         /// <summary>
@@ -54,6 +56,11 @@ namespace o2g.Types.CallCenterRsiNS
         /// The annoucement tone.
         /// </summary>
         [EnumMember(Value = "ANNOUNCEMENT")]
-        Announcement
+        Announcement,
+
+        /// <summary>
+        /// Unknown tone.
+        /// </summary>
+        Unknown
     }
 }

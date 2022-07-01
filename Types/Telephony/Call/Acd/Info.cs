@@ -30,7 +30,7 @@ namespace o2g.Types.TelephonyNS.CallNS.AcdNS
         /// <value>
         /// The estimated waiting time in seconds.
         /// </value>
-        public int QueueWaitingTime { get; set; }
+        public int QueueWaitingTime { get; init; }
 
         /// <summary>
         /// Return the global waiting time in the CCD.
@@ -38,7 +38,7 @@ namespace o2g.Types.TelephonyNS.CallNS.AcdNS
         /// <value>
         /// The estimated global waiting time.
         /// </value>
-        public int GlobalWaitingTime { get; set; }
+        public int GlobalWaitingTime { get; init; }
 
         /// <summary>
         /// Return the agent group the agent who answer the call is logged in.
@@ -46,7 +46,7 @@ namespace o2g.Types.TelephonyNS.CallNS.AcdNS
         /// <value>
         /// A <see langword="string"/> that is the agent group number.
         /// </value>
-        public string AgentGroup { get; set; }
+        public string AgentGroup { get; init; }
 
         /// <summary>
         /// Return whether it is a local acd call
@@ -54,6 +54,6 @@ namespace o2g.Types.TelephonyNS.CallNS.AcdNS
         /// <value>
         /// <see langword="true"/> if the acd call is local; <see langword="false"/> otherwise.
         /// </value>
-        public bool Local { get; set; }
+        public bool Local { get; init; }
     }
 }

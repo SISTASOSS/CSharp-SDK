@@ -18,6 +18,7 @@
 */
 
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace o2g.Types.CallCenterAgentNS
 {
@@ -28,6 +29,7 @@ namespace o2g.Types.CallCenterAgentNS
     /// A supervisor can intrude in an established CCD call. The intrusion depends on the <c>IntrusionMode</c>.
     /// </remarks>
     /// <seealso cref="ICallCenterAgent.RequestIntrusionAsync(string, IntrusionMode, string)"/>
+    [JsonStringEnumMemberConverterOptions(deserializationFailureFallbackValue: IntrusionMode.Unknown)]
     public enum IntrusionMode
     {
         /// <summary>
@@ -46,6 +48,11 @@ namespace o2g.Types.CallCenterAgentNS
         /// The supervisor only listens to the conversation between agent and customer.
         /// </summary>
         [EnumMember(Value = "DISCRETE")]
-        Discrete
+        Discrete,
+
+        /// <summary>
+        /// Unknown intrusion mode
+        /// </summary>
+        Unknown
     }
 }

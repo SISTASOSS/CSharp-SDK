@@ -62,8 +62,8 @@ namespace o2g.Internal.Types.Analytics
                 CallType = CallType,
                 EffectiveCallDuration = EffectiveCallDuration,
                 ActingExtensionNumberNode = ActingExtensionNumberNode,
-                InternalFacilities = (InternalFacilities == null) ? null : InternalFacilities.Facilities,
-                ExternalFacilities = (ExternalFacilities == null) ? null : ExternalFacilities.Facilities
+                InternalFacilities = InternalFacilities?.Facilities,
+                ExternalFacilities = ExternalFacilities?.Facilities
             };
         }
     }

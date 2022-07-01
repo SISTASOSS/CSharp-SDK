@@ -18,12 +18,14 @@
 */
 
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace o2g.Types.TelephonyNS.CallNS.AcdNS
 {
     /// <summary>
     /// <c>PilotStatus</c> represents the possible state of a CCD pilot.
     /// </summary>
+    [JsonStringEnumMemberConverterOptions(deserializationFailureFallbackValue: PilotStatus.Other)]
     public enum PilotStatus
     {
         /// <summary>

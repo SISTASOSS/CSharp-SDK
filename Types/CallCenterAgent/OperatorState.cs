@@ -18,6 +18,7 @@
 */
 
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace o2g.Types.CallCenterAgentNS
 {
@@ -31,6 +32,7 @@ namespace o2g.Types.CallCenterAgentNS
         /// </summary>
         /// <seealso cref="ICallCenterAgent.LogonOperatorAsync(string, string, bool, string)"/>
         /// <seealso cref="ICallCenterAgent.LogoffOperatorAsync(string)"/>
+        [JsonStringEnumMemberConverterOptions(deserializationFailureFallbackValue: OperatorMainState.Unknown)]
         public enum OperatorMainState
         {
             /// <summary>
@@ -61,6 +63,7 @@ namespace o2g.Types.CallCenterAgentNS
         /// <summary>
         /// <c>AgentDynamicState</c> represents the CCD operator dynamic state.
         /// </summary>
+        [JsonStringEnumMemberConverterOptions(deserializationFailureFallbackValue: OperatorDynamicState.Unknown)]
         public enum OperatorDynamicState
         {
             /// <summary>
@@ -134,7 +137,12 @@ namespace o2g.Types.CallCenterAgentNS
             /// The operator is in wrapup after a callback call.
             /// </summary>
             [EnumMember(Value = "WRAPUP_CALLBACK")]
-            WrapupCallback
+            WrapupCallback,
+
+            /// <summary>
+            /// Unknown operator dynamic state.
+            /// </summary>
+            Unknown
         }
 
         /// <summary>

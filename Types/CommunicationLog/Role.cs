@@ -18,12 +18,14 @@
 */
 
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace o2g.Types.CommunicationLogNS
 {
     /// <summary>
     /// <c>Role</c> defines the roles a participant can have in a com record.
     /// </summary>
+    [JsonStringEnumMemberConverterOptions(deserializationFailureFallbackValue: Role.Unknown)]
     public enum Role
     {
         /// <summary>

@@ -16,6 +16,7 @@
 * DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
+using o2g.Internal.Utility;
 using o2g.Types.CommonNS;
 using o2g.Types.TelephonyNS.CallNS.AcdNS;
 using System.Collections.Generic;
@@ -33,7 +34,7 @@ namespace o2g.Types.TelephonyNS.CallNS
         /// <value>
         /// a <see cref="PartyInfo"/> object that gives the identity of the initial calle.
         /// </value>
-        public PartyInfo InitialCalled { get; set; }
+        public PartyInfo InitialCalled { get; init; }
 
         /// <summary>
         /// Return whether the call is a device call or a user call.
@@ -41,7 +42,7 @@ namespace o2g.Types.TelephonyNS.CallNS
         /// <value>
         /// <see langword="true"/> if it's a device call; <see langword="false"/> otherwise.
         /// </value>
-        public bool DeviceCall { get; set; }
+        public bool DeviceCall { get; init; }
 
         /// <summary>
         /// Return whether the this call is anonymous.
@@ -49,7 +50,7 @@ namespace o2g.Types.TelephonyNS.CallNS
         /// <value>
         /// <see langword="true"/> if the call is anonymous; <see langword="false"/> otherwise.
         /// </value>
-        public bool Anonymous { get; set; }
+        public bool Anonymous { get; init; }
 
         /// <summary>
         /// This property gives the call state.
@@ -57,7 +58,7 @@ namespace o2g.Types.TelephonyNS.CallNS
         /// <value>
         /// A <see cref="MediaState"/> that represents the call state.
         /// </value>
-        public MediaState State { get; set; }
+        public MediaState State { get; init; }
 
         /// <summary>
         /// This property give the call recording state.
@@ -65,7 +66,7 @@ namespace o2g.Types.TelephonyNS.CallNS
         /// <value>
         /// A <see cref="RecordState"/> value that indicated the recording state.
         /// </value>
-        public RecordState RecordState { get; set; }
+        public RecordState RecordState { get; init; }
 
         /// <summary>
         /// This property return the tag list associated to this call.
@@ -73,7 +74,7 @@ namespace o2g.Types.TelephonyNS.CallNS
         /// <value>
         /// A list of <see cref="Tag"/>.
         /// </value>
-        public List<Tag> Tags { get; set; }
+        public List<Tag> Tags { get; init; }
 
         /// <summary>
         /// This property return the capabilities available on this call.
@@ -81,7 +82,15 @@ namespace o2g.Types.TelephonyNS.CallNS
         /// <value>
         /// A <see cref="CallCapabilities"/> object that represents the capability available in this call.
         /// </value>
-        public CallCapabilities Capabilities { get; set; }
+        public CallCapabilities Capabilities { get; init; }
+
+        /// <summary>
+        /// This property return the string correlator data associated to this call.
+        /// </summary>
+        /// <value>
+        /// A <see langword="string"/> that is the associated correlator data.
+        /// </value>
+        public string AssociatedData { get; init; }
 
         /// <summary>
         /// This property return the correlator data associated to this call.
@@ -89,7 +98,7 @@ namespace o2g.Types.TelephonyNS.CallNS
         /// <value>
         /// A <see langword="string"/> that is the associated correlator data.
         /// </value>
-        public string AssociateData { get; set; }
+        public string HexaBinaryAssociatedData { get; init; }
 
         /// <summary>
         /// This property returns the account info associated to this call.
@@ -97,7 +106,7 @@ namespace o2g.Types.TelephonyNS.CallNS
         /// <value>
         /// A <see langword="string"/> that is the account info.
         /// </value>
-        public string AccountInfo { get; set; }
+        public string AccountInfo { get; init; }
 
         /// <summary>
         /// This property gives the acd extension in case of an acd call.
@@ -105,6 +114,17 @@ namespace o2g.Types.TelephonyNS.CallNS
         /// <value>
         /// A <see cref="AcdData"/> object that provide this call acd extension data.
         /// </value>
-        public AcdData acdCallData { get; set; }
+        public AcdData AcdCallData { get; init; }
+
+        /// <summary>
+        /// Return the correlator data as a byte array.
+        /// </summary>
+        /// <returns>
+        /// The array of bytes corresponding to the correlator data.
+        /// </returns>
+        public byte[] AssociatedDataAsByteArray()
+        {
+            return HexaUtil.ToByteArray(HexaBinaryAssociatedData);
+        }
     }
 }

@@ -18,12 +18,14 @@
 */
 
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace o2g.Types.CommunicationLogNS
 {
     /// <summary>
     /// <c>Reason</c> defines the why reason the communication has been released, established or rerouted.
     /// </summary>
+    [JsonStringEnumMemberConverterOptions(deserializationFailureFallbackValue: Reason.Unknown)]
     public enum Reason
     {
         /// <summary>

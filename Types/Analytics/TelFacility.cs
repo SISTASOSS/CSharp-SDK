@@ -17,11 +17,14 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
+using System.Text.Json.Serialization;
+
 namespace o2g.Types.AnalyticsNS
 {
     /// <summary>
     /// <c>TelFacility</c> represents the telephony facilities
     /// </summary>
+    [JsonStringEnumMemberConverterOptions(deserializationFailureFallbackValue: TelFacility.None)]
     public enum TelFacility
     {
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
