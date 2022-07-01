@@ -608,7 +608,7 @@ namespace o2g.Internal.Rest
             Uri uriGet = uri.Append("state");
             if (loginName != null)
             {
-                uriGet = uriGet.Append(loginName);
+                uriGet = uriGet.AppendQuery("loginName", loginName);
             }
 
             HttpResponseMessage response = await httpClient.GetAsync(uriGet);
@@ -648,7 +648,7 @@ namespace o2g.Internal.Rest
             Uri uriPost = uri.Append("huntingGroupLogOn");
             if (loginName != null)
             {
-                uriPost = uriPost.Append(loginName);
+                uriPost = uriPost.AppendQuery("loginName", loginName);
             }
 
             HttpResponseMessage response = await httpClient.PostAsync(uriPost, null);
@@ -660,7 +660,7 @@ namespace o2g.Internal.Rest
             Uri uriGet = uri.Append("huntingGroupLogOn");
             if (loginName != null)
             {
-                uriGet = uriGet.Append(loginName);
+                uriGet = uriGet.AppendQuery("loginName", loginName);
             }
 
             HttpResponseMessage response = await httpClient.GetAsync(uriGet);
@@ -676,7 +676,7 @@ namespace o2g.Internal.Rest
             Uri uriPost = uri.Append("calls", AssertUtil.NotNullOrEmpty(callRef, "callRef"), "merge");
             if (loginName != null)
             {
-                uriPost = uriPost.Append(loginName);
+                uriPost = uriPost.AppendQuery("loginName", loginName);
             }
 
             HeldCallRefRequest req = new()
@@ -696,7 +696,7 @@ namespace o2g.Internal.Rest
             Uri uriDelete = uri.Append("calls", AssertUtil.NotNullOrEmpty(callRef, "callRef"));
             if (loginName != null)
             {
-                uriDelete = uriDelete.Append(loginName);
+                uriDelete = uriDelete.AppendQuery("loginName", loginName);
             }
 
             HttpResponseMessage response = await httpClient.DeleteAsync(uriDelete);
@@ -769,7 +769,7 @@ namespace o2g.Internal.Rest
             Uri uriGet = uri.Append("huntingGroups");
             if (loginName != null)
             {
-                uriGet = uriGet.Append(loginName);
+                uriGet = uriGet.AppendQuery("loginName", loginName);
             }
 
             HttpResponseMessage response = await httpClient.GetAsync(uriGet);
