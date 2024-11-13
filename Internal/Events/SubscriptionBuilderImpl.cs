@@ -23,6 +23,9 @@ namespace o2g.Internal.Events
 {
     internal class SubscriptionBuilderImpl : Subscription.IBuilder
     {
+        [System.Text.Json.Serialization.JsonIgnore]
+        private OnEvent _eventHandler;
+
         private readonly EventFilter _filter = new();
         private string _version = "1.0";
         private int _timeout = 10;
@@ -131,7 +134,7 @@ namespace o2g.Internal.Events
             subscription.SetFilter(_filter);
             subscription.SetVersion(_version);
             subscription.SetTimeout(_timeout);
-
+            subscription.SetEventHandler(_eventHandler);
             return subscription;
         }
 
@@ -144,6 +147,12 @@ namespace o2g.Internal.Events
         public IBuilder SetVersion(string version)
         {
             this._version = version;
+            return this;
+        }
+
+        public IBuilder SetEventHandler(OnEvent eventHandler)
+        {
+            this._eventHandler = eventHandler;
             return this;
         }
     }

@@ -172,8 +172,7 @@ namespace o2g.Internal
                     chunkUri = new UriBuilder(subscriptionResult.PublicPollingUrl).Uri;
                 }
 
-                // The default handler is NOT used.
-                chunkEventing = new(chunkUri, null);
+                chunkEventing = new(chunkUri, subscription.EventHandler);
                 chunkEventing.Start();
 
                 logger.Info("Eventing is started.");

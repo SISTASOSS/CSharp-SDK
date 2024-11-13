@@ -4,6 +4,45 @@
         <name>o2g-sdk</name>
     </assembly>
     <members>
+        <member name="T:o2g.Events.CallCenterAgent.OnAgentSkillChangedEvent">
+            <summary>
+            This event is raised when an agent changes the activation of one or several skills.
+            </summary>
+        </member>
+        <member name="P:o2g.Events.CallCenterAgent.OnAgentSkillChangedEvent.LoginName">
+            <summary>
+            Return the agent login name.
+            </summary>
+            <value>
+            A <see langword="string"/> value that represents the agent login name.
+            </value>
+        </member>
+        <member name="P:o2g.Events.CallCenterAgent.OnAgentSkillChangedEvent.Skills">
+            <summary>
+            Return the agent skills.
+            </summary>
+            <value>
+            A <see cref="T:o2g.Types.CallCenterAgentNS.OperatorState"/> object that represents the agent state.
+            </value>
+        </member>
+        <member name="M:o2g.Events.CallCenterAgent.OnAgentSkillChangedEvent.#ctor(System.String,System.String,o2g.Types.CallCenterAgentNS.AgentSkillSet)">
+            <summary>
+            Initializes a new instance of the <see cref="T:o2g.Events.CallCenterAgent.OnAgentSkillChangedEvent"/> class.
+            </summary>
+            <param name="eventName">The event name.</param>
+            <param name="loginName">The login name of the agent.</param>
+            <param name="skills">The skill set of the agent.</param>
+        </member>
+        <member name="M:o2g.Events.CallCenterAgent.OnAgentSkillChangedEvent.GetLoginName">
+            <summary>
+            Returns the agent's login name.
+            </summary>
+        </member>
+        <member name="M:o2g.Events.CallCenterAgent.OnAgentSkillChangedEvent.GetSkills">
+            <summary>
+            Returns the agent's skill set.
+            </summary>
+        </member>
         <member name="T:o2g.Events.CallCenterAgent.OnAgentStateChangedEvent">
             <summary>
             This event is raised when the state of a CCD agent is changed.
@@ -455,6 +494,27 @@
             </summary>
             <value>
             An <see langword="int"/> value that represents the OmniPCX Enterprise node number.
+            </value>
+        </member>
+        <member name="T:o2g.Events.Maintenance.OnLicenseExpirationEvent">
+            <summary>
+            <c>OnLicenseExpirationEvent</c> event is sent when the license file will soon expire or has recently expired
+            </summary>
+        </member>
+        <member name="P:o2g.Events.Maintenance.OnLicenseExpirationEvent.message">
+            <summary>
+            Return the alarm message.
+            </summary>
+            <value>
+            A <see langword="string"/> value that represents the alarm message.
+            </value>
+        </member>
+        <member name="P:o2g.Events.Maintenance.OnLicenseExpirationEvent.nbDays">
+            <summary>
+            nb days since or to expiration date: nbDays bigger then 0 means the license will expire in nb days and nbDays less then 0 means the license has already expired since nb days
+            </summary>
+            <value>
+            An <see langword="long"/> value that represents the nb days since or to expiration date.
             </value>
         </member>
         <member name="T:o2g.Events.Maintenance.OnPbxLoadedEvent">
@@ -1093,6 +1153,11 @@
             <summary>
             Occurs when an agent has requested the assistance of his supervisor and when the request is 
             canceled by the agent or when the request is rejected by the supervisor.
+            </summary>
+        </member>
+        <member name="E:o2g.ICallCenterAgent.AgentSkillChanged">
+            <summary>
+            Occurs when an agent changes the activation of one or several skills.
             </summary>
         </member>
         <member name="M:o2g.ICallCenterAgent.GetOperatorConfigurationAsync(System.String)">
@@ -1927,6 +1992,11 @@
         <member name="E:o2g.IMaintenance.PbxLoaded">
             <summary>
             Occurs when datas are fully loaded from an OmniPCX Enterprise node. 
+            </summary>
+        </member>
+        <member name="E:o2g.IMaintenance.LicenseExpiration">
+            <summary>
+            Occurs when the license file will soon expire or has recently expired
             </summary>
         </member>
         <member name="M:o2g.IMaintenance.GetSystemStatusAsync">
@@ -4352,6 +4422,14 @@
             By default the event version is "1.0".
             </remarks>
         </member>
+        <member name="P:o2g.Subscription.EventHandler">
+            <summary>
+            Return the eventHandler that will be used to handle events.
+            </summary>
+            <value>
+            A <see cref="T:o2g.OnEvent"/> object that represents the event handler for this subscription.
+            </value>
+        </member>
         <member name="P:o2g.Subscription.Timeout">
             <summary>
             Return the default lifetime of the event channel.
@@ -4589,6 +4667,16 @@
             The <see cref="T:o2g.Subscription.IBuilder"/> object to chain the build.
             </returns>
             <seealso cref="P:o2g.Subscription.Timeout"/>
+        </member>
+        <member name="M:o2g.Subscription.IBuilder.SetEventHandler(o2g.OnEvent)">
+            <summary>
+            Set eventHandler that will be used to handle events.
+            </summary>
+            <param name="eventHandler">The eve</param>
+            <returns>
+            The <see cref="T:o2g.Subscription.IBuilder"/> object to chain the build.
+            </returns>
+            <seealso cref="!:Subscription.OnEvent"/>
         </member>
         <member name="M:o2g.Subscription.IBuilder.Build">
             <summary>
@@ -9391,6 +9479,14 @@
             <see langword="true"/> if the call is anonymous; <see langword="false"/> otherwise.
             </value>
         </member>
+        <member name="P:o2g.Types.TelephonyNS.CallNS.CallData.CallUUID">
+            <summary>
+            CallUUID associated to this call (used to correlate RTSM events with SIP events for multimedia users only).
+            </summary>
+            <value>
+            A <see langword="string"/> that is the associated CallUUID.
+            </value>
+        </member>
         <member name="P:o2g.Types.TelephonyNS.CallNS.CallData.State">
             <summary>
             This property gives the call state.
@@ -9463,9 +9559,22 @@
             The array of bytes corresponding to the correlator data.
             </returns>
         </member>
+        <member name="P:o2g.Types.TelephonyNS.CallNS.CallData.TrunkIdentification">
+            <summary>
+            TrunkIdentification if external call
+            </summary>
+            <value>
+            A <see cref="P:o2g.Types.TelephonyNS.CallNS.CallData.TrunkIdentification"/> object that provide information on network timeslot and trunk eqt number
+            </value>
+        </member>
         <member name="T:o2g.Types.TelephonyNS.CallNS.Cause">
             <summary>
             <c>Cause</c> lists the different call causes.
+            </summary>
+        </member>
+        <member name="F:o2g.Types.TelephonyNS.CallNS.Cause.Unknown">
+            <summary>
+            Unknown cause.
             </summary>
         </member>
         <member name="F:o2g.Types.TelephonyNS.CallNS.Cause.Abandoned">
@@ -9508,9 +9617,19 @@
             The destination cannot be reached.
             </summary>
         </member>
+        <member name="F:o2g.Types.TelephonyNS.CallNS.Cause.DoNotDisturb">
+            <summary>
+            The device is in DND.
+            </summary>
+        </member>
         <member name="F:o2g.Types.TelephonyNS.CallNS.Cause.Forwarded">
             <summary>
             The call has been forwarded.
+            </summary>
+        </member>
+        <member name="F:o2g.Types.TelephonyNS.CallNS.Cause.NotAnswered">
+            <summary>
+            The call has been hanged up before answer.
             </summary>
         </member>
         <member name="F:o2g.Types.TelephonyNS.CallNS.Cause.PickedUp">
@@ -9518,19 +9637,24 @@
             The call has been picked up.
             </summary>
         </member>
+        <member name="F:o2g.Types.TelephonyNS.CallNS.Cause.Parked">
+            <summary>
+            The call has been parked.
+            </summary>
+        </member>
         <member name="F:o2g.Types.TelephonyNS.CallNS.Cause.Redirected">
             <summary>
             The call has been redirected.
             </summary>
         </member>
+        <member name="F:o2g.Types.TelephonyNS.CallNS.Cause.Overflown">
+            <summary>
+            The call goes on overflow destination.
+            </summary>
+        </member>
         <member name="F:o2g.Types.TelephonyNS.CallNS.Cause.Transferred">
             <summary>
             This is a transferred call.
-            </summary>
-        </member>
-        <member name="F:o2g.Types.TelephonyNS.CallNS.Cause.Unknown">
-            <summary>
-            Unknown cause.
             </summary>
         </member>
         <member name="F:o2g.Types.TelephonyNS.CallNS.Cause.PickedUpTandem">
@@ -9551,6 +9675,16 @@
         <member name="F:o2g.Types.TelephonyNS.CallNS.Cause.Distributed">
             <summary>
             CCD context: call distribution
+            </summary>
+        </member>
+        <member name="F:o2g.Types.TelephonyNS.CallNS.Cause.AcdEnterDistribution">
+            <summary>
+            CCD context: call enters in distribution
+            </summary>
+        </member>
+        <member name="F:o2g.Types.TelephonyNS.CallNS.Cause.ResourcesNotAvailable">
+            <summary>
+            CCD context: pilot is not open
             </summary>
         </member>
         <member name="F:o2g.Types.TelephonyNS.CallNS.Cause.SupervisorListening">
@@ -10049,6 +10183,27 @@
             </summary>
             <value>
             A <see cref="P:o2g.Types.TelephonyNS.TelephonicState.UserState"/> that represents the current user's state
+            </value>
+        </member>
+        <member name="T:o2g.Types.TelephonyNS.TrunkIdentification">
+            <summary>
+            <c>TrunkIdentification</c> For external call, provide information on network timeslot and trunk eqt number
+            </summary>
+        </member>
+        <member name="P:o2g.Types.TelephonyNS.TrunkIdentification.networkTimeslot">
+            <summary>
+            The network time slot.
+            </summary>
+            <value>
+            An <see cref="T:System.Int32"/> that represent the network time slot.
+            </value>
+        </member>
+        <member name="P:o2g.Types.TelephonyNS.TrunkIdentification.trunkNeqt">
+            <summary>
+            Trunk equipment number (Could be 2 nbrs in case of conference with 2 different external trunks.
+            </summary>
+            <value>
+            An <see cref="T:System.Int32"/> that  represent Trunk equipment number
             </value>
         </member>
         <member name="T:o2g.Types.TelephonyNS.UserNS.UserState">

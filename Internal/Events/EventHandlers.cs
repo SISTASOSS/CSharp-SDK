@@ -63,6 +63,7 @@ namespace o2g.Internal.Events
         public event System.EventHandler<O2GEventArgs<OnAgentStateChangedEvent>> AgentStateChanged;
         public event System.EventHandler<O2GEventArgs<OnSupervisorHelpRequestedEvent>> SupervisorHelpRequested;
         public event System.EventHandler<O2GEventArgs<OnSupervisorHelpCancelledEvent>> SupervisorHelpCancelled;
+        public event System.EventHandler<O2GEventArgs<OnAgentSkillChangedEvent>> AgentSkillChanged;
 
         // call center Rsi
         public event EventHandler<O2GEventArgs<OnDigitCollectedEvent>> DigitCollected;
@@ -75,8 +76,8 @@ namespace o2g.Internal.Events
         public event EventHandler<O2GEventArgs<OnCtiLinkDownEvent>> CtiLinkDown;
         public event EventHandler<O2GEventArgs<OnCtiLinkUpEvent>> CtiLinkUp;
         public event EventHandler<O2GEventArgs<OnPbxLoadedEvent>> PbxLoaded;
-
-
+        public event EventHandler<O2GEventArgs<OnLicenseExpirationEvent>> LicenseExpiration;
+        
         // pbx management
         public event EventHandler<O2GEventArgs<OnPbxObjectInstanceCreatedEvent>> PbxObjectInstanceCreated;
         public event EventHandler<O2GEventArgs<OnPbxObjectInstanceDeletedEvent>> PbxObjectInstanceDeleted;

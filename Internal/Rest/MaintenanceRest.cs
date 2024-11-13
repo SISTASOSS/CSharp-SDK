@@ -52,9 +52,14 @@ namespace o2g.Internal.Rest
         {
             add => _eventHandlers.PbxLoaded += value;
             remove => _eventHandlers.PbxLoaded -= value;
+        }        
+        
+        public event EventHandler<O2GEventArgs<OnLicenseExpirationEvent>> LicenseExpiration
+        {
+            add => _eventHandlers.LicenseExpiration += value;
+            remove => _eventHandlers.LicenseExpiration -= value;
         }
-
-
+        
         public MaintenanceRest(Uri uri) : base(uri)
         {
 

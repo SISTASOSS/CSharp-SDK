@@ -21,6 +21,9 @@ namespace o2g.Internal.Events
 {
     internal class SubscriptionImpl : Subscription
     {
+        [System.Text.Json.Serialization.JsonIgnore]
+        private OnEvent eventHandler;
+
         private string version;
         private int timeout;
         private EventFilter filter;
@@ -44,9 +47,16 @@ namespace o2g.Internal.Events
             this.filter = filter;
         }
 
+        public void SetEventHandler(OnEvent eventHandler)
+        {
+            this.eventHandler = eventHandler;
+        }
+
         public override string Version => version;
 
         public override int Timeout => timeout;
+
+        public override OnEvent EventHandler => eventHandler;
 
         public override EventFilter Filter => filter;
 

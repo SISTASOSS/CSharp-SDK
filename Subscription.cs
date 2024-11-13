@@ -35,7 +35,7 @@ namespace o2g
     /// This delegate represent the default delegate that can be used to receive event.
     /// </summary>
     /// <param name="o2gEvent"></param>
-    internal delegate void OnEvent(O2GEvent o2gEvent);
+    public delegate void OnEvent(O2GEvent o2gEvent);
 
     /// <summary>
     /// <c>Subscription</c> represents a subscription request used to subscribe events from the O2G Server.
@@ -190,6 +190,15 @@ namespace o2g
         /// By default the event version is "1.0".
         /// </remarks>
         public abstract string Version { get; }
+
+        /// <summary>
+        /// Return the eventHandler that will be used to handle events.
+        /// </summary>
+        /// <value>
+        /// A <see cref="OnEvent"/> object that represents the event handler for this subscription.
+        /// </value>
+        [System.Text.Json.Serialization.JsonIgnore]
+        public abstract OnEvent EventHandler { get; }
 
         /// <summary>
         /// Return the default lifetime of the event channel.
@@ -438,6 +447,16 @@ namespace o2g
             /// <seealso cref="Subscription.Timeout"/>
             IBuilder SetTimeout(int timeout);
 
+            /// <summary>
+            /// Set eventHandler that will be used to handle events.
+            /// </summary>
+            /// <param name="eventHandler">The eve</param>
+            /// <returns>
+            /// The <see cref="IBuilder"/> object to chain the build.
+            /// </returns>
+            /// <seealso cref="Subscription.OnEvent"/>
+            IBuilder SetEventHandler(OnEvent eventHandler);
+            
             /// <summary>
             /// Build a Subscription
             /// </summary>
