@@ -41,7 +41,10 @@ namespace o2g
         IMessaging MessagingService { get; }
 
         IPbxManagement PbxManagementService { get; }
+        
         IAnalytics AnalyticsService { get; }
+        
+        IRecording RecordingService { get; }
 
         ICommunicationLog CommunicationLogService { get; }
 

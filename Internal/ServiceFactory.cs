@@ -61,6 +61,7 @@ namespace o2g.Internal
         public static O2GService CallCenterAgent { get { return new O2GService("acdagent"); } }
         public static O2GService CallCenterRsi { get { return new O2GService("acdrsi"); } }
         public static O2GService Analytics { get { return new O2GService("analytics"); } }
+        public static O2GService Recording { get { return new O2GService("voicerecording"); } }
 
         public override bool Equals(Object obj)
         {
@@ -276,6 +277,10 @@ namespace o2g.Internal
         internal AnalyticsRest GetAnalyticsService()
         {
             return GetOrCreate<AnalyticsRest>(O2GService.Analytics);
+        }
+        internal RecordingRest GetRecordingService()
+        {
+            return GetOrCreate<RecordingRest>(O2GService.Recording);
         }
 
         private T GetOrCreate<T>(O2GService serviceName) where T : IService

@@ -102,6 +102,7 @@ namespace o2g.Internal
         public ICallCenterAgent CallCenterAgentService => serviceFactory.GetCallCenterAgentService();
         public ICallCenterRsi CallCenterRsiService => serviceFactory.GetCallCenterRsiService();
         public IAnalytics AnalyticsService => serviceFactory.GetAnalyticsService();
+        public IRecording RecordingService => serviceFactory.GetRecordingService();
 
 
 

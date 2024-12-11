@@ -34,6 +34,11 @@ namespace o2g.Types.UsersNS
         public enum DeviceType
         {
             /// <summary>
+            /// Unknown device type
+            /// </summary>
+            Unknown,
+            
+            /// <summary>
             /// The device is a DECT device
             /// </summary>
             [EnumMember(Value = "DECT")]
@@ -55,12 +60,7 @@ namespace o2g.Types.UsersNS
             /// The device is a softphone
             /// </summary>
             [EnumMember(Value = "SOFTPHONE")]
-            Softphone,
-
-            /// <summary>
-            /// Unknown device type
-            /// </summary>
-            Unknown
+            Softphone
         }
 
         /// <summary>

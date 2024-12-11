@@ -29,6 +29,12 @@ namespace o2g.Types.TelephonyNS.DeviceNS
     public enum OperationalState
     {
         /// <summary>
+        /// The dynamic state of the device can not be retrieved.
+        /// </summary>
+        [EnumMember(Value = "UNKNOWN")]
+        Unknown,
+        
+        /// <summary>
         /// The device is in service.
         /// </summary>
         [EnumMember(Value = "IN_SERVICE")]
@@ -39,11 +45,5 @@ namespace o2g.Types.TelephonyNS.DeviceNS
         /// </summary>
         [EnumMember(Value = "OUT_OF_SERVICE")]
         OutOfService,
-
-        /// <summary>
-        /// The dynamic state of the device can not be retrieved.
-        /// </summary>
-        [EnumMember(Value = "UNKNOWN")]
-        Unknown
     }
 }

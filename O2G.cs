@@ -345,6 +345,14 @@ namespace o2g
             /// A <see cref="IAnalytics"/> object that provides analytics services.
             /// </value>
             public IAnalytics AnalyticsService => _session.AnalyticsService;
+            
+            /// <summary>
+            /// Return the recording service.
+            /// </summary>
+            /// <value>
+            /// A <see cref="IRecording"/> object that provides recording services.
+            /// </value>
+            public IRecording RecordingService => _session.RecordingService;
 
             /// <summary>
             /// Return the communication log service.

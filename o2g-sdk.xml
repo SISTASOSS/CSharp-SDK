@@ -2122,6 +2122,97 @@
             </summary>
             
         </member>
+        <member name="T:o2g.Internal.Rest.RecordingRest">
+            <summary>
+            Represents the REST service to manage recording links.
+            </summary>
+        </member>
+        <member name="M:o2g.Internal.Rest.RecordingRest.GetRecorderLinksAsync(System.Int32)">
+            <summary>
+            Gets the list of existing recorder links on a PBX.
+            </summary>
+            <param name="nodeId">The OXE node number where the recorder is registered.</param>
+            <returns>A task that represents the asynchronous operation. The task result contains the list of DRLinks.</returns>
+        </member>
+        <member name="M:o2g.Internal.Rest.RecordingRest.RegisterRecorderLinkAsync(System.Int32,o2g.Types.RecordingNS.RegisterServiceRequest)">
+            <summary>
+            Registers a recorder link on a PBX.
+            </summary>
+            <param name="nodeId">The OXE node number where to register the recorder.</param>
+            <param name="registerServiceRequest">The request specifying the type of recorder.</param>
+            <returns>A task that represents the asynchronous operation. The task result contains the service registration information.</returns>
+        </member>
+        <member name="M:o2g.Internal.Rest.RecordingRest.DeleteRecorderLinkAsync(System.Int32,System.String)">
+            <summary>
+            Cancels the registration of a recorder link on a PBX.
+            </summary>
+            <param name="nodeId">The OXE node number where to unregister the link.</param>
+            <param name="registerId">The DR link identifier to unregister.</param>
+            <returns>A task that represents the asynchronous operation. The task result contains a boolean indicating success or failure.</returns>
+        </member>
+        <member name="M:o2g.Internal.Rest.RecordingRest.StartBeepAsync(System.Int32,System.String,o2g.Types.RecordingNS.StartBeepRequest)">
+            <summary>
+            Starts beep generation on a device.
+            </summary>
+            <param name="nodeId">The OXE PBX node.</param>
+            <param name="registerId">The DR link identifier.</param>
+            <param name="startBeepRequest">The request specifying the device number, tone, presence, and silence duration.</param>
+            <returns>A task that represents the asynchronous operation. The task result contains a boolean indicating success or failure.</returns>
+        </member>
+        <member name="M:o2g.Internal.Rest.RecordingRest.StopBeepAsync(System.Int32,System.String,System.String)">
+            <summary>
+            Stops beep generation on an IP device.
+            </summary>
+            <param name="nodeId">The OXE PBX node.</param>
+            <param name="registerId">The IP DR link identifier.</param>
+            <param name="deviceNumber">The device number.</param>
+            <returns>A task that represents the asynchronous operation. The task result contains a boolean indicating success or failure.</returns>
+        </member>
+        <member name="M:o2g.Internal.Rest.RecordingRest.StartMonitorAsync(System.Int32,System.String,o2g.Types.RecordingNS.MonitorRequest)">
+            <summary>
+            Starts the monitoring of a device on a DR link.
+            </summary>
+            <param name="nodeId">The OXE PBX node.</param>
+            <param name="registerId">The IP DR link identifier.</param>
+            <param name="monitorRequest">The request specifying the device number to monitor.</param>
+            <returns>A task that represents the asynchronous operation. The task result contains the monitored device information.</returns>
+        </member>
+        <member name="M:o2g.Internal.Rest.RecordingRest.StopMonitorAsync(System.Int32,System.String,System.String)">
+            <summary>
+            Stops the monitoring of a device on a DR link.
+            </summary>
+            <param name="nodeId">The OXE PBX node.</param>
+            <param name="registerId">The IP DR link identifier.</param>
+            <param name="deviceNumber">The device number to stop monitoring.</param>
+            <returns>A task that represents the asynchronous operation. The task result contains a boolean indicating success or failure.</returns>
+        </member>
+        <member name="M:o2g.Internal.Rest.RecordingRest.StartRecordAsync(System.Int32,System.String,o2g.Types.RecordingNS.StartRecordRequest)">
+            <summary>
+            Starts an IP record of an IP device.
+            </summary>
+            <param name="nodeId">The OXE PBX node.</param>
+            <param name="registerId">The IP DR link identifier.</param>
+            <param name="startRecordRequest">The request specifying the device number, recorder IP address, and IP call flow ports to record.</param>
+            <returns>A task that represents the asynchronous operation. The task result contains the SRTP keys if native encryption is enabled.</returns>
+        </member>
+        <member name="M:o2g.Internal.Rest.RecordingRest.StopRecordAsync(System.Int32,System.String,System.String)">
+            <summary>
+            Stops the IP or TDM recording of a device.
+            </summary>
+            <param name="nodeId">The OXE PBX node.</param>
+            <param name="registerId">The DR link identifier.</param>
+            <param name="deviceNumber">The recorded device number.</param>
+            <returns>A task that represents the asynchronous operation. The task result contains a boolean indicating success or failure.</returns>
+        </member>
+        <member name="M:o2g.Internal.Rest.RecordingRest.StartTDMRecordAsync(System.Int32,System.String,o2g.Types.RecordingNS.StartTDMRecordRequest)">
+            <summary>
+            Starts a TDM record of a device through a PCM link.
+            </summary>
+            <param name="nodeId">The OXE PBX node.</param>
+            <param name="registerId">The DR link identifier.</param>
+            <param name="startTDMRecordRequest">The request specifying the device number and PCM resource.</param>
+            <returns>A task that represents the asynchronous operation. The task result contains a boolean indicating success or failure.</returns>
+        </member>
         <member name="T:o2g.Internal.Services.IService">
             <summary>
             The IService is the base interface for all O2G services. 
@@ -2134,6 +2225,7 @@
                 <item><term><see cref="T:o2g.IUsers"/></term><description>The users service allows to get information about users and to change passwords.</description></item>
                 <item><term><see cref="T:o2g.IRouting"/></term><description>The routing service allows to configure the forward, overflow and do not disturb feature.</description></item>
                 <item><term><see cref="T:o2g.IMessaging"/></term><description>The messaging service allows to retrieve voice messages.</description></item>
+                <item><term><see cref="T:o2g.IRecording"/></term><description>The voice recording service allows a recorder application to record voice of OXE devices, either in IP or TDM mode.</description></item>
             </list>
             </remarks>
         </member>
@@ -2686,6 +2778,97 @@
             <param name="deviceId">The remote extension phone number.</param>
             <returns><see langword="true"/> in case of success; <see langword="false"/> otherwise</returns>
             <seealso cref="M:o2g.IRouting.DeactivateRemoteExtensionAsync(System.String)"/>
+        </member>
+        <member name="T:o2g.IRecording">
+            <summary>
+             <c>IRecording</c> service allows a recorder application to record voice of OXE devices, either in IP or TDM mode.
+            </summary>
+        </member>
+        <member name="M:o2g.IRecording.GetRecorderLinksAsync(System.Int32)">
+            <summary>
+            Gets the list of existing recorder links on a PBX.
+            </summary>
+            <param name="nodeId">The OXE node number where the recorder is registered.</param>
+            <returns>A task that represents the asynchronous operation. The task result contains the list of DRLinks.</returns>
+        </member>
+        <member name="M:o2g.IRecording.RegisterRecorderLinkAsync(System.Int32,o2g.Types.RecordingNS.RegisterServiceRequest)">
+            <summary>
+            Registers a recorder link on a PBX.
+            </summary>
+            <param name="nodeId">The OXE node number where to register the recorder.</param>
+            <param name="registerServiceRequest">The request specifying the type of recorder.</param>
+            <returns>A task that represents the asynchronous operation. The task result contains the service registration information.</returns>
+        </member>
+        <member name="M:o2g.IRecording.DeleteRecorderLinkAsync(System.Int32,System.String)">
+            <summary>
+            Cancels the registration of a recorder link on a PBX.
+            </summary>
+            <param name="nodeId">The OXE node number where to unregister the link.</param>
+            <param name="registerId">The DR link identifier to unregister.</param>
+            <returns>A task that represents the asynchronous operation. The task result contains a boolean indicating success or failure.</returns>
+        </member>
+        <member name="M:o2g.IRecording.StartBeepAsync(System.Int32,System.String,o2g.Types.RecordingNS.StartBeepRequest)">
+            <summary>
+            Starts beep generation on a device.
+            </summary>
+            <param name="nodeId">The OXE PBX node.</param>
+            <param name="registerId">The DR link identifier.</param>
+            <param name="startBeepRequest">The request specifying the device number, tone, presence, and silence duration.</param>
+            <returns>A task that represents the asynchronous operation. The task result contains a boolean indicating success or failure.</returns>
+        </member>
+        <member name="M:o2g.IRecording.StopBeepAsync(System.Int32,System.String,System.String)">
+            <summary>
+            Stops beep generation on an IP device.
+            </summary>
+            <param name="nodeId">The OXE PBX node.</param>
+            <param name="registerId">The IP DR link identifier.</param>
+            <param name="deviceNumber">The device number.</param>
+            <returns>A task that represents the asynchronous operation. The task result contains a boolean indicating success or failure.</returns>
+        </member>
+        <member name="M:o2g.IRecording.StartMonitorAsync(System.Int32,System.String,o2g.Types.RecordingNS.MonitorRequest)">
+            <summary>
+            Starts the monitoring of a device on a DR link.
+            </summary>
+            <param name="nodeId">The OXE PBX node.</param>
+            <param name="registerId">The IP DR link identifier.</param>
+            <param name="monitorRequest">The request specifying the device number to monitor.</param>
+            <returns>A task that represents the asynchronous operation. The task result contains the monitored device information.</returns>
+        </member>
+        <member name="M:o2g.IRecording.StopMonitorAsync(System.Int32,System.String,System.String)">
+            <summary>
+            Stops the monitoring of a device on a DR link.
+            </summary>
+            <param name="nodeId">The OXE PBX node.</param>
+            <param name="registerId">The IP DR link identifier.</param>
+            <param name="deviceNumber">The device number to stop monitoring.</param>
+            <returns>A task that represents the asynchronous operation. The task result contains a boolean indicating success or failure.</returns>
+        </member>
+        <member name="M:o2g.IRecording.StartRecordAsync(System.Int32,System.String,o2g.Types.RecordingNS.StartRecordRequest)">
+            <summary>
+            Starts an IP record of an IP device.
+            </summary>
+            <param name="nodeId">The OXE PBX node.</param>
+            <param name="registerId">The IP DR link identifier.</param>
+            <param name="startRecordRequest">The request specifying the device number, recorder IP address, and IP call flow ports to record.</param>
+            <returns>A task that represents the asynchronous operation. The task result contains the SRTP keys if native encryption is enabled.</returns>
+        </member>
+        <member name="M:o2g.IRecording.StopRecordAsync(System.Int32,System.String,System.String)">
+            <summary>
+            Stops the IP or TDM recording of a device.
+            </summary>
+            <param name="nodeId">The OXE PBX node.</param>
+            <param name="registerId">The DR link identifier.</param>
+            <param name="deviceNumber">The recorded device number.</param>
+            <returns>A task that represents the asynchronous operation. The task result contains a boolean indicating success or failure.</returns>
+        </member>
+        <member name="M:o2g.IRecording.StartTDMRecordAsync(System.Int32,System.String,o2g.Types.RecordingNS.StartTDMRecordRequest)">
+            <summary>
+            Starts a TDM record of a device through a PCM link.
+            </summary>
+            <param name="nodeId">The OXE PBX node.</param>
+            <param name="registerId">The DR link identifier.</param>
+            <param name="startTDMRecordRequest">The request specifying the device number and PCM resource.</param>
+            <returns>A task that represents the asynchronous operation. The task result contains a boolean indicating success or failure.</returns>
         </member>
         <member name="T:o2g.IRouting">
             <summary>
@@ -4285,6 +4468,14 @@
             </summary>
             <value>
             A <see cref="T:o2g.IAnalytics"/> object that provides analytics services.
+            </value>
+        </member>
+        <member name="P:o2g.O2G.Application.RecordingService">
+            <summary>
+            Return the recording service.
+            </summary>
+            <value>
+            A <see cref="T:o2g.IRecording"/> object that provides recording services.
             </value>
         </member>
         <member name="P:o2g.O2G.Application.CommunicationLogService">
@@ -8342,6 +8533,342 @@
             <c>SoftKey</c> class represents a software key on an OmniPcx Enterprise device.
             </summary>
         </member>
+        <member name="T:o2g.Types.RecordingNS.DeviceMonitored">
+            <summary>
+            In response of the monitor start request of a device, contains the user selector identifier to use for the telephony event subscription.
+            If the device (for example number = "5000") is the main device of the oxe subscriber (or if the subscriber is mono device), the userId will be "oxe5000".
+            If the device (for example number = "5001") is one of the secondary devices of a multi-device oxe subscriber (number = "5000"), the userId will be "oxe5000".
+            </summary>
+        </member>
+        <member name="P:o2g.Types.RecordingNS.DeviceMonitored.UserId">
+            <summary>
+            Gets or sets the user identifier for telephony event subscription.
+            </summary>
+            <value>
+            A <see langword="string"/> that represents the user identifier.
+            </value>
+        </member>
+        <member name="T:o2g.Types.RecordingNS.DRLink">
+            <summary>
+            CSTA DR link.
+            </summary>
+        </member>
+        <member name="P:o2g.Types.RecordingNS.DRLink.Identifier">
+            <summary>
+            Gets or sets the DR link registration identifier.
+            </summary>
+            <value>
+            A <see langword="string"/> that represents the identifier.
+            </value>
+        </member>
+        <member name="P:o2g.Types.RecordingNS.DRLink.NbRecordedDevices">
+            <summary>
+            Gets or sets the number of recorded devices.
+            </summary>
+            <value>
+            An <see langword="int"/> that represents the number of recorded devices.
+            </value>
+        </member>
+        <member name="P:o2g.Types.RecordingNS.DRLink.RecordedDevices">
+            <summary>
+            Gets or sets the list of recorded devices.
+            </summary>
+            <value>
+            A <see langword="List{RecordedDevice}"/> that represents the recorded devices.
+            </value>
+        </member>
+        <member name="T:o2g.Types.RecordingNS.DRLinks">
+            <summary>
+            List of existing DRLinks for a PBX.
+            </summary>
+        </member>
+        <member name="P:o2g.Types.RecordingNS.DRLinks.DrLinks">
+            <summary>
+            Gets or sets the list of DRLinks.
+            In case of IP recording, list of DRLinks.
+            </summary>
+            <value>
+            A <see langword="List{DRLink}"/> that represents the list of DRLinks.
+            </value>
+        </member>
+        <member name="T:o2g.Types.RecordingNS.IPRecorderType">
+            <summary>
+            Represents the type of IP recorder.
+            </summary>
+        </member>
+        <member name="F:o2g.Types.RecordingNS.IPRecorderType.OTHER">
+            <summary>
+            Other recorder type.
+            </summary>
+        </member>
+        <member name="F:o2g.Types.RecordingNS.IPRecorderType.NICE">
+            <summary>
+            NICE recorder type.
+            </summary>
+        </member>
+        <member name="T:o2g.Types.RecordingNS.MonitorRequest">
+            <summary>
+            Request to start/stop the monitoring of a device on a DR link.
+            </summary>
+        </member>
+        <member name="P:o2g.Types.RecordingNS.MonitorRequest.DeviceNumber">
+            <summary>
+            Gets or sets the device number to monitor on the DR link for recording.
+            </summary>
+            <value>
+            A <see langword="string"/> that represents the device number.
+            </value>
+        </member>
+        <member name="M:o2g.Types.RecordingNS.MonitorRequest.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:o2g.Types.RecordingNS.MonitorRequest"/> class.
+            </summary>
+            <param name="deviceNumber">The device number to monitor on the DR link for recording.</param>
+        </member>
+        <member name="T:o2g.Types.RecordingNS.RecordedDevice">
+            <summary>
+            Represents a recorded device identification with its recording resource.
+            </summary>
+        </member>
+        <member name="P:o2g.Types.RecordingNS.RecordedDevice.Number">
+            <summary>
+            Gets or sets the device number.
+            </summary>
+            <value>
+            A <see langword="string"/> that represents the device number.
+            </value>
+        </member>
+        <member name="P:o2g.Types.RecordingNS.RecordedDevice.Recorded">
+            <summary>
+            Gets or sets a value indicating whether the recording has been asked.
+            </summary>
+            <value>
+            A <see langword="bool"/> that indicates if the recording has been asked.
+            </value>
+        </member>
+        <member name="P:o2g.Types.RecordingNS.RecordedDevice.RecordingResource">
+            <summary>
+            Gets or sets the recorder IP address or TDM time slot.
+            </summary>
+            <value>
+            A <see langword="string"/> that represents the recording resource.
+            </value>
+        </member>
+        <member name="P:o2g.Types.RecordingNS.RecordedDevice.Ip">
+            <summary>
+            Gets or sets a value indicating whether it is an IP recording.
+            </summary>
+            <value>
+            A <see langword="bool"/> that indicates if it is an IP recording.
+            </value>
+        </member>
+        <member name="P:o2g.Types.RecordingNS.RecordedDevice.SentFlowPort">
+            <summary>
+            Gets or sets the recorder port where the sent RTP flow is sent (from the local recorded device to the remote).
+            </summary>
+            <value>
+            An <see langword="int"/> that represents the sent flow port.
+            </value>
+        </member>
+        <member name="P:o2g.Types.RecordingNS.RecordedDevice.ReceivedFlowPort">
+            <summary>
+            Gets or sets the recorder port where the received RTP flow is sent (from the remote to the local recorded device).
+            </summary>
+            <value>
+            An <see langword="int"/> that represents the received flow port.
+            </value>
+        </member>
+        <member name="T:o2g.Types.RecordingNS.RecordingSrtpKeys">
+            <summary>
+            Contains the Secured RTP key and salt in response to the start IP record on a secured IP link.
+            </summary>
+        </member>
+        <member name="P:o2g.Types.RecordingNS.RecordingSrtpKeys.Key">
+            <summary>
+            Gets or sets the key.
+            </summary>
+            <value>
+            A <see langword="string"/> that represents the key.
+            </value>
+        </member>
+        <member name="P:o2g.Types.RecordingNS.RecordingSrtpKeys.Salt">
+            <summary>
+            Gets or sets the salt.
+            </summary>
+            <value>
+            A <see langword="string"/> that represents the salt.
+            </value>
+        </member>
+        <member name="T:o2g.Types.RecordingNS.RegisterServiceRequest">
+            <summary>
+            Request to register an IP recorder on a PBX node.
+            </summary>
+        </member>
+        <member name="M:o2g.Types.RecordingNS.RegisterServiceRequest.#ctor(o2g.Types.RecordingNS.IPRecorderType,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:o2g.Types.RecordingNS.RegisterServiceRequest"/> class.
+            </summary>
+            <param name="type">The type of the recorder.</param>
+            <param name="secured">Indicates whether the recorder should work in secured mode.</param>
+        </member>
+        <member name="P:o2g.Types.RecordingNS.RegisterServiceRequest.Type">
+            <summary>
+            Gets or sets the type of the recorder. Default is "other than NICE".
+            </summary>
+            <value>
+            An <see langword="IPRecorderType"/> that represents the type of the recorder.
+            </value>
+        </member>
+        <member name="P:o2g.Types.RecordingNS.RegisterServiceRequest.Secured">
+            <summary>
+            Gets or sets a value indicating whether the recorder should work in secured mode.
+            Default is according to OXE recording configuration.
+            </summary>
+            <value>
+            A <see langword="bool"/> that indicates if the recorder should work in secured mode.
+            </value>
+        </member>
+        <member name="T:o2g.Types.RecordingNS.ServiceRegistered">
+            <summary>
+            Contains the identifier of the recorder registration on the PBX node, to be used to unregister the service.
+            Also specifies whether the connection is secure or not.
+            </summary>
+        </member>
+        <member name="P:o2g.Types.RecordingNS.ServiceRegistered.RegistrationId">
+            <summary>
+            Gets or sets the registration identifier.
+            </summary>
+            <value>
+            A <see langword="string"/> that represents the registration identifier.
+            </value>
+        </member>
+        <member name="P:o2g.Types.RecordingNS.ServiceRegistered.Secure">
+            <summary>
+            Gets or sets a value indicating whether the connection is secure.
+            </summary>
+            <value>
+            A <see langword="bool"/> that indicates if the connection is secure.
+            </value>
+        </member>
+        <member name="T:o2g.Types.RecordingNS.StartBeepRequest">
+            <summary>
+            Request to generate a beep tone on a device.
+            </summary>
+        </member>
+        <member name="P:o2g.Types.RecordingNS.StartBeepRequest.DeviceNumber">
+            <summary>
+            Gets or sets the device number.
+            </summary>
+            <value>
+            A <see langword="string"/> that represents the device number.
+            </value>
+        </member>
+        <member name="P:o2g.Types.RecordingNS.StartBeepRequest.Tone">
+            <summary>
+            Gets or sets the tone or frequency to connect.
+            This parameter identifies the time slot number defined in the OXE tones table, which is specific for each country.
+            In practice, only values 21 to 30 are usable.
+            </summary>
+            <value>
+            An <see langword="int"/> that represents the tone or frequency.
+            </value>
+        </member>
+        <member name="P:o2g.Types.RecordingNS.StartBeepRequest.PresenceDuration">
+            <summary>
+            Gets or sets the presence duration of the pulse.
+            Value must be specified in steps of 10ms, from 10 milliseconds to 2.5 seconds.
+            </summary>
+            <value>
+            An <see langword="int"/> that represents the presence duration.
+            </value>
+        </member>
+        <member name="P:o2g.Types.RecordingNS.StartBeepRequest.SilenceDuration">
+            <summary>
+            Gets or sets the silence duration between two pulses.
+            Value must be specified in steps of 1s, from 1 second to 255 seconds.
+            </summary>
+            <value>
+            An <see langword="int"/> that represents the silence duration.
+            </value>
+        </member>
+        <member name="T:o2g.Types.RecordingNS.StartRecordRequest">
+            <summary>
+            Request to start an IP record of a device.
+            </summary>
+        </member>
+        <member name="P:o2g.Types.RecordingNS.StartRecordRequest.DeviceNumber">
+            <summary>
+            Gets or sets the device number to record.
+            Must correspond to an O2G monitored user.
+            </summary>
+            <value>
+            A <see langword="string"/> that represents the device number.
+            </value>
+        </member>
+        <member name="P:o2g.Types.RecordingNS.StartRecordRequest.IpRecorderAddr">
+            <summary>
+            Gets or sets the IP V4 address of the recorder.(aaa.bbb.ccc.ddd)
+            </summary>
+            <value>
+            A <see langword="string"/> that represents the IP V4 address of the recorder.
+            </value>
+        </member>
+        <member name="P:o2g.Types.RecordingNS.StartRecordRequest.SentFlowPort">
+            <summary>
+            Gets or sets the recorder port where to send the sent RTP flow.
+            From the local recorded device to the remote.
+            </summary>
+            <value>
+            An <see langword="int"/> that represents the sent flow port.
+            </value>
+        </member>
+        <member name="P:o2g.Types.RecordingNS.StartRecordRequest.ReceivedFlowPort">
+            <summary>
+            Gets or sets the recorder port where to send the received RTP flow.
+            From the remote to the local recorded device.
+            </summary>
+            <value>
+            An <see langword="int"/> that represents the received flow port.
+            </value>
+        </member>
+        <member name="T:o2g.Types.RecordingNS.StartTDMRecordRequest">
+            <summary>
+            Request to start a TDM record of a device.
+            </summary>
+        </member>
+        <member name="P:o2g.Types.RecordingNS.StartTDMRecordRequest.DeviceNumber">
+            <summary>
+            Gets or sets the device number to record.
+            Must correspond to an O2G monitored user.
+            </summary>
+            <value>
+            A <see langword="string"/> that represents the device number.
+            </value>
+        </member>
+        <member name="P:o2g.Types.RecordingNS.StartTDMRecordRequest.Crystal">
+            <summary>
+            Gets or sets the PCM crystal number.
+            </summary>
+            <value>
+            An <see langword="int"/> that represents the PCM crystal number.
+            </value>
+        </member>
+        <member name="P:o2g.Types.RecordingNS.StartTDMRecordRequest.Board">
+            <summary>
+            Gets or sets the PCM board number.
+            </summary>
+            <value>
+            An <see langword="int"/> that represents the PCM board number.
+            </value>
+        </member>
+        <member name="P:o2g.Types.RecordingNS.StartTDMRecordRequest.Timeslot">
+            <summary>
+            Gets or sets the PCM timeslot number.
+            </summary>
+            <value>
+            An <see langword="int"/> that represents the PCM timeslot number.
+            </value>
+        </member>
         <member name="T:o2g.Types.RestErrorInfo">
             <summary>
             <c>ErrorInfo</c> gives the detail information on an error raised during a service invocation.
@@ -10048,6 +10575,11 @@
             <c>OperationalState</c> represents a device dynamic state.
             </summary>
         </member>
+        <member name="F:o2g.Types.TelephonyNS.DeviceNS.OperationalState.Unknown">
+            <summary>
+            The dynamic state of the device can not be retrieved.
+            </summary>
+        </member>
         <member name="F:o2g.Types.TelephonyNS.DeviceNS.OperationalState.InService">
             <summary>
             The device is in service.
@@ -10056,11 +10588,6 @@
         <member name="F:o2g.Types.TelephonyNS.DeviceNS.OperationalState.OutOfService">
             <summary>
             The device is out of service.
-            </summary>
-        </member>
-        <member name="F:o2g.Types.TelephonyNS.DeviceNS.OperationalState.Unknown">
-            <summary>
-            The dynamic state of the device can not be retrieved.
             </summary>
         </member>
         <member name="T:o2g.Types.TelephonyNS.HuntingGroups">
@@ -10236,6 +10763,11 @@
             The device type
             </summary>
         </member>
+        <member name="F:o2g.Types.UsersNS.Device.DeviceType.Unknown">
+            <summary>
+            Unknown device type
+            </summary>
+        </member>
         <member name="F:o2g.Types.UsersNS.Device.DeviceType.Dect">
             <summary>
             The device is a DECT device
@@ -10254,11 +10786,6 @@
         <member name="F:o2g.Types.UsersNS.Device.DeviceType.Softphone">
             <summary>
             The device is a softphone
-            </summary>
-        </member>
-        <member name="F:o2g.Types.UsersNS.Device.DeviceType.Unknown">
-            <summary>
-            Unknown device type
             </summary>
         </member>
         <member name="P:o2g.Types.UsersNS.Device.Type">
