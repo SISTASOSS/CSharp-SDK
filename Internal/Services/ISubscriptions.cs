@@ -11,6 +11,7 @@ namespace o2g.Internal.Services
     internal interface ISubscriptions : IService
     {
         Task<SubscriptionResult> Create(Subscription request);
+        Task<SubscriptionResult> Update(Subscription request);
         Task<bool> Delete(String subscriptionId);
     }
 }

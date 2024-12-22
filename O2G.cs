@@ -215,6 +215,15 @@ namespace o2g
             public async Task SubscribeAsync(Subscription subscription)
             {
                 await _session.ListenEvents(subscription);
+            }            
+            
+            /// <summary>
+            /// Update Subscription of events from the O2G server. The requested events are specified using a <see cref="Subscription"/> object.
+            /// </summary>
+            /// <param name="subscription">The <see cref="Subscription"/> describing the events to receive.</param>
+            public async Task UpdateSubscriptionAsync(Subscription subscription)
+            {
+                await _session.UpdateEvents(subscription);
             }
 
             /// <summary>

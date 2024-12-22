@@ -151,6 +151,22 @@ namespace o2g.Internal
             // Subscription is cancelled
             subscriptionId = null;
         }
+        
+        public async Task UpdateEvents(Subscription subscriptionRequest)
+        {
+            if (subscriptionRequest != null)
+            {
+                await UpdateEventing((SubscriptionImpl)subscriptionRequest);
+            }
+        }
+        
+        private async Task UpdateEventing(SubscriptionImpl subscription)
+        {
+            logger.Trace("Update Subsription");
+            ISubscriptions subscriptionsService = serviceFactory.GetSubscriptionService();
+            await subscriptionsService.Update(subscription);
+            logger.Trace("Subsription Updated");
+        }
 
         private async Task StartEventing(SubscriptionImpl subscription)
         {

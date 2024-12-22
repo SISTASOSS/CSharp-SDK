@@ -57,6 +57,8 @@ namespace o2g
 
         Task ListenEvents(Subscription subscription);
 
+        Task UpdateEvents(Subscription subscriptionRequest);
+
         Task Close();
     }
 }

@@ -4393,6 +4393,12 @@
             </summary>
             <param name="subscription">The <see cref="T:o2g.Subscription"/> describing the events to receive.</param>
         </member>
+        <member name="M:o2g.O2G.Application.UpdateSubscriptionAsync(o2g.Subscription)">
+            <summary>
+            Update Subscription to events from the O2G server. The requested events are specified using a <see cref="T:o2g.Subscription"/> object.
+            </summary>
+            <param name="subscription">The <see cref="T:o2g.Subscription"/> describing the events to receive.</param>
+        </member>
         <member name="M:o2g.O2G.Application.ShutdownAsync">
             <summary>
             Terminate the application. Dispose all used ressources.

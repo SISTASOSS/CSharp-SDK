@@ -28,6 +28,15 @@ namespace o2g.Internal.Rest
             HttpResponseMessage response = await httpClient.PostAsync(uri, content);
             return await GetResult<SubscriptionResult>(response);
         }
+        
+        async Task<SubscriptionResult> ISubscriptions.Update(Subscription request)
+        {
+            var json = JsonSerializer.Serialize(request.Filter, serializeOptions);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            HttpResponseMessage response = await httpClient.PutAsync(uri, content);
+            return await GetResult<SubscriptionResult>(response);
+        }
 
         async Task<bool> ISubscriptions.Delete(string subscriptionId)
         {
