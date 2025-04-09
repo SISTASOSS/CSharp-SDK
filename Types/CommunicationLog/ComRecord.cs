@@ -81,5 +81,31 @@ namespace o2g.Types.CommunicationLogNS
         /// </value>
         [JsonPropertyName("endDate")]
         public DateTime End { get; init; }
+        
+        /// <summary>
+        /// Return Conversation date the call has been answered.
+        /// </summary>
+        /// <value>
+        /// A <see cref="DateTime"/> value that represents the date the call has been answered.
+        /// </value>
+        [JsonPropertyName("convDate")]
+        public DateTime ConversationDate { get; init; }
+        
+        /// <summary>
+        /// Return The list of medias involved in the communication..
+        /// </summary>
+        /// <value>
+        /// A list of <see cref="MediaType"/>. A <c>MediaType</c> represents the MediaType in this call.
+        /// </value>
+        public List<MediaType> Medias { get; init; }
+        
+        /// <summary>
+        /// Return Extensions
+        /// For evolution of this element, can contain supplementary information (tag/value pair).
+        /// </summary>
+        /// <value>
+        /// A <see cref="TagValuePair"/>. 
+        /// </value>
+        public TagValuePair Extensions { get; init; }
     }
 }

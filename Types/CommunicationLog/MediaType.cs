@@ -17,37 +17,27 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-using o2g.Types.TelephonyNS.CallNS;
+using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
-namespace o2g.Types.TelephonyNS.DeviceNS
+namespace o2g.Types.CommunicationLogNS
 {
     /// <summary>
-    /// <c>DeviceState</c> represents the state of a device.
+    /// <c>Role</c> defines the MediaTypes a call can be.
     /// </summary>
-    public class DeviceState
+    [JsonStringEnumMemberConverterOptions(deserializationFailureFallbackValue: MediaType.Unknown)]
+    public enum MediaType
     {
         /// <summary>
-        /// This property gives the device phone number.
+        /// The media is an audio.
         /// </summary>
-        /// <value>
-        /// A <see langword="string"/> that is the device extension number.
-        /// </value>
-        public string DeviceId { get; init; }
+        [EnumMember(Value = "AUDIO")]
+        Audio,
 
         /// <summary>
-        /// This property return the device operational state.
+        /// The media is unknown.
         /// </summary>
-        /// <value>
-        /// A <see cref="OperationalState"/> value that give the device operational state.
-        /// </value>
-        public OperationalState State { get; init; }
-        
-        /// <summary>
-        /// Cause associated with state change.
-        /// </summary>
-        /// <value>
-        /// A <see cref="CallCause"/> value that give the cause associated with state change.
-        /// </value>
-        public Cause Cause { get; init; }
+        [EnumMember(Value = "UNKNOWN")]
+        Unknown
     }
 }

@@ -17,37 +17,31 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-using o2g.Types.TelephonyNS.CallNS;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
-namespace o2g.Types.TelephonyNS.DeviceNS
+namespace o2g.Types.CommunicationLogNS
 {
     /// <summary>
-    /// <c>DeviceState</c> represents the state of a device.
+    /// <c>TagValuePair</c> class represents Key / value structure.
+    /// For evolution of this element, can contain supplementary information (tag/value pair).
     /// </summary>
-    public class DeviceState
+    public class TagValuePair
     {
         /// <summary>
-        /// This property gives the device phone number.
+        /// Key
         /// </summary>
         /// <value>
-        /// A <see langword="string"/> that is the device extension number.
+        /// <see cref="string"/> that represents the Key.
         /// </value>
-        public string DeviceId { get; init; }
-
-        /// <summary>
-        /// This property return the device operational state.
-        /// </summary>
-        /// <value>
-        /// A <see cref="OperationalState"/> value that give the device operational state.
-        /// </value>
-        public OperationalState State { get; init; }
+        public string Name { get; init; }        
         
         /// <summary>
-        /// Cause associated with state change.
+        /// Value
         /// </summary>
         /// <value>
-        /// A <see cref="CallCause"/> value that give the cause associated with state change.
+        /// <see cref="string"/> that represents the Value.
         /// </value>
-        public Cause Cause { get; init; }
+        public string Value { get; init; }
     }
 }

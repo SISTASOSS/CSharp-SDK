@@ -819,6 +819,24 @@ namespace o2g
         /// <para>Available from O2G 2.4</para>
         /// </remarks>
         Task<bool> IntrusionAsync(string deviceId);
+        
+        /// <summary>
+        /// Push the MICRO/ITH key of a user.
+        /// </summary>
+        /// <param name="deviceId">The device phone number.</param>
+        /// <returns><see langword="true"/> in case of success; <see langword="false"/> otherwise.</returns>
+        /// <remarks>
+        /// <para>
+        /// Push the MICRO/ITH key.
+        /// This action acts as a "flip/flop" and has the same effect than pressing the key:
+        ///    - it activates or deactivates the microphone if the device has an outgoing or established call
+        ///    - it activates or deactivates the interphony if the device is idle
+        ///    - it has no effect if the device is ringing on incoming call
+        /// This operation is done in blind mode: no state event is provided on the push but when the device returns to idle after a call, the microphone comes back in the active state.
+        /// </para>
+        /// <para>Available from O2G 2.6</para>
+        /// </remarks>
+        Task<bool> IthMicroAsync(string deviceId);
 
 
         /// <summary>

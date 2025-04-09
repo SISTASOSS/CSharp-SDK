@@ -20,5 +20,13 @@ namespace o2g.Types.RecordingNS
         /// A <see langword="string"/> that represents the salt.
         /// </value>
         public string Salt { get; set; }
+        
+        /// <summary>
+        /// Gets or sets the salt.
+        /// </summary>
+        /// <value>
+        /// A <see langword="string"/> the cipher suite (if absent, default compatibility is AES-CM-128-HMAC-SHA1-80)
+        /// </value>
+        public string CipherSuite { get; set; }
     }
 }

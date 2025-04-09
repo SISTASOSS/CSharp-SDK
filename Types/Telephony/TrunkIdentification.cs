@@ -16,6 +16,9 @@
 * DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
+
+using System.Collections.Generic;
+
 namespace o2g.Types.TelephonyNS
 {
     /// <summary>
@@ -29,7 +32,7 @@ namespace o2g.Types.TelephonyNS
         /// <value>
         /// An <see cref="int"/> that represent the network time slot.
         /// </value>
-        public int networkTimeslot { get; set; }
+        public int NetworkTimeslot { get; set; }
 
         /// <summary>
         /// Trunk equipment number (Could be 2 nbrs in case of conference with 2 different external trunks.
@@ -37,6 +40,6 @@ namespace o2g.Types.TelephonyNS
         /// <value>
         /// An <see cref="int"/> that  represent Trunk equipment number
         /// </value>
-        public int trunkNeqt { get; set; }
+        public List<int> TrunkNeqt { get; set; }
     }
 }

@@ -2213,6 +2213,99 @@
             <param name="startTDMRecordRequest">The request specifying the device number and PCM resource.</param>
             <returns>A task that represents the asynchronous operation. The task result contains a boolean indicating success or failure.</returns>
         </member>
+        <member name="P:o2g.Internal.Rest.AcdCallParam.SupervisedTransfer">
+            <summary>
+            If true in a consultation call, force the Pilot or RSI consultation mode
+            </summary>
+        </member>
+        <member name="P:o2g.Internal.Rest.AcdCallParam.Skills">
+            <summary>
+            Skills associated to the new call
+            </summary>
+        </member>
+        <member name="P:o2g.Internal.Rest.AcdCallParam.CallToSupervisor">
+            <summary>
+            If true, for an agent, call its supervisor. The callee number parameter is ignored in this case and can be absent
+            </summary>
+        </member>
+        <member name="T:o2g.Internal.Rest.MakeCallRequest">
+            <summary>
+            Request to initiate a new call.
+            </summary>
+        </member>
+        <member name="P:o2g.Internal.Rest.MakeCallRequest.DeviceId">
+            <summary>
+            Device phone number for which the operation is invoked.
+            Mandatory.
+            </summary>
+        </member>
+        <member name="P:o2g.Internal.Rest.MakeCallRequest.Callee">
+            <summary>
+            Called phone number.
+            Mandatory except in case of agent supervisor call.
+            </summary>
+        </member>
+        <member name="P:o2g.Internal.Rest.MakeCallRequest.AutoAnswer">
+            <summary>
+            Automatic answer on make call.
+            If false or omitted, deviceId is called first; otherwise, callee is called immediately.
+            </summary>
+        </member>
+        <member name="P:o2g.Internal.Rest.MakeCallRequest.InhibitProgressTone">
+            <summary>
+            Inhibit the progress tone on the current external call.
+            </summary>
+        </member>
+        <member name="P:o2g.Internal.Rest.MakeCallRequest.AssociatedData">
+            <summary>
+            Application-related string data (max 32 bytes).
+            Cannot be used with pin, secretCode, or businessCode.
+            </summary>
+        </member>
+        <member name="P:o2g.Internal.Rest.MakeCallRequest.HexaBinaryAssociatedData">
+            <summary>
+            Hexadecimal byte array string. Cannot contain byte '00'.
+            Used instead of AssociatedData for binary data.
+            Cannot be used with pin, secretCode, or businessCode.
+            </summary>
+        </member>
+        <member name="P:o2g.Internal.Rest.MakeCallRequest.Pin">
+            <summary>
+            Private identity number (Mandatory for Private Calls).
+            Cannot be used with associatedData or businessCode.
+            </summary>
+        </member>
+        <member name="P:o2g.Internal.Rest.MakeCallRequest.SecretCode">
+            <summary>
+            Secret code (Mandatory for Private Calls).
+            Cannot be used with associatedData or businessCode.
+            </summary>
+        </member>
+        <member name="P:o2g.Internal.Rest.MakeCallRequest.BusinessCode">
+            <summary>
+            Cost center for call charging (Mandatory for Business Calls).
+            Cannot be used with associatedData, pin, or secretCode.
+            </summary>
+        </member>
+        <member name="P:o2g.Internal.Rest.MakeCallRequest.CallingNumber">
+            <summary>
+            Alternate calling number to be presented on the public network.
+            Used to hide the real extension number.
+            </summary>
+        </member>
+        <member name="P:o2g.Internal.Rest.MakeCallRequest.SecretIdentity">
+            <summary>
+            Request the public network to mask the calling identity.
+            Must be used with CallingNumber.
+            If the callingNumber is absent, the secretIdentity parameter will be ignored.
+            </summary>
+        </member>
+        <member name="P:o2g.Internal.Rest.MakeCallRequest.AcdCall">
+            <summary>
+            Parameters to use when making an ACD Call.
+            Cannot be used with pin or secretCode.
+            </summary>
+        </member>
         <member name="T:o2g.Internal.Services.IService">
             <summary>
             The IService is the base interface for all O2G services. 
@@ -3943,6 +4036,24 @@
             <para>Available from O2G 2.4</para>
             </remarks>
         </member>
+        <member name="M:o2g.ITelephony.IthMicroAsync(System.String)">
+            <summary>
+            Push the MICRO/ITH key of a user.
+            </summary>
+            <param name="deviceId">The device phone number.</param>
+            <returns><see langword="true"/> in case of success; <see langword="false"/> otherwise.</returns>
+            <remarks>
+            <para>
+            Push the MICRO/ITH key.
+            This action acts as a "flip/flop" and has the same effect than pressing the key:
+               - it activates or deactivates the microphone if the device has an outgoing or established call
+               - it activates or deactivates the interphony if the device is idle
+               - it has no effect if the device is ringing on incoming call
+            This operation is done in blind mode: no state event is provided on the push but when the device returns to idle after a call, the microphone comes back in the active state.
+            </para>
+            <para>Available from O2G 2.6</para>
+            </remarks>
+        </member>
         <member name="M:o2g.ITelephony.UnParkAsync(System.String,System.String)">
             <summary>
             UnPark a call from a target device.
@@ -4395,7 +4506,7 @@
         </member>
         <member name="M:o2g.O2G.Application.UpdateSubscriptionAsync(o2g.Subscription)">
             <summary>
-            Update Subscription to events from the O2G server. The requested events are specified using a <see cref="T:o2g.Subscription"/> object.
+            Update Subscription of events from the O2G server. The requested events are specified using a <see cref="T:o2g.Subscription"/> object.
             </summary>
             <param name="subscription">The <see cref="T:o2g.Subscription"/> describing the events to receive.</param>
         </member>
@@ -6259,6 +6370,31 @@
             A <see cref="T:System.DateTime"/> value that represents the date the call has ended.
             </value>
         </member>
+        <member name="P:o2g.Types.CommunicationLogNS.ComRecord.ConversationDate">
+            <summary>
+            Return Conversation date the call has been answered.
+            </summary>
+            <value>
+            A <see cref="T:System.DateTime"/> value that represents the date the call has been answered.
+            </value>
+        </member>
+        <member name="P:o2g.Types.CommunicationLogNS.ComRecord.Medias">
+            <summary>
+            Return The list of medias involved in the communication..
+            </summary>
+            <value>
+            A list of <see cref="T:o2g.Types.CommunicationLogNS.MediaType"/>. A <c>MediaType</c> represents the MediaType in this call.
+            </value>
+        </member>
+        <member name="P:o2g.Types.CommunicationLogNS.ComRecord.Extensions">
+            <summary>
+            Return Extensions
+            For evolution of this element, can contain supplementary information (tag/value pair).
+            </summary>
+            <value>
+            A <see cref="T:o2g.Types.CommunicationLogNS.TagValuePair"/>. 
+            </value>
+        </member>
         <member name="T:o2g.Types.CommunicationLogNS.ComRecordParticipant">
             <summary>
             <c>ComRecordParticipant</c> represents a participant referenced in a com record.
@@ -6403,6 +6539,21 @@
             <value>
             A <see cref="P:o2g.Types.CommunicationLogNS.ComRecordParticipant.Reason"/> value that represents the reason the call has been established, rerouted, terminated.
             </value>
+        </member>
+        <member name="T:o2g.Types.CommunicationLogNS.MediaType">
+            <summary>
+            <c>Role</c> defines the MediaTypes a call can be.
+            </summary>
+        </member>
+        <member name="F:o2g.Types.CommunicationLogNS.MediaType.Audio">
+            <summary>
+            The media is an audio.
+            </summary>
+        </member>
+        <member name="F:o2g.Types.CommunicationLogNS.MediaType.Unknown">
+            <summary>
+            The media is unknown.
+            </summary>
         </member>
         <member name="T:o2g.Types.CommunicationLogNS.Option">
             <summary>
@@ -6674,6 +6825,28 @@
             <summary>
             The role is unknown.
             </summary>
+        </member>
+        <member name="T:o2g.Types.CommunicationLogNS.TagValuePair">
+            <summary>
+            <c>TagValuePair</c> class represents Key / value structure.
+            For evolution of this element, can contain supplementary information (tag/value pair).
+            </summary>
+        </member>
+        <member name="P:o2g.Types.CommunicationLogNS.TagValuePair.Name">
+            <summary>
+            Key
+            </summary>
+            <value>
+            <see cref="T:System.String"/> that represents the Key.
+            </value>
+        </member>
+        <member name="P:o2g.Types.CommunicationLogNS.TagValuePair.Value">
+            <summary>
+            Value
+            </summary>
+            <value>
+            <see cref="T:System.String"/> that represents the Value.
+            </value>
         </member>
         <member name="P:o2g.Types.Credential.Login">
             <summary>
@@ -8705,6 +8878,14 @@
             A <see langword="string"/> that represents the salt.
             </value>
         </member>
+        <member name="P:o2g.Types.RecordingNS.RecordingSrtpKeys.CipherSuite">
+            <summary>
+            Gets or sets the salt.
+            </summary>
+            <value>
+            A <see langword="string"/> the cipher suite (if absent, default compatibility is AES-CM-128-HMAC-SHA1-80)
+            </value>
+        </member>
         <member name="T:o2g.Types.RecordingNS.RegisterServiceRequest">
             <summary>
             Request to register an IP recorder on a PBX node.
@@ -10573,7 +10754,15 @@
             This property return the device operational state.
             </summary>
             <value>
-            A <see cref="T:o2g.Types.TelephonyNS.DeviceNS.OperationalState"/> value that give sthe device operational state.
+            A <see cref="T:o2g.Types.TelephonyNS.DeviceNS.OperationalState"/> value that give the device operational state.
+            </value>
+        </member>
+        <member name="P:o2g.Types.TelephonyNS.DeviceNS.DeviceState.Cause">
+            <summary>
+            Cause associated with state change.
+            </summary>
+            <value>
+            A <see cref="!:CallCause"/> value that give the cause associated with state change.
             </value>
         </member>
         <member name="T:o2g.Types.TelephonyNS.DeviceNS.OperationalState">
@@ -10723,7 +10912,7 @@
             <c>TrunkIdentification</c> For external call, provide information on network timeslot and trunk eqt number
             </summary>
         </member>
-        <member name="P:o2g.Types.TelephonyNS.TrunkIdentification.networkTimeslot">
+        <member name="P:o2g.Types.TelephonyNS.TrunkIdentification.NetworkTimeslot">
             <summary>
             The network time slot.
             </summary>
@@ -10731,7 +10920,7 @@
             An <see cref="T:System.Int32"/> that represent the network time slot.
             </value>
         </member>
-        <member name="P:o2g.Types.TelephonyNS.TrunkIdentification.trunkNeqt">
+        <member name="P:o2g.Types.TelephonyNS.TrunkIdentification.TrunkNeqt">
             <summary>
             Trunk equipment number (Could be 2 nbrs in case of conference with 2 different external trunks.
             </summary>
