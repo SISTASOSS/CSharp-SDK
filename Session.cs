@@ -19,6 +19,7 @@
 
 using System;
 using System.Threading.Tasks;
+using o2g.Types;
 
 namespace o2g
 {
@@ -57,8 +58,10 @@ namespace o2g
 
         Task ListenEvents(Subscription subscription);
 
-        Task UpdateEvents(Subscription subscriptionRequest);
+        Task<bool> UpdateEvents(Subscription subscriptionRequest);
 
         Task Close();
+
+        RestErrorInfo GetSubscriptionLastError();
     }
 }

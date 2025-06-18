@@ -375,7 +375,7 @@ namespace o2g.Internal
             }
             //TODO Delete later, Regular O2G supports iprecording bu does not return recordingService
             O2GService serviceNameRec = O2GService.Get("voicerecording");
-            servicesUri.Add(serviceNameRec, new UriBuilder(baseUrl + "/iprecord").Uri);
+            servicesUri.TryAdd(serviceNameRec, new UriBuilder(baseUrl + "/iprecord").Uri);
         }
     }
 }

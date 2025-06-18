@@ -221,9 +221,18 @@ namespace o2g
             /// Update Subscription of events from the O2G server. The requested events are specified using a <see cref="Subscription"/> object.
             /// </summary>
             /// <param name="subscription">The <see cref="Subscription"/> describing the events to receive.</param>
-            public async Task UpdateSubscriptionAsync(Subscription subscription)
+            public async Task<bool> UpdateSubscriptionAsync(Subscription subscription)
             {
-                await _session.UpdateEvents(subscription);
+                return await _session.UpdateEvents(subscription);
+            }
+
+            /// <summary>
+            /// Get Subscription Last Error occured on Update or Delete
+            /// </summary>
+            /// <returns></returns>
+            public RestErrorInfo GetSubscriptionLastError()
+            {
+                return _session.GetSubscriptionLastError();
             }
 
             /// <summary>

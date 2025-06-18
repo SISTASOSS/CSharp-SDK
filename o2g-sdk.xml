@@ -8952,7 +8952,7 @@
         </member>
         <member name="P:o2g.Types.RecordingNS.StartBeepRequest.Tone">
             <summary>
-            Gets or sets the tone or frequency to connect.
+            Gets or sets the tone or frequency to connect. 
             This parameter identifies the time slot number defined in the OXE tones table, which is specific for each country.
             In practice, only values 21 to 30 are usable.
             </summary>
