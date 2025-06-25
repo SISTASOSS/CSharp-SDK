@@ -30,10 +30,16 @@ namespace o2g.Internal.Types.Maintenance
         public bool Ha { get; set; }
         public string Primary { get; set; }
         public string PrimaryVersion { get; set; }
+        
+        public SystemServicesStatusDto PrimaryServicesStatus { get; set; }
         public string Secondary { get; set; }
         public string SecondaryVersion { get; set; }
+
+        public SystemServicesStatusDto SecondaryServicesStatus { get; set; }
         public List<PbxStatus> Pbxs { get; set; }
         public LicenseStatus License { get; set; }
         public ConfigurationType ConfigurationType { get; set; }
+        
+        public OXRRecordingStatus RecordingStatus { get; set; } 
     }
 }

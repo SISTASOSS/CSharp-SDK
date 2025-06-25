@@ -85,9 +85,12 @@ namespace o2g.Internal.Rest
                     HaMode = systemStatus.Ha,
                     Primary = systemStatus.Primary,
                     PrimaryVersion = systemStatus.PrimaryVersion,
+                    PrimaryServicesStatus = systemStatus.PrimaryServicesStatus,
                     Secondary = systemStatus.Secondary,
                     SecondaryVersion = systemStatus.SecondaryVersion,
+                    SecondaryServicesStatus = systemStatus.SecondaryServicesStatus,
                     Pbxs = systemStatus.Pbxs,
+                    RecordingStatus = systemStatus.RecordingStatus,
                     Licenses = systemStatus.License.lics,
                     ConfigurationType = systemStatus.ConfigurationType
                 };

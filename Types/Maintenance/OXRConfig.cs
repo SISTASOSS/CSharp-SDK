@@ -17,41 +17,43 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-using System.Runtime.Serialization;
-using System.Text.Json.Serialization;
+using System.Collections.Generic;
 
 namespace o2g.Types.MaintenanceNS
 {
     /// <summary>
-    /// <c>ConfigurationType</c> represents the possible O2G server configurations. 
+    /// <c>OXRConfig</c> Configuration for an OmniPCX Record (OXR) system.
     /// </summary>
-    [JsonStringEnumMemberConverterOptions(deserializationFailureFallbackValue: ConfigurationType.Unknown)]
-    public enum ConfigurationType
+    public class OXRConfig
     {
         /// <summary>
-        /// O2G Server is configured for management.
+        /// OXR host name.
         /// </summary>
-        /// <remarks>
-        /// An O2G server configured for management does not monitor devices on the OmniPCX Enterprise.
-        /// </remarks>
-        [EnumMember(Value = "PBX_MANAGEMENT")]
-        PbxManagement,
+        public string? HostName { get; init; }
 
         /// <summary>
-        /// O2G Server is configured with full services.
+        /// OXR IP address.
         /// </summary>
-        [EnumMember(Value = "FULL_SERVICES")]
-        FullServices,
-        
-        /// <summary>
-        /// O2G Server is configured for RECORDING only.
-        /// </summary>
-        [EnumMember(Value = "RECORDING")]
-        Recording,
+        public string? IpAddress { get; init; }
 
         /// <summary>
-        /// Unknown configuration
+        /// OXR site identifier.
         /// </summary>
-        Unknown
+        public string? SiteId { get; init; }
+
+        /// <summary>
+        /// Indicates whether access is secured.
+        /// </summary>
+        public bool? Secured { get; init; }
+
+        /// <summary>
+        /// Indicates whether the system is connected.
+        /// </summary>
+        public bool? Connected { get; init; }
+
+        /// <summary>
+        /// List of device numbers that may be recorded by this recorder.
+        /// </summary>
+        public List<string> Devices { get; init; } = new();
     }
 }

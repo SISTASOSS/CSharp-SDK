@@ -69,6 +69,14 @@ namespace o2g.Types.MaintenanceNS
         public string PrimaryVersion { get; init; }
 
         /// <summary>
+        /// Return the status of the primary server's services.
+        /// </summary>
+        /// <value>
+        /// A <see cref="SystemServicesStatusDTO"/> object representing the primary server's services status. Can be <see langword="null"/>.
+        /// </value>
+        public SystemServicesStatusDto PrimaryServicesStatus { get; init; }
+        
+        /// <summary>
         /// Return the FQDN of the backup O2G server when it is configured in HA mode.
         /// </summary>
         /// <value>
@@ -85,6 +93,14 @@ namespace o2g.Types.MaintenanceNS
         public string SecondaryVersion { get; init; }
 
         /// <summary>
+        /// Return the status of the secondary server's services.
+        /// </summary>
+        /// <value>
+        /// A <see cref="SystemServicesStatusDTO"/> object representing the secondary server's services status. Can be <see langword="null"/>.
+        /// </value>
+        public SystemServicesStatusDto SecondaryServicesStatus { get; init; }
+        
+        /// <summary>
         /// Return the list of Pbx connected to this O2G server
         /// </summary>
         /// <value>
@@ -92,6 +108,17 @@ namespace o2g.Types.MaintenanceNS
         /// </value>
         public List<PbxStatus> Pbxs { get; init; }
 
+        /// <summary>
+        /// Return the OXR recording status.
+        /// </summary>
+        /// <value>
+        /// An <see cref="OXRRecordingStatus"/> object representing the OXRecorders information. Can be <see langword="null"/>.
+        /// </value>
+        /// <remarks>
+        /// Available since version 2.7.3.
+        /// </remarks>
+        public OXRRecordingStatus RecordingStatus { get; init; } 
+        
         /// <summary>
         /// Return the licenses.
         /// </summary>
@@ -107,5 +134,13 @@ namespace o2g.Types.MaintenanceNS
         /// The <see cref="ConfigurationType"/> that corresponds to the O2G server configuration.
         /// </value>
         public ConfigurationType ConfigurationType { get; init; }
+        
+        /// <summary>
+        /// Return the Oxe subscriber load filter type.
+        /// </summary>
+        /// <value>
+        /// The <see cref="SubscriberFilterDTO"/> that corresponds to the Oxe subscriber load filter type. Can be <see langword="null"/>.
+        /// </value>
+        public SubscriberFilterDto SubscriberFilter { get; init; }
     }
 }
