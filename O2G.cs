@@ -194,7 +194,8 @@ namespace o2g
             /// </summary>
             /// <param name="loginName">The user login name</param>
             /// <param name="password">The user password</param>
-            public async Task LoginAsync(string loginName, string password)
+            /// <returns></returns>
+            public async Task<bool> LoginAsync(string loginName, string password)
             {
                 // First connect to the right service endpoint
                 ServiceEndPoint serviceEndPoint = await Connect();
@@ -206,6 +207,11 @@ namespace o2g
                     Password = password
                 },
                 ApplicationName);
+                if (null == _session)
+                {
+                    return false;
+                }
+                return true;
             }
 
             /// <summary>
@@ -245,6 +251,15 @@ namespace o2g
                 {
                     await _session.Close();
                 }
+            }
+
+            /// <summary>
+            /// returns if session exists
+            /// </summary>
+            /// <returns></returns>
+            public bool IsSessionExists()
+            {
+                return (_session != null);
             }
 
             // Apply the connection policy and try to connect on provided hosts

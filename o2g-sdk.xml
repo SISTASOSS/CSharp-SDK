@@ -4497,6 +4497,7 @@
             </summary>
             <param name="loginName">The user login name</param>
             <param name="password">The user password</param>
+            <returns></returns>
         </member>
         <member name="M:o2g.O2G.Application.SubscribeAsync(o2g.Subscription)">
             <summary>
@@ -4510,10 +4511,22 @@
             </summary>
             <param name="subscription">The <see cref="T:o2g.Subscription"/> describing the events to receive.</param>
         </member>
+        <member name="M:o2g.O2G.Application.GetSubscriptionLastError">
+            <summary>
+            Get Subscription Last Error occured on Update or Delete
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:o2g.O2G.Application.ShutdownAsync">
             <summary>
             Terminate the application. Dispose all used ressources.
             </summary>
+        </member>
+        <member name="M:o2g.O2G.Application.IsSessionExists">
+            <summary>
+            returns if session exists
+            </summary>
+            <returns></returns>
         </member>
         <member name="P:o2g.O2G.Application.MaintenanceService">
             <summary>
@@ -7210,6 +7223,11 @@
             O2G Server is configured with full services.
             </summary>
         </member>
+        <member name="F:o2g.Types.MaintenanceNS.ConfigurationType.Recording">
+            <summary>
+            O2G Server is configured for RECORDING only.
+            </summary>
+        </member>
         <member name="F:o2g.Types.MaintenanceNS.ConfigurationType.Unknown">
             <summary>
             Unknown configuration
@@ -7271,6 +7289,116 @@
             <value>
             A <see langword="string"/> value that represents the license expiration date.
             </value>
+        </member>
+        <member name="T:o2g.Types.MaintenanceNS.LicenseStatus">
+            <summary>
+            <c>LicenseStatus</c> Represents the overall status of the license system (FLEXLM or LMS).
+            </summary>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.LicenseStatus.Type">
+            <summary>
+            License system type: "FLEXLM" (CAPEX) or "LMS" (OPEX).
+            </summary>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.LicenseStatus.Context">
+            <summary>
+            Only for LMS: infrastructure used – e.g. "PROD", "QA", or "INT".
+            </summary>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.LicenseStatus.CurrentServer">
+            <summary>
+            Current license server address.
+            </summary>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.LicenseStatus.Status">
+            <summary>
+            Only for LMS: status of the RTR – e.g. "NORMAL", "GRACE PERIOD", "PANIC MODE".
+            </summary>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.LicenseStatus.StatusMessage">
+            <summary>
+            Only for LMS: debug message associated with the status.
+            </summary>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.LicenseStatus.Lics">
+            <summary>
+            0..* list of licenses.
+            </summary>
+        </member>
+        <member name="T:o2g.Types.MaintenanceNS.OXRConfig">
+            <summary>
+            <c>OXRConfig</c> Configuration for an OmniPCX Record (OXR) system.
+            </summary>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.OXRConfig.HostName">
+            <summary>
+            OXR host name.
+            </summary>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.OXRConfig.IpAddress">
+            <summary>
+            OXR IP address.
+            </summary>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.OXRConfig.SiteId">
+            <summary>
+            OXR site identifier.
+            </summary>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.OXRConfig.Secured">
+            <summary>
+            Indicates whether access is secured.
+            </summary>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.OXRConfig.Connected">
+            <summary>
+            Indicates whether the system is connected.
+            </summary>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.OXRConfig.Devices">
+            <summary>
+            List of device numbers that may be recorded by this recorder.
+            </summary>
+        </member>
+        <member name="T:o2g.Types.MaintenanceNS.OXRRecordedDevice">
+            <summary>
+            <c>OXRRecordedDevice</c> Describes a recorded device managed by one or more OXR recorders.
+            </summary>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.OXRRecordedDevice.Number">
+            <summary>
+            Device number.
+            </summary>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.OXRRecordedDevice.Recordable">
+            <summary>
+            Indicates whether the device is recordable on demand.
+            </summary>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.OXRRecordedDevice.StartCapabilities">
+            <summary>
+            Start mode capabilities (e.g., "MANUAL", "AUTO"). Only present if device is recordable.
+            </summary>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.OXRRecordedDevice.Recorders">
+            <summary>
+            List of recorder identifiers that manage this device.
+            </summary>
+        </member>
+        <member name="T:o2g.Types.MaintenanceNS.OXRRecordingStatus">
+            <summary>
+            <c>OXRRecordingStatus</c> Represents the overall status of the OXR recording service, including recorders and devices.
+            </summary>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.OXRRecordingStatus.Oxrs">
+            <summary>
+            List of OXR recorder configurations.
+            </summary>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.OXRRecordingStatus.Devices">
+            <summary>
+            List of devices that may be recorded.
+            </summary>
         </member>
         <member name="T:o2g.Types.MaintenanceNS.PbxStatus">
             <summary>
@@ -7382,6 +7510,65 @@
             A <see langword="string"/> value that is the IPv4 address of this OmniPCX Enterprise node.
             </value>
         </member>
+        <member name="T:o2g.Types.MaintenanceNS.ServiceStatus">
+            <summary>
+            <c>ServiceStatus</c> Per-service status payload.
+            </summary>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.ServiceStatus.Name">
+            <summary>
+            Service name. Optional (0..1).
+            </summary>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.ServiceStatus.Status">
+            <summary>
+            Service run state – e.g. "Started" or "Stopped".
+            </summary>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.ServiceStatus.Mode">
+            <summary>
+            Service mode – e.g. "Active" or "Standby".
+            </summary>
+        </member>
+        <member name="T:o2g.Types.MaintenanceNS.SubscriberFilterDto">
+            <summary>
+            <c>SubscriberFilterDto</c> Describes how O2G automatically creates users from OXE subscribers.
+            </summary>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.SubscriberFilterDto.Value">
+            <summary>
+            Defines the loading mode for OXE subscribers.
+            Possible values:
+            - "A4980": Subscribers are automatically loaded based on the A4980 attribute.
+            - "ALL": All subscribers are automatically loaded.
+            - "NONE": No subscribers are automatically loaded.
+            </summary>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.SubscriberFilterDto.Description">
+            <summary>
+            Human-readable description of the filter mode.
+            </summary>
+        </member>
+        <member name="T:o2g.Types.MaintenanceNS.SystemServicesStatusDto">
+            <summary>
+            <c>SystemServicesStatusDto</c> Top-level DTO that reports the overall status of system services.
+            </summary>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.SystemServicesStatusDto.Services">
+            <summary>
+            One entry per service. 0..* → empty list when no services.
+            </summary>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.SystemServicesStatusDto.GlobalIpAddress">
+            <summary>
+            When the system runs in HA mode, this is the status of the global IP address.
+            </summary>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.SystemServicesStatusDto.Drbd">
+            <summary>
+            When the system runs in HA mode, this is the status of DRBD.
+            </summary>
+        </member>
         <member name="T:o2g.Types.MaintenanceNS.SystemStatus">
             <summary>
             <c>SystemStatus</c> class provide a full status of the O2G server and its connections.
@@ -7428,6 +7615,14 @@
             The version of the active O2G server.
             </value>
         </member>
+        <member name="P:o2g.Types.MaintenanceNS.SystemStatus.PrimaryServicesStatus">
+            <summary>
+            Return the status of the primary server's services.
+            </summary>
+            <value>
+            A <see cref="!:SystemServicesStatusDTO"/> object representing the primary server's services status. Can be <see langword="null"/>.
+            </value>
+        </member>
         <member name="P:o2g.Types.MaintenanceNS.SystemStatus.Secondary">
             <summary>
             Return the FQDN of the backup O2G server when it is configured in HA mode.
@@ -7444,6 +7639,14 @@
             The version of the backup O2G server.
             </value>
         </member>
+        <member name="P:o2g.Types.MaintenanceNS.SystemStatus.SecondaryServicesStatus">
+            <summary>
+            Return the status of the secondary server's services.
+            </summary>
+            <value>
+            A <see cref="!:SystemServicesStatusDTO"/> object representing the secondary server's services status. Can be <see langword="null"/>.
+            </value>
+        </member>
         <member name="P:o2g.Types.MaintenanceNS.SystemStatus.Pbxs">
             <summary>
             Return the list of Pbx connected to this O2G server
@@ -7451,6 +7654,17 @@
             <value>
             A list of <see cref="T:o2g.Types.MaintenanceNS.PbxStatus"/> that represents the connected Pbx and their connection status.
             </value>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.SystemStatus.RecordingStatus">
+            <summary>
+            Return the OXR recording status.
+            </summary>
+            <value>
+            An <see cref="T:o2g.Types.MaintenanceNS.OXRRecordingStatus"/> object representing the OXRecorders information. Can be <see langword="null"/>.
+            </value>
+            <remarks>
+            Available since version 2.7.3.
+            </remarks>
         </member>
         <member name="P:o2g.Types.MaintenanceNS.SystemStatus.Licenses">
             <summary>
@@ -7466,6 +7680,14 @@
             </summary>
             <value>
             The <see cref="P:o2g.Types.MaintenanceNS.SystemStatus.ConfigurationType"/> that corresponds to the O2G server configuration.
+            </value>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.SystemStatus.SubscriberFilter">
+            <summary>
+            Return the Oxe subscriber load filter type.
+            </summary>
+            <value>
+            The <see cref="!:SubscriberFilterDTO"/> that corresponds to the Oxe subscriber load filter type. Can be <see langword="null"/>.
             </value>
         </member>
         <member name="T:o2g.Types.ManagementNS.AttributeType">
@@ -8952,7 +9174,7 @@
         </member>
         <member name="P:o2g.Types.RecordingNS.StartBeepRequest.Tone">
             <summary>
-            Gets or sets the tone or frequency to connect. 
+            Gets or sets the tone or frequency to connect.
             This parameter identifies the time slot number defined in the OXE tones table, which is specific for each country.
             In practice, only values 21 to 30 are usable.
             </summary>
