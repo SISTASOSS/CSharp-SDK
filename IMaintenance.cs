@@ -52,6 +52,11 @@ namespace o2g
         public event EventHandler<O2GEventArgs<OnPbxLoadedEvent>> PbxLoaded;
 
         /// <summary>
+        /// Occurs when the license file will soon expire or has recently expired
+        /// </summary>
+        public event EventHandler<O2GEventArgs<OnLicenseExpirationEvent>> LicenseExpiration;
+
+        /// <summary>
         /// Get information about system status. 
         /// <para>
         /// This operation provides information about the system state, and the total number of each license available 

@@ -119,10 +119,16 @@ namespace o2g.Internal.Events
                                 else
                                 {
                                     // Signal the channel has been established
-                                    signalReady.Success();
+                                    try
+                                    {
+                                        signalReady.Success();
+                                    }
+                                    catch(SemaphoreFullException s)
+                                    {
+                                        //Do nothing. Etablished signal already sent 
+                                    }
                                 }
                             }
-
                             // Push event for dispatching
                             Add(eventDescriptor);
                         }
@@ -133,7 +139,7 @@ namespace o2g.Internal.Events
                     }
                 }
             }
-            catch (IOException)
+            catch (IOException e)
             {
                 // Chunk is closed => exit and restart except if cancellation is requested
                 logger.Trace("Event channel has been closed.");

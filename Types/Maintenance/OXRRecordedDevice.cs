@@ -17,41 +17,33 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-using System.Runtime.Serialization;
-using System.Text.Json.Serialization;
+using System.Collections.Generic;
 
 namespace o2g.Types.MaintenanceNS
 {
     /// <summary>
-    /// <c>ConfigurationType</c> represents the possible O2G server configurations. 
+    /// <c>OXRRecordedDevice</c> Describes a recorded device managed by one or more OXR recorders.
     /// </summary>
-    [JsonStringEnumMemberConverterOptions(deserializationFailureFallbackValue: ConfigurationType.Unknown)]
-    public enum ConfigurationType
+    public class OXRRecordedDevice
     {
         /// <summary>
-        /// O2G Server is configured for management.
+        /// Device number.
         /// </summary>
-        /// <remarks>
-        /// An O2G server configured for management does not monitor devices on the OmniPCX Enterprise.
-        /// </remarks>
-        [EnumMember(Value = "PBX_MANAGEMENT")]
-        PbxManagement,
+        public string? Number { get; init; }
 
         /// <summary>
-        /// O2G Server is configured with full services.
+        /// Indicates whether the device is recordable on demand.
         /// </summary>
-        [EnumMember(Value = "FULL_SERVICES")]
-        FullServices,
-        
-        /// <summary>
-        /// O2G Server is configured for RECORDING only.
-        /// </summary>
-        [EnumMember(Value = "RECORDING")]
-        Recording,
+        public bool? Recordable { get; init; }
 
         /// <summary>
-        /// Unknown configuration
+        /// Start mode capabilities (e.g., "MANUAL", "AUTO"). Only present if device is recordable.
         /// </summary>
-        Unknown
+        public List<string> StartCapabilities { get; init; } = new();
+
+        /// <summary>
+        /// List of recorder identifiers that manage this device.
+        /// </summary>
+        public List<string> Recorders { get; init; } = new();
     }
 }

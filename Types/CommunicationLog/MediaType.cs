@@ -20,38 +20,24 @@
 using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 
-namespace o2g.Types.MaintenanceNS
+namespace o2g.Types.CommunicationLogNS
 {
     /// <summary>
-    /// <c>ConfigurationType</c> represents the possible O2G server configurations. 
+    /// <c>Role</c> defines the MediaTypes a call can be.
     /// </summary>
-    [JsonStringEnumMemberConverterOptions(deserializationFailureFallbackValue: ConfigurationType.Unknown)]
-    public enum ConfigurationType
+    [JsonStringEnumMemberConverterOptions(deserializationFailureFallbackValue: MediaType.Unknown)]
+    public enum MediaType
     {
         /// <summary>
-        /// O2G Server is configured for management.
+        /// The media is an audio.
         /// </summary>
-        /// <remarks>
-        /// An O2G server configured for management does not monitor devices on the OmniPCX Enterprise.
-        /// </remarks>
-        [EnumMember(Value = "PBX_MANAGEMENT")]
-        PbxManagement,
+        [EnumMember(Value = "AUDIO")]
+        Audio,
 
         /// <summary>
-        /// O2G Server is configured with full services.
+        /// The media is unknown.
         /// </summary>
-        [EnumMember(Value = "FULL_SERVICES")]
-        FullServices,
-        
-        /// <summary>
-        /// O2G Server is configured for RECORDING only.
-        /// </summary>
-        [EnumMember(Value = "RECORDING")]
-        Recording,
-
-        /// <summary>
-        /// Unknown configuration
-        /// </summary>
+        [EnumMember(Value = "UNKNOWN")]
         Unknown
     }
 }

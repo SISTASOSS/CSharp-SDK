@@ -51,6 +51,14 @@ namespace o2g.Types.TelephonyNS.CallNS
         /// <see langword="true"/> if the call is anonymous; <see langword="false"/> otherwise.
         /// </value>
         public bool Anonymous { get; init; }
+        
+        /// <summary>
+        /// CallUUID associated to this call (used to correlate RTSM events with SIP events for multimedia users only).
+        /// </summary>
+        /// <value>
+        /// A <see langword="string"/> that is the associated CallUUID.
+        /// </value>
+        public string CallUUID { get; init; }
 
         /// <summary>
         /// This property gives the call state.
@@ -126,5 +134,13 @@ namespace o2g.Types.TelephonyNS.CallNS
         {
             return HexaUtil.ToByteArray(HexaBinaryAssociatedData);
         }
+        
+        /// <summary>
+        /// TrunkIdentification if external call
+        /// </summary>
+        /// <value>
+        /// A <see cref="TrunkIdentification"/> object that provide information on network timeslot and trunk eqt number
+        /// </value>
+        public TrunkIdentification TrunkIdentification { get; init; }
     }
 }

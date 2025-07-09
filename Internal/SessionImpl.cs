@@ -24,6 +24,7 @@ using o2g.Internal.Utility;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using o2g.Types;
 
 namespace o2g.Internal
 {
@@ -102,6 +103,7 @@ namespace o2g.Internal
         public ICallCenterAgent CallCenterAgentService => serviceFactory.GetCallCenterAgentService();
         public ICallCenterRsi CallCenterRsiService => serviceFactory.GetCallCenterRsiService();
         public IAnalytics AnalyticsService => serviceFactory.GetAnalyticsService();
+        public IRecording RecordingService => serviceFactory.GetRecordingService();
 
 
 
@@ -150,6 +152,28 @@ namespace o2g.Internal
             // Subscription is cancelled
             subscriptionId = null;
         }
+        
+        public async Task<bool> UpdateEvents(Subscription subscriptionRequest)
+        {
+            if (subscriptionRequest != null)
+            {
+                return await UpdateEventing((SubscriptionImpl)subscriptionRequest);
+            }
+            return true;
+        }
+        
+        private async Task<bool> UpdateEventing(SubscriptionImpl subscription)
+        {
+            logger.Trace("Update Subsription");
+            ISubscriptions subscriptionsService = serviceFactory.GetSubscriptionService();
+            if (await subscriptionsService.Update(subscription))
+            {
+                logger.Trace("Subsription Updated");
+                return true;
+            }
+            logger.Warn("Unable to update Subsription");
+            return false;
+        }
 
         private async Task StartEventing(SubscriptionImpl subscription)
         {
@@ -172,8 +196,7 @@ namespace o2g.Internal
                     chunkUri = new UriBuilder(subscriptionResult.PublicPollingUrl).Uri;
                 }
 
-                // The default handler is NOT used.
-                chunkEventing = new(chunkUri, null);
+                chunkEventing = new(chunkUri, subscription.EventHandler);
                 chunkEventing.Start();
 
                 logger.Info("Eventing is started.");
@@ -211,6 +234,12 @@ namespace o2g.Internal
             await sessionService.Close();
 
             logger.Info("Session is closed.");
+        }
+                
+        public RestErrorInfo GetSubscriptionLastError()
+        {
+            ISubscriptions subscriptionsService = serviceFactory.GetSubscriptionService();
+            return subscriptionsService.LastError;
         }
     }
 }

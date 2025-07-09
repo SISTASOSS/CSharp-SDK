@@ -17,41 +17,29 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-using System.Runtime.Serialization;
-using System.Text.Json.Serialization;
+using System.Collections.Generic;
 
-namespace o2g.Types.MaintenanceNS
+namespace o2g.Types.TelephonyNS
 {
     /// <summary>
-    /// <c>ConfigurationType</c> represents the possible O2G server configurations. 
+    /// <c>TrunkIdentification</c> For external call, provide information on network timeslot and trunk eqt number
     /// </summary>
-    [JsonStringEnumMemberConverterOptions(deserializationFailureFallbackValue: ConfigurationType.Unknown)]
-    public enum ConfigurationType
+    public class TrunkIdentification
     {
         /// <summary>
-        /// O2G Server is configured for management.
+        /// The network time slot.
         /// </summary>
-        /// <remarks>
-        /// An O2G server configured for management does not monitor devices on the OmniPCX Enterprise.
-        /// </remarks>
-        [EnumMember(Value = "PBX_MANAGEMENT")]
-        PbxManagement,
+        /// <value>
+        /// An <see cref="int"/> that represent the network time slot.
+        /// </value>
+        public int NetworkTimeslot { get; set; }
 
         /// <summary>
-        /// O2G Server is configured with full services.
+        /// Trunk equipment number (Could be 2 nbrs in case of conference with 2 different external trunks.
         /// </summary>
-        [EnumMember(Value = "FULL_SERVICES")]
-        FullServices,
-        
-        /// <summary>
-        /// O2G Server is configured for RECORDING only.
-        /// </summary>
-        [EnumMember(Value = "RECORDING")]
-        Recording,
-
-        /// <summary>
-        /// Unknown configuration
-        /// </summary>
-        Unknown
+        /// <value>
+        /// An <see cref="int"/> that  represent Trunk equipment number
+        /// </value>
+        public List<int> TrunkNeqt { get; set; }
     }
 }

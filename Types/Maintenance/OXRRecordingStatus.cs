@@ -17,41 +17,23 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-using System.Runtime.Serialization;
-using System.Text.Json.Serialization;
+using System.Collections.Generic;
 
 namespace o2g.Types.MaintenanceNS
 {
     /// <summary>
-    /// <c>ConfigurationType</c> represents the possible O2G server configurations. 
+    /// <c>OXRRecordingStatus</c> Represents the overall status of the OXR recording service, including recorders and devices.
     /// </summary>
-    [JsonStringEnumMemberConverterOptions(deserializationFailureFallbackValue: ConfigurationType.Unknown)]
-    public enum ConfigurationType
+    public class OXRRecordingStatus
     {
         /// <summary>
-        /// O2G Server is configured for management.
+        /// List of OXR recorder configurations.
         /// </summary>
-        /// <remarks>
-        /// An O2G server configured for management does not monitor devices on the OmniPCX Enterprise.
-        /// </remarks>
-        [EnumMember(Value = "PBX_MANAGEMENT")]
-        PbxManagement,
+        public List<OXRConfig> Oxrs { get; init; } = new();
 
         /// <summary>
-        /// O2G Server is configured with full services.
+        /// List of devices that may be recorded.
         /// </summary>
-        [EnumMember(Value = "FULL_SERVICES")]
-        FullServices,
-        
-        /// <summary>
-        /// O2G Server is configured for RECORDING only.
-        /// </summary>
-        [EnumMember(Value = "RECORDING")]
-        Recording,
-
-        /// <summary>
-        /// Unknown configuration
-        /// </summary>
-        Unknown
+        public List<OXRRecordedDevice> Devices { get; init; } = new();
     }
 }

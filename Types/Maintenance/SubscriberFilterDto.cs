@@ -17,41 +17,25 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-using System.Runtime.Serialization;
-using System.Text.Json.Serialization;
-
 namespace o2g.Types.MaintenanceNS
 {
     /// <summary>
-    /// <c>ConfigurationType</c> represents the possible O2G server configurations. 
+    /// <c>SubscriberFilterDto</c> Describes how O2G automatically creates users from OXE subscribers.
     /// </summary>
-    [JsonStringEnumMemberConverterOptions(deserializationFailureFallbackValue: ConfigurationType.Unknown)]
-    public enum ConfigurationType
+    public class SubscriberFilterDto
     {
         /// <summary>
-        /// O2G Server is configured for management.
+        /// Defines the loading mode for OXE subscribers.
+        /// Possible values:
+        /// - "A4980": Subscribers are automatically loaded based on the A4980 attribute.
+        /// - "ALL": All subscribers are automatically loaded.
+        /// - "NONE": No subscribers are automatically loaded.
         /// </summary>
-        /// <remarks>
-        /// An O2G server configured for management does not monitor devices on the OmniPCX Enterprise.
-        /// </remarks>
-        [EnumMember(Value = "PBX_MANAGEMENT")]
-        PbxManagement,
+        public string? Value { get; init; }
 
         /// <summary>
-        /// O2G Server is configured with full services.
+        /// Human-readable description of the filter mode.
         /// </summary>
-        [EnumMember(Value = "FULL_SERVICES")]
-        FullServices,
-        
-        /// <summary>
-        /// O2G Server is configured for RECORDING only.
-        /// </summary>
-        [EnumMember(Value = "RECORDING")]
-        Recording,
-
-        /// <summary>
-        /// Unknown configuration
-        /// </summary>
-        Unknown
+        public string? Description { get; init; }
     }
 }

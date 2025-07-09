@@ -17,41 +17,28 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-using System.Runtime.Serialization;
-using System.Text.Json.Serialization;
+using System.Collections.Generic;
 
 namespace o2g.Types.MaintenanceNS
 {
     /// <summary>
-    /// <c>ConfigurationType</c> represents the possible O2G server configurations. 
+    /// <c>SystemServicesStatusDto</c> Top-level DTO that reports the overall status of system services.
     /// </summary>
-    [JsonStringEnumMemberConverterOptions(deserializationFailureFallbackValue: ConfigurationType.Unknown)]
-    public enum ConfigurationType
+    public class SystemServicesStatusDto
     {
         /// <summary>
-        /// O2G Server is configured for management.
+        /// One entry per service. 0..* → empty list when no services.
         /// </summary>
-        /// <remarks>
-        /// An O2G server configured for management does not monitor devices on the OmniPCX Enterprise.
-        /// </remarks>
-        [EnumMember(Value = "PBX_MANAGEMENT")]
-        PbxManagement,
+        public List<ServiceStatus> Services { get; init; } = new();
 
         /// <summary>
-        /// O2G Server is configured with full services.
+        /// When the system runs in HA mode, this is the status of the global IP address.
         /// </summary>
-        [EnumMember(Value = "FULL_SERVICES")]
-        FullServices,
-        
-        /// <summary>
-        /// O2G Server is configured for RECORDING only.
-        /// </summary>
-        [EnumMember(Value = "RECORDING")]
-        Recording,
+        public string? GlobalIpAddress { get; init; }
 
         /// <summary>
-        /// Unknown configuration
+        /// When the system runs in HA mode, this is the status of DRBD.
         /// </summary>
-        Unknown
+        public string? Drbd { get; init; }
     }
 }

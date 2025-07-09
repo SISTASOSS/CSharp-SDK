@@ -17,6 +17,8 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
+using o2g.Types.TelephonyNS.CallNS;
+
 namespace o2g.Types.TelephonyNS.DeviceNS
 {
     /// <summary>
@@ -36,8 +38,16 @@ namespace o2g.Types.TelephonyNS.DeviceNS
         /// This property return the device operational state.
         /// </summary>
         /// <value>
-        /// A <see cref="OperationalState"/> value that give sthe device operational state.
+        /// A <see cref="OperationalState"/> value that give the device operational state.
         /// </value>
         public OperationalState State { get; init; }
+        
+        /// <summary>
+        /// Cause associated with state change.
+        /// </summary>
+        /// <value>
+        /// A <see cref="CallCause"/> value that give the cause associated with state change.
+        /// </value>
+        public Cause Cause { get; init; }
     }
 }
