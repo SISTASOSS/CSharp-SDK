@@ -14,6 +14,14 @@ namespace o2g.Types.RecordingNS
         /// A <see langword="string"/> that represents the identifier.
         /// </value>
         public string Identifier { get; set; }
+        
+        /// <summary>
+        /// DR link initiator identifier (application name)
+        /// </summary>
+        /// <value>
+        /// A <see langword="string"/> that represents the initiator identifier (application name)
+        /// </value>
+        public string Initiator { get; set; }
 
         /// <summary>
         /// Gets or sets the number of recorded devices.
