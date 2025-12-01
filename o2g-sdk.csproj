@@ -5,16 +5,24 @@
     <TargetFramework>net5.0</TargetFramework>
     <ApplicationIcon />
     <StartupObject />
-    <PackageId>o2g-sdk</PackageId>
-    <Authors>ALE International</Authors>
-    <Description>This assembly is a SDK for OpenTouch Open Gateway API.</Description>
+    <PackageId>sistas.o2g-sdk</PackageId>
+    <Authors>ALE International, SISTAS Sayisal Iletisim San.Tic. A.S.</Authors>
+    <Description>This assembly is a SDK for OpenTouch Open Gateway API.
+Unofficial fork of o2g-sdk with o2g 2.7.4 support.
+See upstream at https://github.com/ALE-OPENNESS/CSharp-SDK</Description>
     <Copyright>Copyright © ALE International 2022</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageIcon>o2g.png</PackageIcon>
     <PackageIconUrl />
-    <Version>1.2.1</Version>
-    <AssemblyVersion>1.2.1.0</AssemblyVersion>
-    <FileVersion>1.2.1.0</FileVersion>
+    <Version>2.7.4-sistas.0</Version>
+    <AssemblyVersion>2.7.4.0</AssemblyVersion>
+    <FileVersion>2.7.4.0</FileVersion>
+    <PackageProjectUrl>https://github.com/SISTASOSS/CSharp-SDK/tree/2.7.4</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/SISTASOSS/CSharp-SDK/tree/2.7.4</RepositoryUrl>
+    <PackageTags>o2g-sdk;fork; unofficial;sistas</PackageTags>
+    <PackageReleaseNotes>This assembly is a SDK for OpenTouch Open Gateway API version 2.7.4.
+Note that all APIs are not supported</PackageReleaseNotes>
+    <Company>ALE International</Company>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -37,7 +45,8 @@
 
   <ItemGroup>
     <PackageReference Include="Macross.Json.Extensions" Version="3.0.0" />
-    <PackageReference Include="NLog" Version="5.0.1" />
+    <PackageReference Include="NLog" Version="5.5.0" />
+    <PackageReference Include="NLog.Web.AspNetCore" Version="5.5.0" />
   </ItemGroup>
 
 </Project>

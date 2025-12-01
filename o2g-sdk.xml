@@ -457,6 +457,38 @@
             An <see langword="int"/> value that represents the OmniPCX Enterprise node number.
             </value>
         </member>
+        <member name="T:o2g.Events.Maintenance.OnPbxLinkDownEvent">
+            <summary>
+            <c>OnPbxLinkDownEvent</c> is raised when a PBX link (cmis) is down.
+            </summary>
+            <remarks>
+            The pbx link down status corresponds to the <c>connected=false</c> flag returned in the SystemStatus response <see cref="T:o2g.Types.MaintenanceNS.PbxStatus"/>.
+            </remarks>
+        </member>
+        <member name="P:o2g.Events.Maintenance.OnPbxLinkDownEvent.NodeId">
+            <summary>
+            The nodeId which data link is down.
+            </summary>
+            <value>
+            A <see langword="string"/> value that represents the node identifier.
+            </value>
+        </member>
+        <member name="T:o2g.Events.Maintenance.OnPbxLinkUpEvent">
+            <summary>
+            <c>OnPbxLinkUpEvent</c> is raised when a PBX link (cmis) is up.
+            </summary>
+            <remarks>
+            The pbx link up status corresponds to the <c>connected=true</c> flag returned in the SystemStatus response <see cref="T:o2g.Types.MaintenanceNS.PbxStatus"/>.
+            </remarks>
+        </member>
+        <member name="P:o2g.Events.Maintenance.OnPbxLinkUpEvent.NodeId">
+            <summary>
+            The nodeId which data link is back to normal.
+            </summary>
+            <value>
+            A <see langword="string"/> value that represents the node identifier.
+            </value>
+        </member>
         <member name="T:o2g.Events.Maintenance.OnPbxLoadedEvent">
             <summary>
             <c>OnPbxLoadedEvent</c> is raised when datas are fully loaded from an OmniPCX Enterprise node.
@@ -4562,6 +4594,8 @@
             <list type="bullet">
             <item><description><see cref="T:o2g.Events.Maintenance.OnCtiLinkDownEvent"/></description></item>
             <item><description><see cref="T:o2g.Events.Maintenance.OnCtiLinkUpEvent"/></description></item>
+            <item><description><see cref="T:o2g.Events.Maintenance.OnPbxLinkDownEvent"/></description></item>
+            <item><description><see cref="T:o2g.Events.Maintenance.OnPbxLinkUpEvent"/></description></item>
             <item><description><see cref="T:o2g.Events.Maintenance.OnPbxLoadedEvent"/></description></item>
             </list>
             </para>

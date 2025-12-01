@@ -48,6 +48,18 @@ namespace o2g.Internal.Rest
             remove => _eventHandlers.CtiLinkUp -= value;
         }
 
+        public event EventHandler<O2GEventArgs<OnPbxLinkDownEvent>> PbxLinkDown
+        {
+            add => _eventHandlers.PbxLinkDown += value;
+            remove => _eventHandlers.PbxLinkDown -= value;
+        }
+
+        public event EventHandler<O2GEventArgs<OnPbxLinkUpEvent>> PbxLinkUp
+        {
+            add => _eventHandlers.PbxLinkUp += value;
+            remove => _eventHandlers.PbxLinkUp -= value;
+        }
+
         public event EventHandler<O2GEventArgs<OnPbxLoadedEvent>> PbxLoaded
         {
             add => _eventHandlers.PbxLoaded += value;

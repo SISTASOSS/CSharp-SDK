@@ -162,6 +162,10 @@ namespace o2g.Internal.Events
             EventRegistrar.RegisterAdapter(typeof(OnCtiLinkUpEvent), EventAdapters.CtiLinkUpAdapter, typeof(OnInternalStringNodeIdEvent));
             EventRegistrar.RegisterEvent(typeof(OnCtiLinkDownEvent));
             EventRegistrar.RegisterAdapter(typeof(OnCtiLinkDownEvent), EventAdapters.CtiLinkDownAdapter, typeof(OnInternalStringNodeIdEvent));
+            EventRegistrar.RegisterEvent(typeof(OnPbxLinkDownEvent));
+            EventRegistrar.RegisterAdapter(typeof(OnPbxLinkDownEvent), EventAdapters.PbxLinkDownAdapter, typeof(OnInternalStringNodeIdEvent));
+            EventRegistrar.RegisterEvent(typeof(OnPbxLinkUpEvent));
+            EventRegistrar.RegisterAdapter(typeof(OnPbxLinkUpEvent), EventAdapters.PbxLinkUpAdapter, typeof(OnInternalStringNodeIdEvent));
             EventRegistrar.RegisterEvent(typeof(OnPbxLoadedEvent));
             EventRegistrar.RegisterAdapter(typeof(OnPbxLoadedEvent), EventAdapters.PbxLoadedAdapter, typeof(OnInternalStringNodeIdEvent));
         }

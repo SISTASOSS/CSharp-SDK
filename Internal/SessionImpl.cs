@@ -36,20 +36,30 @@ namespace o2g.Internal
 
     internal class SessionInfo
     {
-        public bool Admin { get; set; }
-        public int TimeToLive { get; set; }
+        public bool? Admin { get; set; }
+        public string Login { get; set; }
+        public int? TimeToLive { get; set; }
         public string PublicBaseUrl { get; set; }
         public string PrivateBaseUrl { get; set; }
         public List<Service> Services { get; set; }
+        public string CreationDate { get; set; }
         public string ExpirationDate { get; set; }
+        public List<UserSession> OtherSessions { get; set; }
+    }
+
+    internal class UserSession
+    {
+        public string SessionId { get; set; }
+        public string CreationDate { get; set; }
+        public int? TimeToLive { get; set; }
     }
 
     class KeepAlive : CancelableTask
     {
         private readonly int value;
-        private readonly Action action;
+        private readonly Func<Task> action;
 
-        public KeepAlive(int keepAliveValue, Action keepAliveAction)
+        public KeepAlive(int keepAliveValue, Func<Task> keepAliveAction)
         {
             value = keepAliveValue;
             action = keepAliveAction;
@@ -60,7 +70,7 @@ namespace o2g.Internal
             while (!Token.IsCancellationRequested)
             {
                 await Task.Delay(TimeSpan.FromSeconds(value), Token);
-                action();
+                await action();
             }
         }
 
@@ -87,7 +97,7 @@ namespace o2g.Internal
 
         public string LoginName { get; init; }
 
-        public bool Admin => Info.Admin;
+        public bool Admin => Info.Admin ?? false;
 
         public ITelephony TelephonyService => serviceFactory.GetTelephonyService();
         public IUsers UsersService => serviceFactory.GetUsersService();
@@ -116,11 +126,21 @@ namespace o2g.Internal
 
         private void StartKeepAlive()
         {
-            keepAlive = new(this.Info.TimeToLive, () =>
+            if (!Info.TimeToLive.HasValue || Info.TimeToLive.Value <= 0)
+            {
+                logger.Warn("TimeToLive value is missing or invalid, KeepAlive is set to 30.");
+                Info.TimeToLive = 30;
+            }
+
+            keepAlive = new(this.Info.TimeToLive.Value, async () =>
             {
                 logger.Trace("Send Keep Alive");
                 ISessions sessionService = serviceFactory.GetSessionsService();
-                sessionService.SendKeepAlive();
+                SessionTokenInfo tokenInfo = await sessionService.SendKeepAlive();
+                if (!String.IsNullOrEmpty(tokenInfo?.ExpirationDate))
+                {
+                    Info.ExpirationDate = tokenInfo.ExpirationDate;
+                }
             });
             keepAlive.Start();
         }

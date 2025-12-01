@@ -47,9 +47,9 @@ namespace o2g.Events.Telephony
         /// Return the cause of this call modification.
         /// </summary>
         /// <value>
-        /// A <see cref="Cause"/> that give the reason of this call creation.
+        /// A <see cref="CallCause"/> that give the reason of this call creation.
         /// </value>
-        public Cause Cause { get; init; }
+        public CallCause Cause { get; init; }
 
         /// <summary>
         /// Return the new call destination.

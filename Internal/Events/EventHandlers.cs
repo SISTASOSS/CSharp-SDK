@@ -74,6 +74,8 @@ namespace o2g.Internal.Events
         // maintenance
         public event EventHandler<O2GEventArgs<OnCtiLinkDownEvent>> CtiLinkDown;
         public event EventHandler<O2GEventArgs<OnCtiLinkUpEvent>> CtiLinkUp;
+        public event EventHandler<O2GEventArgs<OnPbxLinkDownEvent>> PbxLinkDown;
+        public event EventHandler<O2GEventArgs<OnPbxLinkUpEvent>> PbxLinkUp;
         public event EventHandler<O2GEventArgs<OnPbxLoadedEvent>> PbxLoaded;
 
 

@@ -32,7 +32,7 @@ namespace o2g.Internal.Rest
         {
         }
 
-        async Task<O2GAuthenticateResult> IAuthentication.Authenticate(Credential credential)
+        async Task<AuthenticationResponse> IAuthentication.Authenticate(Credential credential)
         {
             string challenge = credential.BuildAuthenticationChallenge();
             httpClient.DefaultRequestHeaders.Authorization =
@@ -46,7 +46,7 @@ namespace o2g.Internal.Rest
             if (response.IsSuccessStatusCode)
             {
                 string jsonCode = await response.Content.ReadAsStringAsync();
-                return JsonSerializer.Deserialize<O2GAuthenticateResult>(jsonCode, serializeOptions);
+                return JsonSerializer.Deserialize<AuthenticationResponse>(jsonCode, serializeOptions);
             }
             else
             {

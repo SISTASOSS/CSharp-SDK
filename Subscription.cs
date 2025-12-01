@@ -409,6 +409,8 @@ namespace o2g
             /// <list type="bullet">
             /// <item><description><see cref="OnCtiLinkDownEvent"/></description></item>
             /// <item><description><see cref="OnCtiLinkUpEvent"/></description></item>
+            /// <item><description><see cref="OnPbxLinkDownEvent"/></description></item>
+            /// <item><description><see cref="OnPbxLinkUpEvent"/></description></item>
             /// <item><description><see cref="OnPbxLoadedEvent"/></description></item>
             /// </list>
             /// </para>

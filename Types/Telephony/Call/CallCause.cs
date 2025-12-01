@@ -23,10 +23,10 @@ using System.Text.Json.Serialization;
 namespace o2g.Types.TelephonyNS.CallNS
 {
     /// <summary>
-    /// <c>Cause</c> lists the different call causes.
+    /// <c>CallCause</c> lists the different call causes.
     /// </summary>
-    [JsonStringEnumMemberConverterOptions(deserializationFailureFallbackValue: Cause.Unknown)]
-    public enum Cause
+    [JsonStringEnumMemberConverterOptions(deserializationFailureFallbackValue: CallCause.Unknown)]
+    public enum CallCause
     {
         /// <summary>
         /// Caller in a two-party call has disconnected before the call was answered.
@@ -77,10 +77,22 @@ namespace o2g.Types.TelephonyNS.CallNS
         DestinationNotObtainable,
 
         /// <summary>
+        /// The device is in DND.
+        /// </summary>
+        [EnumMember(Value = "DO_NOT_DISTURB")]
+        DoNotDisturb,
+
+        /// <summary>
         /// The call has been forwarded.
         /// </summary>
         [EnumMember(Value = "FORWARDED")]
         Forwarded,
+
+        /// <summary>
+        /// The call has been hanged up before answer.
+        /// </summary>
+        [EnumMember(Value = "NOT_ANSWERED")]
+        NotAnswered,
 
         /// <summary>
         /// The call has been picked up.
@@ -89,16 +101,34 @@ namespace o2g.Types.TelephonyNS.CallNS
         PickedUp,
 
         /// <summary>
+        /// The call has been parked.
+        /// </summary>
+        [EnumMember(Value = "PARKED")]
+        Parked,
+
+        /// <summary>
         /// The call has been redirected.
         /// </summary>
         [EnumMember(Value = "REDIRECTED")]
         Redirected,
 
         /// <summary>
+        /// The call goes on overflow destination.
+        /// </summary>
+        [EnumMember(Value = "OVERFLOWN")]
+        Overflown,
+
+        /// <summary>
         /// This is a transferred call.
         /// </summary>
         [EnumMember(Value = "TRANSFERRED")]
         Transferred,
+
+        /// <summary>
+        /// The call has been put in wait.
+        /// </summary>
+        [EnumMember(Value = "CAMP_ON")]
+        CampOn,
 
         /// <summary>
         /// Unknown cause.
@@ -129,6 +159,18 @@ namespace o2g.Types.TelephonyNS.CallNS
         /// </summary>
         [EnumMember(Value = "DISTRIBUTED")]
         Distributed,
+
+        /// <summary>
+        /// CCD context: call enters in distribution.
+        /// </summary>
+        [EnumMember(Value = "ACD_ENTER_DISTRIBUTION")]
+        AcdEnterDistribution,
+
+        /// <summary>
+        /// CCD context: pilot is not open.
+        /// </summary>
+        [EnumMember(Value = "RESOURCES_NOT_AVAILABLE")]
+        ResourcesNotAvailable,
 
         /// <summary>
         /// CCD context: supervisor is listening the agent conversation

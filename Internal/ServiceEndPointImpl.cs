@@ -48,21 +48,25 @@ namespace o2g.Internal
             logger.Trace("OpenSession -> Authenticate user {login}", credential.Login);
 
             IAuthentication authenticationService = serviceFactory.GetAuthenticationService();
-            O2GAuthenticateResult authenticateResult = await authenticationService.Authenticate(credential);
+            AuthenticationResponse authenticateResult = await authenticationService.Authenticate(credential);
             logger.Debug("Authentication done.");
 
-            serviceFactory.SetSessionUris(authenticateResult.PrivateUrl, authenticateResult.PublicUrl);
+            serviceFactory.SetSessionUris(authenticateResult.InternalUrl, authenticateResult.PublicUrl);
 
             // Now open the session and retrieve other services
             logger.Trace("OpenSession -> OpenSession {application}", applicationName);
 
             ISessions sessionsService = serviceFactory.GetSessionsService();
-            SessionInfo sessionInfo = await sessionsService.Open(applicationName);
+            SessionInfo sessionInfo = await sessionsService.Open(new SessionRequest
+            {
+                ApplicationName = applicationName
+            });
             serviceFactory.SetServices(sessionInfo);
             logger.Debug("Session opened: TimeToLive = {timeToLive}", sessionInfo.TimeToLive);
 
             // Create the session
-            SessionImpl session = new(serviceFactory, sessionInfo, credential.Login);
+            string sessionLoginName = (authenticateResult.LoginName != null) ? authenticateResult.LoginName : credential.Login;
+            SessionImpl session = new(serviceFactory, sessionInfo, sessionLoginName);
 
             // OK, create the session
             return session;

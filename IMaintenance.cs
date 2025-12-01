@@ -47,6 +47,16 @@ namespace o2g
         public event EventHandler<O2GEventArgs<OnCtiLinkUpEvent>> CtiLinkUp;
 
         /// <summary>
+        /// Occurs when a PBX link (cmis) is down.
+        /// </summary>
+        public event EventHandler<O2GEventArgs<OnPbxLinkDownEvent>> PbxLinkDown;
+
+        /// <summary>
+        /// Occurs when a PBX link (cmis) is back to normal.
+        /// </summary>
+        public event EventHandler<O2GEventArgs<OnPbxLinkUpEvent>> PbxLinkUp;
+
+        /// <summary>
         /// Occurs when datas are fully loaded from an OmniPCX Enterprise node. 
         /// </summary>
         public event EventHandler<O2GEventArgs<OnPbxLoadedEvent>> PbxLoaded;

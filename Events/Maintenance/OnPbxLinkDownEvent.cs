@@ -17,29 +17,20 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-using o2g.Types;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
-
-namespace o2g.Internal.Services
+namespace o2g.Events.Maintenance
 {
-
-    internal class AuthenticationResponse
+    /// <summary>
+    /// Notification sent when a PBX link (cmis) is down. The PBX link down status corresponds to the
+    /// <c>connected=false</c> flag returned in the <see cref="Types.MaintenanceNS.PbxStatus"/> object sent by <see cref="IMaintenance.GetSystemStatusAsync"/>.
+    /// </summary>
+    public class OnPbxLinkDownEvent : O2GEvent
     {
-        public string Credential { get; set; }
-        public string PublicUrl { get; set; }
-
-        [JsonPropertyName("internalUrl")]
-        public string InternalUrl { get; set; }
-
-        public string LoginName { get; set; }
-
-        public bool? Expired { get; set; }
-    }
-
-
-    internal interface IAuthentication : IService
-    {
-        internal Task<AuthenticationResponse> Authenticate(Credential credential);
+        /// <summary>
+        /// The nodeId whose data link is down.
+        /// </summary>
+        /// <value>
+        /// A <see langword="string"/> value that represents the node identifier.
+        /// </value>
+        public string NodeId { get; init; }
     }
 }

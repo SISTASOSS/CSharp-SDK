@@ -37,6 +37,14 @@ namespace o2g.Types.TelephonyNS.CallNS
         public PartyInfo InitialCalled { get; init; }
 
         /// <summary>
+        /// Last device which redirects the call, if it is different from the <see cref="InitialCalled"/>.
+        /// </summary>
+        /// <value>
+        /// A <see cref="PartyInfo"/> object that gives the last redirecting device.
+        /// </value>
+        public PartyInfo LastRedirecting { get; init; }
+
+        /// <summary>
         /// Return whether the call is a device call or a user call.
         /// </summary>
         /// <value>
@@ -51,6 +59,14 @@ namespace o2g.Types.TelephonyNS.CallNS
         /// <see langword="true"/> if the call is anonymous; <see langword="false"/> otherwise.
         /// </value>
         public bool Anonymous { get; init; }
+
+        /// <summary>
+        /// The CallUUID associated to this call (used to correlate RTSM events with SIP events for multimedia users only).
+        /// </summary>
+        /// <value>
+        /// A <see langword="string"/> that is the call unique UUID.
+        /// </value>
+        public string CallUUID { get; init; }
 
         /// <summary>
         /// This property gives the call state.
@@ -115,6 +131,14 @@ namespace o2g.Types.TelephonyNS.CallNS
         /// A <see cref="AcdData"/> object that provide this call acd extension data.
         /// </value>
         public AcdData AcdCallData { get; init; }
+
+        /// <summary>
+        /// The trunk identification in case of an external call.
+        /// </summary>
+        /// <value>
+        /// A <see cref="TrunkIdentification"/> object that identifies the trunk.
+        /// </value>
+        public TrunkIdentification TrunkIdentification { get; init; }
 
         /// <summary>
         /// Return the correlator data as a byte array.

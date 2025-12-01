@@ -16,30 +16,36 @@
 * DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
-
-using o2g.Types;
+using System.Collections.Generic;
+using System.Text.Json;
 using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 
-namespace o2g.Internal.Services
+namespace o2g.Types.TelephonyNS.CallNS
 {
-
-    internal class AuthenticationResponse
+    /// <summary>
+    /// <c>TrunkIdentification</c> represents trunk information for an external call.
+    /// </summary>
+    public class TrunkIdentification
     {
-        public string Credential { get; set; }
-        public string PublicUrl { get; set; }
+        /// <summary>
+        /// The node identifier of the trunk.
+        /// </summary>
+        public string NodeId { get; init; }
 
-        [JsonPropertyName("internalUrl")]
-        public string InternalUrl { get; set; }
+        /// <summary>
+        /// The trunk group name or identifier.
+        /// </summary>
+        public string TrunkGroup { get; init; }
 
-        public string LoginName { get; set; }
+        /// <summary>
+        /// The trunk number inside the group.
+        /// </summary>
+        public string Trunk { get; init; }
 
-        public bool? Expired { get; set; }
-    }
-
-
-    internal interface IAuthentication : IService
-    {
-        internal Task<AuthenticationResponse> Authenticate(Credential credential);
+        /// <summary>
+        /// Additional information provided by the server.
+        /// </summary>
+        [JsonExtensionData]
+        public Dictionary<string, JsonElement> ExtensionData { get; init; }
     }
 }

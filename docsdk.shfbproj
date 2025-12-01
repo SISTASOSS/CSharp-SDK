@@ -203,6 +203,12 @@ Use the &amp;lt%3ba href=&amp;quot%3bhttps://docs.microsoft.com/en-us/nuget/tool
         <Filter entryType="Class" fullName="o2g.Events.Maintenance.OnCtiLinkUpEvent" filterName="OnCtiLinkUpEvent" isExposed="False">
           <Filter entryType="Property" fullName="o2g.Events.Maintenance.OnCtiLinkUpEvent.NodeId" filterName="NodeId" isExposed="True" />
         </Filter>
+        <Filter entryType="Class" fullName="o2g.Events.Maintenance.OnPbxLinkDownEvent" filterName="OnPbxLinkDownEvent" isExposed="False">
+          <Filter entryType="Property" fullName="o2g.Events.Maintenance.OnPbxLinkDownEvent.NodeId" filterName="NodeId" isExposed="True" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Events.Maintenance.OnPbxLinkUpEvent" filterName="OnPbxLinkUpEvent" isExposed="False">
+          <Filter entryType="Property" fullName="o2g.Events.Maintenance.OnPbxLinkUpEvent.NodeId" filterName="NodeId" isExposed="True" />
+        </Filter>
         <Filter entryType="Class" fullName="o2g.Events.Maintenance.OnPbxLoadedEvent" filterName="OnPbxLoadedEvent" isExposed="False">
           <Filter entryType="Property" fullName="o2g.Events.Maintenance.OnPbxLoadedEvent.NodeId" filterName="NodeId" isExposed="True" />
         </Filter>

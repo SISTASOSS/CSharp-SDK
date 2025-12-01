@@ -330,11 +330,23 @@ namespace o2g.Internal
             // get the right URL
             if (AccessMode == AccessMode.Private)
             {
-                baseUrl = sessionInfo.PrivateBaseUrl;
+                baseUrl = sessionInfo.PrivateBaseUrl ?? sessionInfo.PublicBaseUrl;
             }
             else
             {
-                baseUrl = sessionInfo.PublicBaseUrl;
+                baseUrl = sessionInfo.PublicBaseUrl ?? sessionInfo.PrivateBaseUrl;
+            }
+
+            if (String.IsNullOrEmpty(baseUrl))
+            {
+                logger.Error("Session does not contain any base URL.");
+                return;
+            }
+
+            if (sessionInfo.Services == null)
+            {
+                logger.Warn("Session does not provide any service description.");
+                return;
             }
 
             foreach (Service service in sessionInfo.Services)
