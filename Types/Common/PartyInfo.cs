@@ -102,6 +102,14 @@ namespace o2g.Types.CommonNS
             /// A <see langword="string"/> that is the main phone number of this participant.
             /// </value>
             public string PhoneNumber { get; set; }
+            
+            /// <summary>
+            /// Is this phone number one of the multiline number of the device. Since version 2.7.3
+            /// </summary>
+            /// <value>
+            /// A <see langword="bool"/>
+            /// </value>
+            public bool MultiLine { get; set; }
         }
 
 
