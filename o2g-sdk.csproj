@@ -8,15 +8,15 @@
     <PackageId>sistas.o2g-sdk</PackageId>
     <Authors>ALE International, SISTAS Sayisal Iletisim San.Tic. A.S.</Authors>
     <Description>This assembly is a SDK for OpenTouch Open Gateway API.
-Unofficial fork of o2g-sdk with o2g 2.7.4 support.
+Unofficial fork of o2g-sdk with o2g 2.7.5 support.
 See upstream at https://github.com/ALE-OPENNESS/CSharp-SDK</Description>
     <Copyright>Copyright © ALE International 2022</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageIcon>o2g.png</PackageIcon>
     <PackageIconUrl />
-    <Version>2.7.4-sistas.0</Version>
-    <AssemblyVersion>2.7.4.0</AssemblyVersion>
-    <FileVersion>2.7.4.0</FileVersion>
+    <Version>2.7.5-sistas.0</Version>
+    <AssemblyVersion>2.7.5.0</AssemblyVersion>
+    <FileVersion>2.7.5.0</FileVersion>
     <PackageProjectUrl>https://github.com/SISTASOSS/CSharp-SDK/tree/2.7.4</PackageProjectUrl>
     <RepositoryUrl>https://github.com/SISTASOSS/CSharp-SDK/tree/2.7.4</RepositoryUrl>
     <PackageTags>o2g-sdk;fork; unofficial;sistas</PackageTags>
