@@ -17,8 +17,6 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-using o2g.Types.TelephonyNS.CallNS;
-
 namespace o2g.Types.TelephonyNS.DeviceNS
 {
     /// <summary>

@@ -29,6 +29,12 @@ namespace o2g.Types.TelephonyNS.CallNS
     public enum CallCause
     {
         /// <summary>
+        /// Unknown cause.
+        /// </summary>
+        [EnumMember(Value = "UNKNOWN")]
+        Unknown,
+        
+        /// <summary>
         /// Caller in a two-party call has disconnected before the call was answered.
         /// </summary>
         [EnumMember(Value = "ABANDONED")]
@@ -75,6 +81,12 @@ namespace o2g.Types.TelephonyNS.CallNS
         /// </summary>
         [EnumMember(Value = "DESTINATION_NOT_OBTAINABLE")]
         DestinationNotObtainable,
+        
+        /// <summary>
+        /// The device is in DND.
+        /// </summary>
+        [EnumMember(Value = "DO_NOT_DISTURB")]
+        DoNotDisturb,
 
         /// <summary>
         /// The device is in DND.
@@ -87,6 +99,12 @@ namespace o2g.Types.TelephonyNS.CallNS
         /// </summary>
         [EnumMember(Value = "FORWARDED")]
         Forwarded,
+        
+        /// <summary>
+        /// The call has been hanged up before answer.
+        /// </summary>
+        [EnumMember(Value = "NOT_ANSWERED")]
+        NotAnswered,
 
         /// <summary>
         /// The call has been hanged up before answer.
@@ -99,6 +117,12 @@ namespace o2g.Types.TelephonyNS.CallNS
         /// </summary>
         [EnumMember(Value = "PICKED_UP")]
         PickedUp,
+        
+        /// <summary>
+        /// The call has been parked.
+        /// </summary>
+        [EnumMember(Value = "PARKED")]
+        Parked,
 
         /// <summary>
         /// The call has been parked.
@@ -111,6 +135,12 @@ namespace o2g.Types.TelephonyNS.CallNS
         /// </summary>
         [EnumMember(Value = "REDIRECTED")]
         Redirected,
+        
+        /// <summary>
+        /// The call goes on overflow destination.
+        /// </summary>
+        [EnumMember(Value = "OVERFLOWN")]
+        Overflown,
 
         /// <summary>
         /// The call goes on overflow destination.
@@ -129,12 +159,6 @@ namespace o2g.Types.TelephonyNS.CallNS
         /// </summary>
         [EnumMember(Value = "CAMP_ON")]
         CampOn,
-
-        /// <summary>
-        /// Unknown cause.
-        /// </summary>
-        [EnumMember(Value = "UNKNOWN")]
-        Unknown,
 
         /// <summary>
         /// Picked up tandem.
@@ -159,6 +183,18 @@ namespace o2g.Types.TelephonyNS.CallNS
         /// </summary>
         [EnumMember(Value = "DISTRIBUTED")]
         Distributed,
+        
+        /// <summary>
+        /// CCD context: call enters in distribution
+        /// </summary>
+        [EnumMember(Value = "ACD_ENTER_DISTRIBUTION")]
+        AcdEnterDistribution,        
+        
+        /// <summary>
+        /// CCD context: pilot is not open
+        /// </summary>
+        [EnumMember(Value = "RESOURCES_NOT_AVAILABLE")]
+        ResourcesNotAvailable,
 
         /// <summary>
         /// CCD context: call enters in distribution.

@@ -194,7 +194,8 @@ namespace o2g
             /// </summary>
             /// <param name="loginName">The user login name</param>
             /// <param name="password">The user password</param>
-            public async Task LoginAsync(string loginName, string password)
+            /// <returns></returns>
+            public async Task<bool> LoginAsync(string loginName, string password)
             {
                 // First connect to the right service endpoint
                 ServiceEndPoint serviceEndPoint = await Connect();
@@ -206,6 +207,11 @@ namespace o2g
                     Password = password
                 },
                 ApplicationName);
+                if (null == _session)
+                {
+                    return false;
+                }
+                return true;
             }
 
             /// <summary>
@@ -215,6 +221,24 @@ namespace o2g
             public async Task SubscribeAsync(Subscription subscription)
             {
                 await _session.ListenEvents(subscription);
+            }            
+            
+            /// <summary>
+            /// Update Subscription of events from the O2G server. The requested events are specified using a <see cref="Subscription"/> object.
+            /// </summary>
+            /// <param name="subscription">The <see cref="Subscription"/> describing the events to receive.</param>
+            public async Task<bool> UpdateSubscriptionAsync(Subscription subscription)
+            {
+                return await _session.UpdateEvents(subscription);
+            }
+
+            /// <summary>
+            /// Get Subscription Last Error occured on Update or Delete
+            /// </summary>
+            /// <returns></returns>
+            public RestErrorInfo GetSubscriptionLastError()
+            {
+                return _session.GetSubscriptionLastError();
             }
 
             /// <summary>
@@ -227,6 +251,15 @@ namespace o2g
                 {
                     await _session.Close();
                 }
+            }
+
+            /// <summary>
+            /// returns if session exists
+            /// </summary>
+            /// <returns></returns>
+            public bool IsSessionExists()
+            {
+                return (_session != null);
             }
 
             // Apply the connection policy and try to connect on provided hosts
@@ -345,6 +378,14 @@ namespace o2g
             /// A <see cref="IAnalytics"/> object that provides analytics services.
             /// </value>
             public IAnalytics AnalyticsService => _session.AnalyticsService;
+            
+            /// <summary>
+            /// Return the recording service.
+            /// </summary>
+            /// <value>
+            /// A <see cref="IRecording"/> object that provides recording services.
+            /// </value>
+            public IRecording RecordingService => _session.RecordingService;
 
             /// <summary>
             /// Return the communication log service.

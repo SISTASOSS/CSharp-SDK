@@ -14,9 +14,9 @@ See upstream at https://github.com/ALE-OPENNESS/CSharp-SDK</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageIcon>o2g.png</PackageIcon>
     <PackageIconUrl />
-    <Version>2.7.5-sistas.0</Version>
-    <AssemblyVersion>2.7.5.0</AssemblyVersion>
-    <FileVersion>2.7.5.0</FileVersion>
+    <Version>2.7.5-sistas.1</Version>
+    <AssemblyVersion>2.7.5.1</AssemblyVersion>
+    <FileVersion>2.7.5.1</FileVersion>
     <PackageProjectUrl>https://github.com/SISTASOSS/CSharp-SDK/tree/2.7.4</PackageProjectUrl>
     <RepositoryUrl>https://github.com/SISTASOSS/CSharp-SDK/tree/2.7.4</RepositoryUrl>
     <PackageTags>o2g-sdk;fork; unofficial;sistas</PackageTags>

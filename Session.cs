@@ -19,6 +19,7 @@
 
 using System;
 using System.Threading.Tasks;
+using o2g.Types;
 
 namespace o2g
 {
@@ -41,7 +42,10 @@ namespace o2g
         IMessaging MessagingService { get; }
 
         IPbxManagement PbxManagementService { get; }
+        
         IAnalytics AnalyticsService { get; }
+        
+        IRecording RecordingService { get; }
 
         ICommunicationLog CommunicationLogService { get; }
 
@@ -54,6 +58,10 @@ namespace o2g
 
         Task ListenEvents(Subscription subscription);
 
+        Task<bool> UpdateEvents(Subscription subscriptionRequest);
+
         Task Close();
+
+        RestErrorInfo GetSubscriptionLastError();
     }
 }

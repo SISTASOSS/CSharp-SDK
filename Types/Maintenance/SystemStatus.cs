@@ -23,48 +23,48 @@ using System.Collections.Generic;
 namespace o2g.Types.MaintenanceNS
 {
     /// <summary>
-    /// <c>SystemStatus</c> provides information about the O2G server status.
+    /// <c>SystemStatus</c> class provide a full status of the O2G server and its connections.
     /// </summary>
     /// <seealso cref="IMaintenance.GetSystemStatusAsync"/>
     public class SystemStatus
     {
         /// <summary>
-        /// Return the system logical address.
+        /// Return this O2G server logical address.
         /// </summary>
         /// <value>
-        /// A <see cref="ServerAddress"/> that represents the system logical address.
+        /// A <see cref="ServerAddress"/> that represents the O2G server logical address.
         /// </value>
         public ServerAddress LogicalAddress { get; init; }
 
         /// <summary>
-        /// Return the system start date in UTC.
+        /// Return the start date of the O2G server.
         /// </summary>
         /// <value>
-        /// A <see langword="DateTime"/> object that represents the system start date in UTC.
+        /// A <see langword="DateTime"/> object that represents the O2G server start date.
         /// </value>
         public DateTime StartDate { get; init; }
 
         /// <summary>
-        /// Return whether the system is deployed in high availability mode.
+        /// Return whether this O2G is deployed in high availability mode.
         /// </summary>
         /// <value>
-        /// <see langword="true"/> if the system is in HA mode; <see langword="false"/> otherwise.
+        /// <see langword="true"/> if the O2G is in HA mode; <see langword="false"/> otherwise.
         /// </value>
         public bool HaMode { get; init; }
 
         /// <summary>
-        /// Return the FQDN of the current active system when it is configured in HA mode.
+        /// Return the FQDN of the currently active O2G server when it is configured in HA mode.
         /// </summary>
         /// <value>
-        /// The FQDN of the current active system in case of HA configuration.
+        /// The FQDN of the current active O2G server in case of HA configuration.
         /// </value>
         public string Primary { get; init; }
 
         /// <summary>
-        /// Return the version of the current active system when it is configured in HA mode.
+        /// Return the version of the current active O2G server when it is configured in HA mode.
         /// </summary>
         /// <value>
-        /// The version of the active system.
+        /// The version of the active O2G server.
         /// </value>
         public string PrimaryVersion { get; init; }
 
@@ -80,15 +80,15 @@ namespace o2g.Types.MaintenanceNS
         /// Return the FQDN of the backup system when it is configured in HA mode.
         /// </summary>
         /// <value>
-        /// The FQDN of the backup system in case of HA configuration.
+        /// The FQDN of the backup O2G server in case of HA configuration.
         /// </value>
         public string Secondary { get; init; }
 
         /// <summary>
-        /// Return the version of the backup system when it is configured in HA mode.
+        /// Return the version of the backup O2G server when it is configured in HA mode.
         /// </summary>
         /// <value>
-        /// The version of the backup system.
+        /// The version of the backup O2G server.
         /// </value>
         public string SecondaryVersion { get; init; }
 
@@ -104,7 +104,7 @@ namespace o2g.Types.MaintenanceNS
         /// Return information about the PBXs connected to this O2G server.
         /// </summary>
         /// <value>
-        /// A list of <see cref="PbxStatus"/> that represents PBX information and connection status.
+        /// A list of <see cref="PbxStatus"/> that represents the connected Pbx and their connection status.
         /// </value>
         public List<PbxStatus> Pbxs { get; init; }
 
@@ -121,15 +121,15 @@ namespace o2g.Types.MaintenanceNS
         /// Return the license status.
         /// </summary>
         /// <value>
-        /// A list of <see cref="License"/> objects that represents the total number of each license type available for the system.
+        /// A list of <see cref="License"/> object that represents the status of the O2G server licenses.
         /// </value>
         public List<License> Licenses { get; init; }
 
         /// <summary>
-        /// Return the system configuration type.
+        /// Return the O2G server configuration type.
         /// </summary>
         /// <value>
-        /// The <see cref="ConfigurationType"/> that corresponds to the system configuration.
+        /// The <see cref="ConfigurationType"/> that corresponds to the O2G server configuration.
         /// </value>
         public ConfigurationType ConfigurationType { get; init; }
 

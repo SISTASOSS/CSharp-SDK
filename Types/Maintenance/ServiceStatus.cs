@@ -17,41 +17,26 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-using System.Runtime.Serialization;
-using System.Text.Json.Serialization;
-
 namespace o2g.Types.MaintenanceNS
 {
     /// <summary>
-    /// <c>ConfigurationType</c> represents the possible O2G server configurations. 
+    /// <c>ServiceStatus</c> Per-service status payload.
     /// </summary>
-    [JsonStringEnumMemberConverterOptions(deserializationFailureFallbackValue: ConfigurationType.Unknown)]
-    public enum ConfigurationType
+    public class ServiceStatus
     {
         /// <summary>
-        /// O2G Server is configured for management.
+        /// Service name. Optional (0..1).
         /// </summary>
-        /// <remarks>
-        /// An O2G server configured for management does not monitor devices on the OmniPCX Enterprise.
-        /// </remarks>
-        [EnumMember(Value = "PBX_MANAGEMENT")]
-        PbxManagement,
+        public string? Name  { get; init; }
 
         /// <summary>
-        /// O2G Server is configured with full services.
+        /// Service run state – e.g. "Started" or "Stopped".
         /// </summary>
-        [EnumMember(Value = "FULL_SERVICES")]
-        FullServices,
-        
-        /// <summary>
-        /// O2G Server is configured for RECORDING only.
-        /// </summary>
-        [EnumMember(Value = "RECORDING")]
-        Recording,
+        public string? Status { get; init; }
 
         /// <summary>
-        /// Unknown configuration
+        /// Service mode – e.g. "Active" or "Standby".
         /// </summary>
-        Unknown
+        public string? Mode   { get; init; }
     }
 }

@@ -17,41 +17,43 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-using System.Runtime.Serialization;
-using System.Text.Json.Serialization;
+using System.Collections.Generic;
 
 namespace o2g.Types.MaintenanceNS
 {
     /// <summary>
-    /// <c>ConfigurationType</c> represents the possible O2G server configurations. 
+    /// <c>LicenseStatus</c> Represents the overall status of the license system (FLEXLM or LMS).
     /// </summary>
-    [JsonStringEnumMemberConverterOptions(deserializationFailureFallbackValue: ConfigurationType.Unknown)]
-    public enum ConfigurationType
+    public class LicenseStatus
     {
         /// <summary>
-        /// O2G Server is configured for management.
+        /// License system type: "FLEXLM" (CAPEX) or "LMS" (OPEX).
         /// </summary>
-        /// <remarks>
-        /// An O2G server configured for management does not monitor devices on the OmniPCX Enterprise.
-        /// </remarks>
-        [EnumMember(Value = "PBX_MANAGEMENT")]
-        PbxManagement,
+        public string? Type { get; init; }
 
         /// <summary>
-        /// O2G Server is configured with full services.
+        /// Only for LMS: infrastructure used – e.g. "PROD", "QA", or "INT".
         /// </summary>
-        [EnumMember(Value = "FULL_SERVICES")]
-        FullServices,
-        
-        /// <summary>
-        /// O2G Server is configured for RECORDING only.
-        /// </summary>
-        [EnumMember(Value = "RECORDING")]
-        Recording,
+        public string? Context { get; init; }
 
         /// <summary>
-        /// Unknown configuration
+        /// Current license server address.
         /// </summary>
-        Unknown
+        public string? CurrentServer { get; init; }
+
+        /// <summary>
+        /// Only for LMS: status of the RTR – e.g. "NORMAL", "GRACE PERIOD", "PANIC MODE".
+        /// </summary>
+        public string? Status { get; init; }
+
+        /// <summary>
+        /// Only for LMS: debug message associated with the status.
+        /// </summary>
+        public string? StatusMessage { get; init; }
+
+        /// <summary>
+        /// 0..* list of licenses.
+        /// </summary>
+        public List<License> Lics { get; init; } = new();
     }
 }

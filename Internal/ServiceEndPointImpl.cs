@@ -61,6 +61,11 @@ namespace o2g.Internal
             {
                 ApplicationName = applicationName
             });
+            if (null == sessionInfo)
+            {
+                logger.Debug($"Unable to open Session :{sessionsService.LastError.HttpStatus} {sessionsService.LastError.HelpMessage} {sessionsService.LastError.InnerMessage}");
+                return null;
+            }
             serviceFactory.SetServices(sessionInfo);
             logger.Debug("Session opened: TimeToLive = {timeToLive}", sessionInfo.TimeToLive);
 

@@ -10,6 +10,7 @@ using System.Net.Http;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using o2g.Types;
 
 namespace o2g.Internal.Rest
 {
@@ -26,7 +27,23 @@ namespace o2g.Internal.Rest
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
             HttpResponseMessage response = await httpClient.PostAsync(uri, content);
+            
+            SubscriptionResult subscriptionResult = JsonSerializer.Deserialize<SubscriptionResult>(await response.Content.ReadAsStringAsync(),serializeOptions);
+            if (null != subscriptionResult?.Status) // REFUSED, "LICENSE_REQUIRED: Max number licenses exceeded..." is received with http response code 400 and not 2xx
+            {
+                SetLastError(null);
+                return subscriptionResult;
+            }
             return await GetResult<SubscriptionResult>(response);
+        }
+        
+        async Task<bool> ISubscriptions.Update(Subscription request)
+        {
+            var json = JsonSerializer.Serialize(request.Filter, serializeOptions);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            HttpResponseMessage response = await httpClient.PutAsync(uri, content);
+            return await IsSucceeded(response);
         }
 
         async Task<bool> ISubscriptions.Delete(string subscriptionId)

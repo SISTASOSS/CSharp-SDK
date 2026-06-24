@@ -103,6 +103,12 @@ namespace o2g.Internal.Rest
             add => _eventHandlers.SupervisorHelpCancelled += value;
             remove => _eventHandlers.SupervisorHelpCancelled -= value;
         }
+        
+        public event EventHandler<O2GEventArgs<OnAgentSkillChangedEvent>> AgentSkillChanged
+        {
+            add => _eventHandlers.AgentSkillChanged += value;
+            remove => _eventHandlers.AgentSkillChanged -= value;
+        }
 
         public CallCenterAgentRest(Uri uri) : base(uri)
         {

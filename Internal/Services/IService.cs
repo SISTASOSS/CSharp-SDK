@@ -32,6 +32,7 @@ namespace o2g.Internal.Services
     ///     <item><term><see cref="IUsers"/></term><description>The users service allows to get information about users and to change passwords.</description></item>
     ///     <item><term><see cref="IRouting"/></term><description>The routing service allows to configure the forward, overflow and do not disturb feature.</description></item>
     ///     <item><term><see cref="IMessaging"/></term><description>The messaging service allows to retrieve voice messages.</description></item>
+    ///     <item><term><see cref="IRecording"/></term><description>The voice recording service allows a recorder application to record voice of OXE devices, either in IP or TDM mode.</description></item>
     /// </list>
     /// </remarks>
     public interface IService

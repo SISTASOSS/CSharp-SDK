@@ -62,6 +62,11 @@ namespace o2g
         public event EventHandler<O2GEventArgs<OnPbxLoadedEvent>> PbxLoaded;
 
         /// <summary>
+        /// Occurs when the license file will soon expire or has recently expired
+        /// </summary>
+        public event EventHandler<O2GEventArgs<OnLicenseExpirationEvent>> LicenseExpiration;
+
+        /// <summary>
         /// Occurs when the connection to a remote twin server is lost.
         /// </summary>
         public event EventHandler<O2GEventArgs<OnRemoteServerLinkDownEvent>> RemoteServerLinkDown;

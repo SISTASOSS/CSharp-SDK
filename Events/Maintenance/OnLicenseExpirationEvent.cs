@@ -17,41 +17,27 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-using System.Runtime.Serialization;
-using System.Text.Json.Serialization;
-
-namespace o2g.Types.MaintenanceNS
+namespace o2g.Events.Maintenance
 {
     /// <summary>
-    /// <c>ConfigurationType</c> represents the possible O2G server configurations. 
+    /// <c>OnLicenseExpirationEvent</c> event is sent when the license file will soon expire or has recently expired
     /// </summary>
-    [JsonStringEnumMemberConverterOptions(deserializationFailureFallbackValue: ConfigurationType.Unknown)]
-    public enum ConfigurationType
+    public class OnLicenseExpirationEvent : O2GEvent
     {
         /// <summary>
-        /// O2G Server is configured for management.
+        /// Return the alarm message.
         /// </summary>
-        /// <remarks>
-        /// An O2G server configured for management does not monitor devices on the OmniPCX Enterprise.
-        /// </remarks>
-        [EnumMember(Value = "PBX_MANAGEMENT")]
-        PbxManagement,
-
-        /// <summary>
-        /// O2G Server is configured with full services.
-        /// </summary>
-        [EnumMember(Value = "FULL_SERVICES")]
-        FullServices,
+        /// <value>
+        /// A <see langword="string"/> value that represents the alarm message.
+        /// </value>
+        public string message { get; init; }
         
         /// <summary>
-        /// O2G Server is configured for RECORDING only.
+        /// nb days since or to expiration date: nbDays bigger then 0 means the license will expire in nb days and nbDays less then 0 means the license has already expired since nb days
         /// </summary>
-        [EnumMember(Value = "RECORDING")]
-        Recording,
-
-        /// <summary>
-        /// Unknown configuration
-        /// </summary>
-        Unknown
+        /// <value>
+        /// An <see langword="long"/> value that represents the nb days since or to expiration date.
+        /// </value>
+        public long nbDays { get; init; }
     }
 }

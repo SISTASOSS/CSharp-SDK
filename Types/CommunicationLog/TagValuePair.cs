@@ -17,41 +17,31 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-using System.Runtime.Serialization;
+using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-namespace o2g.Types.MaintenanceNS
+namespace o2g.Types.CommunicationLogNS
 {
     /// <summary>
-    /// <c>ConfigurationType</c> represents the possible O2G server configurations. 
+    /// <c>TagValuePair</c> class represents Key / value structure.
+    /// For evolution of this element, can contain supplementary information (tag/value pair).
     /// </summary>
-    [JsonStringEnumMemberConverterOptions(deserializationFailureFallbackValue: ConfigurationType.Unknown)]
-    public enum ConfigurationType
+    public class TagValuePair
     {
         /// <summary>
-        /// O2G Server is configured for management.
+        /// Key
         /// </summary>
-        /// <remarks>
-        /// An O2G server configured for management does not monitor devices on the OmniPCX Enterprise.
-        /// </remarks>
-        [EnumMember(Value = "PBX_MANAGEMENT")]
-        PbxManagement,
-
-        /// <summary>
-        /// O2G Server is configured with full services.
-        /// </summary>
-        [EnumMember(Value = "FULL_SERVICES")]
-        FullServices,
+        /// <value>
+        /// <see cref="string"/> that represents the Key.
+        /// </value>
+        public string Name { get; init; }        
         
         /// <summary>
-        /// O2G Server is configured for RECORDING only.
+        /// Value
         /// </summary>
-        [EnumMember(Value = "RECORDING")]
-        Recording,
-
-        /// <summary>
-        /// Unknown configuration
-        /// </summary>
-        Unknown
+        /// <value>
+        /// <see cref="string"/> that represents the Value.
+        /// </value>
+        public string Value { get; init; }
     }
 }

@@ -152,24 +152,99 @@ namespace o2g.Internal.Rest
 
     class AcdCallParam
     {
+        /// <summary>
+        /// If true in a consultation call, force the Pilot or RSI consultation mode
+        /// </summary>
         public bool SupervisedTransfer { get; set; }
+        
+        /// <summary>
+        /// Skills associated to the new call
+        /// </summary>
         public ACRSkills Skills { get; set; }
+        
+        /// <summary>
+        /// If true, for an agent, call its supervisor. The callee number parameter is ignored in this case and can be absent
+        /// </summary>
         public bool CallToSupervisor { get; set; }
     }
 
 
+    /// <summary>
+    /// Request to initiate a new call.
+    /// </summary>
     class MakeCallRequest
     {
+        /// <summary>
+        /// Device phone number for which the operation is invoked.
+        /// Mandatory.
+        /// </summary>
         public string DeviceId { get; set; }
+
+        /// <summary>
+        /// Called phone number.
+        /// Mandatory except in case of agent supervisor call.
+        /// </summary>
         public string Callee { get; set; }
+
+        /// <summary>
+        /// Automatic answer on make call.
+        /// If false or omitted, deviceId is called first; otherwise, callee is called immediately.
+        /// </summary>
         public bool AutoAnswer { get; set; }
+
+        /// <summary>
+        /// Inhibit the progress tone on the current external call.
+        /// </summary>
         public bool InhibitProgressTone { get; set; }
+
+        /// <summary>
+        /// Application-related string data (max 32 bytes).
+        /// Cannot be used with pin, secretCode, or businessCode.
+        /// </summary>
         public string AssociatedData { get; set; }
+
+        /// <summary>
+        /// Hexadecimal byte array string. Cannot contain byte '00'.
+        /// Used instead of AssociatedData for binary data.
+        /// Cannot be used with pin, secretCode, or businessCode.
+        /// </summary>
         public string HexaBinaryAssociatedData { get; set; }
+
+        /// <summary>
+        /// Private identity number (Mandatory for Private Calls).
+        /// Cannot be used with associatedData or businessCode.
+        /// </summary>
         public string Pin { get; set; }
+
+        /// <summary>
+        /// Secret code (Mandatory for Private Calls).
+        /// Cannot be used with associatedData or businessCode.
+        /// </summary>
         public string SecretCode { get; set; }
+
+        /// <summary>
+        /// Cost center for call charging (Mandatory for Business Calls).
+        /// Cannot be used with associatedData, pin, or secretCode.
+        /// </summary>
         public string BusinessCode { get; set; }
-        public String CallingNumber { get; set; }
+
+        /// <summary>
+        /// Alternate calling number to be presented on the public network.
+        /// Used to hide the real extension number.
+        /// </summary>
+        public string CallingNumber { get; set; }
+
+        /// <summary>
+        /// Request the public network to mask the calling identity.
+        /// Must be used with CallingNumber.
+        /// If the callingNumber is absent, the secretIdentity parameter will be ignored.
+        /// </summary>
+        public bool SecretIdentity { get; set; }
+
+        /// <summary>
+        /// Parameters to use when making an ACD Call.
+        /// Cannot be used with pin or secretCode.
+        /// </summary>
         public AcdCallParam AcdCall { get; set; }
     }
 
@@ -763,6 +838,14 @@ namespace o2g.Internal.Rest
             return await IsSucceeded(response);
         }
 
+        
+        public async Task<bool> IthMicroAsync(string deviceId)
+        {
+            Uri uriPost = uri.Append("devices", AssertUtil.NotNullOrEmpty(deviceId, "deviceId"), "ithmicro");
+
+            HttpResponseMessage response = await httpClient.PutAsync(uriPost, null);
+            return await IsSucceeded(response);
+        }
 
         public async Task<HuntingGroups> QueryHuntingGroupsAsync(string loginName)
         {
