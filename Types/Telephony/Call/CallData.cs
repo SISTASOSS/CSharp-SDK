@@ -69,14 +69,6 @@ namespace o2g.Types.TelephonyNS.CallNS
         public string CallUUID { get; init; }
 
         /// <summary>
-        /// The CallUUID associated to this call (used to correlate RTSM events with SIP events for multimedia users only).
-        /// </summary>
-        /// <value>
-        /// A <see langword="string"/> that is the call unique UUID.
-        /// </value>
-        public string CallUUID { get; init; }
-
-        /// <summary>
         /// This property gives the call state.
         /// </summary>
         /// <value>
@@ -139,14 +131,6 @@ namespace o2g.Types.TelephonyNS.CallNS
         /// A <see cref="AcdData"/> object that provide this call acd extension data.
         /// </value>
         public AcdData AcdCallData { get; init; }
-
-        /// <summary>
-        /// The trunk identification in case of an external call.
-        /// </summary>
-        /// <value>
-        /// A <see cref="TrunkIdentification"/> object that identifies the trunk.
-        /// </value>
-        public TrunkIdentification TrunkIdentification { get; init; }
 
         /// <summary>
         /// Return the correlator data as a byte array.

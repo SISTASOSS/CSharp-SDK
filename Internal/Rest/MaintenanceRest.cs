@@ -72,8 +72,6 @@ namespace o2g.Internal.Rest
             remove => _eventHandlers.LicenseExpiration -= value;
         }
         
-        }
-
         public event EventHandler<O2GEventArgs<OnRemoteServerLinkDownEvent>> RemoteServerLinkDown
         {
             add => _eventHandlers.RemoteServerLinkDown += value;

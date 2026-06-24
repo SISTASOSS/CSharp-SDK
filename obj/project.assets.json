@@ -622,7 +622,7 @@
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
-    "version": "2.7.4-sistas.0",
+    "version": "2.7.5-sistas.1",
     "restore": {
       "projectUniqueName": "D:\\github\\CSharp-SDK\\o2g-sdk.csproj",
       "projectName": "sistas.o2g-sdk",
