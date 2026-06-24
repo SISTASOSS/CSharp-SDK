@@ -1,4 +1,4 @@
-﻿/*
+/*
 * Copyright 2021 ALE International
 *
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this 
@@ -17,29 +17,23 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-using o2g.Types.MaintenanceNS;
-using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
-namespace o2g.Internal.Types.Maintenance
+namespace o2g.Types.TelephonyNS.DeviceNS
 {
-    internal class O2GSystemStatus
+    /// <summary>
+    /// <c>DeviceStates</c> is a container for device state.
+    /// </summary>
+    public class DeviceStates
     {
-        public ServerAddress LogicalAddress { get; set; }
-        public DateTime StartDate { get; set; }
-        public bool Ha { get; set; }
-        public string Primary { get; set; }
-        public string PrimaryVersion { get; set; }
-        public SystemServicesStatus PrimaryServicesStatus { get; set; }
-        public string Secondary { get; set; }
-        public string SecondaryVersion { get; set; }
-        public SystemServicesStatus SecondaryServicesStatus { get; set; }
-        public List<PbxStatus> Pbxs { get; set; }
-        public OXRRecordingStatus RecordingStatus { get; set; }
-        public LicenseStatus License { get; set; }
-        public ServerAddress SystemResources { get; set; }
-        public ConfigurationType ConfigurationType { get; set; }
-        public string ApplicationId { get; set; }
-        public SubscriberFilter SubscriberFilter { get; set; }
+        /// <summary>
+        /// List of device state.
+        /// </summary>
+        /// <value>
+        /// A list of <see cref="DeviceState"/>.
+        /// </value>
+        [JsonPropertyName("deviceStates")]
+        public List<DeviceState> States { get; set; }
     }
 }

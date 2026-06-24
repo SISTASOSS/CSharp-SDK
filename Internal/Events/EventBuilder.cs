@@ -168,6 +168,10 @@ namespace o2g.Internal.Events
             EventRegistrar.RegisterAdapter(typeof(OnPbxLinkUpEvent), EventAdapters.PbxLinkUpAdapter, typeof(OnInternalStringNodeIdEvent));
             EventRegistrar.RegisterEvent(typeof(OnPbxLoadedEvent));
             EventRegistrar.RegisterAdapter(typeof(OnPbxLoadedEvent), EventAdapters.PbxLoadedAdapter, typeof(OnInternalStringNodeIdEvent));
+            EventRegistrar.RegisterEvent(typeof(OnRemoteServerLinkDownEvent));
+            EventRegistrar.RegisterAdapter(typeof(OnRemoteServerLinkDownEvent), EventAdapters.RemoteServerLinkDownAdapter, typeof(OnInternalHostEvent));
+            EventRegistrar.RegisterEvent(typeof(OnRemoteServerLinkUpEvent));
+            EventRegistrar.RegisterAdapter(typeof(OnRemoteServerLinkUpEvent), EventAdapters.RemoteServerLinkUpAdapter, typeof(OnInternalHostEvent));
         }
 
         protected static JsonSerializerOptions serializeOptions = new()

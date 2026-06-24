@@ -77,6 +77,8 @@ namespace o2g.Internal.Events
         public event EventHandler<O2GEventArgs<OnPbxLinkDownEvent>> PbxLinkDown;
         public event EventHandler<O2GEventArgs<OnPbxLinkUpEvent>> PbxLinkUp;
         public event EventHandler<O2GEventArgs<OnPbxLoadedEvent>> PbxLoaded;
+        public event EventHandler<O2GEventArgs<OnRemoteServerLinkDownEvent>> RemoteServerLinkDown;
+        public event EventHandler<O2GEventArgs<OnRemoteServerLinkUpEvent>> RemoteServerLinkUp;
 
 
         // pbx management

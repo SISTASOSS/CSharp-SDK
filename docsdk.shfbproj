@@ -212,6 +212,12 @@ Use the &amp;lt%3ba href=&amp;quot%3bhttps://docs.microsoft.com/en-us/nuget/tool
         <Filter entryType="Class" fullName="o2g.Events.Maintenance.OnPbxLoadedEvent" filterName="OnPbxLoadedEvent" isExposed="False">
           <Filter entryType="Property" fullName="o2g.Events.Maintenance.OnPbxLoadedEvent.NodeId" filterName="NodeId" isExposed="True" />
         </Filter>
+        <Filter entryType="Class" fullName="o2g.Events.Maintenance.OnRemoteServerLinkDownEvent" filterName="OnRemoteServerLinkDownEvent" isExposed="False">
+          <Filter entryType="Property" fullName="o2g.Events.Maintenance.OnRemoteServerLinkDownEvent.Host" filterName="Host" isExposed="True" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Events.Maintenance.OnRemoteServerLinkUpEvent" filterName="OnRemoteServerLinkUpEvent" isExposed="False">
+          <Filter entryType="Property" fullName="o2g.Events.Maintenance.OnRemoteServerLinkUpEvent.Host" filterName="Host" isExposed="True" />
+        </Filter>
       </Filter>
       <Filter entryType="Namespace" fullName="o2g.Events.Management" isExposed="True">
         <Filter entryType="Class" fullName="o2g.Events.Management.OnPbxObjectInstanceCreatedEvent" filterName="OnPbxObjectInstanceCreatedEvent" isExposed="True">
@@ -525,6 +531,9 @@ Use the &amp;lt%3ba href=&amp;quot%3bhttps://docs.microsoft.com/en-us/nuget/tool
         </Filter>
         <Filter entryType="Class" fullName="o2g.Types.TelephonyNS.DeviceNS.DeviceState" filterName="DeviceState" isExposed="True">
           <Filter entryType="Constructor" fullName="o2g.Types.TelephonyNS.DeviceNS.DeviceState.#ctor" filterName=".ctor" isExposed="False" />
+        </Filter>
+        <Filter entryType="Class" fullName="o2g.Types.TelephonyNS.DeviceNS.DeviceStates" filterName="DeviceStates" isExposed="True">
+          <Filter entryType="Constructor" fullName="o2g.Types.TelephonyNS.DeviceNS.DeviceStates.#ctor" filterName=".ctor" isExposed="False" />
         </Filter>
       </Filter>
       <Filter entryType="Namespace" fullName="o2g.Types.UsersNS" isExposed="True">

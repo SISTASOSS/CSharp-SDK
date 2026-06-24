@@ -1,4 +1,4 @@
-﻿/*
+/*
 * Copyright 2021 ALE International
 *
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this 
@@ -16,53 +16,57 @@
 * DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
-using o2g.Types.TelephonyNS.DeviceNS;
-using o2g.Types.TelephonyNS.UserNS;
-using System.Collections.Generic;
 
-namespace o2g.Types.TelephonyNS
+namespace o2g.Types.MaintenanceNS
 {
     /// <summary>
-    /// Snapshot of the user's telephonic state.
+    /// <c>RecordedDevice</c> represents a recorded device identification with its recording resource.
     /// </summary>
-    /// <remarks>
-    /// On application startup, state of the user must be retrieve to align the application with the real user state.
-    /// </remarks>
-    public class TelephonicState
+    public class RecordedDevice
     {
         /// <summary>
-        /// List of current calls.
+        /// Return the device number.
         /// </summary>
-        /// <value>
-        /// A list of <see cref="PbxCall"/>.
-        /// </value>
-        public List<PbxCall> Calls { get; set; }
+        public string Number { get; init; }
 
         /// <summary>
-        /// Gives the list of device capabilities.
+        /// Return the device user.
         /// </summary>
-        /// <value>
-        /// A list of <see cref="DeviceCapabilities"/>. 
-        /// </value>
-        public List<DeviceCapabilities> DeviceCapabilities { get; set; }
+        public string User { get; init; }
 
         /// <summary>
-        /// State of the user.
+        /// Return the device CSTA CRID.
         /// </summary>
-        /// <value>
-        /// A <see cref="UserState"/> that represents the current user's state
-        /// </value>
-        public UserState UserState { get; set; }
+        public string Crid { get; init; }
 
         /// <summary>
-        /// Operational state of all the user's devices.
+        /// Return whether recording has been asked.
         /// </summary>
-        /// <value>
-        /// A <see cref="DeviceStates"/> object that represents the state of all the user's devices.
-        /// </value>
-        /// <remarks>
-        /// Available since O2G 2.7.5.
-        /// </remarks>
-        public DeviceStates DeviceStates { get; set; }
+        public bool Recorded { get; init; }
+
+        /// <summary>
+        /// Return the recorder IP address or TDM time slot.
+        /// </summary>
+        public string RecordingResource { get; init; }
+
+        /// <summary>
+        /// Return whether it is an IP recording.
+        /// </summary>
+        public bool Ip { get; init; }
+
+        /// <summary>
+        /// Return the recorder port where the sent RTP flow is sent.
+        /// </summary>
+        public int SentFlowPort { get; init; }
+
+        /// <summary>
+        /// Return the recorder port where the received RTP flow is sent.
+        /// </summary>
+        public int ReceivedFlowPort { get; init; }
+
+        /// <summary>
+        /// Return whether the IP recording is encrypted.
+        /// </summary>
+        public bool Encrypted { get; init; }
     }
 }

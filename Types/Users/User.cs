@@ -17,6 +17,7 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace o2g.Types.UsersNS
 {
@@ -86,5 +87,22 @@ namespace o2g.Types.UsersNS
         /// An <see langword="int"/> that is the OXE node number.
         /// </value>
         public string NodeId { get; init; }
+        
+        /// <summary>
+        /// External login of the user if set (only available with oxe > n1.271), Since version 2.7
+        /// </summary>
+        /// <value>
+        /// A <see langword="string"/> that represents the user external login name.
+        /// </value>
+        public string ExternalLogin { get; init; }
+        
+        /// <summary>
+        /// eMail address (only available with oxe >= n3 (R100)). Since version 2.7.5
+        /// </summary>
+        /// <value>
+        /// A <see langword="string"/> that represents the user email address.
+        /// </value>
+        [JsonPropertyName("eMailAddress")]
+        public string EmailAddress { get; init; }
     }
 }

@@ -459,15 +459,13 @@
         </member>
         <member name="T:o2g.Events.Maintenance.OnPbxLinkDownEvent">
             <summary>
-            <c>OnPbxLinkDownEvent</c> is raised when a PBX link (cmis) is down.
+            Notification sent when a PBX link (cmis) is down. The PBX link down status corresponds to the
+            <c>connected=false</c> flag returned in the <see cref="T:o2g.Types.MaintenanceNS.PbxStatus"/> object sent by <see cref="M:o2g.IMaintenance.GetSystemStatusAsync"/>.
             </summary>
-            <remarks>
-            The pbx link down status corresponds to the <c>connected=false</c> flag returned in the SystemStatus response <see cref="T:o2g.Types.MaintenanceNS.PbxStatus"/>.
-            </remarks>
         </member>
         <member name="P:o2g.Events.Maintenance.OnPbxLinkDownEvent.NodeId">
             <summary>
-            The nodeId which data link is down.
+            The nodeId whose data link is down.
             </summary>
             <value>
             A <see langword="string"/> value that represents the node identifier.
@@ -475,15 +473,13 @@
         </member>
         <member name="T:o2g.Events.Maintenance.OnPbxLinkUpEvent">
             <summary>
-            <c>OnPbxLinkUpEvent</c> is raised when a PBX link (cmis) is up.
+            Notification sent when a PBX link (cmis) is up. The PBX link up status corresponds to the
+            <c>connected=true</c> flag returned in the <see cref="T:o2g.Types.MaintenanceNS.PbxStatus"/> object sent by <see cref="M:o2g.IMaintenance.GetSystemStatusAsync"/>.
             </summary>
-            <remarks>
-            The pbx link up status corresponds to the <c>connected=true</c> flag returned in the SystemStatus response <see cref="T:o2g.Types.MaintenanceNS.PbxStatus"/>.
-            </remarks>
         </member>
         <member name="P:o2g.Events.Maintenance.OnPbxLinkUpEvent.NodeId">
             <summary>
-            The nodeId which data link is back to normal.
+            The nodeId whose data link is back to normal.
             </summary>
             <value>
             A <see langword="string"/> value that represents the node identifier.
@@ -500,6 +496,34 @@
             </summary>
             <value>
             An <see langword="int"/> value that represents the OmniPCX Enterprise node number.
+            </value>
+        </member>
+        <member name="T:o2g.Events.Maintenance.OnRemoteServerLinkDownEvent">
+            <summary>
+            Notification sent when connection to a remote twin server is lost. The connection is maintained
+            through a heartbeat request to the api/rest url.
+            </summary>
+        </member>
+        <member name="P:o2g.Events.Maintenance.OnRemoteServerLinkDownEvent.Host">
+            <summary>
+            The remote server host whose connection is lost.
+            </summary>
+            <value>
+            A <see langword="string"/> value that represents the remote server host.
+            </value>
+        </member>
+        <member name="T:o2g.Events.Maintenance.OnRemoteServerLinkUpEvent">
+            <summary>
+            Notification sent when connection to a remote twin server is recovered. The connection is maintained
+            through a heartbeat request to the api/rest url.
+            </summary>
+        </member>
+        <member name="P:o2g.Events.Maintenance.OnRemoteServerLinkUpEvent.Host">
+            <summary>
+            The remote server host whose connection is back to normal.
+            </summary>
+            <value>
+            A <see langword="string"/> value that represents the remote server host.
             </value>
         </member>
         <member name="T:o2g.Events.Management.OnPbxObjectInstanceCreatedEvent">
@@ -682,7 +706,7 @@
             Return the cause of this call creation.
             </summary>
             <value>
-            A <see cref="P:o2g.Events.Telephony.OnCallCreatedEvent.Cause"/> that give the reason of this call creation.
+            A <see cref="T:o2g.Types.TelephonyNS.CallNS.CallCause"/> that give the reason of this call creation.
             </value>
         </member>
         <member name="P:o2g.Events.Telephony.OnCallCreatedEvent.CallData">
@@ -752,7 +776,7 @@
             Return the cause of this call modification.
             </summary>
             <value>
-            A <see cref="P:o2g.Events.Telephony.OnCallModifiedEvent.Cause"/> that give the reason of this call creation.
+            A <see cref="T:o2g.Types.TelephonyNS.CallNS.CallCause"/> that give the reason of this call creation.
             </value>
         </member>
         <member name="P:o2g.Events.Telephony.OnCallModifiedEvent.PreviousCallRef">
@@ -867,7 +891,7 @@
             Return the cause of this call modification.
             </summary>
             <value>
-            A <see cref="P:o2g.Events.Telephony.OnCallRemovedEvent.Cause"/> that give the reason of this call creation.
+            A <see cref="T:o2g.Types.TelephonyNS.CallNS.CallCause"/> that give the reason of this call creation.
             </value>
         </member>
         <member name="P:o2g.Events.Telephony.OnCallRemovedEvent.NewDestination">
@@ -1956,9 +1980,29 @@
             Occurs when a CTI link is up. 
             </summary>
         </member>
+        <member name="E:o2g.IMaintenance.PbxLinkDown">
+            <summary>
+            Occurs when a PBX link (cmis) is down.
+            </summary>
+        </member>
+        <member name="E:o2g.IMaintenance.PbxLinkUp">
+            <summary>
+            Occurs when a PBX link (cmis) is back to normal.
+            </summary>
+        </member>
         <member name="E:o2g.IMaintenance.PbxLoaded">
             <summary>
             Occurs when datas are fully loaded from an OmniPCX Enterprise node. 
+            </summary>
+        </member>
+        <member name="E:o2g.IMaintenance.RemoteServerLinkDown">
+            <summary>
+            Occurs when the connection to a remote twin server is lost.
+            </summary>
+        </member>
+        <member name="E:o2g.IMaintenance.RemoteServerLinkUp">
+            <summary>
+            Occurs when the connection to a remote twin server is recovered.
             </summary>
         </member>
         <member name="M:o2g.IMaintenance.GetSystemStatusAsync">
@@ -4597,6 +4641,8 @@
             <item><description><see cref="T:o2g.Events.Maintenance.OnPbxLinkDownEvent"/></description></item>
             <item><description><see cref="T:o2g.Events.Maintenance.OnPbxLinkUpEvent"/></description></item>
             <item><description><see cref="T:o2g.Events.Maintenance.OnPbxLoadedEvent"/></description></item>
+            <item><description><see cref="T:o2g.Events.Maintenance.OnRemoteServerLinkDownEvent"/></description></item>
+            <item><description><see cref="T:o2g.Events.Maintenance.OnRemoteServerLinkUpEvent"/></description></item>
             </list>
             </para>
             <para>
@@ -6811,6 +6857,32 @@
             CTI Link is not established.
             </summary>
         </member>
+        <member name="T:o2g.Types.MaintenanceNS.DRLink">
+            <summary>
+            <c>DRLink</c> represents a CSTA DR link.
+            </summary>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.DRLink.Identifier">
+            <summary>
+            Return the DR link registration identifier.
+            </summary>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.DRLink.Initiator">
+            <summary>
+            Return the DR link initiator identifier.
+            Since version 2.7.3.
+            </summary>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.DRLink.NbRecordedDevices">
+            <summary>
+            Return the number of recorded devices.
+            </summary>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.DRLink.RecordedDevices">
+            <summary>
+            Return the list of recorded devices.
+            </summary>
+        </member>
         <member name="T:o2g.Types.MaintenanceNS.License">
             <summary>
             <c>License</c> class represents an O2G license.
@@ -6846,6 +6918,118 @@
             </summary>
             <value>
             A <see langword="string"/> value that represents the license expiration date.
+            </value>
+        </member>
+        <member name="T:o2g.Types.MaintenanceNS.OXRConfig">
+            <summary>
+            <c>OXRConfig</c> represents an OXR recorder configuration.
+            </summary>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.OXRConfig.HostName">
+            <summary>
+            Return the OXR host name.
+            </summary>
+            <value>
+            The OXR host name.
+            </value>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.OXRConfig.IpAddress">
+            <summary>
+            Return the OXR IP address.
+            </summary>
+            <value>
+            The OXR IP address.
+            </value>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.OXRConfig.SiteId">
+            <summary>
+            Return the OXR site identifier.
+            </summary>
+            <value>
+            The OXR site identifier.
+            </value>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.OXRConfig.Secured">
+            <summary>
+            Return whether access is secured.
+            </summary>
+            <value>
+            <see langword="true"/> if access is secured; <see langword="false"/> otherwise.
+            </value>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.OXRConfig.Connected">
+            <summary>
+            Return whether the recorder is connected.
+            </summary>
+            <value>
+            <see langword="true"/> if the recorder is connected; <see langword="false"/> otherwise.
+            </value>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.OXRConfig.Devices">
+            <summary>
+            Return the list of device numbers that may be recorded by this recorder.
+            </summary>
+            <value>
+            A list of device numbers that may be recorded by this recorder.
+            </value>
+        </member>
+        <member name="T:o2g.Types.MaintenanceNS.OXRRecordedDevice">
+            <summary>
+            <c>OXRRecordedDevice</c> represents an OXR recorded device.
+            </summary>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.OXRRecordedDevice.Number">
+            <summary>
+            Return the device number.
+            </summary>
+            <value>
+            The device number.
+            </value>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.OXRRecordedDevice.Recordable">
+            <summary>
+            Return whether the device is recordable on demand.
+            </summary>
+            <value>
+            <see langword="true"/> if the device is recordable on demand; <see langword="false"/> otherwise.
+            </value>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.OXRRecordedDevice.StartCapabilities">
+            <summary>
+            Return the start mode capabilities of the device.
+            </summary>
+            <value>
+            A list of <see cref="T:o2g.Types.MaintenanceNS.StartType"/> values that represents the start mode capabilities of the device.
+            This property is not present if the device is not recordable on demand.
+            </value>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.OXRRecordedDevice.Recorders">
+            <summary>
+            Return the list of recorder identifiers which manage the device.
+            </summary>
+            <value>
+            A list of recorder identifiers which manage the device.
+            </value>
+        </member>
+        <member name="T:o2g.Types.MaintenanceNS.OXRRecordingStatus">
+            <summary>
+            <c>OXRRecordingStatus</c> represents OXR recording service status.
+            </summary>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.OXRRecordingStatus.Oxrs">
+            <summary>
+            Return the list of OXR recorders.
+            </summary>
+            <value>
+            A list of <see cref="T:o2g.Types.MaintenanceNS.OXRConfig"/> objects that represents OXR recorders.
+            </value>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.OXRRecordingStatus.Devices">
+            <summary>
+            Return the list of OXR recorded devices.
+            </summary>
+            <value>
+            A list of <see cref="T:o2g.Types.MaintenanceNS.OXRRecordedDevice"/> objects that represents OXR recorded devices.
             </value>
         </member>
         <member name="T:o2g.Types.MaintenanceNS.PbxStatus">
@@ -6937,6 +7121,72 @@
             An <see langword="int"/> value thats is the number of monitored users on this OmniPCX Enterprise node.
             </value>
         </member>
+        <member name="P:o2g.Types.MaintenanceNS.PbxStatus.LmsConnectionStatus">
+            <summary>
+            Return the LMS connection status.
+            </summary>
+            <value>
+            <see langword="true"/> if LMS is connected; <see langword="false"/> otherwise.
+            </value>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.PbxStatus.DrLinks">
+            <summary>
+            Return the list of DR links.
+            </summary>
+            <value>
+            A list of <see cref="T:o2g.Types.MaintenanceNS.DRLink"/> objects that represents DR links.
+            </value>
+        </member>
+        <member name="T:o2g.Types.MaintenanceNS.RecordedDevice">
+            <summary>
+            <c>RecordedDevice</c> represents a recorded device identification with its recording resource.
+            </summary>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.RecordedDevice.Number">
+            <summary>
+            Return the device number.
+            </summary>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.RecordedDevice.User">
+            <summary>
+            Return the device user.
+            </summary>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.RecordedDevice.Crid">
+            <summary>
+            Return the device CSTA CRID.
+            </summary>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.RecordedDevice.Recorded">
+            <summary>
+            Return whether recording has been asked.
+            </summary>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.RecordedDevice.RecordingResource">
+            <summary>
+            Return the recorder IP address or TDM time slot.
+            </summary>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.RecordedDevice.Ip">
+            <summary>
+            Return whether it is an IP recording.
+            </summary>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.RecordedDevice.SentFlowPort">
+            <summary>
+            Return the recorder port where the sent RTP flow is sent.
+            </summary>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.RecordedDevice.ReceivedFlowPort">
+            <summary>
+            Return the recorder port where the received RTP flow is sent.
+            </summary>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.RecordedDevice.Encrypted">
+            <summary>
+            Return whether the IP recording is encrypted.
+            </summary>
+        </member>
         <member name="T:o2g.Types.MaintenanceNS.ServerAddress">
             <summary>
             <c>ServerAddress</c> class defines an OmniPCX Enterprise address.
@@ -6958,90 +7208,214 @@
             A <see langword="string"/> value that is the IPv4 address of this OmniPCX Enterprise node.
             </value>
         </member>
+        <member name="T:o2g.Types.MaintenanceNS.ServicesStatus">
+            <summary>
+            <c>ServicesStatus</c> represents service status information.
+            </summary>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.ServicesStatus.AdditionalData">
+            <summary>
+            Return additional service fields provided by the server.
+            </summary>
+        </member>
+        <member name="T:o2g.Types.MaintenanceNS.StartType">
+            <summary>
+            <c>StartType</c> represents a device recording start mode capability.
+            </summary>
+        </member>
+        <member name="F:o2g.Types.MaintenanceNS.StartType.RECORD_FROM_NOW">
+            <summary>
+            Record from now.
+            </summary>
+        </member>
+        <member name="F:o2g.Types.MaintenanceNS.StartType.RECORD_ENTIRE_CALL">
+            <summary>
+            Record from beginning.
+            </summary>
+        </member>
+        <member name="T:o2g.Types.MaintenanceNS.SubscriberFilter">
+            <summary>
+            <c>SubscriberFilter</c> represents how O2G automatically creates users from OXE subscribers.
+            </summary>
+        </member>
+        <member name="F:o2g.Types.MaintenanceNS.SubscriberFilter.A4980">
+            <summary>
+            OXE subscribers are automatically loaded according to the A4980 attribute.
+            </summary>
+        </member>
+        <member name="F:o2g.Types.MaintenanceNS.SubscriberFilter.ALL">
+            <summary>
+            All OXE subscribers are automatically loaded.
+            </summary>
+        </member>
+        <member name="F:o2g.Types.MaintenanceNS.SubscriberFilter.NONE">
+            <summary>
+            No OXE subscribers are automatically loaded.
+            </summary>
+        </member>
+        <member name="T:o2g.Types.MaintenanceNS.SystemServicesStatus">
+            <summary>
+            <c>SystemServicesStatus</c> represents server services status information.
+            </summary>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.SystemServicesStatus.Services">
+            <summary>
+            Return services information.
+            </summary>
+            <value>
+            A list of <see cref="T:o2g.Types.MaintenanceNS.ServicesStatus"/> objects that represents services information.
+            </value>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.SystemServicesStatus.GlobalIPAddress">
+            <summary>
+            Return the status of the global IP address when the system is configured in HA mode.
+            </summary>
+            <value>
+            The status of the global IP address.
+            </value>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.SystemServicesStatus.Drbd">
+            <summary>
+            Return the DRBD status when the system is configured in HA mode.
+            </summary>
+            <value>
+            The DRBD status.
+            </value>
+        </member>
         <member name="T:o2g.Types.MaintenanceNS.SystemStatus">
             <summary>
-            <c>SystemStatus</c> class provide a full status of the O2G server and its connections.
+            <c>SystemStatus</c> provides information about the O2G server status.
             </summary>
             <seealso cref="M:o2g.IMaintenance.GetSystemStatusAsync"/>
         </member>
         <member name="P:o2g.Types.MaintenanceNS.SystemStatus.LogicalAddress">
             <summary>
-            Return this O2G server logical address.
+            Return the system logical address.
             </summary>
             <value>
-            A <see cref="T:o2g.Types.MaintenanceNS.ServerAddress"/> that represents the O2G server logical address.
+            A <see cref="T:o2g.Types.MaintenanceNS.ServerAddress"/> that represents the system logical address.
             </value>
         </member>
         <member name="P:o2g.Types.MaintenanceNS.SystemStatus.StartDate">
             <summary>
-            Return the start date of the O2G server.
+            Return the system start date in UTC.
             </summary>
             <value>
-            A <see langword="DateTime"/> object that represents the O2G server start date.
+            A <see langword="DateTime"/> object that represents the system start date in UTC.
             </value>
         </member>
         <member name="P:o2g.Types.MaintenanceNS.SystemStatus.HaMode">
             <summary>
-            Return whether this O2G is deployed in high availability mode.
+            Return whether the system is deployed in high availability mode.
             </summary>
             <value>
-            <see langword="true"/> if the O2G is in HA mode; <see langword="false"/> otherwise.
+            <see langword="true"/> if the system is in HA mode; <see langword="false"/> otherwise.
             </value>
         </member>
         <member name="P:o2g.Types.MaintenanceNS.SystemStatus.Primary">
             <summary>
-            Return the FQDN of the currently active O2G server when it is configured in HA mode.
+            Return the FQDN of the current active system when it is configured in HA mode.
             </summary>
             <value>
-            The FQDN of the current active O2G server in case of HA configuration.
+            The FQDN of the current active system in case of HA configuration.
             </value>
         </member>
         <member name="P:o2g.Types.MaintenanceNS.SystemStatus.PrimaryVersion">
             <summary>
-            Return the version of the current active O2G server when it is configured in HA mode.
+            Return the version of the current active system when it is configured in HA mode.
             </summary>
             <value>
-            The version of the active O2G server.
+            The version of the active system.
+            </value>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.SystemStatus.PrimaryServicesStatus">
+            <summary>
+            Return the primary server services status.
+            </summary>
+            <value>
+            A <see cref="T:o2g.Types.MaintenanceNS.SystemServicesStatus"/> object that represents primary server services status.
             </value>
         </member>
         <member name="P:o2g.Types.MaintenanceNS.SystemStatus.Secondary">
             <summary>
-            Return the FQDN of the backup O2G server when it is configured in HA mode.
+            Return the FQDN of the backup system when it is configured in HA mode.
             </summary>
             <value>
-            The FQDN of the backup O2G server in case of HA configuration.
+            The FQDN of the backup system in case of HA configuration.
             </value>
         </member>
         <member name="P:o2g.Types.MaintenanceNS.SystemStatus.SecondaryVersion">
             <summary>
-            Return the version of the backup O2G server when it is configured in HA mode.
+            Return the version of the backup system when it is configured in HA mode.
             </summary>
             <value>
-            The version of the backup O2G server.
+            The version of the backup system.
+            </value>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.SystemStatus.SecondaryServicesStatus">
+            <summary>
+            Return the secondary server services status.
+            </summary>
+            <value>
+            A <see cref="T:o2g.Types.MaintenanceNS.SystemServicesStatus"/> object that represents secondary server services status.
             </value>
         </member>
         <member name="P:o2g.Types.MaintenanceNS.SystemStatus.Pbxs">
             <summary>
-            Return the list of Pbx connected to this O2G server
+            Return information about the PBXs connected to this O2G server.
             </summary>
             <value>
-            A list of <see cref="T:o2g.Types.MaintenanceNS.PbxStatus"/> that represents the connected Pbx and their connection status.
+            A list of <see cref="T:o2g.Types.MaintenanceNS.PbxStatus"/> that represents PBX information and connection status.
+            </value>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.SystemStatus.RecordingStatus">
+            <summary>
+            Return OXR recording service status.
+            </summary>
+            <value>
+            An <see cref="T:o2g.Types.MaintenanceNS.OXRRecordingStatus"/> object that represents OXR recording information.
+            Since version 2.7.3.
             </value>
         </member>
         <member name="P:o2g.Types.MaintenanceNS.SystemStatus.Licenses">
             <summary>
-            Return the licenses.
+            Return the license status.
             </summary>
             <value>
-            A list of <see cref="T:o2g.Types.MaintenanceNS.License"/> object that represents the status of the O2G server licenses.
+            A list of <see cref="T:o2g.Types.MaintenanceNS.License"/> objects that represents the total number of each license type available for the system.
             </value>
         </member>
         <member name="P:o2g.Types.MaintenanceNS.SystemStatus.ConfigurationType">
             <summary>
-            Return the O2G server configuration type.
+            Return the system configuration type.
             </summary>
             <value>
-            The <see cref="P:o2g.Types.MaintenanceNS.SystemStatus.ConfigurationType"/> that corresponds to the O2G server configuration.
+            The <see cref="P:o2g.Types.MaintenanceNS.SystemStatus.ConfigurationType"/> that corresponds to the system configuration.
+            </value>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.SystemStatus.ApplicationId">
+            <summary>
+            Return the O2G server identifier.
+            </summary>
+            <value>
+            The O2G server identifier.
+            </value>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.SystemStatus.SubscriberFilter">
+            <summary>
+            Return the OXE subscriber load filter type.
+            </summary>
+            <value>
+            A <see cref="P:o2g.Types.MaintenanceNS.SystemStatus.SubscriberFilter"/> object that represents the OXE subscriber load filter type.
+            </value>
+        </member>
+        <member name="P:o2g.Types.MaintenanceNS.SystemStatus.SystemResources">
+            <summary>
+            Return system resource information.
+            </summary>
+            <value>
+            A <see cref="T:o2g.Types.MaintenanceNS.ServerAddress"/> that represents system resource information.
+            Since version 2.7.5.
             </value>
         </member>
         <member name="T:o2g.Types.ManagementNS.AttributeType">
@@ -9396,6 +9770,156 @@
             <see langword="true"/> if the queue is saturated; <see langword="false"/> otherwise.
             </value>
         </member>
+        <member name="T:o2g.Types.TelephonyNS.CallNS.CallCause">
+            <summary>
+            <c>CallCause</c> lists the different call causes.
+            </summary>
+        </member>
+        <member name="F:o2g.Types.TelephonyNS.CallNS.CallCause.Abandoned">
+            <summary>
+            Caller in a two-party call has disconnected before the call was answered.
+            </summary>
+        </member>
+        <member name="F:o2g.Types.TelephonyNS.CallNS.CallCause.AllTrunkBusy">
+            <summary>
+            The call is receiving the network congestion tone.
+            </summary>
+        </member>
+        <member name="F:o2g.Types.TelephonyNS.CallNS.CallCause.Busy">
+            <summary>
+            The call is receiving the busy tone.
+            </summary>
+        </member>
+        <member name="F:o2g.Types.TelephonyNS.CallNS.CallCause.Cleared">
+            <summary>
+            One party in a two-party call has disconnected after the call was answered.
+            </summary>
+        </member>
+        <member name="F:o2g.Types.TelephonyNS.CallNS.CallCause.ParticipantLeft">
+            <summary>
+            One party has left the conference call.
+            </summary>
+        </member>
+        <member name="F:o2g.Types.TelephonyNS.CallNS.CallCause.Conferenced">
+            <summary>
+            This is a multi-party call.
+            </summary>
+        </member>
+        <member name="F:o2g.Types.TelephonyNS.CallNS.CallCause.InvalidNumber">
+            <summary>
+            The call is receiving the invalid number tone.
+            </summary>
+        </member>
+        <member name="F:o2g.Types.TelephonyNS.CallNS.CallCause.DestinationNotObtainable">
+            <summary>
+            The destination cannot be reached.
+            </summary>
+        </member>
+        <member name="F:o2g.Types.TelephonyNS.CallNS.CallCause.DoNotDisturb">
+            <summary>
+            The device is in DND.
+            </summary>
+        </member>
+        <member name="F:o2g.Types.TelephonyNS.CallNS.CallCause.Forwarded">
+            <summary>
+            The call has been forwarded.
+            </summary>
+        </member>
+        <member name="F:o2g.Types.TelephonyNS.CallNS.CallCause.NotAnswered">
+            <summary>
+            The call has been hanged up before answer.
+            </summary>
+        </member>
+        <member name="F:o2g.Types.TelephonyNS.CallNS.CallCause.PickedUp">
+            <summary>
+            The call has been picked up.
+            </summary>
+        </member>
+        <member name="F:o2g.Types.TelephonyNS.CallNS.CallCause.Parked">
+            <summary>
+            The call has been parked.
+            </summary>
+        </member>
+        <member name="F:o2g.Types.TelephonyNS.CallNS.CallCause.Redirected">
+            <summary>
+            The call has been redirected.
+            </summary>
+        </member>
+        <member name="F:o2g.Types.TelephonyNS.CallNS.CallCause.Overflown">
+            <summary>
+            The call goes on overflow destination.
+            </summary>
+        </member>
+        <member name="F:o2g.Types.TelephonyNS.CallNS.CallCause.Transferred">
+            <summary>
+            This is a transferred call.
+            </summary>
+        </member>
+        <member name="F:o2g.Types.TelephonyNS.CallNS.CallCause.CampOn">
+            <summary>
+            The call has been put in wait.
+            </summary>
+        </member>
+        <member name="F:o2g.Types.TelephonyNS.CallNS.CallCause.Unknown">
+            <summary>
+            Unknown cause.
+            </summary>
+        </member>
+        <member name="F:o2g.Types.TelephonyNS.CallNS.CallCause.PickedUpTandem">
+            <summary>
+            Picked up tandem.
+            </summary>
+        </member>
+        <member name="F:o2g.Types.TelephonyNS.CallNS.CallCause.CallBack">
+            <summary>
+            The call is a call back.
+            </summary>
+        </member>
+        <member name="F:o2g.Types.TelephonyNS.CallNS.CallCause.Recall">
+            <summary>
+            The call is recall (e.g. on HELD call indicates that device rings back).
+            </summary>
+        </member>
+        <member name="F:o2g.Types.TelephonyNS.CallNS.CallCause.Distributed">
+            <summary>
+            CCD context: call distribution
+            </summary>
+        </member>
+        <member name="F:o2g.Types.TelephonyNS.CallNS.CallCause.AcdEnterDistribution">
+            <summary>
+            CCD context: call enters in distribution.
+            </summary>
+        </member>
+        <member name="F:o2g.Types.TelephonyNS.CallNS.CallCause.ResourcesNotAvailable">
+            <summary>
+            CCD context: pilot is not open.
+            </summary>
+        </member>
+        <member name="F:o2g.Types.TelephonyNS.CallNS.CallCause.SupervisorListening">
+            <summary>
+            CCD context: supervisor is listening the agent conversation
+            </summary>
+        </member>
+        <member name="F:o2g.Types.TelephonyNS.CallNS.CallCause.SupervisorIntrusion">
+            <summary>
+            CCD context: supervisor is fully intruded in the agent conversation
+            </summary>
+        </member>
+        <member name="F:o2g.Types.TelephonyNS.CallNS.CallCause.SupervisorRestrictIntrusion">
+            <summary>
+            CCD context: supervisor can speak to the agent
+            </summary>
+        </member>
+        <member name="F:o2g.Types.TelephonyNS.CallNS.CallCause.NoAvailableAgent">
+            <summary>
+            CCD context: No available agent
+            </summary>
+        </member>
+        <member name="F:o2g.Types.TelephonyNS.CallNS.CallCause.Lockout">
+            <summary>
+            Physical phone set device is off the hook
+            </summary>
+        </member>
         <member name="T:o2g.Types.TelephonyNS.CallNS.CallData">
             <summary>
             <c>CallData</c> represents the data associated to a call.
@@ -9407,6 +9931,14 @@
             </summary>
             <value>
             a <see cref="T:o2g.Types.CommonNS.PartyInfo"/> object that gives the identity of the initial calle.
+            </value>
+        </member>
+        <member name="P:o2g.Types.TelephonyNS.CallNS.CallData.LastRedirecting">
+            <summary>
+            Last device which redirects the call, if it is different from the <see cref="P:o2g.Types.TelephonyNS.CallNS.CallData.InitialCalled"/>.
+            </summary>
+            <value>
+            A <see cref="T:o2g.Types.CommonNS.PartyInfo"/> object that gives the last redirecting device.
             </value>
         </member>
         <member name="P:o2g.Types.TelephonyNS.CallNS.CallData.DeviceCall">
@@ -9423,6 +9955,14 @@
             </summary>
             <value>
             <see langword="true"/> if the call is anonymous; <see langword="false"/> otherwise.
+            </value>
+        </member>
+        <member name="P:o2g.Types.TelephonyNS.CallNS.CallData.CallUUID">
+            <summary>
+            The CallUUID associated to this call (used to correlate RTSM events with SIP events for multimedia users only).
+            </summary>
+            <value>
+            A <see langword="string"/> that is the call unique UUID.
             </value>
         </member>
         <member name="P:o2g.Types.TelephonyNS.CallNS.CallData.State">
@@ -9489,6 +10029,14 @@
             A <see cref="T:o2g.Types.TelephonyNS.CallNS.AcdNS.AcdData"/> object that provide this call acd extension data.
             </value>
         </member>
+        <member name="P:o2g.Types.TelephonyNS.CallNS.CallData.TrunkIdentification">
+            <summary>
+            The trunk identification in case of an external call.
+            </summary>
+            <value>
+            A <see cref="P:o2g.Types.TelephonyNS.CallNS.CallData.TrunkIdentification"/> object that identifies the trunk.
+            </value>
+        </member>
         <member name="M:o2g.Types.TelephonyNS.CallNS.CallData.AssociatedDataAsByteArray">
             <summary>
             Return the correlator data as a byte array.
@@ -9496,121 +10044,6 @@
             <returns>
             The array of bytes corresponding to the correlator data.
             </returns>
-        </member>
-        <member name="T:o2g.Types.TelephonyNS.CallNS.Cause">
-            <summary>
-            <c>Cause</c> lists the different call causes.
-            </summary>
-        </member>
-        <member name="F:o2g.Types.TelephonyNS.CallNS.Cause.Abandoned">
-            <summary>
-            Caller in a two-party call has disconnected before the call was answered.
-            </summary>
-        </member>
-        <member name="F:o2g.Types.TelephonyNS.CallNS.Cause.AllTrunkBusy">
-            <summary>
-            The call is receiving the network congestion tone.
-            </summary>
-        </member>
-        <member name="F:o2g.Types.TelephonyNS.CallNS.Cause.Busy">
-            <summary>
-            The call is receiving the busy tone.
-            </summary>
-        </member>
-        <member name="F:o2g.Types.TelephonyNS.CallNS.Cause.Cleared">
-            <summary>
-            One party in a two-party call has disconnected after the call was answered.
-            </summary>
-        </member>
-        <member name="F:o2g.Types.TelephonyNS.CallNS.Cause.ParticipantLeft">
-            <summary>
-            One party has left the conference call.
-            </summary>
-        </member>
-        <member name="F:o2g.Types.TelephonyNS.CallNS.Cause.Conferenced">
-            <summary>
-            This is a multi-party call.
-            </summary>
-        </member>
-        <member name="F:o2g.Types.TelephonyNS.CallNS.Cause.InvalidNumber">
-            <summary>
-            The call is receiving the invalid number tone.
-            </summary>
-        </member>
-        <member name="F:o2g.Types.TelephonyNS.CallNS.Cause.DestinationNotObtainable">
-            <summary>
-            The destination cannot be reached.
-            </summary>
-        </member>
-        <member name="F:o2g.Types.TelephonyNS.CallNS.Cause.Forwarded">
-            <summary>
-            The call has been forwarded.
-            </summary>
-        </member>
-        <member name="F:o2g.Types.TelephonyNS.CallNS.Cause.PickedUp">
-            <summary>
-            The call has been picked up.
-            </summary>
-        </member>
-        <member name="F:o2g.Types.TelephonyNS.CallNS.Cause.Redirected">
-            <summary>
-            The call has been redirected.
-            </summary>
-        </member>
-        <member name="F:o2g.Types.TelephonyNS.CallNS.Cause.Transferred">
-            <summary>
-            This is a transferred call.
-            </summary>
-        </member>
-        <member name="F:o2g.Types.TelephonyNS.CallNS.Cause.Unknown">
-            <summary>
-            Unknown cause.
-            </summary>
-        </member>
-        <member name="F:o2g.Types.TelephonyNS.CallNS.Cause.PickedUpTandem">
-            <summary>
-            Picked up tandem.
-            </summary>
-        </member>
-        <member name="F:o2g.Types.TelephonyNS.CallNS.Cause.CallBack">
-            <summary>
-            The call is a call back.
-            </summary>
-        </member>
-        <member name="F:o2g.Types.TelephonyNS.CallNS.Cause.Recall">
-            <summary>
-            The call is recall (e.g. on HELD call indicates that device rings back).
-            </summary>
-        </member>
-        <member name="F:o2g.Types.TelephonyNS.CallNS.Cause.Distributed">
-            <summary>
-            CCD context: call distribution
-            </summary>
-        </member>
-        <member name="F:o2g.Types.TelephonyNS.CallNS.Cause.SupervisorListening">
-            <summary>
-            CCD context: supervisor is listening the agent conversation
-            </summary>
-        </member>
-        <member name="F:o2g.Types.TelephonyNS.CallNS.Cause.SupervisorIntrusion">
-            <summary>
-            CCD context: supervisor is fully intruded in the agent conversation
-            </summary>
-        </member>
-        <member name="F:o2g.Types.TelephonyNS.CallNS.Cause.SupervisorRestrictIntrusion">
-            <summary>
-            CCD context: supervisor can speak to the agent
-            </summary>
-        </member>
-        <member name="F:o2g.Types.TelephonyNS.CallNS.Cause.NoAvailableAgent">
-            <summary>
-            CCD context: No available agent
-            </summary>
-        </member>
-        <member name="F:o2g.Types.TelephonyNS.CallNS.Cause.Lockout">
-            <summary>
-            Physical phone set device is off the hook
-            </summary>
         </member>
         <member name="T:o2g.Types.TelephonyNS.CallNS.Leg">
             <summary>
@@ -9876,6 +10309,31 @@
             <value>
             A list of <see langword="string"/>. Each string represents a login name of a user whoo has the visibility on this tag.
             </value>
+        </member>
+        <member name="T:o2g.Types.TelephonyNS.CallNS.TrunkIdentification">
+            <summary>
+            <c>TrunkIdentification</c> represents trunk information for an external call.
+            </summary>
+        </member>
+        <member name="P:o2g.Types.TelephonyNS.CallNS.TrunkIdentification.NodeId">
+            <summary>
+            The node identifier of the trunk.
+            </summary>
+        </member>
+        <member name="P:o2g.Types.TelephonyNS.CallNS.TrunkIdentification.TrunkGroup">
+            <summary>
+            The trunk group name or identifier.
+            </summary>
+        </member>
+        <member name="P:o2g.Types.TelephonyNS.CallNS.TrunkIdentification.Trunk">
+            <summary>
+            The trunk number inside the group.
+            </summary>
+        </member>
+        <member name="P:o2g.Types.TelephonyNS.CallNS.TrunkIdentification.ExtensionData">
+            <summary>
+            Additional information provided by the server.
+            </summary>
         </member>
         <member name="T:o2g.Types.TelephonyNS.DeviceNS.DeviceCapabilities">
             <summary>
@@ -10274,6 +10732,22 @@
             </summary>
             <value>
             An <see langword="int"/> that is the OXE node number.
+            </value>
+        </member>
+        <member name="P:o2g.Types.UsersNS.User.ExternalLogin">
+            <summary>
+            External login of the user if set (only available with oxe > n1.271), Since version 2.7
+            </summary>
+            <value>
+            A <see langword="string"/> that represents the user external login name.
+            </value>
+        </member>
+        <member name="P:o2g.Types.UsersNS.User.EMailAddress">
+            <summary>
+            eMail address (only available with oxe >= n3 (R100)). Since version 2.7.5
+            </summary>
+            <value>
+            A <see langword="string"/> that represents the user email address.
             </value>
         </member>
         <member name="T:o2g.Types.UsersNS.Voicemail">

@@ -1,4 +1,4 @@
-﻿/*
+/*
 * Copyright 2021 ALE International
 *
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this 
@@ -17,29 +17,34 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-using o2g.Types.MaintenanceNS;
-using System;
 using System.Collections.Generic;
 
-namespace o2g.Internal.Types.Maintenance
+namespace o2g.Types.MaintenanceNS
 {
-    internal class O2GSystemStatus
+    /// <summary>
+    /// <c>DRLink</c> represents a CSTA DR link.
+    /// </summary>
+    public class DRLink
     {
-        public ServerAddress LogicalAddress { get; set; }
-        public DateTime StartDate { get; set; }
-        public bool Ha { get; set; }
-        public string Primary { get; set; }
-        public string PrimaryVersion { get; set; }
-        public SystemServicesStatus PrimaryServicesStatus { get; set; }
-        public string Secondary { get; set; }
-        public string SecondaryVersion { get; set; }
-        public SystemServicesStatus SecondaryServicesStatus { get; set; }
-        public List<PbxStatus> Pbxs { get; set; }
-        public OXRRecordingStatus RecordingStatus { get; set; }
-        public LicenseStatus License { get; set; }
-        public ServerAddress SystemResources { get; set; }
-        public ConfigurationType ConfigurationType { get; set; }
-        public string ApplicationId { get; set; }
-        public SubscriberFilter SubscriberFilter { get; set; }
+        /// <summary>
+        /// Return the DR link registration identifier.
+        /// </summary>
+        public string Identifier { get; init; }
+
+        /// <summary>
+        /// Return the DR link initiator identifier.
+        /// Since version 2.7.3.
+        /// </summary>
+        public string Initiator { get; init; }
+
+        /// <summary>
+        /// Return the number of recorded devices.
+        /// </summary>
+        public int NbRecordedDevices { get; init; }
+
+        /// <summary>
+        /// Return the list of recorded devices.
+        /// </summary>
+        public List<RecordedDevice> RecordedDevices { get; init; }
     }
 }

@@ -37,6 +37,11 @@ namespace o2g.Internal.Events
         public string NodeId { get; set; }
     }
 
+    internal class OnInternalHostEvent : O2GEvent
+    {
+        public string Host { get; set; }
+    }
+
 
     internal class OnInternalPbxObjectInstanceEvent : O2GEvent
     {
@@ -222,6 +227,42 @@ namespace o2g.Internal.Events
                 {
                     EventName = org.EventName,
                     NodeId = org.NodeId
+                };
+            }
+            else
+            {
+                throw new O2GException(string.Format("Invalid translator exception {0}", ev.GetType().Name));
+            }
+        }
+
+        public static O2GEvent RemoteServerLinkDownAdapter(O2GEvent ev)
+        {
+            if (ev is OnInternalHostEvent)
+            {
+                OnInternalHostEvent org = (OnInternalHostEvent)ev;
+
+                return new OnRemoteServerLinkDownEvent()
+                {
+                    EventName = org.EventName,
+                    Host = org.Host
+                };
+            }
+            else
+            {
+                throw new O2GException(string.Format("Invalid translator exception {0}", ev.GetType().Name));
+            }
+        }
+
+        public static O2GEvent RemoteServerLinkUpAdapter(O2GEvent ev)
+        {
+            if (ev is OnInternalHostEvent)
+            {
+                OnInternalHostEvent org = (OnInternalHostEvent)ev;
+
+                return new OnRemoteServerLinkUpEvent()
+                {
+                    EventName = org.EventName,
+                    Host = org.Host
                 };
             }
             else

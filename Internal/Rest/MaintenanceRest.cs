@@ -66,6 +66,18 @@ namespace o2g.Internal.Rest
             remove => _eventHandlers.PbxLoaded -= value;
         }
 
+        public event EventHandler<O2GEventArgs<OnRemoteServerLinkDownEvent>> RemoteServerLinkDown
+        {
+            add => _eventHandlers.RemoteServerLinkDown += value;
+            remove => _eventHandlers.RemoteServerLinkDown -= value;
+        }
+
+        public event EventHandler<O2GEventArgs<OnRemoteServerLinkUpEvent>> RemoteServerLinkUp
+        {
+            add => _eventHandlers.RemoteServerLinkUp += value;
+            remove => _eventHandlers.RemoteServerLinkUp -= value;
+        }
+
 
         public MaintenanceRest(Uri uri) : base(uri)
         {
@@ -92,11 +104,17 @@ namespace o2g.Internal.Rest
                     HaMode = systemStatus.Ha,
                     Primary = systemStatus.Primary,
                     PrimaryVersion = systemStatus.PrimaryVersion,
+                    PrimaryServicesStatus = systemStatus.PrimaryServicesStatus,
                     Secondary = systemStatus.Secondary,
                     SecondaryVersion = systemStatus.SecondaryVersion,
+                    SecondaryServicesStatus = systemStatus.SecondaryServicesStatus,
                     Pbxs = systemStatus.Pbxs,
+                    RecordingStatus = systemStatus.RecordingStatus,
                     Licenses = systemStatus.License.lics,
-                    ConfigurationType = systemStatus.ConfigurationType
+                    ConfigurationType = systemStatus.ConfigurationType,
+                    ApplicationId = systemStatus.ApplicationId,
+                    SubscriberFilter = systemStatus.SubscriberFilter,
+                    SystemResources = systemStatus.SystemResources
                 };
             }
         }

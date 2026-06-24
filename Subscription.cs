@@ -412,6 +412,8 @@ namespace o2g
             /// <item><description><see cref="OnPbxLinkDownEvent"/></description></item>
             /// <item><description><see cref="OnPbxLinkUpEvent"/></description></item>
             /// <item><description><see cref="OnPbxLoadedEvent"/></description></item>
+            /// <item><description><see cref="OnRemoteServerLinkDownEvent"/></description></item>
+            /// <item><description><see cref="OnRemoteServerLinkUpEvent"/></description></item>
             /// </list>
             /// </para>
             /// <para>

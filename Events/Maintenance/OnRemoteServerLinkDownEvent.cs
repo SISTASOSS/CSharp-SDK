@@ -1,4 +1,4 @@
-﻿/*
+/*
 * Copyright 2021 ALE International
 *
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this 
@@ -17,29 +17,20 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-using o2g.Types.MaintenanceNS;
-using System;
-using System.Collections.Generic;
-
-namespace o2g.Internal.Types.Maintenance
+namespace o2g.Events.Maintenance
 {
-    internal class O2GSystemStatus
+    /// <summary>
+    /// Notification sent when connection to a remote twin server is lost. The connection is maintained
+    /// through a heartbeat request to the api/rest url.
+    /// </summary>
+    public class OnRemoteServerLinkDownEvent : O2GEvent
     {
-        public ServerAddress LogicalAddress { get; set; }
-        public DateTime StartDate { get; set; }
-        public bool Ha { get; set; }
-        public string Primary { get; set; }
-        public string PrimaryVersion { get; set; }
-        public SystemServicesStatus PrimaryServicesStatus { get; set; }
-        public string Secondary { get; set; }
-        public string SecondaryVersion { get; set; }
-        public SystemServicesStatus SecondaryServicesStatus { get; set; }
-        public List<PbxStatus> Pbxs { get; set; }
-        public OXRRecordingStatus RecordingStatus { get; set; }
-        public LicenseStatus License { get; set; }
-        public ServerAddress SystemResources { get; set; }
-        public ConfigurationType ConfigurationType { get; set; }
-        public string ApplicationId { get; set; }
-        public SubscriberFilter SubscriberFilter { get; set; }
+        /// <summary>
+        /// The remote server host whose connection is lost.
+        /// </summary>
+        /// <value>
+        /// A <see langword="string"/> value that represents the remote server host.
+        /// </value>
+        public string Host { get; init; }
     }
 }

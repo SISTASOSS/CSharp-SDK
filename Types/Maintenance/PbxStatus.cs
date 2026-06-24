@@ -17,6 +17,8 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
+using System.Collections.Generic;
+
 namespace o2g.Types.MaintenanceNS
 {
     /// <summary>
@@ -108,5 +110,21 @@ namespace o2g.Types.MaintenanceNS
         /// An <see langword="int"/> value thats is the number of monitored users on this OmniPCX Enterprise node.
         /// </value>
         public int MonitoredUserNumber { get; init; }
+
+        /// <summary>
+        /// Return the LMS connection status.
+        /// </summary>
+        /// <value>
+        /// <see langword="true"/> if LMS is connected; <see langword="false"/> otherwise.
+        /// </value>
+        public bool LmsConnectionStatus { get; init; }
+
+        /// <summary>
+        /// Return the list of DR links.
+        /// </summary>
+        /// <value>
+        /// A list of <see cref="DRLink"/> objects that represents DR links.
+        /// </value>
+        public List<DRLink> DrLinks { get; init; }
     }
 }

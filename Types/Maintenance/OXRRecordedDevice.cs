@@ -1,4 +1,4 @@
-﻿/*
+/*
 * Copyright 2021 ALE International
 *
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this 
@@ -16,53 +16,47 @@
 * DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
-using o2g.Types.TelephonyNS.DeviceNS;
-using o2g.Types.TelephonyNS.UserNS;
+
 using System.Collections.Generic;
 
-namespace o2g.Types.TelephonyNS
+namespace o2g.Types.MaintenanceNS
 {
     /// <summary>
-    /// Snapshot of the user's telephonic state.
+    /// <c>OXRRecordedDevice</c> represents an OXR recorded device.
     /// </summary>
-    /// <remarks>
-    /// On application startup, state of the user must be retrieve to align the application with the real user state.
-    /// </remarks>
-    public class TelephonicState
+    public class OXRRecordedDevice
     {
         /// <summary>
-        /// List of current calls.
+        /// Return the device number.
         /// </summary>
         /// <value>
-        /// A list of <see cref="PbxCall"/>.
+        /// The device number.
         /// </value>
-        public List<PbxCall> Calls { get; set; }
+        public string Number { get; init; }
 
         /// <summary>
-        /// Gives the list of device capabilities.
+        /// Return whether the device is recordable on demand.
         /// </summary>
         /// <value>
-        /// A list of <see cref="DeviceCapabilities"/>. 
+        /// <see langword="true"/> if the device is recordable on demand; <see langword="false"/> otherwise.
         /// </value>
-        public List<DeviceCapabilities> DeviceCapabilities { get; set; }
+        public bool Recordable { get; init; }
 
         /// <summary>
-        /// State of the user.
+        /// Return the start mode capabilities of the device.
         /// </summary>
         /// <value>
-        /// A <see cref="UserState"/> that represents the current user's state
+        /// A list of <see cref="StartType"/> values that represents the start mode capabilities of the device.
+        /// This property is not present if the device is not recordable on demand.
         /// </value>
-        public UserState UserState { get; set; }
+        public List<StartType> StartCapabilities { get; init; }
 
         /// <summary>
-        /// Operational state of all the user's devices.
+        /// Return the list of recorder identifiers which manage the device.
         /// </summary>
         /// <value>
-        /// A <see cref="DeviceStates"/> object that represents the state of all the user's devices.
+        /// A list of recorder identifiers which manage the device.
         /// </value>
-        /// <remarks>
-        /// Available since O2G 2.7.5.
-        /// </remarks>
-        public DeviceStates DeviceStates { get; set; }
+        public List<string> Recorders { get; init; }
     }
 }

@@ -62,6 +62,16 @@ namespace o2g
         public event EventHandler<O2GEventArgs<OnPbxLoadedEvent>> PbxLoaded;
 
         /// <summary>
+        /// Occurs when the connection to a remote twin server is lost.
+        /// </summary>
+        public event EventHandler<O2GEventArgs<OnRemoteServerLinkDownEvent>> RemoteServerLinkDown;
+
+        /// <summary>
+        /// Occurs when the connection to a remote twin server is recovered.
+        /// </summary>
+        public event EventHandler<O2GEventArgs<OnRemoteServerLinkUpEvent>> RemoteServerLinkUp;
+
+        /// <summary>
         /// Get information about system status. 
         /// <para>
         /// This operation provides information about the system state, and the total number of each license available 

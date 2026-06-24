@@ -17,15 +17,17 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
+using o2g.Types.TelephonyNS.CallNS;
+
 namespace o2g.Types.TelephonyNS.DeviceNS
 {
     /// <summary>
-    /// <c>DeviceState</c> represents the state of a device.
+    /// Describes a user's device state.
     /// </summary>
     public class DeviceState
     {
         /// <summary>
-        /// This property gives the device phone number.
+        /// Device phone number.
         /// </summary>
         /// <value>
         /// A <see langword="string"/> that is the device extension number.
@@ -33,11 +35,22 @@ namespace o2g.Types.TelephonyNS.DeviceNS
         public string DeviceId { get; init; }
 
         /// <summary>
-        /// This property return the device operational state.
+        /// Device state.
         /// </summary>
         /// <value>
-        /// A <see cref="OperationalState"/> value that give sthe device operational state.
+        /// A <see cref="OperationalState"/> value that gives the device operational state.
         /// </value>
         public OperationalState State { get; init; }
+
+        /// <summary>
+        /// Cause associated with state change.
+        /// </summary>
+        /// <value>
+        /// A <see cref="CallCause"/> value associated with the state change.
+        /// </value>
+        /// <remarks>
+        /// Available since O2G 2.7.2.
+        /// </remarks>
+        public CallCause? Cause { get; init; }
     }
 }

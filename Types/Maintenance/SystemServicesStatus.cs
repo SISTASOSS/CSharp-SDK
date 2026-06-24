@@ -1,4 +1,4 @@
-﻿/*
+/*
 * Copyright 2021 ALE International
 *
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this 
@@ -17,29 +17,39 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-using o2g.Types.MaintenanceNS;
-using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
-namespace o2g.Internal.Types.Maintenance
+namespace o2g.Types.MaintenanceNS
 {
-    internal class O2GSystemStatus
+    /// <summary>
+    /// <c>SystemServicesStatus</c> represents server services status information.
+    /// </summary>
+    public class SystemServicesStatus
     {
-        public ServerAddress LogicalAddress { get; set; }
-        public DateTime StartDate { get; set; }
-        public bool Ha { get; set; }
-        public string Primary { get; set; }
-        public string PrimaryVersion { get; set; }
-        public SystemServicesStatus PrimaryServicesStatus { get; set; }
-        public string Secondary { get; set; }
-        public string SecondaryVersion { get; set; }
-        public SystemServicesStatus SecondaryServicesStatus { get; set; }
-        public List<PbxStatus> Pbxs { get; set; }
-        public OXRRecordingStatus RecordingStatus { get; set; }
-        public LicenseStatus License { get; set; }
-        public ServerAddress SystemResources { get; set; }
-        public ConfigurationType ConfigurationType { get; set; }
-        public string ApplicationId { get; set; }
-        public SubscriberFilter SubscriberFilter { get; set; }
+        /// <summary>
+        /// Return services information.
+        /// </summary>
+        /// <value>
+        /// A list of <see cref="ServicesStatus"/> objects that represents services information.
+        /// </value>
+        public List<ServicesStatus> Services { get; init; }
+
+        /// <summary>
+        /// Return the status of the global IP address when the system is configured in HA mode.
+        /// </summary>
+        /// <value>
+        /// The status of the global IP address.
+        /// </value>
+        [JsonPropertyName("globalIPAdress")]
+        public string GlobalIPAddress { get; init; }
+
+        /// <summary>
+        /// Return the DRBD status when the system is configured in HA mode.
+        /// </summary>
+        /// <value>
+        /// The DRBD status.
+        /// </value>
+        public string Drbd { get; init; }
     }
 }

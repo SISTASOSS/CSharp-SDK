@@ -1,4 +1,4 @@
-﻿/*
+/*
 * Copyright 2021 ALE International
 *
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this 
@@ -16,53 +16,62 @@
 * DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
-using o2g.Types.TelephonyNS.DeviceNS;
-using o2g.Types.TelephonyNS.UserNS;
+
 using System.Collections.Generic;
 
-namespace o2g.Types.TelephonyNS
+namespace o2g.Types.MaintenanceNS
 {
     /// <summary>
-    /// Snapshot of the user's telephonic state.
+    /// <c>OXRConfig</c> represents an OXR recorder configuration.
     /// </summary>
-    /// <remarks>
-    /// On application startup, state of the user must be retrieve to align the application with the real user state.
-    /// </remarks>
-    public class TelephonicState
+    public class OXRConfig
     {
         /// <summary>
-        /// List of current calls.
+        /// Return the OXR host name.
         /// </summary>
         /// <value>
-        /// A list of <see cref="PbxCall"/>.
+        /// The OXR host name.
         /// </value>
-        public List<PbxCall> Calls { get; set; }
+        public string HostName { get; init; }
 
         /// <summary>
-        /// Gives the list of device capabilities.
+        /// Return the OXR IP address.
         /// </summary>
         /// <value>
-        /// A list of <see cref="DeviceCapabilities"/>. 
+        /// The OXR IP address.
         /// </value>
-        public List<DeviceCapabilities> DeviceCapabilities { get; set; }
+        public string IpAddress { get; init; }
 
         /// <summary>
-        /// State of the user.
+        /// Return the OXR site identifier.
         /// </summary>
         /// <value>
-        /// A <see cref="UserState"/> that represents the current user's state
+        /// The OXR site identifier.
         /// </value>
-        public UserState UserState { get; set; }
+        public string SiteId { get; init; }
 
         /// <summary>
-        /// Operational state of all the user's devices.
+        /// Return whether access is secured.
         /// </summary>
         /// <value>
-        /// A <see cref="DeviceStates"/> object that represents the state of all the user's devices.
+        /// <see langword="true"/> if access is secured; <see langword="false"/> otherwise.
         /// </value>
-        /// <remarks>
-        /// Available since O2G 2.7.5.
-        /// </remarks>
-        public DeviceStates DeviceStates { get; set; }
+        public bool Secured { get; init; }
+
+        /// <summary>
+        /// Return whether the recorder is connected.
+        /// </summary>
+        /// <value>
+        /// <see langword="true"/> if the recorder is connected; <see langword="false"/> otherwise.
+        /// </value>
+        public bool Connected { get; init; }
+
+        /// <summary>
+        /// Return the list of device numbers that may be recorded by this recorder.
+        /// </summary>
+        /// <value>
+        /// A list of device numbers that may be recorded by this recorder.
+        /// </value>
+        public List<string> Devices { get; init; }
     }
 }
